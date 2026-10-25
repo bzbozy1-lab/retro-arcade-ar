@@ -41,7 +41,7 @@ function decorateCards(){
   var details=card.querySelector("[data-details]");var title=details?details.dataset.details:card.querySelector("h3")?.textContent?.trim();if(!title)return;
   var device=details?details.dataset.device:(card.querySelector(".meta span")?.textContent||"unknown");
   var bottom=card.querySelector(".cardbottom")||card.querySelector(".gameinfo");if(!bottom)return;
-  var old=bottom.querySelector(".wishlist-heart");if(old){var s=find(title);old.classList.toggle("is-saved",!!s);old.textContent=s?"♥":"♡";old.setAttribute("aria-pressed",s?"true":"false");return}
+  var old=bottom.querySelector(".wishlist-heart");if(old){var s=find(title),heartText=s?"♥":"♡",pressed=s?"true":"false";if(old.classList.contains("is-saved")!==!!s)old.classList.toggle("is-saved",!!s);if(old.textContent!==heartText)old.textContent=heartText;if(old.getAttribute("aria-pressed")!==pressed)old.setAttribute("aria-pressed",pressed);return}
   bottom.insertAdjacentHTML("beforeend",heart(title,device));
  });
 }
