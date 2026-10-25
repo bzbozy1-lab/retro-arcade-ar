@@ -23,6 +23,26 @@
 .logo-chip{display:inline-flex;align-items:center;gap:10px;background:#101216;color:#F3EBDD;padding:12px 18px;border:3px solid #101216;box-shadow:5px 5px 0 #2F5BFF;font:30px Lalezar,Tajawal,sans-serif}
 .logo-icon{width:42px;height:42px;background:#C8F31D;border:3px solid #F3EBDD;display:grid;place-items:center;color:#101216;font-size:28px}
 @media(max-width:720px){.identity-hero{grid-template-columns:1fr}.mascot{max-width:260px;margin:auto}}
+
+.identity-reference{margin:0 0 28px}
+.identity-reference>h2{display:block;margin:0 0 12px;font:27px Lalezar,Tajawal,sans-serif}
+.identity-reference-frame{position:relative;overflow:hidden;background:#1B1E25;color:#F3EBDD;border:3px solid #F3EBDD;box-shadow:6px 6px 0 #2F5BFF;padding:16px}
+.logo-variants{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.logo-variant{min-height:104px;border:3px solid #F3EBDD;display:flex;align-items:center;justify-content:center}
+.variant-paper{background:#1B1E25}
+.variant-dark{background:#101216}
+.variant-lime{background:#C8F31D;color:#101216;border-color:#F3EBDD}
+.wordmark{font:38px/1 Lalezar,Tajawal,sans-serif;display:grid;grid-template-columns:auto 36px;align-items:center;gap:7px;text-align:center}
+.wordmark .robot{font-size:28px;line-height:1;color:#C8F31D;text-shadow:2px 2px #101216}
+.wordmark small{grid-column:1/3;font:8px Silkscreen,monospace;letter-spacing:2px;color:#FF5B2E}
+.reference-description{font:700 16px/1.8 Tajawal,sans-serif;margin:16px 4px}
+.robot-scale{display:flex;justify-content:flex-end;align-items:end;gap:18px;min-height:90px}
+.robot-scale img{width:28px;height:28px;image-rendering:pixelated}
+.robot-scale img:nth-child(2){width:44px;height:44px}
+.robot-scale img:nth-child(3){width:72px;height:72px}
+.reference-note{color:var(--fg);font-size:14px}
+html[data-theme="dark"] .identity-reference-frame{background:#1B1E25;color:#F3EBDD}
+@media(max-width:600px){.logo-variants{grid-template-columns:1fr}.logo-variant{min-height:88px}.wordmark{font-size:34px}}
 </style>
 <script defer src="assets/theme.js"></script><script defer src="assets/wishlist.js"></script>
 </head>
@@ -34,7 +54,7 @@
 </div></header>
 <main class="section"><div class="wrap">
 <div class="sectionhead"><div><h1>الهوية <span>البصرية</span></h1><p>دليل مختصر لهوية كارتو وأسلوب استخدامها داخل المتحف.</p></div><span class="tag">CARTO DESIGN SYSTEM</span></div>
-<section class="identity-hero"><div><div class="tag">شعار كارتو الأساسي</div><h1>كارتو<br>CARTO</h1><p>متحف الألعاب الكلاسيكية — ذاكرة الألعاب كما عرفناها، بملصقات جريئة وبكسلات مرحة.</p></div><div class="mascot" aria-label="شعار روبوت كارتو"><img src="assets/carto-robot.svg" alt="روبوت كارتو" style="width:100%;max-width:220px;image-rendering:pixelated"></div></section>
+<section class="identity-reference" aria-labelledby="primary-logo-reference"><h2 id="primary-logo-reference">الشعار الأساسي — المرجع المعتمد</h2><div class="identity-reference-frame"><div class="logo-variants"><div class="logo-variant variant-paper"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div><div class="logo-variant variant-dark"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div><div class="logo-variant variant-lime"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div></div><p class="reference-description">يتكون الشعار من الماسكوت «كارتو» مع الاسم بخط لالزار والتسمية اللاتينية بخط Silkscreen. يستخدم على الليموني أو الجرافيت أو الورق فقط، وللرمز وحده حالات استخدام صغيرة كالأيقونات.</p><div class="robot-scale" aria-hidden="true"><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""></div></div><p class="reference-note">تمت إضافة لوحة مرجعية للشعار الأساسي هنا لتكون جزءًا واضحًا من دليل الهوية البصرية.</p></section><section class="identity-hero"><div><div class="tag">شعار كارتو الأساسي</div><h1>كارتو<br>CARTO</h1><p>متحف الألعاب الكلاسيكية — ذاكرة الألعاب كما عرفناها، بملصقات جريئة وبكسلات مرحة.</p></div><div class="mascot" aria-label="شعار روبوت كارتو"><img src="assets/carto-robot.svg" alt="روبوت كارتو" style="width:100%;max-width:220px;image-rendering:pixelated"></div></section>
 <section class="identity-card" style="margin-bottom:22px"><h2>فكرة الهوية</h2><p>الشعار الأساسي: روبوت كارتو، خرطوشة ألعاب حيّة بهوائي برتقالي وعيون مربعة وخدود برتقالية وأطراف توصيل في الأسفل.</p><p>تعتمد كارتو على إحساس الملصقات المتراكمة (Sticker-bomb): حدود سميكة، ظلال مصمتة، نقاط هاف-تون، وبكسل واضح. الهدف أن يبدو المتحف كجدار ذكريات ألعاب ملموسة، لا كواجهة تقنية باردة.</p><div class="logo-chip"><img src="assets/carto-robot.svg" alt="" style="width:44px;height:44px;image-rendering:pixelated"> كارتو <small style="font:10px Silkscreen,monospace;direction:ltr">CARTO</small></div></section>
 <h2 style="font:32px Lalezar,Tajawal,sans-serif">لوحة الألوان</h2>
 <div class="palette" style="margin:16px 0 30px">
