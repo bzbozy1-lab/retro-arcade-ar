@@ -55,4 +55,38 @@
 </div></main>
 <footer class="footer"><div class="wrap footerin"><div class="brand"><span class="brandicon">▣</span><span class="brandname">CARTO<small>Planet B-612</small></span></div><div class="footerlinks"><a href="games.html">الموسوعة</a><a href="gems.html">المكنوزات</a><a href="reference.html">الجوهر المفقود</a><a href="identity.html">الهوية البصرية</a></div><p>© <span id="yearNow"></span> CARTO · مرجع عام</p></div></footer>
 <script>document.getElementById("yearNow").textContent=new Date().getFullYear()</script>
+<script>
+/* CARTO appearance preference */
+(function(){
+  const root=document.documentElement;
+  let saved=null;
+  try{saved=localStorage.getItem("carto-appearance")}catch(e){}
+  const initial=saved==="dark"?"dark":"light";
+  root.dataset.theme=initial;
+  function setupAppearance(){
+    const nav=document.querySelector(".navin");
+    if(!nav||document.querySelector(".appearance-toggle"))return;
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="appearance-toggle";
+    button.setAttribute("aria-label","تبديل المظهر بين الفاتح والداكن");
+    function update(theme){
+      root.dataset.theme=theme;
+      button.textContent=theme==="dark"?"☀️ المظهر الفاتح":"🌙 المظهر الداكن";
+      button.setAttribute("aria-pressed",String(theme==="dark"));
+      const meta=document.querySelector('meta[name="theme-color"]');
+      if(meta)meta.content=theme==="dark"?"#15131A":"#F3EBDD";
+    }
+    update(root.dataset.theme);
+    button.addEventListener("click",function(){
+      const next=root.dataset.theme==="dark"?"light":"dark";
+      update(next);
+      try{localStorage.setItem("carto-appearance",next)}catch(e){}
+    });
+    nav.appendChild(button);
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",setupAppearance);
+  else setupAppearance();
+})();
+</script>
 </body></html>
