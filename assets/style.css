@@ -207,8 +207,8 @@ html[data-theme="dark"] .brandicon{background:transparent!important;border:0!imp
 .brandicon{display:block;object-fit:contain;padding:0!important}
 .brandmascot{width:48px;height:48px;flex:0 0 48px;image-rendering:pixelated}
 .footer .brandmascot{width:42px;height:42px;flex-basis:42px}
-.hero-quote-credit{display:block;margin-top:4px;font:700 13px Tajawal,sans-serif;color:#56534D;letter-spacing:0}
+.hero-credit{display:block;margin-top:8px!important;font:700 14px Tajawal,sans-serif!important;color:#56534D!important;letter-spacing:0}
 .hero-mascot{position:absolute;inset-inline-end:0;top:4px;width:72px;height:72px;image-rendering:pixelated;transform:rotate(5deg)}
-.hero .wrap{padding-inline-end:88px}
-@media(max-width:600px){.hero-mascot{width:54px;height:54px}.hero .wrap{padding-inline-end:65px}}
-html[data-theme="dark"] .hero-quote-credit{color:#D8D0DF!important}
+body[data-page="home"] .hero .wrap{padding-inline-end:88px}
+@media(max-width:600px){.hero-mascot{width:54px;height:54px}body[data-page="home"] .hero .wrap{padding-inline-end:65px}}
+html[data-theme="dark"] .hero-credit{color:#D8D0DF!important}
