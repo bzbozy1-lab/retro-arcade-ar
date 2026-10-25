@@ -96,3 +96,35 @@ html[data-theme="dark"] .brandicon{background:var(--cyan);box-shadow:4px 4px 0 #
 html[data-theme="dark"] .btn{background:var(--magenta);color:#101216;border-color:var(--line);box-shadow:4px 4px 0 #08080A}
 html[data-theme="dark"] .btn.alt{background:transparent;color:var(--cyan)}
 html[data-theme="dark"] .btn.gold{color:var(--gold)}
+
+
+/* Reliable global light/dark appearance overrides */
+html[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:#15131A;--panel:#211E28;--panel2:#302A38;--text:#F3EBDD;
+ --muted:#C0B8C8;--cyan:#C8F31D;--magenta:#FF7858;--gold:#7190FF;--line:#F3EBDD;
+}
+html[data-theme="light"]{color-scheme:light}
+html[data-theme="dark"] body{background-color:var(--bg)!important;color:var(--text)!important;background-image:radial-gradient(#F3EBDD12 1.2px,transparent 1.6px)!important}
+html[data-theme="dark"] .nav,html[data-theme="dark"] .footer{background:var(--bg)!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .hero,html[data-theme="dark"] .platformhero,html[data-theme="dark"] .glossary,html[data-theme="dark"] .term,html[data-theme="dark"] .platform,html[data-theme="dark"] .gamecard,html[data-theme="dark"] .gemcard,html[data-theme="dark"] .archivecard,html[data-theme="dark"] .modalbox,html[data-theme="dark"] .identity-card{background:var(--panel)!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .hero h1,html[data-theme="dark"] .hero p,html[data-theme="dark"] .platform strong,html[data-theme="dark"] .gameinfo h3,html[data-theme="dark"] .identity-hero h1,html[data-theme="dark"] .identity-hero p{color:var(--text)!important}
+html[data-theme="dark"] .hero h1 em{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .hero .eyebrow{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .gameimage,html[data-theme="dark"] .gameimage img,html[data-theme="dark"] .field{background:#17151C!important;color:var(--text)!important;border-color:#665D70!important}
+html[data-theme="dark"] .platform small,html[data-theme="dark"] .gameinfo .meta,html[data-theme="dark"] .gemcard p,html[data-theme="dark"] .archivecard p,html[data-theme="dark"] .term p,html[data-theme="dark"] .modalbox p,html[data-theme="dark"] .muted,html[data-theme="dark"] .footer p{color:var(--muted)!important}
+html[data-theme="dark"] .navlinks a{color:var(--text)!important}
+html[data-theme="dark"] .navlinks a.active,html[data-theme="dark"] .navlinks a:hover{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .btn{background:var(--magenta)!important;color:#101216!important;border-color:var(--line)!important}
+html[data-theme="dark"] .btn.alt{background:transparent!important;color:var(--cyan)!important}
+html[data-theme="dark"] .btn.gold{background:transparent!important;color:var(--gold)!important}
+html[data-theme="dark"] .textbtn,html[data-theme="dark"] a{color:var(--cyan)}
+html[data-theme="dark"] .letter{background:#302A38!important;color:var(--text)!important;border-color:#665D70!important}
+html[data-theme="dark"] .letter.active{color:var(--cyan)!important;border-color:var(--cyan)!important}
+html[data-theme="dark"] .identity-hero{background:#252D14!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .identity-hero .tag{color:var(--text)!important}
+html[data-theme="dark"] .identity-card p,html[data-theme="dark"] .identity-card small{color:var(--muted)!important}
+html[data-theme="dark"] .logo-chip{background:#09080C!important;color:var(--text)!important}
+html[data-theme="dark"] .notice,html[data-theme="dark"] .empty{color:var(--muted)!important;border-color:#665D70!important}
+.appearance-toggle{border:3px solid var(--line);background:var(--panel2);color:var(--text);padding:5px 11px;font:700 14px var(--body);box-shadow:3px 3px 0 var(--line);cursor:pointer;white-space:nowrap}
+.appearance-toggle:hover{transform:translateY(-1px)}
