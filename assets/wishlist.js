@@ -1,6 +1,7 @@
 (function(){
 "use strict";
 var KEY="carto-personal-wishlist";
+var DEVICE_NAMES={xbox360:"Xbox 360",wii:"Nintendo Wii","3ds":"Nintendo 3DS",vita:"PS Vita",ps3:"PlayStation 3",ps2:"PlayStation 2",ds:"Nintendo DS"};
 var CATEGORIES=[
 {id:"avoid",label:"لا أرغب في لعبها",emoji:"🙅"},
 {id:"later",label:"أكملها لاحقًا",emoji:"⏳"},
@@ -56,7 +57,7 @@ function renderList(){
  grid.className="wishlist-groups";
  grid.innerHTML=CATEGORIES.map(function(c){
   var games=list.filter(function(g){return g.category===c.id});
-  return '<section class="wishlist-group"><header class="wishlist-grouphead"><h2>'+c.emoji+' '+esc(c.label)+'</h2><span>'+games.length+' لعبة</span></header>'+(games.length?'<div class="wishlist-list">'+games.map(function(g){var d=typeof window.CARTO_DEVICE_NAMES!=="undefined"?(window.CARTO_DEVICE_NAMES[g.device]||g.device):g.device;return '<article class="wishlist-game"><div class="wishlist-gameicon">🎮</div><div class="wishlist-gametext"><h3 lang="en" dir="ltr">'+esc(g.name)+'</h3><p>'+esc(d)+'</p></div><div class="wishlist-gameactions">'+heart(g.name,g.device)+'<button type="button" class="wishlist-edit" data-wish-name="'+esc(g.name)+'" data-wish-device="'+esc(g.device)+'">تعديل</button></div></article>'}).join("")+'</div>':'<p class="wishlist-groupempty">لا توجد ألعاب في هذا التصنيف حتى الآن.</p>')+'</section>';
+  return '<section class="wishlist-group"><header class="wishlist-grouphead"><h2>'+c.emoji+' '+esc(c.label)+'</h2><span>'+games.length+' لعبة</span></header>'+(games.length?'<div class="wishlist-list">'+games.map(function(g){var d=DEVICE_NAMES[g.device]||g.device;return '<article class="wishlist-game"><div class="wishlist-gameicon">🎮</div><div class="wishlist-gametext"><h3 lang="en" dir="ltr">'+esc(g.name)+'</h3><p>'+esc(d)+'</p></div><div class="wishlist-gameactions">'+heart(g.name,g.device)+'<button type="button" class="wishlist-edit" data-wish-name="'+esc(g.name)+'" data-wish-device="'+esc(g.device)+'">تعديل</button></div></article>'}).join("")+'</div>':'<p class="wishlist-groupempty">لا توجد ألعاب في هذا التصنيف حتى الآن.</p>')+'</section>';
  }).join("");
 }
 function refresh(){if(document.body.dataset.page==="reference")renderList();else decorateCards()}
