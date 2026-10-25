@@ -176,3 +176,39 @@ html[data-theme="dark"] .wishlist-heart{background:var(--panel);color:var(--mage
 html[data-theme="dark"] .wishlist-heart.is-saved,html[data-theme="dark"] .wishlist-edit{background:var(--magenta);color:#101216}
 html[data-theme="dark"] .wishlist-grouphead{border-color:var(--line)}
 @media(max-width:650px){.wishlist-list{grid-template-columns:1fr}.wishlist-game{padding:9px;gap:8px}.wishlist-gameactions{gap:5px}.wishlist-heart{min-width:34px;height:33px;font-size:23px;margin-inline-start:4px}.wishlist-modalbox{padding:16px}}
+
+
+/* CARTO dark theme contrast pass: explicit foreground/background pairs */
+html[data-theme="dark"] .tag{background:#FF7858!important;color:#17131B!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .sectionhead h1,html[data-theme="dark"] .sectionhead h2{background:#C8F31D!important;color:#101216!important;box-shadow:4px 4px 0 #08080A!important}
+html[data-theme="dark"] .sectionhead h1 span,html[data-theme="dark"] .sectionhead h2 span{color:#101216!important}
+html[data-theme="dark"] .platform .emoji{filter:none}
+html[data-theme="dark"] .platform:hover{background:#C8F31D!important;color:#101216!important}
+html[data-theme="dark"] .platform:hover small{color:#292929!important}
+html[data-theme="dark"] .gemcard,html[data-theme="dark"] .platformhero{background:#302A38!important;color:#F3EBDD!important}
+html[data-theme="dark"] .gemcard h3,html[data-theme="dark"] .archivecard h3,html[data-theme="dark"] .term h3{color:#F3EBDD!important}
+html[data-theme="dark"] .term .translation{color:#A9BFFF!important}
+html[data-theme="dark"] .field::placeholder{color:#C0B8C8!important;opacity:1}
+html[data-theme="dark"] select option{background:#211E28;color:#F3EBDD}
+html[data-theme="dark"] .empty,html[data-theme="dark"] .notice,html[data-theme="dark"] .wishlist-groupempty{background:#211E28!important;color:#D8D0DF!important;border-color:#8B8296!important}
+html[data-theme="dark"] .modal{background:rgba(0,0,0,.82)!important}
+html[data-theme="dark"] .wishlist-modal{background:rgba(0,0,0,.84)!important}
+html[data-theme="dark"] .wishlist-option{background:#302A38!important;color:#F3EBDD!important;border-color:#A69CAF!important}
+html[data-theme="dark"] .wishlist-option:hover,html[data-theme="dark"] .wishlist-option.selected{background:#C8F31D!important;color:#101216!important}
+html[data-theme="dark"] .wishlist-remove{color:#FF9B88!important;border-color:#FF7858!important}
+html[data-theme="dark"] .wishlist-gameicon{background:#C8F31D!important;color:#101216!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .wishlist-edit{background:#FF7858!important;color:#101216!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .identity-hero{background:#302A38!important;color:#F3EBDD!important}
+html[data-theme="dark"] .mascot{background:#302A38!important}
+html[data-theme="dark"] .swatch{border-color:#F3EBDD!important}
+html[data-theme="dark"] .sample{background:#FF7858!important;color:#101216!important}
+html[data-theme="dark"] .logo-chip{border-color:#F3EBDD!important}
+html[data-theme="dark"] .brandicon{background:transparent!important;border:0!important;box-shadow:none!important}
+.brandicon{display:block;object-fit:contain;padding:0!important}
+.brandmascot{width:48px;height:48px;flex:0 0 48px;image-rendering:pixelated}
+.footer .brandmascot{width:42px;height:42px;flex-basis:42px}
+.hero-quote-credit{display:block;margin-top:4px;font:700 13px Tajawal,sans-serif;color:#56534D;letter-spacing:0}
+.hero-mascot{position:absolute;inset-inline-end:0;top:4px;width:72px;height:72px;image-rendering:pixelated;transform:rotate(5deg)}
+.hero .wrap{padding-inline-end:88px}
+@media(max-width:600px){.hero-mascot{width:54px;height:54px}.hero .wrap{padding-inline-end:65px}}
+html[data-theme="dark"] .hero-quote-credit{color:#D8D0DF!important}
