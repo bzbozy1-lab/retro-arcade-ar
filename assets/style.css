@@ -309,3 +309,8 @@ html[data-theme="dark"] .gems-manifesto-stamp{color:#101216}
   .gems-manifesto{padding:24px 18px}
   .gems-manifesto-mark{font-size:48px;left:12px}
 }
+
+/* The independent hidden-gems collection uses the same four-column card rhythm as the encyclopedia. */
+.gemgrid.cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.gemgrid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.gemgrid.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
