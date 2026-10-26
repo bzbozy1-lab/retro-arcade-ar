@@ -212,3 +212,7 @@ html[data-theme="dark"] .brandicon{background:transparent!important;border:0!imp
 body[data-page="home"] .hero .wrap{padding-inline-end:88px}
 @media(max-width:600px){.hero-mascot{width:54px;height:54px}body[data-page="home"] .hero .wrap{padding-inline-end:65px}}
 html[data-theme="dark"] .hero-credit{color:#D8D0DF!important}
+
+/* Verified-cover workflow: make missing art explicit instead of implying a random thumbnail is the cover. */
+.gameimage .cover-pending{object-fit:contain;padding:18px;background:#F3EBDD}
+.gameimage .cover-pending-label{position:absolute;top:8px;right:8px;background:#C8F31D;color:#101216;border:2px solid #101216;padding:2px 7px;font-size:11px;font-weight:800;box-shadow:2px 2px 0 #101216}
