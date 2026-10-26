@@ -216,3 +216,26 @@ html[data-theme="dark"] .hero-credit{color:#D8D0DF!important}
 /* Verified-cover workflow: make missing art explicit instead of implying a random thumbnail is the cover. */
 .gameimage .cover-pending{object-fit:contain;padding:18px;background:#F3EBDD}
 .gameimage .cover-pending-label{position:absolute;top:8px;right:8px;background:#C8F31D;color:#101216;border:2px solid #101216;padding:2px 7px;font-size:11px;font-weight:800;box-shadow:2px 2px 0 #101216}
+
+
+/* Game cover frame: portrait ratio with consistent sizing on desktop and mobile. */
+.gameimage{
+  height:auto;
+  aspect-ratio:3 / 4;
+  min-height:0;
+  background:#2F5BFF;
+}
+.gameimage img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.gameimage .cover-pending{
+  object-fit:contain;
+  padding:14px;
+  background:#F3EBDD;
+}
+@media(max-width:600px){
+  .gameimage{height:auto;aspect-ratio:3 / 4}
+}
