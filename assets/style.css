@@ -314,3 +314,15 @@ html[data-theme="dark"] .gems-manifesto-stamp{color:#101216}
 .gemgrid.cards{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:900px){.gemgrid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.gemgrid.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+
+/* FIX: enforce CARTO light palette on pages with legacy page-level styles */
+html[data-theme="light"]{color-scheme:light;--bg:#F3EBDD;--panel:#FFFBF2;--panel2:#C8F31D;--text:#101216;--muted:#56534D;--cyan:#C8F31D;--magenta:#FF5B2E;--gold:#2F5BFF;--line:#101216}
+html[data-theme="light"] body{background-color:#F3EBDD!important;background-image:radial-gradient(#10121617 1.2px,transparent 1.6px)!important;color:#101216!important}
+html[data-theme="light"] .nav{background:#F3EBDD!important;border-bottom:4px solid #101216!important}
+html[data-theme="light"] .navlinks a{color:#101216}
+html[data-theme="light"] .footer{background:#FFFBF2!important;color:#101216!important}
+html[data-theme="light"] .identity-hero{background:#C8F31D!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .identity-card{background:#FFFBF2!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .mascot{background:#2F5BFF!important}
+html[data-theme="light"] .appearance-toggle{background:#C8F31D!important;color:#101216!important;border:3px solid #101216!important;box-shadow:3px 3px 0 #101216!important}
