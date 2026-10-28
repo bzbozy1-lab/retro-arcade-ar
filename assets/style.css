@@ -383,3 +383,81 @@ html[data-theme="dark"] .gaming-source-card{background:#211E28;color:#F3EBDD;bor
 html[data-theme="dark"] .source-logo-link{background:#302A38;border-color:#F3EBDD}
 html[data-theme="dark"] .gaming-source-card h2{color:#F3EBDD}
 @media(max-width:650px){.gaming-sources-grid{grid-template-columns:1fr;gap:18px}.sources-mascot{width:62px;height:62px;left:12px;bottom:10px}.sources-intro{padding:24px 18px}.sources-intro p{padding-bottom:34px}.source-logo-link{width:132px;height:132px}}
+
+
+/* CARTO mobile layout refinement — 2026-10-28 */
+html{width:100%;overflow-x:hidden}
+body{width:100%;min-width:0;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%}
+.wrap{width:min(1180px,92%)}
+.navin{min-width:0}
+.navlinks{min-width:0}
+.gamecard,.platform,.gaming-source-card,.archivecard,.term,.wishlist-group{min-width:0}
+.gameinfo h3,.wishlist-gametext h3{overflow-wrap:anywhere;word-break:normal}
+.field,button,select,input{max-width:100%}
+@media(max-width:768px){
+  .wrap{width:calc(100% - 28px)}
+  .nav{position:relative}
+  .navin{align-items:center;gap:12px;padding:12px 0}
+  .navlinks{display:flex;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;width:100%;gap:7px;padding:7px 3px 10px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .navlinks a{flex:0 0 auto;white-space:nowrap;font-size:13px;padding:6px 9px}
+  .hero{padding:34px 0 32px}
+  .hero h1{font-size:clamp(30px,8vw,46px);line-height:1.35;overflow-wrap:anywhere}
+  .hero p{font-size:17px}
+  .heroactions{gap:10px}
+  .heroactions .btn{flex:1 1 145px}
+  .section{padding:28px 0}
+  .sectionhead{gap:12px;margin-bottom:18px}
+  .sectionhead h1,.sectionhead h2{max-width:100%;font-size:clamp(24px,6vw,32px);overflow-wrap:anywhere}
+  .cards,.gemgrid.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .platforms{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .gameimage{height:auto;aspect-ratio:4/3}
+  .gem-game .gameimage{aspect-ratio:3/4}
+  .gameinfo{padding:10px}
+  .gameinfo h3{font-size:clamp(11px,3.2vw,14px);line-height:1.55}
+  .meta{font-size:10px;flex-wrap:wrap}
+  .cardbottom{gap:8px;align-items:flex-start;flex-wrap:wrap}
+  .textbtn{font-size:11px;text-align:start}
+  .filters{gap:9px}
+  .filters input,.filters select{width:100%;min-width:0;flex:1 1 100%}
+  .modal{padding:12px}
+  .modalbox{padding:16px;max-height:88dvh}
+  .footerin{gap:12px}
+  .footerlinks{gap:8px 12px}
+  .gaming-sources-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .gaming-source-card{padding:16px 12px;box-shadow:4px 4px 0 #101216}
+  .source-logo-link{width:min(100%,120px);height:auto;aspect-ratio:1}
+  .gaming-source-card h2{font-size:clamp(20px,5vw,28px)}
+  .source-description{min-height:0;font-size:13px}
+  .sources-intro h2{font-size:clamp(27px,7vw,36px)}
+  .sources-intro p{font-size:16px}
+  .gems-manifesto{padding:24px 16px}
+  .gems-manifesto p{max-width:100%;font-size:17px}
+  .gems-manifesto-mark{font-size:42px;left:10px;bottom:4px}
+  .identity-grid,.identity-layout{grid-template-columns:1fr!important}
+  .wishlist-modalbox{width:min(100%,520px);max-height:88dvh;overflow:auto;padding:18px}
+  .wishlist-options{gap:8px}
+  .wishlist-option{min-height:48px}
+  .wishlist-gametext h3{font-size:13px}
+}
+@media(max-width:420px){
+  .wrap{width:calc(100% - 22px)}
+  .brandicon{width:36px;height:36px}
+  .brandname{font-size:23px}
+  .brandname small{font-size:8px;letter-spacing:0}
+  .cards,.gemgrid.cards{gap:9px}
+  .gameimage{aspect-ratio:1/1}
+  .gem-game .gameimage{aspect-ratio:3/4}
+  .gameinfo{padding:8px}
+  .gameinfo h3{font-size:11px}
+  .cardbottom{flex-direction:column;align-items:flex-start}
+  .platform{padding:13px 8px}
+  .platform strong{font-size:19px;line-height:1.4}
+  .sectionhead h1,.sectionhead h2{font-size:24px;padding:2px 9px}
+  .gaming-sources-grid{grid-template-columns:1fr}
+  .gaming-source-card{padding:18px}
+  .source-logo-link{width:128px}
+  .sources-mascot{display:none}
+  .wishlist-game{gap:8px;padding:10px}
+  .wishlist-gameactions{gap:6px}
+}
