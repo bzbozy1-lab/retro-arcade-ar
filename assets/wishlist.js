@@ -54,7 +54,7 @@ function renderList(){
  var hero=document.querySelector("body[data-page='reference'] .platformhero");if(hero){hero.querySelector("h2").textContent="قائمتك الشخصية للألعاب";hero.querySelector("p").textContent="اجمع ألعابك من الموسوعة والأجهزة والألعاب المكنوزة، ثم صنّفها حسب خطتك. قائمتك محفوظة على هذا الجهاز دون تسجيل دخول."}
  var list=read();
  grid.className=list.length?"wishlist-groups":"cards";
- if(!list.length){grid.innerHTML='<section class="wishlist-empty"><div class="wishlist-emptyicon">♡</div><span class="wishlist-kicker">YOUR PERSONAL GAME LIST</span><h2>رحلتك تبدأ من هنا</h2><p>لم تضف أي لعبة بعد. تصفّح الموسوعة أو الألعاب المكنوزة أو صفحة أي جهاز، واضغط قلب اللعبة لتضيفها إلى قائمتك وتختار تصنيفها.</p><a class="btn" href="games.html">تصفّح الألعاب ←</a></section>';return}
+ if(!list.length){grid.innerHTML='<section class="wishlist-empty">'+window.CartoMascot.markup('rest','wishlist-empty-mascot','كارتو ينتظر أول لعبة في قائمتك')+'<span class="wishlist-kicker">YOUR PERSONAL GAME LIST</span><h2>رحلتك تبدأ من هنا</h2><p>لم تضف أي لعبة بعد. تصفّح الموسوعة أو الألعاب المكنوزة أو صفحة أي جهاز، واضغط قلب اللعبة لتضيفها إلى قائمتك وتختار تصنيفها.</p><a class="btn" href="games.html">تصفّح الألعاب ←</a></section>';return}
  grid.className="wishlist-groups";
  grid.innerHTML=CATEGORIES.map(function(c){
   var games=list.filter(function(g){return g.category===c.id});

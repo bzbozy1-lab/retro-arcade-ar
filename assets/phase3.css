@@ -1,0 +1,104 @@
+/* CARTO III — a game-pak sticker, six clear expressions, two meaningful controls. */
+.carto-sprite[data-carto-pose]{display:inline-block;position:relative;width:80px;aspect-ratio:1;height:auto;flex-shrink:0;vertical-align:middle;background-image:url('carto-phase3.webp')!important;background-repeat:no-repeat!important;background-size:300% 200%!important;background-color:transparent!important;image-rendering:pixelated;animation:none!important}
+.carto-sprite[data-carto-pose="happy"]{background-position:0 0!important}
+.carto-sprite[data-carto-pose="curious"]{background-position:50% 0!important}
+.carto-sprite[data-carto-pose="sad"]{background-position:100% 0!important}
+.carto-sprite[data-carto-pose="surprised"]{background-position:0 100%!important}
+.carto-sprite[data-carto-pose="celebrate"]{background-position:50% 100%!important}
+.carto-sprite[data-carto-pose="rest"]{background-position:100% 100%!important}
+.brandmascot.carto-sprite{width:54px;height:54px;padding:0!important;border:0!important;box-shadow:none!important;transform:none!important}
+.wordmark .carto-sprite.robot{width:58px;height:58px}
+.robot-scale .carto-sprite{width:28px;height:28px}
+.robot-scale .carto-sprite:nth-child(2){width:44px;height:44px}
+.robot-scale .carto-sprite:nth-child(3){width:72px;height:72px}
+.logo-chip .carto-sprite{width:48px;height:48px}
+body[data-page="home"] .hero .wrap{padding-inline-end:180px}
+.hero-mascot.carto-sprite{position:absolute;left:0;top:38px;width:150px;height:150px;transform:none}
+.arcade-guide .carto-sprite{width:150px;height:150px}
+.arcade-search-companion .carto-sprite{width:52px;height:52px}
+.gameimage .carto-sprite.cover-pending{width:68%;height:auto;aspect-ratio:1;padding:0}
+.sources-mascot.carto-sprite{width:92px;height:92px}
+.wishlist-empty-mascot.carto-sprite{width:120px;height:120px;display:block;margin:0 auto 12px}
+.gems-companion.carto-sprite{position:absolute;left:18px;bottom:14px;width:110px;height:110px}
+.gems-manifesto p{padding-inline-end:115px}
+.gems-manifesto-mark{display:none}
+.archive-companion.carto-sprite{width:76px;height:76px}
+.carto-sprite.carto-react{animation:carto-sticker-react .38s steps(3,end) 1!important}
+@keyframes carto-sticker-react{0%{translate:0 0;rotate:0deg}35%{translate:0 -5px;rotate:-3deg}70%{translate:0 -2px;rotate:2deg}100%{translate:0 0;rotate:0deg}}
+.control-switch.control-switch{display:inline-flex;align-items:center;justify-content:flex-start;gap:9px;min-height:54px;min-width:142px;padding:7px 11px!important;white-space:normal;cursor:pointer;line-height:1.2;border:2px solid var(--text);background:var(--panel);color:var(--text);position:relative;overflow:hidden}
+.control-copy{display:grid;gap:3px;text-align:start;min-width:0}
+.control-copy>span{font:700 11px/1.3 Tajawal,sans-serif;color:inherit}
+.control-copy>strong{font:700 16px/1.15 Tajawal,sans-serif;color:inherit}
+.control-icon{display:inline-grid;place-items:center;width:32px;height:32px;flex-shrink:0;overflow:hidden;isolation:isolate}
+.control-icon svg{width:32px;height:32px;overflow:visible}
+.mode-scene{background:#101216;color:#C8F31D;border:2px solid currentColor}
+.mode-sun{transform-origin:16px 16px;translate:0 0;rotate:0deg;opacity:1;transition:translate .25s cubic-bezier(.16,1,.3,1),rotate .3s ease,opacity .2s ease}
+.mode-moon{translate:0 -33px;opacity:0;transition:translate .25s cubic-bezier(.16,1,.3,1),opacity .2s ease}
+.appearance-toggle[data-state="dark"] .mode-sun{translate:0 34px;rotate:75deg;opacity:0}
+.appearance-toggle[data-state="dark"] .mode-moon{translate:0 0;opacity:1}
+.audio-bars rect{transform-box:fill-box;transform-origin:center;transition:scale .2s ease,opacity .2s ease}
+.audio-cross{opacity:1;rotate:0deg;transform-origin:center;transition:opacity .2s ease,rotate .25s ease}
+.arcade-sound[data-state="on"] .audio-cross{opacity:0;rotate:-35deg}
+.arcade-sound[data-state="off"] .audio-bars{opacity:0}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect{animation:carto-level .42s ease-out 1}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect:nth-child(2){animation-delay:45ms}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect:nth-child(3){animation-delay:90ms}
+@keyframes carto-level{0%{scale:1 .2}50%{scale:1 1}75%{scale:1 .5}100%{scale:1 1}}
+.arcade-sound[data-state="on"]{background:#C8F31D!important;color:#101216!important}
+.control-switch:active{transform:translate(2px,2px)!important}
+.identity-section{margin-block:38px;scroll-margin-top:155px}
+.identity-section>h2{font:36px/1.3 Lalezar,Tajawal,sans-serif;margin:0 0 14px}
+.identity-intro{max-width:68ch;font-size:17px;line-height:1.9}
+.character-stage{display:grid;grid-template-columns:minmax(200px,.8fr) minmax(0,1.5fr);align-items:center;gap:26px;background:#101216;color:#F3EBDD;border:3px solid #101216;box-shadow:7px 7px 0 #2F5BFF;padding:26px}
+.character-stage .carto-sprite{width:100%;max-width:280px;justify-self:center}
+.character-stage h3{font:36px Lalezar,Tajawal,sans-serif;color:#C8F31D;margin:0 0 10px}
+.character-stage p{color:#F3EBDD;font-size:17px;line-height:1.9}
+.character-poses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-block:24px}
+.character-poses figure{margin:0;padding:14px;background:var(--panel);border:2px solid var(--text);text-align:center;min-width:0}
+.character-poses .carto-sprite{width:min(100%,150px)}
+.character-poses figcaption{font-weight:700;font-size:16px;margin-top:8px}
+.character-poses small{display:block;font-size:14px;color:var(--muted)}
+.identity-rules{padding:18px 22px;border:2px dashed var(--text);line-height:1.9}
+.identity-rules ul{padding-inline-start:24px;margin-block:8px}
+.identity-rules li{margin-block:7px}
+.control-lab{display:flex;flex-wrap:wrap;gap:16px;padding:20px;border:3px solid var(--text);background:var(--panel)}
+.motion-table-wrap{overflow:auto;border:2px solid var(--text)}
+.motion-table{border-collapse:collapse;width:100%;font-size:16px}
+.motion-table th,.motion-table td{text-align:start;padding:14px;border-bottom:1px dashed var(--muted)}
+.sound-lab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-block:18px}
+.sound-preview{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;text-align:start;background:var(--panel);color:var(--text);border:2px solid var(--text);font:700 16px Tajawal,sans-serif;cursor:pointer;min-width:0;min-height:65px}
+.sound-preview span{display:block;font-size:14px;font-weight:400;margin-top:6px}
+.sound-preview svg{width:24px;height:24px;flex-shrink:0}
+.sound-preview:disabled{opacity:.6;cursor:not-allowed}
+.sound-preview:not(:disabled):hover{background:#C8F31D;color:#101216}
+.sound-status{min-height:2em;font-size:16px;line-height:1.7}
+.identity-history summary{cursor:pointer;font-weight:700;font-size:18px;padding:14px}
+@media(max-width:900px){.arcade-controls{gap:9px}.control-switch.control-switch{min-width:130px}.character-stage{gap:16px;padding:20px}}
+@media(max-width:600px){
+ .brandmascot.carto-sprite{width:48px;height:48px}
+ .control-switch.control-switch{width:100%;min-width:0;min-height:56px;padding:8px!important;gap:8px}
+ .control-copy>span{font-size:12px}.control-copy>strong{font-size:16px}
+ body[data-page="home"] .hero .wrap{padding-inline-end:0;padding-top:112px}
+ .hero-mascot.carto-sprite{width:112px;height:112px;top:-6px;left:50%;transform:translateX(-50%)}
+ .arcade-guide .carto-sprite{width:115px;height:115px}
+ .gems-manifesto{padding-bottom:105px}.gems-manifesto p{padding-inline-end:0}
+ .gems-companion.carto-sprite{width:92px;height:92px;bottom:4px;left:12px}
+ body[data-page="archive"] .sectionhead{position:relative;padding-inline-end:80px}
+ .archive-companion.carto-sprite{position:absolute;left:0;top:0;width:70px;height:70px}
+ .identity-section{margin-block:30px;scroll-margin-top:235px}
+ .identity-section>h2{font-size:30px}.character-stage{grid-template-columns:1fr;padding:18px}
+ .character-stage .carto-sprite{max-width:205px}.character-stage h3{font-size:31px}
+ .character-poses{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.character-poses figure{padding:10px}
+ .character-poses small{font-size:13px}.character-poses figcaption{font-size:15px}
+ .sound-lab{grid-template-columns:1fr}.control-lab{display:grid;grid-template-columns:1fr 1fr;padding:12px;gap:10px}
+ .identity-rules{padding:16px}.motion-table th,.motion-table td{padding:10px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .carto-sprite.carto-react,.arcade-sound.is-switching .audio-bars rect{animation:none!important}
+ .mode-sun,.mode-moon,.audio-cross,.audio-bars rect{transition:none!important}
+}
+/* Readable wordmark caption; palette swatches retain the original brand colors. */
+.wordmark{grid-template-columns:auto 58px}
+.wordmark small{font-size:11px;letter-spacing:1px;color:#b83210}
+html[data-theme="dark"] .wordmark small{color:#ff986f}
+.motion-table-wrap{padding:8px}

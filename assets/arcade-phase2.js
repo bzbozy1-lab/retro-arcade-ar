@@ -1,14 +1,12 @@
-/* CARTO Arcade Experience / Phase II — additive features; does not modify saved game data */
+/* CARTO Phase III: event-based mascot; existing achievement storage is preserved. */
 (function(){
 "use strict";
 const d=document,root=d.documentElement;
 const PREFIX="carto-arcade-achievements-v1";
-const robot="assets/carto-robot.svg";
-const poses={happy:robot,curious:"assets/carto-curious.svg",sad:"assets/carto-sad.svg",surprised:"assets/carto-surprised.svg",celebrate:"assets/carto-celebrate.svg"};
-let mascotTimer=0;let blinkTimer=0;
+const mood=(pose,ms)=>window.CartoMascot.mood(pose,ms);
 const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 function getAchievements(){try{const value=JSON.parse(localStorage.getItem(PREFIX)||"{}");return value&&typeof value==="object"?value:{}}catch(e){return {}}}
-function saveAchievements(value){try{localStorage.setItem(PREFIX,JSON.stringify(value))}catch(e){}}
+function saveAchievements(value){try{localStorage.setItem(PREFIX,JSON.stringify(value));return true}catch(e){return false}}
 function currentWishlist(){try{const a=JSON.parse(localStorage.getItem("carto-personal-wishlist")||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
 const achievements=[
 {id:"discover",icon:"✦",title:"أول اكتشاف",en:"FIRST DISCOVERY",hint:"فتح أول بطاقة تفاصيل لعبة"},
@@ -16,19 +14,12 @@ const achievements=[
 {id:"master",icon:"★",title:"خبير التختيم",en:"GAME MASTER",hint:"تصنيف 5 ألعاب على أنها مختومة"},
 {id:"arabic",icon:"ع",title:"جسر اللغة",en:"ARABIC SUPPORT",hint:"استكشاف قسم الألعاب المعربة"}
 ];
-function mood(pose,ms=1700){
- const candidates=d.querySelectorAll(".hero-mascot,.carto-mascot-live,.arcade-guide-robot,.nav .brandmascot");
- if(!candidates.length)return;
- clearTimeout(mascotTimer);
- candidates.forEach(el=>{el.src=poses[pose]||robot;el.dataset.mood=pose});
- if(ms>0)mascotTimer=setTimeout(()=>candidates.forEach(el=>{el.src=robot;delete el.dataset.mood}),ms);
-}
 function toast(message){window.CartoToast?.(message,3500)}
 function unlock(id){
  const achieved=getAchievements();if(achieved[id])return;
- achieved[id]=Date.now();saveAchievements(achieved);
+ achieved[id]=Date.now();if(!saveAchievements(achieved))return;
  const item=achievements.find(x=>x.id===id);
- if(item){mood("celebrate",2200);toast("🏆 إنجاز جديد: "+item.title);refreshAchievements()}
+ if(item){d.dispatchEvent(new CustomEvent("carto:achievement",{detail:{id}}));mood("celebrate",2200);toast("🏆 إنجاز جديد: "+item.title);refreshAchievements()}
 }
 function checkList(){
  const list=currentWishlist();
@@ -47,18 +38,9 @@ function addHomePanel(){
  if(d.body.dataset.page!=="home")return;
  const main=d.querySelector("main");if(!main)return;
  const panel=d.createElement("section");panel.className="section arcade-discovery";panel.setAttribute("aria-labelledby","arcadeExploreTitle");
- panel.innerHTML='<div class="wrap"><div class="arcade-discovery-board"><div class="arcade-guide"><img class="arcade-guide-robot" src="'+robot+'" alt="كارتو، المرشد البكسلي"><div><span class="arcade-8bit">PLAYER ONE · ACHIEVEMENTS</span><h2 id="arcadeExploreTitle">رحلتك في عالم كارتو</h2><p>اكتشف الألعاب، واجمع ذكرياتك، وتعرّف إلى جهود التعريب العربي. إنجازاتك تُحفظ في هذا المتصفح دون حساب.</p></div></div><div class="arcade-achievements-title"><strong>لوحة الإنجازات</strong><span id="cartoAchievementCount">0 / 4</span></div><div class="arcade-achievement-grid"></div></div></div>';
+ panel.innerHTML='<div class="wrap"><div class="arcade-discovery-board"><div class="arcade-guide">'+window.CartoMascot.markup('happy','arcade-guide-robot','كارتو، مرشد الاكتشاف')+'<div><span class="arcade-8bit">PLAYER ONE · ACHIEVEMENTS</span><h2 id="arcadeExploreTitle">رحلتك في عالم كارتو</h2><p>اكتشف الألعاب، واجمع ذكرياتك، وتعرّف إلى جهود التعريب العربي. إنجازاتك تُحفظ في هذا المتصفح دون حساب.</p></div></div><div class="arcade-achievements-title"><strong>لوحة الإنجازات</strong><span id="cartoAchievementCount">0 / 4</span></div><div class="arcade-achievement-grid"></div></div></div>';
  const footer=main.lastElementChild;
  if(footer)footer.insertAdjacentElement("afterend",panel);else main.append(panel);
- refreshAchievements();
-}
-function addIdentityShowcase(){
- if(d.body.dataset.page!=="identity")return;
- const main=d.querySelector("main .wrap");if(!main)return;
- const section=d.createElement("section");section.className="arcade-identity-showcase";section.setAttribute("aria-labelledby","cartoPhase2IdentityTitle");
- section.innerHTML='<div class="arcade-showcase-banner"><span class="arcade-8bit">PHASE 02 · DESIGN SYSTEM</span><h2 id="cartoPhase2IdentityTitle">كارتو الجديد — روبوت الخرطوشة الودود</h2><p>صُمّم بروح الجيل البكسلي: عينان معبّرتان، خدّان مرجانيان، سماعتان ملونتان، ويدان وقدمان صغيرتان. يظل شكل الخرطوشة أصل الشخصية، فيما تتغيّر تعابير الوجه باختلاف التفاعل.</p></div><div class="arcade-moods"><figure><img src="assets/carto-robot.svg" alt="كارتو مبتهج"><figcaption>سعيد · HAPPY</figcaption></figure><figure><img src="assets/carto-curious.svg" alt="كارتو فضولي"><figcaption>فضولي · CURIOUS</figcaption></figure><figure><img src="assets/carto-sad.svg" alt="كارتو حزين"><figcaption>لا نتائج · SAD</figcaption></figure><figure><img src="assets/carto-surprised.svg" alt="كارتو متفاجئ"><figcaption>مندهش · WOW</figcaption></figure><figure><img src="assets/carto-celebrate.svg" alt="كارتو يحتفل"><figcaption>إنجاز · WIN</figcaption></figure></div><div class="arcade-identity-rules"><h3>قواعد هوية CARTO التفاعلية</h3><p><strong>الحركة:</strong> انتقالات ناعمة وقصيرة للبطاقات والصفحات، وتعابير مرتبطة بالحدث، مع احترام تفضيل تقليل الحركة.</p><p><strong>الصوت:</strong> أصوات إلكترونية قصيرة اختيارية فقط، مغلقة افتراضيًا وقابلة للتعطيل.</p><p><strong>الإنجازات:</strong> لوحة من أربع شارات تعتمد على الاستخدام المحلي دون حساب أو مشاركة بيانات خارجية.</p><p><strong>المظهر:</strong> ريترو ملصقات وبكسل، حواف سميكة، ألوان CARTO الخمسة، مع وضوح النصوص واستجابة كاملة للجوال.</p><p><strong>النوافذ:</strong> تفاعل بصري واضح مع زر إغلاق، دون مؤثرات تعيق الاستخدام.</p><div class="arcade-achievements-title"><strong>معاينة شارات الإنجازات</strong><span>LIVE BADGES</span></div><div class="arcade-achievement-grid"></div></div>';
- const last=main.querySelector('a.btn.alt[href="index.html"]');
- if(last)last.before(section);else main.append(section);
  refreshAchievements();
 }
 let revealObserver;
@@ -80,7 +62,7 @@ function attachMascotSearch(){
  const filters=search.closest(".filters")||search.parentElement;
  if(filters && !d.querySelector(".arcade-search-companion")){
   const helper=d.createElement("div");helper.className="arcade-search-companion";
-  helper.innerHTML='<img class="carto-mascot-live" src="assets/carto-robot.svg" alt="كارتو يتفاعل مع نتائج البحث"><span>كارتو يساعدك في البحث!</span>';
+  helper.innerHTML=window.CartoMascot.markup('curious','carto-mascot-live','كارتو يتفاعل مع نتائج البحث')+'<span>كارتو يساعدك في البحث!</span>';
   filters.insertAdjacentElement("afterend",helper);
  }
  let timer;
@@ -92,14 +74,18 @@ function attachMascotSearch(){
  });
 }
 function init(){
- addHomePanel();addIdentityShowcase();setupScrollReveal();attachMascotSearch();
+ addHomePanel();setupScrollReveal();attachMascotSearch();
+ const manifesto=d.querySelector('.gems-manifesto');
+ if(manifesto)manifesto.insertAdjacentHTML('beforeend',window.CartoMascot.markup('celebrate','page-companion gems-companion',''));
+ const archive=d.querySelector('body[data-page="archive"] .sectionhead');
+ if(archive)archive.insertAdjacentHTML('beforeend',window.CartoMascot.markup('curious','page-companion archive-companion',''));
  d.addEventListener("click",e=>{
   const target=e.target;
-  if(target.closest("[data-details]")){unlock("discover");mood("surprised",1250)}
+  if(target.closest("[data-details]")){mood("surprised",1250);unlock("discover")}
   else if(target.closest("[data-source]"))mood("curious",1250);
 
  },true);
- d.addEventListener("carto:wishlist-change",event=>{checkList();if(event.detail?.action==="save")mood("celebrate",1400)});
+ d.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save")mood("celebrate",1400);checkList()});
  d.addEventListener("carto:catalog-render",setupScrollReveal);
  if(d.body.dataset.page==="localization")unlock("arabic");
  checkList();

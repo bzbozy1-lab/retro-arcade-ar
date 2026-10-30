@@ -2,30 +2,6 @@
 (function(){
 "use strict";
 const doc=document,root=doc.documentElement;
-let audioContext=null;
-let soundEnabled=false;
-try{soundEnabled=localStorage.getItem("carto-sound")==="on"}catch(e){}
-const reduced=matchMedia("(prefers-reduced-motion: reduce)");
-function beep(type){
- if(!soundEnabled)return;
- const AC=window.AudioContext||window.webkitAudioContext;
- if(!AC)return;
- try{
-  audioContext=audioContext||new AC();
-  if(audioContext.state==="suspended")audioContext.resume().catch(()=>{});
-  const o=audioContext.createOscillator(),gain=audioContext.createGain(),t=audioContext.currentTime;
-  o.type="square";
-  const tones={tap:[380,550,.07],open:[420,680,.115],save:[530,880,.17]};
-  const v=tones[type]||tones.tap;
-  o.frequency.setValueAtTime(v[0],t);
-  o.frequency.exponentialRampToValueAtTime(v[1],t+v[2]);
-  gain.gain.setValueAtTime(.0001,t);
-  gain.gain.exponentialRampToValueAtTime(.035,t+.01);
-  gain.gain.exponentialRampToValueAtTime(.0001,t+v[2]);
-  o.connect(gain);gain.connect(audioContext.destination);
-  o.start(t);o.stop(t+v[2]+.01);
- }catch(e){}
-}
 function toast(message,duration=2600){
  const box=doc.getElementById("arcadeToast");if(!box)return;
  box.textContent=message;box.hidden=false;
@@ -39,14 +15,12 @@ function init(){
  const navin=doc.querySelector(".navin");
  if(nav&&navin){
   const controls=doc.createElement("div");controls.className="arcade-controls";
-  const btn=doc.createElement("button");btn.className="arcade-sound";btn.type="button";btn.setAttribute("aria-label","تفعيل أو تعطيل مؤثرات الموقع الصوتية");
-  function paint(){btn.setAttribute("aria-pressed",String(soundEnabled));btn.textContent=soundEnabled?"🔊 الصوت: يعمل":"🔇 الصوت: مغلق"}
-  paint();
-  btn.addEventListener("click",()=>{soundEnabled=!soundEnabled;try{localStorage.setItem("carto-sound",soundEnabled?"on":"off")}catch(e){}paint();if(soundEnabled)beep("save");toast(soundEnabled?"تم تفعيل مؤثرات CARTO":"تم إيقاف المؤثرات الصوتية")});
+  const btn=window.CartoAudio.createToggle();
   controls.append(btn);
   const theme=navin.querySelector(".appearance-toggle");
   if(theme)controls.append(theme);
   navin.append(controls);
+  window.CartoAudio.refresh();
   const strip=doc.createElement("div");strip.className="arcade-ticker";strip.innerHTML='<b>PLAYER 01</b> ذاكرة الألعاب بلغتنا · اكتشف، اقرأ، وأضف ألعابك إلى قائمتك <b>● CARTO</b>';
   nav.insertAdjacentElement("afterend",strip);
  }
@@ -65,18 +39,9 @@ function init(){
   }
  }
  const toastEl=doc.createElement("div");toastEl.id="arcadeToast";toastEl.className="arcade-toast";toastEl.setAttribute("role","status");toastEl.setAttribute("aria-live","polite");toastEl.hidden=true;doc.body.append(toastEl);
- doc.addEventListener("click",e=>{
-  if(e.target.closest(".arcade-sound"))return;
-  if(e.target.closest("[data-details],[data-source],.wishlist-heart,[data-wish-name]")){beep("open");return}
-  if(e.target.closest(".btn,.navlinks a,.platform,.local-btn,.appearance-toggle"))beep("tap");
- },{passive:true});
- doc.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save"){beep("save");toast("✓ تم تحديث قائمتك الشخصية")}else toast("تمت إزالة اللعبة من قائمتك")});
+ doc.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save")toast("✓ تم تحديث قائمتك الشخصية");else toast("تمت إزالة اللعبة من قائمتك")});
  const year=doc.getElementById("yearNow");if(year)year.textContent=new Date().getFullYear();
- if(!reduced.matches){
-  const mascot=doc.querySelector(".brandmascot");
-  mascot?.addEventListener("pointerenter",()=>{mascot.style.transform="rotate(-10deg) scale(1.08)"});
-  mascot?.addEventListener("pointerleave",()=>{mascot.style.transform=""});
- }
+
 }
 if(doc.readyState==="loading")doc.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
