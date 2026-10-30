@@ -19,7 +19,7 @@
    const sample=event.target.closest('[data-theme-preview]');
    if(sample)document.querySelector('.nav .appearance-toggle')?.click();
    const sound=event.target.closest('.arcade-sound');if(sound)animate(sound);
-  });
+  },true);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

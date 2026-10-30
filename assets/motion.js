@@ -2,12 +2,13 @@
 (function(){
  'use strict';
  const query=window.matchMedia('(prefers-reduced-motion: reduce)');
- const visible=new WeakSet(),timers=new WeakMap();let observer;
+ let visible=new WeakSet();const timers=new WeakMap();let observer;
  const cards='.platform,.gamecard,.archivecard,.gaming-source-card,.local-card,.term,.wishlist-group,.character-poses figure,.identity-card,.arcade-achievement';
  function pulse(el,name='carto-pressed',duration=620){
   if(!el||query.matches)return;
   el.classList.remove(name);void el.offsetWidth;el.classList.add(name);
-  clearTimeout(timers.get(el));timers.set(el,setTimeout(()=>el.classList.remove(name),duration));
+  let active=timers.get(el);if(!active){active=new Map();timers.set(el,active)}
+  clearTimeout(active.get(name));active.set(name,setTimeout(()=>{el.classList.remove(name);active.delete(name)},duration));
  }
  function enroll(){
   if(query.matches||!('IntersectionObserver'in window))return;
@@ -27,10 +28,10 @@
    const button=event.target.closest('button,.btn,.local-btn,.platform,.navlinks a,.footerlinks a');
    if(button&&!button.disabled)pulse(button);
    const sound=event.target.closest('.arcade-sound');if(sound)document.querySelectorAll('.arcade-sound').forEach(el=>pulse(el,'control-performance',850));
-  });
+  },true);
   const roots=document.querySelectorAll('#gameGrid,#gemGrid');
   roots.forEach(el=>new MutationObserver(enroll).observe(el,{childList:true}));
-  query.addEventListener('change',()=>{if(query.matches){observer?.disconnect();document.querySelectorAll('.sticker-arrive,.carto-pressed,.sticker-open,.control-performance').forEach(el=>el.classList.remove('sticker-arrive','carto-pressed','sticker-open','control-performance'))}else enroll()});
+  query.addEventListener('change',()=>{if(query.matches){observer?.disconnect();document.querySelectorAll('.sticker-arrive,.carto-pressed,.sticker-open,.control-performance').forEach(el=>el.classList.remove('sticker-arrive','carto-pressed','sticker-open','control-performance'))}else{visible=new WeakSet();enroll()}});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

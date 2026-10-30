@@ -2,7 +2,7 @@
 (function(){
  'use strict';
  const scores={
-  back:{label:'العودة',notes:[[76,0,.07,.42,'square'],[71,.075,.09,.5,'triangle'],[67,.15,.12,.48,'triangle'],[62,.245,.11,.34,'triangle']]},
+  back:{label:'العودة',notes:[[76,0,.045,.42,'square'],[71,.055,.055,.5,'triangle'],[67,.11,.065,.48,'triangle'],[62,.17,.065,.34,'triangle']]},
   treasure:{label:'اكتشاف كنز',notes:[[74,0,.045,.5,'square'],[81,.035,.045,.4,'triangle'],[77,.07,.05,.5,'square'],[86,.115,.055,.4,'triangle'],[89,.16,.075,.55,'triangle']]},
   open:{label:'فتح بطاقة',notes:[[60,0,.045,.5,'square'],[67,.035,.05,.4,'triangle'],[72,.075,.055,.45,'triangle']]},
   save:{label:'حفظ لعبة',notes:[[67,0,.05,.45,'square'],[74,.055,.07,.5,'triangle'],[79,.12,.09,.48,'square'],[86,.21,.12,.42,'triangle']]},
