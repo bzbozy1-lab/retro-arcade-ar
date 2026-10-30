@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Silkscreen:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css?v=arabic-localization-20261030">
-<script defer src="assets/theme.js"></script>
+<script defer src="assets/dialog.js?v=20261030-fixes"></script><script defer src="assets/theme.js?v=20261030-fixes"></script>
 <style>
 .local-hero{position:relative;overflow:hidden;background:#2F5BFF;color:#FFFBF2;border:4px solid #101216;box-shadow:7px 7px 0 #101216;padding:clamp(22px,5vw,48px);display:grid;grid-template-columns:130px 1fr;gap:25px;align-items:center}
 .local-hero:after{content:"عَرَبِيّ";position:absolute;left:18px;bottom:-30px;font:64px Lalezar;color:#ffffff16;transform:rotate(-9deg)}
@@ -46,12 +46,12 @@ html[data-theme="dark"] .local-btn.secondary{background:var(--panel);color:var(-
 @media(max-width:900px){.local-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.local-hero{grid-template-columns:1fr;text-align:center;justify-items:center}.local-hero img{width:95px}.local-grid{grid-template-columns:1fr;gap:15px}.local-card,.local-card:nth-child(n){transform:none}.local-card-body{padding:15px}.local-actions>*{flex:1}}
 </style>
-<link rel="stylesheet" href="assets/arcade-experience.css?v=20261030-2"><link rel="stylesheet" href="assets/arcade-phase2.css?v=20261030-p2"></head>
+<link rel="stylesheet" href="assets/arcade-experience.css?v=20261030-fixes"><link rel="stylesheet" href="assets/arcade-phase2.css?v=20261030-fixes"><link rel="stylesheet" href="assets/audit-fixes.css?v=20261030-fixes"></head>
 <body data-page="localization">
 <div class="topline"></div><div class="scanlines"></div>
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img class="brandicon brandmascot" src="assets/carto-robot.svg" alt=""><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></a>
-<nav class="navlinks"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a class="active" href="localization.html">الألعاب المعربة</a><a href="archive.html">الأرشيف</a><a href="reference.html">قائمتك</a><a href="identity.html">الهوية البصرية</a></nav>
+<nav class="navlinks" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a class="active" aria-current="page" href="localization.html">الألعاب المعربة</a><a href="reference.html">قائمة تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></nav>
 </div></header>
 <main>
 <section class="section"><div class="wrap">
@@ -73,8 +73,8 @@ html[data-theme="dark"] .local-btn.secondary{background:var(--panel);color:var(-
 <p class="local-footnote">ملاحظة تحريرية: نطاقات التخصص والأمثلة هنا من المعلومات التي زوّدنا بها صاحب المشروع؛ لا تمثل تصنيفًا حصريًا لأعمال هذه الجهات ولا حكمًا على اكتمال نشاطها الحالي.</p>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap footerin"><div class="brand"><span class="brandicon">▣</span><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></div><div class="footerlinks"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="localization.html">الألعاب المعربة</a><a href="archive.html">الأرشيف</a></div><p>© <span id="yearNow">2026</span> CARTO · مرجع عام</p></div></footer>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">بطاقة المصدر</h2><button class="close" id="modalClose" aria-label="إغلاق">✕</button></div><div id="modalContent"></div></div></div>
+<footer class="footer"><div class="wrap footerin"><div class="brand"><img class="brandicon brandmascot" src="assets/carto-robot.svg" alt=""><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></div><nav class="footerlinks" aria-label="روابط المتحف"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="localization.html">الألعاب المعربة</a><a href="reference.html">قائمة تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></nav><p>© <span id="yearNow">2026</span> CARTO · مرجع عام</p></div></footer>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">بطاقة المصدر</h2><button class="close" id="modalClose" aria-label="إغلاق">✕</button></div><div id="modalContent"></div></div></div>
 <script>
 const sources=[
 {name:"فريق مجد العروبة للتّعريب",alias:"Mjd Orouba",about:"فريق يركّز على تعريب وتوطين سلسلة Metal Gear Solid. ومن الأمثلة الواردة في بيانات القسم: MGS3 وMGS4 وPeace Walker.",url:"https://www.youtube.com/@mjd-Orouba",label:"القناة الرسمية على YouTube"},
@@ -88,7 +88,7 @@ const sources=[
 {name:"B52 Arabic",alias:"aBo_SaaD_B52",about:"تعريب وتعديل ألعاب الرعب والأكشن الكلاسيكية، ومن الأمثلة سلسلة Silent Hill وGod Hand.",url:"https://b52arabic.com/",label:"الموقع الرسمي"},
 {name:"مدونة «تعريب»",alias:"T3reeb Games",about:"مدونة تقدّم ملفات تعريب حصرية للألعاب المستقلة والكلاسيكية على الحاسب والكونسول.",url:"https://www.t3reeb.games/",label:"الموقع الرسمي"}
 ];
-document.addEventListener("click",e=>{const b=e.target.closest("[data-source]");if(b){const s=sources[Number(b.dataset.source)];if(!s)return;document.getElementById("modalTitle").textContent=s.name;document.getElementById("modalContent").innerHTML='<div class="local-modal-source"><img src="assets/arabic-pixel-mark.svg" alt=""><div><strong>'+s.name+'</strong><small>'+s.alias+'</small></div></div><p>'+s.about+'</p><p class="muted">الرابط المخصص لهذا المصدر في دليل CARTO:</p><a class="local-modal-link" href="'+s.url+'" target="_blank" rel="noopener">'+s.label+' ↗</a>';document.getElementById("modal").classList.add("open")}if(e.target.closest("#modalClose")||e.target.id==="modal"){document.getElementById("modal").classList.remove("open")}});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("modal").classList.remove("open")});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-source]");if(b){const s=sources[Number(b.dataset.source)];if(!s)return;document.getElementById("modalTitle").textContent=s.name;document.getElementById("modalContent").innerHTML='<div class="local-modal-source"><img src="assets/arabic-pixel-mark.svg" alt=""><div><strong>'+s.name+'</strong><small>'+s.alias+'</small></div></div><p>'+s.about+'</p><p class="muted">الرابط المخصص لهذا المصدر في دليل CARTO:</p><a class="local-modal-link" href="'+s.url+'" target="_blank" rel="noopener">'+s.label+' ↗</a>';window.CartoDialog.open(document.getElementById("modal"))}if(e.target.closest("#modalClose")||e.target.id==="modal"){window.CartoDialog.close(document.getElementById("modal"))}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")window.CartoDialog.close(document.getElementById("modal"))});
 </script>
-<script defer src="assets/arcade-experience.js?v=20261030-2"></script><script defer src="assets/arcade-phase2.js?v=20261030-p2"></script></body></html>
+<script defer src="assets/arcade-experience.js?v=20261030-fixes"></script><script defer src="assets/arcade-phase2.js?v=20261030-fixes"></script></body></html>

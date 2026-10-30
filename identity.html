@@ -7,7 +7,7 @@
 <title>الهوية البصرية | كارتو CARTO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Silkscreen:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=mobile-20261028">
+<link rel="stylesheet" href="assets/style.css?v=20261030-fixes">
 <style>
 .identity-hero{background:#C8F31D;color:#101216;border:3px solid #101216;box-shadow:8px 8px 0 #101216;padding:28px;margin-bottom:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
 .identity-hero h1{font:clamp(40px,7vw,72px)/1.1 Lalezar,Tajawal,sans-serif;margin:0}
@@ -32,8 +32,8 @@
 .variant-paper{background:#1B1E25}
 .variant-dark{background:#101216}
 .variant-lime{background:#C8F31D;color:#101216;border-color:#F3EBDD}
-.wordmark{font:38px/1 Lalezar,Tajawal,sans-serif;display:grid;grid-template-columns:auto 36px;align-items:center;gap:7px;text-align:center}
-.wordmark .robot{font-size:28px;line-height:1;color:#C8F31D;text-shadow:2px 2px #101216}
+.wordmark{font:38px/1 Lalezar,Tajawal,sans-serif;display:grid;grid-template-columns:auto 48px;align-items:center;gap:7px;text-align:center}
+.wordmark .robot{width:48px;height:56px;object-fit:contain;image-rendering:pixelated}
 .wordmark small{grid-column:1/3;font:8px Silkscreen,monospace;letter-spacing:2px;color:#FF5B2E}
 .reference-description{font:700 16px/1.8 Tajawal,sans-serif;margin:16px 4px}
 .robot-scale{display:flex;justify-content:flex-end;align-items:end;gap:18px;min-height:90px}
@@ -44,17 +44,17 @@
 html[data-theme="dark"] .identity-reference-frame{background:#1B1E25;color:#F3EBDD}
 @media(max-width:600px){.logo-variants{grid-template-columns:1fr}.logo-variant{min-height:88px}.wordmark{font-size:34px}}
 </style>
-<script defer src="assets/theme.js"></script><script defer src="assets/wishlist.js"></script>
-<link rel="stylesheet" href="assets/arcade-experience.css?v=20261030-2"><link rel="stylesheet" href="assets/arcade-phase2.css?v=20261030-p2"></head>
+<script defer src="assets/dialog.js?v=20261030-fixes"></script><script defer src="assets/theme.js?v=20261030-fixes"></script><script defer src="assets/wishlist.js?v=20261030-fixes"></script>
+<link rel="stylesheet" href="assets/arcade-experience.css?v=20261030-fixes"><link rel="stylesheet" href="assets/arcade-phase2.css?v=20261030-fixes"><link rel="stylesheet" href="assets/audit-fixes.css?v=20261030-fixes"></head>
 <body data-page="identity">
 <div class="topline"></div><div class="scanlines"></div>
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="index.html"><img class="brandicon brandmascot" src="assets/carto-robot.svg" alt=""><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></a>
-<nav class="navlinks"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الذوق المعهود في إيجاد الجوهر المفقود</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="localization.html">الألعاب المعربة</a><a href="reference.html">قائمة تحفك الفنية</a><a class="active" href="identity.html">الهوية البصرية</a></nav>
+<nav class="navlinks" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="localization.html">الألعاب المعربة</a><a href="reference.html">قائمة تحفك الفنية</a><a class="active" aria-current="page" href="identity.html">الهوية البصرية</a></nav>
 </div></header>
 <main class="section"><div class="wrap">
 <div class="sectionhead"><div><h1>الهوية <span>البصرية</span></h1><p>دليل مختصر لهوية كارتو وأسلوب استخدامها داخل المتحف.</p></div><span class="tag">CARTO DESIGN SYSTEM</span></div>
-<nav class="arcade-identity-tabs" aria-label="أقسام دليل الهوية البصرية"><strong>تصفّح دليل الهوية</strong><a href="#cartoLogo">الشعار والشخصية</a><a href="#cartoStory">فكرة الهوية</a><a href="#cartoPalette">الألوان</a><a href="#cartoFonts">الخطوط</a><a href="#cartoUi">عناصر الواجهة</a><a href="#cartoPhase2IdentityTitle">الشخصية الجديدة والتفاعلات</a></nav><section id="cartoLogo" class="identity-reference" aria-labelledby="primary-logo-reference"><h2 id="primary-logo-reference">الشعار الأساسي — المرجع المعتمد</h2><div class="identity-reference-frame"><div class="logo-variants"><div class="logo-variant variant-paper"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div><div class="logo-variant variant-dark"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div><div class="logo-variant variant-lime"><div class="wordmark">كارتو <span class="robot">▣</span><small>C A R T O</small></div></div></div><p class="reference-description">يتكون الشعار من الماسكوت المحدث «كارتو» مع الاسم بخط لالزار والتسمية اللاتينية بخط Silkscreen. يستخدم على الليموني أو الجرافيت أو الورق فقط، وللرمز وحده حالات استخدام صغيرة كالأيقونات.</p><div class="robot-scale" aria-hidden="true"><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""></div></div><p class="reference-note">تمت إضافة لوحة مرجعية للشعار الأساسي هنا لتكون جزءًا واضحًا من دليل الهوية البصرية. النموذج الحي للشخصية المحدثة يظهر في القسم التفاعلي بالأسفل.</p></section><section class="identity-hero"><div><div class="tag">شعار كارتو الأساسي</div><h1>كارتو<br>CARTO</h1><p>متحف الألعاب الكلاسيكية — ذاكرة الألعاب كما عرفناها، بملصقات جريئة وبكسلات مرحة.</p></div><div class="mascot" aria-label="شعار روبوت كارتو"><img src="assets/carto-robot.svg" alt="روبوت كارتو" style="width:100%;max-width:220px;image-rendering:pixelated"></div></section>
+<nav class="arcade-identity-tabs" aria-label="أقسام دليل الهوية البصرية"><strong>تصفّح دليل الهوية</strong><a href="#cartoAuditFixes">تحسينات الفحص</a><a href="#cartoLogo">الشعار والشخصية</a><a href="#cartoStory">فكرة الهوية</a><a href="#cartoPalette">الألوان</a><a href="#cartoFonts">الخطوط</a><a href="#cartoUi">عناصر الواجهة</a><a href="#cartoPhase2IdentityTitle">الشخصية الجديدة والتفاعلات</a></nav><section id="cartoLogo" class="identity-reference" aria-labelledby="primary-logo-reference"><h2 id="primary-logo-reference">الشعار الأساسي — المرجع المعتمد</h2><div class="identity-reference-frame"><div class="logo-variants"><div class="logo-variant variant-paper"><div class="wordmark">كارتو <img class="robot" src="assets/carto-robot.svg" alt="شخصية كارتو"><small>C A R T O</small></div></div><div class="logo-variant variant-dark"><div class="wordmark">كارتو <img class="robot" src="assets/carto-robot.svg" alt="شخصية كارتو"><small>C A R T O</small></div></div><div class="logo-variant variant-lime"><div class="wordmark">كارتو <img class="robot" src="assets/carto-robot.svg" alt="شخصية كارتو"><small>C A R T O</small></div></div></div><p class="reference-description">يتكون الشعار من الماسكوت المحدث «كارتو» مع الاسم بخط لالزار والتسمية اللاتينية بخط Silkscreen. يستخدم على الليموني أو الجرافيت أو الورق فقط، وللرمز وحده حالات استخدام صغيرة كالأيقونات.</p><div class="robot-scale" aria-hidden="true"><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""><img src="assets/carto-robot.svg" alt=""></div></div><p class="reference-note">تمت إضافة لوحة مرجعية للشعار الأساسي هنا لتكون جزءًا واضحًا من دليل الهوية البصرية. النموذج الحي للشخصية المحدثة يظهر في القسم التفاعلي بالأسفل.</p></section><section class="identity-hero"><div><div class="tag">شعار كارتو الأساسي</div><h1>كارتو<br>CARTO</h1><p>متحف الألعاب الكلاسيكية — ذاكرة الألعاب كما عرفناها، بملصقات جريئة وبكسلات مرحة.</p></div><div class="mascot" aria-label="شعار روبوت كارتو"><img src="assets/carto-robot.svg" alt="روبوت كارتو" style="width:100%;max-width:220px;image-rendering:pixelated"></div></section>
 <section id="cartoStory" class="identity-card" style="margin-bottom:22px"><h2>فكرة الهوية</h2><p>كلنا نتذكر أول شريط لعبة وقع في أيدينا. كنا نتبادله مع الأصدقاء، ونلصق عليه الملصقات، ونكتب عليه اسم صاحبه حتى لا يضيع. من هذه الذكرى وُلدت هوية «كارتو».</p><p>أردنا للموقع أن يشبه جدار غرفة لاعب قديم، لا واجهة مرتبة أكثر من اللازم. ولهذا اعتمدنا أسلوب «الملصقات المتراكمة» (Sticker-bomb): حدود سميكة، وظلال صلبة، وملصقات فوق بعضها، مع بكسل يُترك ظاهراً كما كان.</p><p>إن شعر الزائر أنه دخل غرفة صديق قديم، لا متحفاً صامتاً، فقد نجحنا.</p><div class="logo-chip"><img src="assets/carto-robot.svg" alt="" style="width:44px;height:44px;image-rendering:pixelated"> كارتو <small style="font:10px Silkscreen,monospace;direction:ltr">CARTO</small></div></section>
 <h2 id="cartoPalette" style="font:32px Lalezar,Tajawal,sans-serif">لوحة الألوان</h2>
 <div class="palette" style="margin:16px 0 30px">
@@ -81,42 +81,9 @@ html[data-theme="dark"] .identity-reference-frame{background:#1B1E25;color:#F3EB
 <div class="identity-card"><h2>03 · سهولة الاستخدام</h2><p>ألوان متباينة، مؤشرات تركيز لوحة المفاتيح، وروابط تخطّي المحتوى، مع تصميم متجاوب للجوال ودعم المظهر الفاتح والداكن.</p></div>
 </div><p>قاعدة الهوية: التجربة التفاعلية تعزّز التصفح ولا تعطل قراءة المحتوى، ولا تغيّر قوائم الألعاب الشخصية أو روابط المصادر.</p>
 </section>
-<a class="btn alt" href="index.html">العودة إلى المتحف ←</a>
+<section class="identity-card identity-audit-notes" id="cartoAuditFixes" aria-labelledby="auditFixesTitle"><h2 id="auditFixesTitle">تحسينات الفحص — أكتوبر 2026</h2><p>حافظنا على ألوان كارتو وخطوطه وظلال الملصقات، ووحّدنا التفاعل بين الصفحات.</p><ul><li><strong>الشعار:</strong> تعرض النماذج شخصية كارتو نفسها بجوار الاسم، ويظل الرمز منفردًا للاستخدامات الصغيرة.</li><li><strong>التنقل:</strong> اسم ثابت لكل قسم في جميع الصفحات والتذييل، مع مساحة أوسع لأزرار اللمس وتمرير أفقي لقائمة الجوال.</li><li><strong>القائمة الشخصية:</strong> القلب نفسه في الموسوعة والأجهزة والألعاب المكنوزة؛ يمكن إضافة لعبة مكنوزة دون وجودها في مكتبة جهاز.</li><li><strong>الصور:</strong> مصدر محدد لكل عنوان، مع تمييز الغلاف والملصق والشعار وملاحظات اختلاف الإصدار. عند تعذر التحميل تظهر شخصية كارتو الحالية ورابط للمصدر.</li><li><strong>النوافذ:</strong> ينتقل التركيز إلى زر الإغلاق، ويبقى داخل النافذة حتى إغلاقها؛ تعمل Escape، ثم يعود التركيز إلى موضعه.</li><li><strong>المظهر:</strong> زر واحد يحدّث ألوان الصفحة ونصه ووصفه لقارئات الشاشة، ويحفظ اختيار الزائر.</li><li><strong>الحركة والتعبيرات:</strong> البطاقات قابلة للقراءة منذ البداية، ويتجدد تأثير الظهور بعد البحث. يبقى تعبير «لا نتائج» حتى تتغير نتائج البحث؛ يحترم الموقع تقليل الحركة.</li><li><strong>الصوت والإنجازات:</strong> الصوت اختياري ومغلق افتراضيًا. تظهر رسالة الحفظ والإنجاز بعد نجاح الحفظ فقط. القوائم والإنجازات محلية ولا تتطلب حسابًا.</li></ul><p>صور الألعاب وحقائقها من المصادر المرتبطة بكل بطاقة؛ الحقوق محفوظة لأصحابها، ولا تمثل الصورة بالضرورة عبوة كل منطقة أو نسخة محسّنة.</p></section><a class="btn alt" href="index.html">العودة إلى المتحف ←</a>
 </div></main>
-<footer class="footer"><div class="wrap footerin"><div class="brand"><img class="brandicon brandmascot" src="assets/carto-robot.svg" alt=""><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></div><div class="footerlinks"><a href="games.html">الموسوعة</a><a href="gems.html">الذوق المعهود في إيجاد الجوهر المفقود</a><a href="reference.html">قائمة تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></div><p>© <span id="yearNow"></span> CARTO · مرجع عام</p></div></footer>
+<footer class="footer"><div class="wrap footerin"><div class="brand"><img class="brandicon brandmascot" src="assets/carto-robot.svg" alt=""><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></div><nav class="footerlinks" aria-label="روابط المتحف"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="localization.html">الألعاب المعربة</a><a href="reference.html">قائمة تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></nav><p>© <span id="yearNow"></span> CARTO · مرجع عام</p></div></footer>
 <script>document.getElementById("yearNow").textContent=new Date().getFullYear()</script>
-<script>
-/* CARTO appearance preference */
-(function(){
-  const root=document.documentElement;
-  let saved=null;
-  try{saved=localStorage.getItem("carto-appearance")}catch(e){}
-  const initial=saved==="dark"?"dark":"light";
-  root.dataset.theme=initial;
-  function setupAppearance(){
-    const nav=document.querySelector(".navin");
-    if(!nav||document.querySelector(".appearance-toggle"))return;
-    const button=document.createElement("button");
-    button.type="button";
-    button.className="appearance-toggle";
-    button.setAttribute("aria-label","تبديل المظهر بين الفاتح والداكن");
-    function update(theme){
-      root.dataset.theme=theme;
-      button.textContent=theme==="dark"?"☀️ المظهر الفاتح":"🌙 المظهر الداكن";
-      button.setAttribute("aria-pressed",String(theme==="dark"));
-      const meta=document.querySelector('meta[name="theme-color"]');
-      if(meta)meta.content=theme==="dark"?"#15131A":"#F3EBDD";
-    }
-    update(root.dataset.theme);
-    button.addEventListener("click",function(){
-      const next=root.dataset.theme==="dark"?"light":"dark";
-      update(next);
-      try{localStorage.setItem("carto-appearance",next)}catch(e){}
-    });
-    nav.appendChild(button);
-  }
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",setupAppearance);
-  else setupAppearance();
-})();
-</script>
-<script defer src="assets/arcade-experience.js?v=20261030-2"></script><script defer src="assets/arcade-phase2.js?v=20261030-p2"></script></body></html>
+
+<script defer src="assets/arcade-experience.js?v=20261030-fixes"></script><script defer src="assets/arcade-phase2.js?v=20261030-fixes"></script></body></html>

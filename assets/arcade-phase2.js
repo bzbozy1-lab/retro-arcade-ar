@@ -17,18 +17,13 @@ const achievements=[
 {id:"arabic",icon:"ع",title:"جسر اللغة",en:"ARABIC SUPPORT",hint:"استكشاف قسم الألعاب المعربة"}
 ];
 function mood(pose,ms=1700){
- const candidates=d.querySelectorAll(".hero-mascot,.carto-mascot-live,.arcade-guide-robot");
+ const candidates=d.querySelectorAll(".hero-mascot,.carto-mascot-live,.arcade-guide-robot,.nav .brandmascot");
  if(!candidates.length)return;
  clearTimeout(mascotTimer);
  candidates.forEach(el=>{el.src=poses[pose]||robot;el.dataset.mood=pose});
- mascotTimer=setTimeout(()=>candidates.forEach(el=>{el.src=robot;delete el.dataset.mood}),ms);
+ if(ms>0)mascotTimer=setTimeout(()=>candidates.forEach(el=>{el.src=robot;delete el.dataset.mood}),ms);
 }
-function toast(message){
- const node=d.getElementById("arcadeToast");
- if(!node)return;
- node.textContent=message;node.hidden=false;
- clearTimeout(window.cartoPhase2Toast);window.cartoPhase2Toast=setTimeout(()=>node.hidden=true,3500);
-}
+function toast(message){window.CartoToast?.(message,3500)}
 function unlock(id){
  const achieved=getAchievements();if(achieved[id])return;
  achieved[id]=Date.now();saveAchievements(achieved);
@@ -66,15 +61,22 @@ function addIdentityShowcase(){
  if(last)last.before(section);else main.append(section);
  refreshAchievements();
 }
+let revealObserver;
 function setupScrollReveal(){
  if(reduce||!("IntersectionObserver"in window))return;
- const elements=d.querySelectorAll(".gamecard,.archivecard,.platform,.gaming-source-card,.local-card,.term");
- const ob=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("arcade-visible");ob.unobserve(entry.target)}})},{threshold:.08});
- elements.forEach((el,i)=>{el.classList.add("arcade-reveal");el.style.setProperty("--arcade-reveal-delay",Math.min(i%8*35,175)+"ms");ob.observe(el)});
+ if(!revealObserver)revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add("arcade-visible");revealObserver.unobserve(entry.target)}
+ }),{threshold:.08});
+ d.querySelectorAll(".gamecard,.archivecard,.platform,.gaming-source-card,.local-card,.term").forEach((el,i)=>{
+  if(el.dataset.revealReady)return;
+  el.dataset.revealReady="true";
+  el.classList.add("arcade-reveal");el.style.setProperty("--arcade-reveal-delay",Math.min(i%8*35,175)+"ms");
+  revealObserver.observe(el);
+ });
 }
 function attachMascotSearch(){
  const search=d.querySelector("#gameSearch,#termSearch");
- if(!search)return;
+ if(!search||d.body.dataset.page==="reference"||search.closest("[hidden]"))return;
  const filters=search.closest(".filters")||search.parentElement;
  if(filters && !d.querySelector(".arcade-search-companion")){
   const helper=d.createElement("div");helper.className="arcade-search-companion";
@@ -85,7 +87,7 @@ function attachMascotSearch(){
  search.addEventListener("input",()=>{
   clearTimeout(timer);timer=setTimeout(()=>{
     const empty=d.querySelector("#gameGrid .empty,#termGrid .empty");
-    if(empty)mood("sad",1600);else if(search.value.trim())mood("curious",900);
+    if(empty)mood("sad",0);else if(search.value.trim())mood("curious",900);else mood("happy",0);
   },260);
  });
 }
@@ -95,11 +97,10 @@ function init(){
   const target=e.target;
   if(target.closest("[data-details]")){unlock("discover");mood("surprised",1250)}
   else if(target.closest("[data-source]"))mood("curious",1250);
-  if(target.closest(".wishlist-option,[data-category]")){
-    setTimeout(()=>{checkList();mood("celebrate",1400)},0);
-  }
-  if(target.closest(".wishlist-remove"))setTimeout(checkList,0);
+
  },true);
+ d.addEventListener("carto:wishlist-change",event=>{checkList();if(event.detail?.action==="save")mood("celebrate",1400)});
+ d.addEventListener("carto:catalog-render",setupScrollReveal);
  if(d.body.dataset.page==="localization")unlock("arabic");
  checkList();
  window.addEventListener("storage",()=>{refreshAchievements();checkList()});

@@ -26,11 +26,12 @@ function beep(type){
   o.start(t);o.stop(t+v[2]+.01);
  }catch(e){}
 }
-function toast(message){
+function toast(message,duration=2600){
  const box=doc.getElementById("arcadeToast");if(!box)return;
  box.textContent=message;box.hidden=false;
- clearTimeout(toast.timer);toast.timer=setTimeout(()=>{box.hidden=true},2600);
+ clearTimeout(toast.timer);toast.timer=setTimeout(()=>{box.hidden=true},duration);
 }
+window.CartoToast=toast;
 function init(){
  const main=doc.querySelector("main");
  if(main){main.id=main.id||"main-content";const skip=doc.createElement("a");skip.className="skip-content";skip.href="#main-content";skip.textContent="تجاوز إلى المحتوى";doc.body.prepend(skip);}
@@ -66,10 +67,10 @@ function init(){
  const toastEl=doc.createElement("div");toastEl.id="arcadeToast";toastEl.className="arcade-toast";toastEl.setAttribute("role","status");toastEl.setAttribute("aria-live","polite");toastEl.hidden=true;doc.body.append(toastEl);
  doc.addEventListener("click",e=>{
   if(e.target.closest(".arcade-sound"))return;
-  if(e.target.closest(".wishlist-option,[data-category]")){beep("save");toast("✓ تم تحديث قائمتك الشخصية");return}
   if(e.target.closest("[data-details],[data-source],.wishlist-heart,[data-wish-name]")){beep("open");return}
   if(e.target.closest(".btn,.navlinks a,.platform,.local-btn,.appearance-toggle"))beep("tap");
  },{passive:true});
+ doc.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save"){beep("save");toast("✓ تم تحديث قائمتك الشخصية")}else toast("تمت إزالة اللعبة من قائمتك")});
  const year=doc.getElementById("yearNow");if(year)year.textContent=new Date().getFullYear();
  if(!reduced.matches){
   const mascot=doc.querySelector(".brandmascot");
@@ -79,3 +80,4 @@ function init(){
 }
 if(doc.readyState==="loading")doc.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
+

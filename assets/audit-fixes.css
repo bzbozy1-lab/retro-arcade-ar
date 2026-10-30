@@ -1,0 +1,71 @@
+/* CARTO audit repairs: keep the sticker/pixel identity, remove layout traps. */
+[hidden]{display:none!important}
+html{overflow-x:clip;scroll-padding-top:150px}
+body{overflow-x:clip}
+html[data-theme="light"]{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+.navin,.arcade-controls,.gameinfo,.wishlist-gametext{min-width:0}
+.navlinks{flex-wrap:wrap}
+.footerlinks{flex-wrap:wrap}
+a:hover{text-shadow:none}
+.nav .brandname small{font-size:11px!important}
+.tag,.arcade-8bit{font-size:12px}
+.arcade-achievement small,.logo-chip small{font-size:11px!important}
+.logo-variant{padding:14px}
+.wordmark small{font-size:11px;color:inherit}
+.sectionhead h1,.sectionhead h2{padding:4px 12px}
+.cardbottom{gap:10px;flex-wrap:wrap}
+.cardbottom .textbtn{min-height:36px;display:inline-flex;align-items:center;text-align:start}
+.wishlist-heart{min-width:44px!important;min-height:44px!important;height:44px!important;flex-shrink:0}
+.gameimage .source{color:#fff;background:#101216;padding:3px 7px;font:700 12px Tajawal,sans-serif;line-height:1.5;z-index:1}
+.cover-kind{position:absolute;inset-block-start:7px;inset-inline-end:7px;background:#F3EBDD;color:#101216;border:2px solid #101216;padding:2px 7px;font:700 12px Tajawal,sans-serif}
+.gameimage .cover-pending{object-fit:contain;padding:36px}
+.modal,.wishlist-modal{overscroll-behavior:contain}
+.modalbox,.wishlist-modalbox{max-height:calc(100dvh - 32px);overscroll-behavior:contain;overflow-y:auto;overflow-wrap:anywhere}
+.modalhead,.wishlist-modalhead{align-items:flex-start}
+.modalhead h2,.wishlist-modalhead h2{min-width:0;overflow-wrap:anywhere}
+.close,.wishlist-close{min-width:44px;min-height:44px;flex-shrink:0}
+.game-facts{margin:18px 0}
+.game-facts>div{display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,2fr);gap:14px;padding:10px 0;border-bottom:1px dashed currentColor}
+.game-facts dt{font-weight:700}
+.game-facts dd{margin:0;overflow-wrap:anywhere;unicode-bidi:plaintext}
+.edition-note{padding:12px;border:2px dashed currentColor;font-size:14px}
+.arcade-reveal{opacity:1;transform:none;transition:box-shadow .18s ease}
+.arcade-reveal.arcade-visible{animation:carto-card-in .3s ease-out both;animation-delay:var(--arcade-reveal-delay,0ms)}
+@keyframes carto-card-in{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:none}}
+.identity-audit-notes{margin:28px 0}
+.identity-audit-notes li{margin-block:10px}
+.identity-audit-notes h2{font:32px Lalezar,Tajawal,sans-serif;margin:0 0 12px}
+.identity-audit-notes p,.identity-audit-notes li{line-height:1.9}
+@media(max-width:900px){
+ .navlinks{flex:0 0 100%;width:100%;overflow-x:auto;overscroll-behavior-inline:contain;flex-wrap:nowrap}
+ .navlinks a{min-height:44px;display:inline-flex;align-items:center}
+}
+@media(max-width:600px){
+ .navin{display:grid!important;grid-template-columns:1fr;gap:9px!important}
+ .nav .brand{justify-self:start}
+ .arcade-controls{width:100%;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+ .arcade-controls button{min-height:44px;white-space:normal;font-size:13px!important}
+ .navlinks{order:initial;max-width:100%;font-size:14px}
+ .sectionhead p,.platform small,.meta,.notice{font-size:14px!important}
+ .gameinfo h3,.wishlist-gametext h3{font-size:14px!important;line-height:1.65}
+ .textbtn{font-size:13px!important}
+ .field{font-size:16px!important;min-height:48px}
+ .cardbottom{flex-direction:row;align-items:center}
+ .cardbottom .textbtn{flex:1 1 100%;min-height:36px}
+ .game-facts>div{grid-template-columns:1fr;gap:4px}
+ .modal,.wishlist-modal{padding:12px}
+ .modalbox,.wishlist-modalbox{padding:16px;max-height:calc(100dvh - 24px)}
+ .wishlist-game{flex-wrap:wrap}
+ .wishlist-gameactions{margin-inline-start:auto}
+ .wishlist-option{min-height:48px}
+ .arcade-search-companion{width:auto;font-size:14px}
+ body[data-page="home"] .hero .wrap{padding-inline-end:0;padding-top:64px}
+ .hero h1{font-size:clamp(32px,8vw,44px)!important;line-height:1.35!important}
+ .hero h1 em{max-width:100%;padding-inline:6px}
+ .term p,.archivecard p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+ .arcade-reveal,.arcade-reveal.arcade-visible,.arcade-reveal.arcade-visible:hover{opacity:1!important;transform:none!important}
+}
