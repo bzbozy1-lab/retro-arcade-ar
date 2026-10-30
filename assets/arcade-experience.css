@@ -1,0 +1,95 @@
+/* CARTO Arcade Experience — shared refinement, loaded after the established identity */
+:root{--arc-ink:#101216;--arc-lime:#C8F31D;--arc-orange:#FF5B2E;--arc-blue:#2F5BFF;--arc-cream:#F3EBDD;--arc-paper:#FFFBF2}
+html{scroll-padding-top:112px}
+body{min-height:100dvh;display:flex;flex-direction:column}
+main{flex:1;position:relative}
+::selection{background:#2F5BFF;color:white}
+a,button{touch-action:manipulation}
+:focus-visible{outline:3px dashed #2F5BFF!important;outline-offset:4px}
+html[data-theme="dark"] :focus-visible{outline-color:#C8F31D!important}
+.skip-content{position:fixed;top:-100px;right:15px;z-index:100;background:#C8F31D;color:#101216;border:3px solid #101216;padding:10px 18px;font-weight:800}
+.skip-content:focus{top:12px}
+.topline{height:8px;background:repeating-linear-gradient(90deg,#C8F31D 0 32px,#101216 32px 36px,#FF5B2E 36px 68px,#101216 68px 72px,#2F5BFF 72px 104px,#101216 104px 108px)}
+.nav{position:sticky!important;top:0!important;z-index:40!important;background:#F3EBDDf5!important;box-shadow:0 5px 0 #1012161a;isolation:isolate}
+.navin{gap:12px!important;min-height:76px}
+.nav .brand{min-width:150px;gap:12px}
+.nav .brandmascot{border:3px solid #101216!important;background:#C8F31D!important;padding:3px;box-shadow:4px 4px 0 #101216;image-rendering:pixelated;transform-origin:center bottom}
+.nav .brandname{font-size:30px;letter-spacing:.5px}
+.nav .brandname small{letter-spacing:0;font:700 10px Tajawal,sans-serif;color:#56534d}
+.navlinks{flex:1;display:flex;align-items:center;gap:5px}
+.navlinks a{border:2px solid transparent;border-radius:2px;padding:6px 10px;font-size:13px;line-height:1.3;transition:background .15s,transform .15s}
+.navlinks a:is(:hover,:focus-visible){background:#FF5B2E!important;border-color:#101216;box-shadow:3px 3px 0 #101216;transform:translateY(-2px);color:#101216!important}
+.navlinks a.active{background:#C8F31D!important;border:2px solid #101216!important;box-shadow:3px 3px 0 #101216!important;color:#101216!important}
+.arcade-controls{display:flex;align-items:center;gap:7px;margin-inline-start:auto}
+.arcade-sound{background:#FFFBF2;border:2px solid #101216;color:#101216;padding:7px 10px;font:800 12px Tajawal,sans-serif;box-shadow:3px 3px 0 #101216;cursor:pointer;white-space:nowrap}
+.arcade-sound[aria-pressed="true"]{background:#C8F31D}
+.arcade-sound:hover{background:#FF5B2E}
+.appearance-toggle{padding:7px 10px!important;font-size:12px!important;box-shadow:3px 3px 0 #101216!important}
+.arcade-ticker{background:#101216;color:#C8F31D;border-bottom:4px solid #2F5BFF;text-align:center;font:700 12px Tajawal,sans-serif;letter-spacing:.1px;padding:5px 12px}
+.arcade-ticker b{font:12px Silkscreen,monospace;color:#FF5B2E;margin-inline:8px}
+.hero{overflow:hidden;isolation:isolate}
+.hero:before{content:"";position:absolute;width:210px;height:210px;left:-65px;top:-85px;border:20px solid #2F5BFF;border-radius:50%;opacity:.35;pointer-events:none}
+.hero:after{content:"";position:absolute;width:90px;height:90px;right:4%;bottom:-44px;background:#FF5B2E;transform:rotate(23deg);opacity:.7;pointer-events:none}
+.hero h1{max-width:920px}
+.hero-mascot{image-rendering:pixelated;transform-origin:center bottom;animation:carto-bob 3.6s ease-in-out infinite}
+.heroactions .btn{position:relative}
+.sectionhead{position:relative}
+.sectionhead h1,.sectionhead h2{box-shadow:5px 5px 0 #101216}
+.platforms,.cards,.gemgrid,.archivegrid,.gaming-sources-grid{align-items:stretch}
+.platform,.gamecard,.gemcard,.archivecard,.gaming-source-card,.identity-card,.local-card{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.platform:hover,.gamecard:hover,.gemcard:hover,.archivecard:hover,.gaming-source-card:hover,.identity-card:hover,.local-card:hover{transform:translateY(-4px) rotate(-.3deg);box-shadow:7px 9px 0 #101216}
+.btn,.local-btn,.textbtn,.wishlist-heart{transition:transform .14s ease,box-shadow .14s ease,filter .14s ease}
+.btn:active,.local-btn:active,.arcade-sound:active,.appearance-toggle:active{transform:translate(3px,3px)!important;box-shadow:1px 1px 0 #101216!important}
+.gamecard:focus-within,.platform:focus-visible{outline:3px dashed #2F5BFF;outline-offset:4px}
+.modalbox,.wishlist-modalbox{animation:carto-pop .19s ease-out both}
+.arcade-toast{position:fixed;inset-inline-end:16px;bottom:20px;z-index:101;background:#C8F31D;color:#101216;border:3px solid #101216;box-shadow:6px 6px 0 #101216;max-width:min(92vw,380px);padding:11px 16px;font:800 15px Tajawal,sans-serif;pointer-events:none;animation:carto-pop .19s ease-out}
+.arcade-toast[hidden]{display:none}
+.arcade-footer{background:#101216;color:#F3EBDD;border-top:7px solid #C8F31D;margin-top:45px;padding:32px 0 24px;position:relative;overflow:hidden}
+.arcade-footer:before{content:"";position:absolute;left:-55px;top:-100px;width:190px;height:190px;border:15px solid #2F5BFF;border-radius:50%;opacity:.3;pointer-events:none}
+.arcade-footer .footerin{position:relative;display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(180px,1fr) auto;gap:24px;align-items:start}
+.arcade-footer .brand{color:#F3EBDD}
+.arcade-footer .brandname small{color:#C8F31D!important}
+.arcade-footer .brandicon{background:#C8F31D;color:#101216}
+.arcade-footer .footerlinks{display:flex;max-width:500px;gap:10px 16px}
+.arcade-footer .footerlinks a{color:#F3EBDD!important;line-height:1.6}
+.arcade-footer .footerlinks a:hover{color:#C8F31D!important;background:transparent!important}
+.arcade-footer .footerin>p{color:#DAD1BD!important;font-size:12px;text-align:start}
+.arcade-footer-info{font-size:13px;color:#DAD1BD;max-width:270px;margin-top:9px}
+.arcade-footer-stamp{font:13px Silkscreen,monospace;color:#C8F31D;direction:ltr;display:inline-flex;border:2px solid #C8F31D;padding:7px 10px;margin-top:12px}
+.arcade-footer-bottom{grid-column:1/-1;border-top:1px dashed #F3EBDD66;padding-top:13px;font-size:12px;color:#DAD1BD;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.arcade-footer-bottom a{color:#C8F31D}
+html[data-theme="dark"] .nav{background:#15131Af4!important;box-shadow:0 5px 0 #05050788}
+html[data-theme="dark"] .navlinks a:not(.active){color:#F3EBDD!important}
+html[data-theme="dark"] .navlinks a:hover{color:#101216!important}
+html[data-theme="dark"] .arcade-sound{background:#302A38;color:#F3EBDD;border-color:#F3EBDD;box-shadow:3px 3px 0 #070707}
+html[data-theme="dark"] .arcade-sound[aria-pressed="true"]{background:#C8F31D;color:#101216}
+html[data-theme="dark"] .arcade-footer{background:#101216!important;color:#F3EBDD!important;border-top-color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer{background:#101216!important;color:#F3EBDD!important;border-top-color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer .brand,html[data-theme="light"] .arcade-footer .footerlinks a,html[data-theme="light"] .arcade-footer .footerin>p{color:#F3EBDD!important}
+@keyframes carto-bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes carto-pop{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1100px){.nav .brand{min-width:auto}.navlinks a{font-size:12px;padding:6px}}
+@media(max-width:900px){
+ .navin{display:flex;flex-wrap:wrap!important;align-items:center!important}
+ .navlinks{order:3;flex:0 0 100%;width:100%;overflow-x:auto;flex-wrap:nowrap!important;white-space:nowrap;justify-content:flex-start!important;scrollbar-width:thin;padding:8px 4px 11px}
+ .navlinks a{flex-shrink:0;font-size:13px;padding:7px 10px}
+ .arcade-controls{margin-inline-start:auto}
+ .arcade-footer .footerin{grid-template-columns:1fr 1fr}
+ .arcade-footer .footerin>p{grid-column:1/-1}
+}
+@media(max-width:600px){
+ .nav{position:sticky!important}
+ .navin{padding:9px 0!important;gap:7px!important}
+ .nav .brandname{font-size:25px}
+ .nav .brandname small{font-size:9px}
+ .nav .brandmascot{width:38px;height:38px}
+ .arcade-sound,.appearance-toggle{font-size:11px!important;padding:6px 8px!important}
+ .arcade-ticker{font-size:11px}
+ .arcade-footer{margin-top:25px;padding:26px 0 18px}
+ .arcade-footer .footerin{grid-template-columns:1fr;gap:16px}
+ .arcade-footer .footerin>p,.arcade-footer-bottom{grid-column:1}
+ .arcade-footer .footerlinks{gap:8px 12px}
+ .hero:before{width:120px;height:120px;border-width:12px}
+ .hero-mascot{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){.hero-mascot{animation:none!important}.modalbox,.wishlist-modalbox,.arcade-toast{animation:none!important}.platform,.gamecard,.gemcard,.archivecard,.gaming-source-card,.identity-card,.local-card{transition:none!important;transform:none!important}}
