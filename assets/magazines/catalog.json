@@ -1,0 +1,752 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "sakhr-ax170",
+      "title": "صخر AX-170 — دليل المستخدم",
+      "category": "manuals",
+      "pages": 185,
+      "file": null,
+      "cover": "assets/magazines/covers/sakhr-ax170.webp",
+      "bytes": 51033116,
+      "originalBytes": 145593857,
+      "sourceFilename": "Sakhr AX-170 User Manual.pdf",
+      "rotationNormalized": false,
+      "sha256": "1b3b49afef14689a361732d54f359b2cc3fceaf018e14b70e3fcb068d5dcaac6",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "f530e07cfe4875c6d952e85b86de36b08b97c0a83e18aa73d79963f56d156790"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "08167fbaeb1c72c394c7f56d0ee2779712acd36d7eae69c9fac1ff0919c7d0d7"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "92fd5d4c8bbfd61c45ef9a8ed28532edc96fc4f3f09057e1a6cc9faaf7684863"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "285fafcb87ad45d868a96b96eea751cce234245204d49c0fec4a106e542c4e78"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 8000000,
+          "sha256": "3345e41150511fd3a55ed506da7c707e828957293112dec010f753ab5905aa9d"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-006.bin",
+          "offset": 40000000,
+          "bytes": 8000000,
+          "sha256": "c891c100b18868bacc09a8a972c8ae2ad241f9c18094599506810ab5f41266c4"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-ax170/chunk-007.bin",
+          "offset": 48000000,
+          "bytes": 3033116,
+          "sha256": "0b281413d083cf623e887cffe979dac19b29ccc15b7b0d232bfa22c7aee4e591"
+        }
+      ]
+    },
+    {
+      "id": "sakhr-windows",
+      "title": "صخر على الويندوز — دليل الاستخدام",
+      "category": "manuals",
+      "pages": 194,
+      "file": null,
+      "cover": "assets/magazines/covers/sakhr-windows.webp",
+      "bytes": 53414886,
+      "originalBytes": 58036229,
+      "sourceFilename": "دليل استخدام صخر على  الويندوز.pdf",
+      "rotationNormalized": false,
+      "sha256": "06972a8d3ee0895bc2d91af765632822abfa77162c23631dac792f1c5cb98107",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "4f23f0116b6fc26fb90567c8b319f9a01af8f2966e9528d3789cc0d275776d61"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "1f76eacb713bec191c2cc91086206b32e980ccebaf5c8a9bd46bffd708674266"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "3951d0e15020f847816e50b5e252934c0aad0bd8cd622eeaecf4f1d6ef7e8df9"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "6d0a98292d2c07b7cd26887a5164ca64eabdc0b9475b64921ca4e388bd17cb0b"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 8000000,
+          "sha256": "bf518bc74049afe2b5588ee2bf6e91c322c36d1bf4ca812e243c869a2aedec1c"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-006.bin",
+          "offset": 40000000,
+          "bytes": 8000000,
+          "sha256": "1f243cc32ee06e7c56f37f7e4e9d52db6c3f962a0d965903c402c47efb5e09a7"
+        },
+        {
+          "file": "assets/magazines/pdf/sakhr-windows/chunk-007.bin",
+          "offset": 48000000,
+          "bytes": 5414886,
+          "sha256": "c331545fbe2be20f35573d52b2d7d853589e6f3a253d151afff5459bf7e11271"
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-3",
+      "title": "ريزدنت إيفل 3 — عدد خاص",
+      "category": "specials",
+      "pages": 44,
+      "file": null,
+      "cover": "assets/magazines/covers/resident-evil-3.webp",
+      "bytes": 19142090,
+      "originalBytes": 68785004,
+      "sourceFilename": "مجلة خاصة - ريزدنت ايفل 3.pdf",
+      "rotationNormalized": false,
+      "sha256": "c657b64e645a0e8304b41462e2d046a4a32e0f1872cc7c152d4a8387600df02b",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/resident-evil-3/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "95520f2f0f9e0c7045dde99a55a9b734025bf62dd854cbe140fc41b3fab45e1d"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-3/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "512389f35b9b9198ec7729fd7c3f910df55761275823515292c232b922350fce"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-3/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 3142090,
+          "sha256": "db6d0b6c62fb062f9b05250becfe72c631bc08e33f519c085e98fd0cbb38bdcc"
+        }
+      ]
+    },
+    {
+      "id": "dino-crisis-1",
+      "title": "داينو كرايسيس — الحل الكامل",
+      "category": "specials",
+      "pages": 84,
+      "file": null,
+      "cover": "assets/magazines/covers/dino-crisis-1.webp",
+      "bytes": 39862381,
+      "originalBytes": 159740324,
+      "sourceFilename": "مجلة داينو كاريسيس الاولى.pdf",
+      "rotationNormalized": false,
+      "sha256": "b7c7885c912dd8aacf419098a5a18b704f52d97ba9c3c0ea71b0fc678370c44b",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/dino-crisis-1/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "364173d4d41df884d481b448c1c9a25c88cac7542c51076a3906b1d9b638a6df"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-1/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "1b56c99613f5b68b2590a5e2f64007ce606bebe255117030f359a7374e87658f"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-1/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "4d8c53239ebac0857f2c07ee7bb1a431a53f446f215811e1c0ed52f9e891f5d8"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-1/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "cace2bda33e5e44e5ee22a2ff349d29a5036c625cccd714674133836a96f8cfa"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-1/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 7862381,
+          "sha256": "775952b98c4eac5b54a042adb84a6f91d5c73e5fb072526fe14210a3e5fa2caa"
+        }
+      ]
+    },
+    {
+      "id": "dino-crisis-2",
+      "title": "داينو كرايسيس 2 — الحل الكامل",
+      "category": "specials",
+      "pages": 68,
+      "file": null,
+      "cover": "assets/magazines/covers/dino-crisis-2.webp",
+      "bytes": 38512682,
+      "originalBytes": 131813882,
+      "sourceFilename": "مجلة داينو كرايسيس الثانية.pdf",
+      "rotationNormalized": false,
+      "sha256": "d52df805146be9a66c708bfdda7418ef30988e6961c567f92535a2377d286828",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/dino-crisis-2/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "19b49c19103c935ac56062edc9548e1d2c7723e7cabf790c70393efa6cd06c5c"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-2/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "f5efbb17ab4cb61cd4c655f2b06adee1d8cd8c1e3b2962d5616bf431bedca7c4"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-2/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "59666790b649185422fd1cc3a721956baf7c23f6cf2a0cc4a881e857beee2d99"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-2/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "f19942a8c822c86fff1d12727d39929f53da0c0f847d666cfe92228dd1d67590"
+        },
+        {
+          "file": "assets/magazines/pdf/dino-crisis-2/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 6512682,
+          "sha256": "8057a90dc0b212af7d0590ea64e7c3d310eb8c668673031ca2eb8b9077631d55"
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-2",
+      "title": "ريزدنت إيفل 2 — حلول",
+      "category": "specials",
+      "pages": 13,
+      "file": null,
+      "cover": "assets/magazines/covers/resident-evil-2.webp",
+      "bytes": 6508247,
+      "originalBytes": 129528821,
+      "sourceFilename": "مجلة ريزدنت ايفل 2 حلول.pdf",
+      "rotationNormalized": false,
+      "sha256": "6ef09ac1e18e10c6743258dbf729a9a5a6fe0aeef17dd0ea6b7fed49d985b392",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/resident-evil-2/chunk-001.bin",
+          "offset": 0,
+          "bytes": 6508247,
+          "sha256": "6ef09ac1e18e10c6743258dbf729a9a5a6fe0aeef17dd0ea6b7fed49d985b392"
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-4-ps2",
+      "title": "ريزدنت إيفل 4 — PlayStation 2",
+      "category": "specials",
+      "pages": 32,
+      "file": null,
+      "cover": "assets/magazines/covers/resident-evil-4-ps2.webp",
+      "bytes": 13648212,
+      "originalBytes": 53299210,
+      "sourceFilename": "مجلة ريزدنت ايفل 4 نسخة بلايستيشن 2.pdf",
+      "rotationNormalized": false,
+      "sha256": "8d15b4bd86b2bdb8c816b86364e53b95724bf8c1df9cd2d9f1447d9716ba42af",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/resident-evil-4-ps2/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "4285d126e7501581c2778e60a9dc445a51fdb01f3e8776c2dbc9a014aebda4d1"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-4-ps2/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 5648212,
+          "sha256": "9d168923f0cf9a674552da778d37e378989a1c31838b05abc7e552527bd6f552"
+        }
+      ]
+    },
+    {
+      "id": "silent-hill-3",
+      "title": "سايلنت هيل 3",
+      "category": "specials",
+      "pages": 18,
+      "file": null,
+      "cover": "assets/magazines/covers/silent-hill-3.webp",
+      "bytes": 8959494,
+      "originalBytes": 38541167,
+      "sourceFilename": "مجلة سايلنت هيل 3.pdf",
+      "rotationNormalized": false,
+      "sha256": "6bfed1b0d5a9a73245716a708344b3f00da291d1e2048aa4eb5871650756ce55",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/silent-hill-3/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8959494,
+          "sha256": "6bfed1b0d5a9a73245716a708344b3f00da291d1e2048aa4eb5871650756ce55"
+        }
+      ]
+    },
+    {
+      "id": "silent-hill-1",
+      "title": "سايلنت هيل",
+      "category": "specials",
+      "pages": 68,
+      "file": null,
+      "cover": "assets/magazines/covers/silent-hill-1.webp",
+      "bytes": 33097160,
+      "originalBytes": 137799608,
+      "sourceFilename": "مجلة سايلنت هيل.pdf",
+      "rotationNormalized": false,
+      "sha256": "9b1b14b137dd1dabceecd36697af7dfeef84578af52ef5652625de10438e5cfe",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/silent-hill-1/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "92485fd75153709f1cfd2b885436775add51cc9aa332bd13e87144e2922512ee"
+        },
+        {
+          "file": "assets/magazines/pdf/silent-hill-1/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "7cb360915b5eb0c524a73cbce3d0389e470c9f9db87366c7f1f9ca472db54ddc"
+        },
+        {
+          "file": "assets/magazines/pdf/silent-hill-1/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "ec884d9cca28260c92595df782f41dfd1eeb438cc292ac004e7ac8fcb434b2e5"
+        },
+        {
+          "file": "assets/magazines/pdf/silent-hill-1/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "9239f81aca7ad05c99891e885c822d9a56eeae2d0a89afd293f391663072a621"
+        },
+        {
+          "file": "assets/magazines/pdf/silent-hill-1/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 1097160,
+          "sha256": "f78462796113727e3b3e9a36be64006ff06ed7e0d9cb2c94db730c1920d0dbf1"
+        }
+      ]
+    },
+    {
+      "id": "final-fantasy-7-part2",
+      "title": "فاينل فانتسي 7 — الجزء الثاني",
+      "category": "specials",
+      "pages": 35,
+      "file": null,
+      "cover": "assets/magazines/covers/final-fantasy-7-part2.webp",
+      "bytes": 17123723,
+      "originalBytes": 106977909,
+      "sourceFilename": "مجلة فاينل فانتسي 7 الجزء الثاني.pdf",
+      "rotationNormalized": true,
+      "sha256": "d58a53af199dabceea3f756d1b877ca8a613f25407cf195775e34435a366f121",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/final-fantasy-7-part2/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "b9f78a94b3207eaf59e32d291721b6693f72fd7a4d0843cb35587b64e80c082b"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-7-part2/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "15d5daeb133aedecd9b5cc272736d701e8b96980a4b627719e0e654cde4e2981"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-7-part2/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 1123723,
+          "sha256": "b424028cbd3d0cdc6e34fd218ec30d1724016a556bc0a74b6bba5a070dc18966"
+        }
+      ]
+    },
+    {
+      "id": "final-fantasy-8",
+      "title": "فاينل فانتسي 8",
+      "category": "specials",
+      "pages": 77,
+      "file": null,
+      "cover": "assets/magazines/covers/final-fantasy-8.webp",
+      "bytes": 36432878,
+      "originalBytes": 132653162,
+      "sourceFilename": "مجلة فاينل فانتسي 8.pdf",
+      "rotationNormalized": false,
+      "sha256": "60c435ae7211c7616a2082a6ed0c3b7206f09fb58d1de10bdf074b340cad1861",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/final-fantasy-8/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "96c5bf83b81954b043930183a26e2214ebba2ff56a7917247d9b0c090a141309"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-8/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "7dbceaa88bbead39fcc4ab973431e49cc1e2b88168a3d2094fd9de9bd003fd97"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-8/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "ca1f9b486fa67a0091d748b2daf03079c1e0e24a67cf2111b9ffecedd2d9b9e4"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-8/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "ee9c3c9ab610eb3ab37b54576331b1fd0c4d270ff520d305398c67835bdea2af"
+        },
+        {
+          "file": "assets/magazines/pdf/final-fantasy-8/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 4432878,
+          "sha256": "3dd1e9022e5b3c5194640553dc1388b6451f3e95f8c9db27b0301b93c9192162"
+        }
+      ]
+    },
+    {
+      "id": "final-fantasy-9",
+      "title": "فاينل فانتسي 9",
+      "category": "specials",
+      "pages": 16,
+      "file": null,
+      "cover": "assets/magazines/covers/final-fantasy-9.webp",
+      "bytes": 7434992,
+      "originalBytes": 153754016,
+      "sourceFilename": "مجلة فاينل فانتسي 9.pdf",
+      "rotationNormalized": false,
+      "sha256": "2204b87ed6e47c75854e664502fb7bf3047a00c5879689123e7af64f0334439f",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/final-fantasy-9/chunk-001.bin",
+          "offset": 0,
+          "bytes": 7434992,
+          "sha256": "2204b87ed6e47c75854e664502fb7bf3047a00c5879689123e7af64f0334439f"
+        }
+      ]
+    },
+    {
+      "id": "mortal-kombat-film",
+      "title": "مورتال كومبات — عدد الفيلم",
+      "category": "specials",
+      "pages": 52,
+      "file": null,
+      "cover": "assets/magazines/covers/mortal-kombat-film.webp",
+      "bytes": 25831142,
+      "originalBytes": 91966549,
+      "sourceFilename": "مجلة فيلم مورتال كومبات.pdf",
+      "rotationNormalized": false,
+      "sha256": "d8e5976bd70cebd7e1ab64eed26c0e7788087ea5d0c6b7921b6d0c11c4746623",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/mortal-kombat-film/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "354bd0ac810eb2d5dd18a125e2a8d9c712e763cecf58c075fd8dde6018d0cba2"
+        },
+        {
+          "file": "assets/magazines/pdf/mortal-kombat-film/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "c8dd229be0f76252e26f59c330b4dbf0d72e5da8b3dae5acf77b0cfe8a40add9"
+        },
+        {
+          "file": "assets/magazines/pdf/mortal-kombat-film/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "bfa8337a8b7b985b054e280867274b1934ea5142760c03f644fb9cdeacd27243"
+        },
+        {
+          "file": "assets/magazines/pdf/mortal-kombat-film/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 1831142,
+          "sha256": "a04be9baf776f768d3f0611676230da10167f776fefdd90a971d57ce7f1bd5db"
+        }
+      ]
+    },
+    {
+      "id": "tekken-final-fantasy-7",
+      "title": "تيكن وفاينل فانتسي 7",
+      "category": "specials",
+      "pages": 39,
+      "file": null,
+      "cover": "assets/magazines/covers/tekken-final-fantasy-7.webp",
+      "bytes": 23812653,
+      "originalBytes": 154642188,
+      "sourceFilename": "مجلة لعبة تيكن و فاينل فانتسي 7.pdf",
+      "rotationNormalized": true,
+      "sha256": "94e4400baf4b391bffa2a927c4b7984f0221bee3db3cb5de9b1cfb0b5e0066d2",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/tekken-final-fantasy-7/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "0e8d185b54aa72dcdb88df046f14124ff3db6d7838249a90fad5da8076212bcd"
+        },
+        {
+          "file": "assets/magazines/pdf/tekken-final-fantasy-7/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "bc29775efae078cf7ea7fac8b06f5f390a95ca96a7b7e13d34879b33533ce441"
+        },
+        {
+          "file": "assets/magazines/pdf/tekken-final-fantasy-7/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 7812653,
+          "sha256": "1188482e6a77d9d2fc46b8bb909936fdb3fdd34966a05a20db886dc7d7d760c0"
+        }
+      ]
+    },
+    {
+      "id": "san-andreas",
+      "title": "سان أندرياس — الحل الكامل",
+      "category": "specials",
+      "pages": 76,
+      "file": null,
+      "cover": "assets/magazines/covers/san-andreas.webp",
+      "bytes": 36225421,
+      "originalBytes": 127754341,
+      "sourceFilename": "مجلة لعبة سان اندرياس.pdf",
+      "rotationNormalized": false,
+      "sha256": "796f9103a1d8f3e44897cb09a2e29cac96042101c2fc105672e442c1796d65f6",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/san-andreas/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "2a1fc21258993ad19b110c10200bd14b8becf884c3b3677ec92e14a3431de98d"
+        },
+        {
+          "file": "assets/magazines/pdf/san-andreas/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "d27dcbe6cae1f1dc3a2e25727b9919c9f68d26807269eff4dcd4c080940b5f0b"
+        },
+        {
+          "file": "assets/magazines/pdf/san-andreas/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "5e5fdaa8f4254641b80c252bb6209b766d8e582cd84dc13e8c60feee65767b0e"
+        },
+        {
+          "file": "assets/magazines/pdf/san-andreas/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "f85ca2d4f021ef1966b2b93a8b39913153c0ffde8056908554c77121ce20e5c5"
+        },
+        {
+          "file": "assets/magazines/pdf/san-andreas/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 4225421,
+          "sha256": "a66b5cdc59c40c424460e3dd34fbeec5dd64b7344ac2203596e280cab2175027"
+        }
+      ]
+    },
+    {
+      "id": "collection-3",
+      "title": "المجلة المنوعة — العدد الثالث",
+      "category": "general",
+      "pages": 79,
+      "file": null,
+      "cover": "assets/magazines/covers/collection-3.webp",
+      "bytes": 42043204,
+      "originalBytes": 155292653,
+      "sourceFilename": "مجلة منوعة العدد الثالث.pdf",
+      "rotationNormalized": false,
+      "sha256": "abf170f378add7f2940144fdb4ec49e1467119f5da889f533140f29ffec11567",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "ad12f3d3c1952fdff7781d55e5dc006a12a3c52f8bb39b35aa4a3ce6a2994fdb"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "d3ccee58279c62b517fa3d1330ee2565f3755a4d04ba605b986b6ac673ddfdfd"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "25307e1317335eeff2b78b6b7ccecc3c0f8850d9ea9f933a9cb64275f4e93261"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "add3bc72ca4acc7cc7e1b8d223c33dd45432d94f94afd423e81808e171a9161e"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 8000000,
+          "sha256": "c98cfb4e361014e11aeeb43d8aeeb185d391b8d24c6d04d199ba2ccd385c7f23"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-3/chunk-006.bin",
+          "offset": 40000000,
+          "bytes": 2043204,
+          "sha256": "f5ef167fcac7bbcf4e0c1c9ec407c3431a8905ac0d4e87ce5ef13b15c25d26ae"
+        }
+      ]
+    },
+    {
+      "id": "collection-5",
+      "title": "المجلة المنوعة — العدد الخامس",
+      "category": "general",
+      "pages": 90,
+      "file": null,
+      "cover": "assets/magazines/covers/collection-5.webp",
+      "bytes": 47721892,
+      "originalBytes": 168120161,
+      "sourceFilename": "مجلة منوعة العدد الخامس.pdf",
+      "rotationNormalized": false,
+      "sha256": "f13e040cf12ce36cd13ad288e26b9718c776df0f0c20cd59a4ee10db5a2c83d1",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "a442425c7260b64cc764aecb551768efef0aa2623fe703ad32e1fcaab60cb422"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "2d4a3e2371a226f8de5c160ad08e1dee9f6222448b8c35a3a8daa496f2afa08c"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "b4e0d78ffadc08dd8b86b2697c06757002ca74ed13eda3ddafd2cbdab8f64f46"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "aae5a947ae5b350f6bde5eebc07b87597bc192baa3b68bf0599761f4c2ac14fe"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 8000000,
+          "sha256": "32b53a30dd1b46d80e0237e2d67c7b798fb3ed21da3e1329c643e2f3420fb752"
+        },
+        {
+          "file": "assets/magazines/pdf/collection-5/chunk-006.bin",
+          "offset": 40000000,
+          "bytes": 7721892,
+          "sha256": "764e18e6558ed9f8139ffe38c4bf8f189c87362da3d559aec87264112fb46230"
+        }
+      ]
+    },
+    {
+      "id": "yakuza",
+      "title": "ياكوزا — الحل الكامل",
+      "category": "specials",
+      "pages": 14,
+      "file": null,
+      "cover": "assets/magazines/covers/yakuza.webp",
+      "bytes": 5551857,
+      "originalBytes": 20115575,
+      "sourceFilename": "مجلة ياكوزا.pdf",
+      "rotationNormalized": false,
+      "sha256": "93e651922d4af84f57d0a913a6f7deca3aad83d3203ba64d3326e928ba229422",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/yakuza/chunk-001.bin",
+          "offset": 0,
+          "bytes": 5551857,
+          "sha256": "93e651922d4af84f57d0a913a6f7deca3aad83d3203ba64d3326e928ba229422"
+        }
+      ]
+    },
+    {
+      "id": "resident-evil-issue5",
+      "title": "ريزدنت إيفل — العدد الخامس",
+      "category": "specials",
+      "pages": 86,
+      "file": null,
+      "cover": "assets/magazines/covers/resident-evil-issue5.webp",
+      "bytes": 50451717,
+      "originalBytes": 186746569,
+      "sourceFilename": "مجلة ريزدنت ايفل العدد الخامس.pdf",
+      "rotationNormalized": false,
+      "sha256": "cec4849217b8ed0a8171c432e504c776379a40edd95ba633a73225bcd9f08155",
+      "chunks": [
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-001.bin",
+          "offset": 0,
+          "bytes": 8000000,
+          "sha256": "ca3b801574d48d622f7fc69e31ea185cc21a8521c5d34fbfc397b3791d83c0e5"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-002.bin",
+          "offset": 8000000,
+          "bytes": 8000000,
+          "sha256": "40e6ec5c04a7f83943807056c37cc7d253c306ffb04c1b09a68ebc3b9d69fc74"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-003.bin",
+          "offset": 16000000,
+          "bytes": 8000000,
+          "sha256": "ee7629acc58530dd8514fd78f990f02124e736de1f0153dcc13fc3a8441aa5fe"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-004.bin",
+          "offset": 24000000,
+          "bytes": 8000000,
+          "sha256": "f36c33babe7b16f1e47c432fdef55ec97d349beb664ab733c2d1d8f950da8ed0"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-005.bin",
+          "offset": 32000000,
+          "bytes": 8000000,
+          "sha256": "e9527ca9049b076d40d5f77a1724b8e50b10e4211eaa32e31ed1e4d8ef6041b3"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-006.bin",
+          "offset": 40000000,
+          "bytes": 8000000,
+          "sha256": "1e4d175ef94f293ecd561d9aa76d160672f28beffc372fbf3a9857a69e95a6c7"
+        },
+        {
+          "file": "assets/magazines/pdf/resident-evil-issue5/chunk-007.bin",
+          "offset": 48000000,
+          "bytes": 2451717,
+          "sha256": "df38ec14ca29f6f352bf267abc7779d04d26211129413047eb94a75f42f2f92c"
+        }
+      ]
+    }
+  ]
+}

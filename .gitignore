@@ -1,0 +1,8 @@
+.build/
+__pycache__/
+*.pyc
+assets/magazines/pdf/*.pdf
+assets/magazines/pdf/.*
+assets/magazines/pdf/**/.*
+assets/magazines/covers/.*
+assets/vendor/pdfjs/.*
