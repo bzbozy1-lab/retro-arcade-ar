@@ -7,7 +7,7 @@
     root.setAttribute("data-theme",theme);
     var meta=document.querySelector('meta[name="theme-color"]');
     if(meta)meta.setAttribute("content",theme==="dark"?"#15131A":"#F3EBDD");
-    var button=document.querySelector(".appearance-toggle");
+    var button=document.querySelector(".nav .appearance-toggle");
     if(button){
       button.classList?.add('control-switch');
       button.innerHTML=scene+'<span class="control-copy"><span>مظهر الموقع</span><strong>'+(theme==='dark'?'داكن':'فاتح')+'</strong></span>';
@@ -20,7 +20,7 @@
     applyTheme(readTheme());
     var nav=document.querySelector(".navin");
     if(!nav)return;
-    var button=document.querySelector(".appearance-toggle");
+    var button=document.querySelector(".nav .appearance-toggle");
     if(!button){
       button=document.createElement("button");
       button.type="button";button.className="appearance-toggle";

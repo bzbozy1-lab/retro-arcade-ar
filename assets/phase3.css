@@ -102,3 +102,4 @@ body[data-page="home"] .hero .wrap{padding-inline-end:180px}
 .wordmark small{font-size:11px;letter-spacing:1px;color:#b83210}
 html[data-theme="dark"] .wordmark small{color:#ff986f}
 .motion-table-wrap{padding:8px}
+.variant-dark .wordmark small{color:#ff986f}

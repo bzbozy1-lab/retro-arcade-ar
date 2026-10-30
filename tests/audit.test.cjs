@@ -58,7 +58,7 @@ test('theme updates its next action, pressed state and storage on every toggle',
   const root={getAttribute:k=>attrs[k],setAttribute:(k,v)=>attrs[k]=v};
   const nav={appendChild:el=>{button=el}};
   const document={readyState:'complete',documentElement:root,
-    querySelector:sel=>sel==='.navin'?nav:sel==='.appearance-toggle'?button:null,
+    querySelector:sel=>sel==='.navin'?nav:sel==='.nav .appearance-toggle'?button:sel==='.appearance-toggle'?{preview:true}:null,
     createElement:()=>({attrs:{},setAttribute(k,v){this.attrs[k]=v},addEventListener(k,fn){this[k]=fn}})};
   const context={document,localStorage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)}};
   vm.runInNewContext(source('assets/theme.js'),context);
