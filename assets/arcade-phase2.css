@@ -1,0 +1,38 @@
+/* CARTO Arcade Experience — Phase 02, expressive mascot + discovery */
+.arcade-discovery-board{background:#101216;color:#F3EBDD;padding:clamp(18px,3vw,36px);border:4px solid #101216;box-shadow:9px 9px 0 #2F5BFF;position:relative;overflow:hidden}
+.arcade-discovery-board:before{content:"";position:absolute;width:135px;height:135px;left:-44px;top:-40px;border:18px solid #FF5B2E;border-radius:50%;opacity:.25;pointer-events:none}
+.arcade-guide{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;padding-bottom:18px;border-bottom:2px dashed #C8F31D88}
+.arcade-guide img{width:150px;image-rendering:pixelated;filter:drop-shadow(6px 7px 0 #2F5BFF);animation:carto-bob 3.6s ease-in-out infinite}
+.arcade-guide h2{font:clamp(30px,4vw,46px)/1.2 Lalezar,Tajawal,sans-serif;margin:4px 0;color:#C8F31D}
+.arcade-guide p{max-width:690px;font-size:16px;line-height:1.8;margin:0;color:#F3EBDD}
+.arcade-8bit{font:11px Silkscreen,monospace;color:#FF5B2E;direction:ltr;display:inline-block}
+.arcade-achievements-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 12px}
+.arcade-achievements-title strong{font:26px Lalezar,Tajawal,sans-serif}
+.arcade-achievements-title span{font:12px Silkscreen,monospace;color:#C8F31D}
+.arcade-achievement-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.arcade-achievement{position:relative;background:#252532;border:2px solid #666678;min-width:0;padding:14px 10px;text-align:center;opacity:.7}
+.arcade-achievement.unlocked{opacity:1;background:#34431C;border-color:#C8F31D;box-shadow:3px 3px 0 #2F5BFF}
+.arcade-achievement>span{display:block;font:40px Lalezar,sans-serif;line-height:1;color:#C8F31D}
+.arcade-achievement strong{display:block;font:20px Lalezar,Tajawal,sans-serif;margin-top:6px;color:#F3EBDD}
+.arcade-achievement small{display:block;font:9px Silkscreen,monospace;color:#F3EBDD;letter-spacing:0}
+.arcade-achievement p{font-size:12px;line-height:1.5;color:#DDDBD5;margin:8px 0 0}
+.arcade-identity-showcase{margin:35px 0;border:4px solid #101216;box-shadow:8px 8px 0 #2F5BFF;background:#101216;color:#F3EBDD;padding:clamp(16px,3vw,30px)}
+.arcade-showcase-banner h2{font:clamp(30px,4vw,44px)/1.3 Lalezar,Tajawal,sans-serif;color:#C8F31D;margin:8px 0}
+.arcade-showcase-banner p,.arcade-identity-rules p{color:#F3EBDD;line-height:1.85}
+.arcade-moods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:24px 0}
+.arcade-moods figure{margin:0;text-align:center;background:#F3EBDD;color:#101216;border:3px solid #C8F31D;padding:12px 8px;min-width:0}
+.arcade-moods img{width:min(100%,125px);height:125px;object-fit:contain;image-rendering:pixelated}
+.arcade-moods figcaption{font:700 12px Tajawal,sans-serif}
+.arcade-identity-rules{border-top:2px dashed #C8F31D;padding-top:18px}
+.arcade-identity-rules h3{color:#C8F31D;font:28px Lalezar,sans-serif;margin:0}
+.arcade-identity-rules .arcade-achievement-grid{margin-top:10px}
+.arcade-reveal{opacity:0;transform:translateY(18px);transition:opacity .35s ease,transform .35s ease;transition-delay:var(--arcade-reveal-delay,0ms)}
+.arcade-reveal.arcade-visible{opacity:1;transform:translateY(0)}
+.arcade-reveal.arcade-visible:hover{transform:translateY(-4px) rotate(-.3deg)}
+body[data-page="localization"] .local-hero img{animation:carto-bob 4.5s ease-in-out infinite}
+body[data-page="glossary"] .term:hover{background:#C8F31D!important;color:#101216!important}
+body[data-page="archive"] .archivecard:hover{outline:3px dashed #2F5BFF;outline-offset:4px}
+body[data-page="gems"] .gem-game:hover{box-shadow:7px 9px 0 #2F5BFF}
+@media(max-width:900px){.arcade-achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.arcade-guide{grid-template-columns:1fr;text-align:center;justify-items:center;gap:10px}.arcade-guide img{width:95px}.arcade-guide p{font-size:14px}.arcade-moods{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods img{height:90px}.arcade-achievement{padding:9px 7px}.arcade-achievement strong{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.arcade-reveal{opacity:1!important;transform:none!important;transition:none!important}.arcade-guide img,body[data-page="localization"] .local-hero img{animation:none!important}}
