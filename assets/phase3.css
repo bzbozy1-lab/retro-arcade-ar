@@ -103,3 +103,5 @@ body[data-page="home"] .hero .wrap{padding-inline-end:180px}
 html[data-theme="dark"] .wordmark small{color:#ff986f}
 .motion-table-wrap{padding:8px}
 .variant-dark .wordmark small{color:#ff986f}
+/* Legacy dark-brand shorthand must not clear the shared mascot atlas. */
+html[data-theme="dark"] .brandmascot.carto-sprite{background-image:url('carto-phase3.webp')!important;background-size:300% 200%!important;background-repeat:no-repeat!important}
