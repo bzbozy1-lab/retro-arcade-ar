@@ -93,3 +93,15 @@ html[data-theme="light"] .arcade-footer .brand,html[data-theme="light"] .arcade-
  .hero-mascot{max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){.hero-mascot{animation:none!important}.modalbox,.wishlist-modalbox,.arcade-toast{animation:none!important}.platform,.gamecard,.gemcard,.archivecard,.gaming-source-card,.identity-card,.local-card{transition:none!important;transform:none!important}}
+
+/* Footer brand layout and legacy overrides */
+.arcade-footer .footerin>.brand{display:flex;flex-wrap:wrap;align-content:start;align-items:center;max-width:330px;gap:8px 12px}
+.arcade-footer .footerin>.brand .arcade-footer-info{flex:0 0 100%;width:100%;margin:6px 0 0}
+.arcade-footer .footerin>.brand .arcade-footer-stamp{flex:0 0 auto;margin-top:6px}
+html[data-theme="light"] .arcade-footer .footerin>.brand .arcade-footer-info,
+html[data-theme="dark"] .arcade-footer .footerin>.brand .arcade-footer-info{color:#DAD1BD!important}
+html[data-theme="light"] .arcade-footer .brandname small,html[data-theme="dark"] .arcade-footer .brandname small{color:#C8F31D!important}
+html[data-theme="dark"] .arcade-footer .footerlinks a{color:#F3EBDD!important}
+html[data-theme="light"] .arcade-footer .footerlinks a:hover,html[data-theme="dark"] .arcade-footer .footerlinks a:hover{color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer .arcade-footer-bottom a,html[data-theme="dark"] .arcade-footer .arcade-footer-bottom a{color:#C8F31D!important}
+@media(max-width:600px){.arcade-footer .footerin>.brand{max-width:100%}}
