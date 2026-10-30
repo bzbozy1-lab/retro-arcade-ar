@@ -36,3 +36,13 @@ body[data-page="gems"] .gem-game:hover{box-shadow:7px 9px 0 #2F5BFF}
 @media(max-width:900px){.arcade-achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.arcade-guide{grid-template-columns:1fr;text-align:center;justify-items:center;gap:10px}.arcade-guide img{width:95px}.arcade-guide p{font-size:14px}.arcade-moods{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods img{height:90px}.arcade-achievement{padding:9px 7px}.arcade-achievement strong{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.arcade-reveal{opacity:1!important;transform:none!important;transition:none!important}.arcade-guide img,body[data-page="localization"] .local-hero img{animation:none!important}}
+
+.arcade-search-companion{display:flex;align-items:center;gap:10px;margin:5px 0 22px;padding:7px 13px;background:var(--panel);border:2px dashed var(--line);width:max-content;max-width:100%;font-weight:700;font-size:12px}
+.arcade-search-companion img{width:44px;height:50px;object-fit:contain;image-rendering:pixelated}
+.arcade-search-companion span{color:var(--text)}
+.arcade-identity-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:5px 0 28px;background:#101216;padding:15px;border:4px solid #2F5BFF;box-shadow:5px 5px 0 #101216}
+.arcade-identity-tabs a{border:2px solid #C8F31D;padding:5px 12px;color:#F3EBDD;font-weight:800;font-size:13px}
+.arcade-identity-tabs a:hover,.arcade-identity-tabs a:focus-visible{color:#101216;background:#C8F31D}
+.arcade-identity-tabs strong{flex:0 0 100%;color:#C8F31D;font:24px Lalezar,sans-serif}
+body[data-page="identity"] .arcade-identity-showcase{scroll-margin-top:145px}
+@media(max-width:600px){.arcade-identity-tabs{gap:6px;padding:11px}.arcade-identity-tabs a{font-size:12px;padding:5px 9px}}
