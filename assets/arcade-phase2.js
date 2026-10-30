@@ -75,6 +75,12 @@ function setupScrollReveal(){
 function attachMascotSearch(){
  const search=d.querySelector("#gameSearch,#termSearch");
  if(!search)return;
+ const filters=search.closest(".filters")||search.parentElement;
+ if(filters && !d.querySelector(".arcade-search-companion")){
+  const helper=d.createElement("div");helper.className="arcade-search-companion";
+  helper.innerHTML='<img class="carto-mascot-live" src="assets/carto-robot.svg" alt="كارتو يتفاعل مع نتائج البحث"><span>كارتو يساعدك في البحث!</span>';
+  filters.insertAdjacentElement("afterend",helper);
+ }
  let timer;
  search.addEventListener("input",()=>{
   clearTimeout(timer);timer=setTimeout(()=>{
