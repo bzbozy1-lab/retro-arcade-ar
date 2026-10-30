@@ -1,0 +1,68 @@
+/* Authored sticker symbols and deliberate motion throughout CARTO. */
+.carto-symbol{display:inline-block;width:64px;height:64px;vertical-align:middle;flex-shrink:0;overflow:visible;transform-origin:50% 75%}
+.platform>.carto-symbol{display:block;width:78px;height:78px;margin:0 auto 14px}
+.archivecard>.carto-symbol{width:78px;height:78px;margin-bottom:12px}
+.wishlist-optionemoji .carto-symbol{width:46px;height:46px}
+.wishlist-grouphead h2{display:flex;align-items:center;gap:9px}
+.wishlist-grouphead .carto-symbol,.wishlist-gameicon .carto-symbol{width:46px;height:46px}
+.arcade-achievement .carto-symbol{width:58px;height:58px}
+.symbol-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin:20px 0}
+.symbol-gallery figure{margin:0;text-align:center;padding:14px;border:2px solid var(--text);background:var(--panel)}
+.symbol-gallery figcaption{font:700 14px Tajawal,sans-serif;margin-top:12px}
+.symbol-gallery .carto-symbol{width:76px;height:76px}
+/* Sun shutter and equalizer are deliberately large enough to read while switching. */
+.control-icon,.control-icon svg{width:38px;height:38px}
+.control-switch .control-icon{position:relative}
+.mode-scene{width:40px;height:40px}
+.mode-sun,.mode-moon{transition:translate .55s cubic-bezier(.16,1,.3,1),rotate .7s ease,opacity .35s ease}
+.control-switch.is-switching .mode-scene{animation:carto-shutter .75s steps(5,end) 1}
+.appearance-toggle.is-switching .mode-sun{animation:carto-solar .75s ease-out 1}
+.appearance-toggle.is-switching .mode-moon{animation:carto-lunar .75s ease-out 1}
+.control-switch.is-switching .control-copy strong{animation:carto-state .6s steps(4,end) 1}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect{animation:carto-meter .75s ease-in-out 1}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect:nth-child(2){animation-delay:.06s}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect:nth-child(3){animation-delay:.12s}
+.arcade-sound[data-state="off"].control-performance .audio-scene{animation:carto-mute .7s steps(5,end) 1}
+.control-switch::after{content:"";position:absolute;inset:0;pointer-events:none;border:3px solid transparent}
+.control-switch.is-switching::after,.control-switch.control-performance::after{animation:carto-control-frame .8s steps(2,end) 1}
+@keyframes carto-shutter{0%{clip-path:inset(0)}25%{clip-path:inset(40% 0)}50%{clip-path:inset(0 20%)}100%{clip-path:inset(0)}}
+@keyframes carto-solar{0%{rotate:-85deg;scale:.65}100%{rotate:0deg;scale:1}}
+@keyframes carto-lunar{0%{rotate:45deg;scale:.5}100%{rotate:0deg;scale:1}}
+@keyframes carto-state{0%{translate:0 6px;opacity:.3}100%{translate:0 0;opacity:1}}
+@keyframes carto-meter{0%,100%{scale:1 .65}20%,65%{scale:1 1.15}40%,80%{scale:1 .25}}
+@keyframes carto-mute{0%{rotate:0deg;scale:1}30%{rotate:-14deg;scale:.85}65%{rotate:8deg;scale:1.1}100%{rotate:0deg;scale:1}}
+@keyframes carto-control-frame{0%,100%{border-color:transparent}35%,65%{border-color:#2f5bff}}
+/* A sticker lands once in the viewport; its text remains visible throughout. */
+@media(prefers-reduced-motion:no-preference){
+ .arcade-reveal{opacity:1!important;transform:none!important}
+ .sticker-arrive{animation:carto-sticker-land .48s cubic-bezier(.16,1,.3,1) 1!important;animation-delay:calc(var(--sticker-order,0)*45ms)!important}
+ .platform:hover>.carto-symbol,.platform:focus-visible>.carto-symbol,.archivecard:hover>.carto-symbol,.symbol-gallery figure:hover>.carto-symbol{animation:carto-stamp-turn .6s steps(5,end) 1}
+ .carto-pressed{animation:carto-print-press .25s ease-out 1}
+ .wishlist-heart.carto-pressed{animation:carto-heart-pick .55s ease-out 1}
+ .sticker-open{animation:carto-slot-open .42s cubic-bezier(.16,1,.3,1) 1!important}
+ .wishlist-modal.open .wishlist-option{animation:carto-option-deal .34s cubic-bezier(.16,1,.3,1) 1;animation-delay:calc(var(--option-order,0)*45ms)}
+ .wishlist-option:nth-child(2){--option-order:1}.wishlist-option:nth-child(3){--option-order:2}.wishlist-option:nth-child(4){--option-order:3}.wishlist-option:nth-child(5){--option-order:4}
+ .navlinks a,.footerlinks a{position:relative}
+ .footerlinks a::after{content:"";position:absolute;inset-inline:0;bottom:-3px;height:3px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .22s ease-out}
+ .footerlinks a:hover::after,.footerlinks a:focus-visible::after{transform:scaleX(1)}
+ .sectionhead h1,.sectionhead h2{transition:rotate .3s ease,translate .3s ease}
+ .sectionhead:hover h1,.sectionhead:hover h2{rotate:-1deg;translate:-2px -2px}
+ .carto-theme-shift .topline{animation:carto-theme-bar .8s steps(6,end) 1}
+ .hero-mascot.carto-sprite{animation:carto-wave-in .75s steps(5,end) 1!important}
+}
+@keyframes carto-sticker-land{0%{translate:0 15px;rotate:1.2deg;scale:.97}70%{rotate:-.4deg}100%{translate:0 0;rotate:0deg;scale:1}}
+@keyframes carto-stamp-turn{0%{rotate:0deg;scale:1}35%{rotate:-9deg;scale:1.12}75%{rotate:3deg}100%{rotate:0deg;scale:1}}
+@keyframes carto-print-press{0%{translate:0 0}40%{translate:2px 3px}100%{translate:0 0}}
+@keyframes carto-heart-pick{0%,100%{scale:1}25%{scale:.8}60%{scale:1.22;rotate:-8deg}}
+@keyframes carto-slot-open{0%{clip-path:inset(0 0 30% 0);translate:0 14px}100%{clip-path:inset(0);translate:0 0}}
+@keyframes carto-option-deal{0%{translate:15px 0;opacity:.45}100%{translate:0 0;opacity:1}}
+@keyframes carto-theme-bar{0%{background-position:0 0}100%{background-position:216px 0}}
+@keyframes carto-wave-in{0%{rotate:-10deg;scale:.85}65%{rotate:4deg}100%{rotate:0deg;scale:1}}
+@media(max-width:600px){.platform>.carto-symbol{width:64px;height:64px;margin-bottom:10px}.archivecard>.carto-symbol{width:70px;height:70px}.control-switch.control-switch{gap:7px}.control-icon,.control-icon svg{width:34px;height:34px}.mode-scene{width:36px;height:36px}.symbol-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){
+ .sticker-arrive,.sticker-open,.carto-pressed,.control-performance,.is-switching,.is-switching *,.control-performance *,.hero-mascot.carto-sprite,.wishlist-modal.open .wishlist-option{animation:none!important}
+ .mode-sun,.mode-moon,.control-copy strong,.footerlinks a::after{transition:none!important}
+ .carto-symbol{animation:none!important;transform:none!important}
+}
+.nav .brandname small{font-size:11px;letter-spacing:0}
+.archivecard h2{font:27px/1.3 Lalezar,Tajawal,sans-serif;margin:8px 0}

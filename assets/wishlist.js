@@ -21,7 +21,7 @@ function ensureModal(){
  document.body.appendChild(m);
  m.addEventListener("click",function(e){if(e.target===m||e.target.closest(".wishlist-close"))closeModal()});
  m.querySelector("#wishlistRemove").addEventListener("click",function(){var name=m.dataset.name;if(write(read().filter(function(g){return g.name!==name}))){closeModal();refresh();document.dispatchEvent(new CustomEvent("carto:wishlist-change",{detail:{action:"remove"}}))}});
- m.querySelector("#wishlistOptions").addEventListener("click",function(e){var b=e.target.closest("[data-category]");if(!b)return;var name=m.dataset.name,device=m.dataset.device;var list=read(),existing=list.find(function(g){return g.name===name});if(existing){existing.category=b.dataset.category;existing.device=device||existing.device}else list.push({name:name,device:device||"unknown",category:b.dataset.category,addedAt:Date.now()});if(write(list)){closeModal();refresh();document.dispatchEvent(new CustomEvent("carto:wishlist-change",{detail:{action:"save"}}))}});
+ m.querySelector("#wishlistOptions").addEventListener("click",function(e){var b=e.target.closest("[data-category]");if(!b)return;var name=m.dataset.name,device=m.dataset.device;var list=read(),existing=list.find(function(g){return g.name===name});if(existing){existing.category=b.dataset.category;existing.device=device||existing.device}else list.push({name:name,device:device||"unknown",category:b.dataset.category,addedAt:Date.now()});if(write(list)){closeModal();refresh();document.dispatchEvent(new CustomEvent("carto:wishlist-change",{detail:{action:"save",category:b.dataset.category}}))}});
  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
 }
 function closeModal(){window.CartoDialog.close(document.getElementById("wishlistModal"))}
@@ -31,7 +31,7 @@ function openModal(name,device){
  m.querySelector("#wishlistGameName").textContent=name;
  m.querySelector("#wishlistModalTitle").textContent=saved?"غيّر تصنيف اللعبة":"أضف إلى قائمة تحفك الفنية";
  m.querySelector("#wishlistRemove").hidden=!saved;
- m.querySelector("#wishlistOptions").innerHTML=CATEGORIES.map(function(c){return '<button type="button" class="wishlist-option '+(saved&&saved.category===c.id?"selected":"")+'" data-category="'+c.id+'"><span class="wishlist-optionemoji">'+c.emoji+'</span><span>'+esc(c.label)+'</span><span class="wishlist-check">'+(saved&&saved.category===c.id?"✓":"＋")+'</span></button>'}).join("");
+ m.querySelector("#wishlistOptions").innerHTML=CATEGORIES.map(function(c){return '<button type="button" class="wishlist-option '+(saved&&saved.category===c.id?"selected":"")+'" data-category="'+c.id+'"><span class="wishlist-optionemoji">'+window.CartoIcons.markup(c.id)+'</span><span>'+esc(c.label)+'</span><span class="wishlist-check">'+(saved&&saved.category===c.id?"✓":"＋")+'</span></button>'}).join("");
  window.CartoDialog.open(m);
 }
 function heart(name,device){var saved=find(name);return '<button type="button" class="wishlist-heart '+(saved?"is-saved":"")+'" data-wish-name="'+esc(name)+'" data-wish-device="'+esc(device||"unknown")+'" aria-label="'+(saved?"تعديل تصنيف "+esc(name):"أضف "+esc(name)+" إلى قائمة تحفك الفنية")+'" aria-pressed="'+(saved?"true":"false")+'" title="'+(saved?"موجودة في قائمة تحفك الفنية":"أضف إلى قائمة تحفك الفنية")+'">'+(saved?"♥":"♡")+'</button>'}
@@ -58,7 +58,7 @@ function renderList(){
  grid.className="wishlist-groups";
  grid.innerHTML=CATEGORIES.map(function(c){
   var games=list.filter(function(g){return g.category===c.id});
-  return '<section class="wishlist-group"><header class="wishlist-grouphead"><h2>'+c.emoji+' '+esc(c.label)+'</h2><span>'+games.length+' لعبة</span></header>'+(games.length?'<div class="wishlist-list">'+games.map(function(g){var d=DEVICE_NAMES[g.device]||"جهاز غير محدد";return '<article class="wishlist-game"><div class="wishlist-gameicon">🎮</div><div class="wishlist-gametext"><h3 lang="en" dir="ltr">'+esc(window.CARTO_CATALOG?.[g.name]?.displayName||g.name)+'</h3><p>'+esc(d)+'</p></div><div class="wishlist-gameactions">'+heart(g.name,g.device)+'<button type="button" class="wishlist-edit" data-wish-name="'+esc(g.name)+'" data-wish-device="'+esc(g.device)+'">تعديل</button></div></article>'}).join("")+'</div>':'<p class="wishlist-groupempty">لا توجد ألعاب في هذا التصنيف حتى الآن.</p>')+'</section>';
+  return '<section class="wishlist-group"><header class="wishlist-grouphead"><h2>'+window.CartoIcons.markup(c.id)+' '+esc(c.label)+'</h2><span>'+games.length+' لعبة</span></header>'+(games.length?'<div class="wishlist-list">'+games.map(function(g){var d=DEVICE_NAMES[g.device]||"جهاز غير محدد";return '<article class="wishlist-game"><div class="wishlist-gameicon">'+window.CartoIcons.markup(g.device)+'</div><div class="wishlist-gametext"><h3 lang="en" dir="ltr">'+esc(window.CARTO_CATALOG?.[g.name]?.displayName||g.name)+'</h3><p>'+esc(d)+'</p></div><div class="wishlist-gameactions">'+heart(g.name,g.device)+'<button type="button" class="wishlist-edit" data-wish-name="'+esc(g.name)+'" data-wish-device="'+esc(g.device)+'">تعديل</button></div></article>'}).join("")+'</div>':'<p class="wishlist-groupempty">لا توجد ألعاب في هذا التصنيف حتى الآن.</p>')+'</section>';
  }).join("");
 }
 function refresh(){if(document.body.dataset.page==="reference")renderList();else decorateCards()}

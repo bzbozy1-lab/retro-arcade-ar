@@ -28,7 +28,7 @@ function checkList(){
  refreshAchievements();
 }
 function renderAchievementMarkup(){
- return achievements.map(a=>'<div class="arcade-achievement '+(getAchievements()[a.id]?"unlocked":"")+'" title="'+a.hint+'"><span aria-hidden="true">'+a.icon+'</span><strong>'+a.title+'</strong><small>'+a.en+'</small><p>'+a.hint+'</p></div>').join("");
+ return achievements.map(a=>'<div class="arcade-achievement '+(getAchievements()[a.id]?"unlocked":"")+'" title="'+a.hint+'"><span aria-hidden="true">'+window.CartoIcons.markup(({discover:'gems',collector:'reference',master:'completed',arabic:'localization'})[a.id])+'</span><strong>'+a.title+'</strong><small>'+a.en+'</small><p>'+a.hint+'</p></div>').join("");
 }
 function refreshAchievements(){
  d.querySelectorAll(".arcade-achievement-grid").forEach(el=>el.innerHTML=renderAchievementMarkup());

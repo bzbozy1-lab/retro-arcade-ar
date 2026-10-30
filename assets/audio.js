@@ -2,14 +2,20 @@
 (function(){
  'use strict';
  const scores={
-  back:{label:'العودة',notes:[[69,0,.08,.6,'triangle'],[65,.05,.09,.5,'triangle'],[60,.105,.08,.4,'triangle']]},
+  back:{label:'العودة',notes:[[76,0,.07,.42,'square'],[71,.075,.09,.5,'triangle'],[67,.15,.12,.48,'triangle'],[62,.245,.11,.34,'triangle']]},
   treasure:{label:'اكتشاف كنز',notes:[[74,0,.045,.5,'square'],[81,.035,.045,.4,'triangle'],[77,.07,.05,.5,'square'],[86,.115,.055,.4,'triangle'],[89,.16,.075,.55,'triangle']]},
   open:{label:'فتح بطاقة',notes:[[60,0,.045,.5,'square'],[67,.035,.05,.4,'triangle'],[72,.075,.055,.45,'triangle']]},
-  save:{label:'حفظ لعبة',notes:[[72,0,.065,.5,'triangle'],[76,.05,.07,.45,'square'],[84,.11,.09,.5,'triangle']]},
+  save:{label:'حفظ لعبة',notes:[[67,0,.05,.45,'square'],[74,.055,.07,.5,'triangle'],[79,.12,.09,.48,'square'],[86,.21,.12,.42,'triangle']]},
   achievement:{label:'إنجاز جديد',notes:[[72,0,.09,.5,'triangle'],[79,.075,.09,.45,'square'],[84,.16,.12,.5,'triangle'],[88,.245,.16,.4,'triangle'],[91,.36,.18,.5,'triangle']]},
   transform:{label:'تحول المظهر',notes:[[57,0,.08,.35,'triangle'],[69,.055,.07,.45,'square'],[76,.115,.09,.4,'triangle']]},
-  enable:{label:'تشغيل الصوت',notes:[[67,0,.06,.4,'triangle'],[74,.05,.065,.5,'square'],[79,.1,.06,.4,'triangle']]},
-  disable:{label:'إيقاف الصوت',notes:[[72,0,.05,.4,'triangle'],[64,.05,.065,.4,'triangle'],[55,.105,.055,.3,'triangle']]},
+  enable:{label:'تشغيل الصوت',notes:[[60,0,.055,.5,'square'],[72,.065,.055,.45,'square'],[79,.13,.09,.5,'triangle'],[84,.24,.13,.45,'triangle']]},
+  disable:{label:'إيقاف الصوت',notes:[[79,0,.055,.45,'square'],[72,.08,.09,.45,'triangle'],[60,.2,.13,.4,'triangle']]},
+  heart:{label:'فتح قائمة القلب',notes:[[67,0,.065,.5,'triangle'],[79,.085,.065,.52,'square'],[83,.17,.12,.45,'triangle']]},
+  save_avoid:{label:'لا أرغب في لعبها',notes:[[72,0,.08,.4,'triangle'],[68,.09,.08,.4,'triangle'],[65,.2,.12,.42,'triangle']]},
+  save_later:{label:'أكملها لاحقًا',notes:[[76,0,.05,.5,'square'],[76,.1,.05,.4,'square'],[79,.23,.12,.48,'triangle']]},
+  save_playing:{label:'ألعبها حاليًا',notes:[[60,0,.055,.5,'square'],[67,.06,.055,.5,'square'],[72,.12,.08,.45,'triangle'],[79,.23,.15,.5,'triangle']]},
+  save_someday:{label:'أرغب في لعبها في وقت ما',notes:[[79,0,.08,.45,'triangle'],[86,.1,.08,.45,'triangle'],[83,.21,.08,.4,'square'],[91,.32,.13,.4,'triangle']]},
+  save_completed:{label:'تم تختيم اللعبة',notes:[[72,0,.07,.5,'square'],[76,.08,.07,.45,'triangle'],[79,.16,.08,.45,'square'],[84,.27,.18,.5,'triangle']]},
   navigate:{label:'تنقل',notes:[[76,0,.045,.3,'triangle']]}
  };
  let enabled=false,context=null,master=null,voices=[],sequence=0,interacted=false,celebrationUntil=0;
@@ -23,7 +29,7 @@
   stop();const request=sequence;
   try{
    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
-   if(!context){context=new AC();master=context.createGain();master.gain.value=.075;master.connect(context.destination)}
+   if(!context){context=new AC();master=context.createGain();master.gain.value=.12;master.connect(context.destination)}
    if(context.state==='suspended')await context.resume();
    if(request!==sequence||(!enabled&&!allowOff)||context.state!=='running')return false;
    const start=context.currentTime+.008;
@@ -31,6 +37,7 @@
     const voice=context.createOscillator(),gain=context.createGain(),time=start+delay;
     voice.type=type;voice.frequency.setValueAtTime(440*Math.pow(2,(midi-69)/12),time);
     gain.gain.setValueAtTime(0,time);gain.gain.linearRampToValueAtTime(volume,time+.006);
+    gain.gain.setValueAtTime(volume,time+length*.48);
     gain.gain.exponentialRampToValueAtTime(.0001,time+length);
     voice.connect(gain);gain.connect(master);voices.push(voice);
     voice.onended=()=>{voice.disconnect();gain.disconnect();voices=voices.filter(v=>v!==voice)};
@@ -84,11 +91,11 @@
   // Let opt-in navigation cues finish, bounded to 260ms. Other navigation is immediate.
   event.preventDefault();schedule(cue);setTimeout(()=>location.assign(url.href),Math.min(endOf(cue)*1000,260));
  });
- document.addEventListener('carto:dialog-open',()=>schedule('open'));
+ document.addEventListener('carto:dialog-open',event=>schedule(event.detail?.dialog?.id==='wishlistModal'?'heart':'open'));
  document.addEventListener('carto:dialog-close',()=>schedule('back'));
  document.addEventListener('change',event=>{if(event.target.matches('#deviceFilter'))schedule('navigate')});
  document.addEventListener('carto:theme-change',()=>schedule('transform'));
- document.addEventListener('carto:wishlist-change',event=>schedule(event.detail?.action==='save'?'save':'back'));
+ document.addEventListener('carto:wishlist-change',event=>{const cue='save_'+event.detail?.category;schedule(event.detail?.action==='save'?(scores[cue]?cue:'save'):'back')});
  document.addEventListener('carto:achievement',()=>schedule('achievement'));
  function init(){paint()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
