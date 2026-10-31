@@ -8,7 +8,7 @@
  .mobile-nav-ready .nav{position:fixed!important;inset:0 0 auto;z-index:42;max-height:calc(100dvh - 16px);overflow-y:auto;overscroll-behavior:contain;visibility:hidden;transform:translateY(-105%);transition:transform 180ms ease-out,visibility 180ms;backdrop-filter:none;background:var(--bg)}
  .mobile-nav-ready .nav.mobile-nav-open{visibility:visible;transform:translateY(0)}
  .mobile-nav-ready .navin{display:grid!important;grid-template-columns:1fr;gap:12px!important;padding:12px 0 16px;min-height:0}
- .mobile-nav-ready .nav .brand{padding-inline-end:108px;min-height:44px;gap:6px}
+ .mobile-nav-ready .nav .brand{padding-inline-start:108px;min-height:44px;gap:6px}
  .nav .brandname{font-size:23px}.nav .brandname small{font-size:10px}
  .nav .brandmascot.carto-sprite{width:34px;height:34px}
  .mobile-nav-ready .navlinks{display:grid;grid-template-columns:1fr 1fr;gap:4px;overflow:visible;width:100%;white-space:normal;padding:0;max-height:none}
