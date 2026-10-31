@@ -1,0 +1,3 @@
+/* Original CARTO sticker pictograms: no platform emoji fonts or third-party logos. */
+(function(){'use strict';const names=["xbox360", "wii", "3ds", "vita", "ps3", "ps2", "ds", "games", "gems", "glossary", "localization", "archive", "reference", "identity", "sources", "avoid", "later", "playing", "someday", "completed", "heart"];function markup(name,extra=''){const id=names.includes(name)?name:'games';return '<svg class="carto-symbol '+extra+'" data-symbol="'+id+'" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="assets/carto-symbols-refined.svg#'+id+'"></use></svg>'}window.CartoIcons={markup,names};})();
+
