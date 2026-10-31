@@ -56,7 +56,8 @@
           "bytes": 3033116,
           "sha256": "0b281413d083cf623e887cffe979dac19b29ccc15b7b0d232bfa22c7aee4e591"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/sakhr-ax170/pages.json"
     },
     {
       "id": "sakhr-windows",
@@ -113,7 +114,8 @@
           "bytes": 5414886,
           "sha256": "c331545fbe2be20f35573d52b2d7d853589e6f3a253d151afff5459bf7e11271"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/sakhr-windows/pages.json"
     },
     {
       "id": "resident-evil-3",
@@ -146,7 +148,8 @@
           "bytes": 3142090,
           "sha256": "db6d0b6c62fb062f9b05250becfe72c631bc08e33f519c085e98fd0cbb38bdcc"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/resident-evil-3/pages.json"
     },
     {
       "id": "dino-crisis-1",
@@ -191,7 +194,8 @@
           "bytes": 7862381,
           "sha256": "775952b98c4eac5b54a042adb84a6f91d5c73e5fb072526fe14210a3e5fa2caa"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/dino-crisis-1/pages.json"
     },
     {
       "id": "dino-crisis-2",
@@ -236,7 +240,8 @@
           "bytes": 6512682,
           "sha256": "8057a90dc0b212af7d0590ea64e7c3d310eb8c668673031ca2eb8b9077631d55"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/dino-crisis-2/pages.json"
     },
     {
       "id": "resident-evil-2",
@@ -257,7 +262,8 @@
           "bytes": 6508247,
           "sha256": "6ef09ac1e18e10c6743258dbf729a9a5a6fe0aeef17dd0ea6b7fed49d985b392"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/resident-evil-2/pages.json"
     },
     {
       "id": "resident-evil-4-ps2",
@@ -284,7 +290,8 @@
           "bytes": 5648212,
           "sha256": "9d168923f0cf9a674552da778d37e378989a1c31838b05abc7e552527bd6f552"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/resident-evil-4-ps2/pages.json"
     },
     {
       "id": "silent-hill-3",
@@ -305,7 +312,8 @@
           "bytes": 8959494,
           "sha256": "6bfed1b0d5a9a73245716a708344b3f00da291d1e2048aa4eb5871650756ce55"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/silent-hill-3/pages.json"
     },
     {
       "id": "silent-hill-1",
@@ -350,7 +358,8 @@
           "bytes": 1097160,
           "sha256": "f78462796113727e3b3e9a36be64006ff06ed7e0d9cb2c94db730c1920d0dbf1"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/silent-hill-1/pages.json"
     },
     {
       "id": "final-fantasy-7-part2",
@@ -383,7 +392,8 @@
           "bytes": 1123723,
           "sha256": "b424028cbd3d0cdc6e34fd218ec30d1724016a556bc0a74b6bba5a070dc18966"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/final-fantasy-7-part2/pages.json"
     },
     {
       "id": "final-fantasy-8",
@@ -428,7 +438,8 @@
           "bytes": 4432878,
           "sha256": "3dd1e9022e5b3c5194640553dc1388b6451f3e95f8c9db27b0301b93c9192162"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/final-fantasy-8/pages.json"
     },
     {
       "id": "final-fantasy-9",
@@ -449,7 +460,8 @@
           "bytes": 7434992,
           "sha256": "2204b87ed6e47c75854e664502fb7bf3047a00c5879689123e7af64f0334439f"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/final-fantasy-9/pages.json"
     },
     {
       "id": "mortal-kombat-film",
@@ -488,7 +500,8 @@
           "bytes": 1831142,
           "sha256": "a04be9baf776f768d3f0611676230da10167f776fefdd90a971d57ce7f1bd5db"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/mortal-kombat-film/pages.json"
     },
     {
       "id": "tekken-final-fantasy-7",
@@ -521,7 +534,8 @@
           "bytes": 7812653,
           "sha256": "1188482e6a77d9d2fc46b8bb909936fdb3fdd34966a05a20db886dc7d7d760c0"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/tekken-final-fantasy-7/pages.json"
     },
     {
       "id": "san-andreas",
@@ -566,7 +580,8 @@
           "bytes": 4225421,
           "sha256": "a66b5cdc59c40c424460e3dd34fbeec5dd64b7344ac2203596e280cab2175027"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/san-andreas/pages.json"
     },
     {
       "id": "collection-3",
@@ -617,7 +632,8 @@
           "bytes": 2043204,
           "sha256": "f5ef167fcac7bbcf4e0c1c9ec407c3431a8905ac0d4e87ce5ef13b15c25d26ae"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/collection-3/pages.json"
     },
     {
       "id": "collection-5",
@@ -668,7 +684,8 @@
           "bytes": 7721892,
           "sha256": "764e18e6558ed9f8139ffe38c4bf8f189c87362da3d559aec87264112fb46230"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/collection-5/pages.json"
     },
     {
       "id": "yakuza",
@@ -689,7 +706,8 @@
           "bytes": 5551857,
           "sha256": "93e651922d4af84f57d0a913a6f7deca3aad83d3203ba64d3326e928ba229422"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/yakuza/pages.json"
     },
     {
       "id": "resident-evil-issue5",
@@ -746,7 +764,8 @@
           "bytes": 2451717,
           "sha256": "df38ec14ca29f6f352bf267abc7779d04d26211129413047eb94a75f42f2f92c"
         }
-      ]
+      ],
+      "pageImages": "assets/magazines/pages/v2/resident-evil-issue5/pages.json"
     }
   ]
 }
