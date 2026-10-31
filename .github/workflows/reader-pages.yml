@@ -1,0 +1,52 @@
+name: Build fast magazine pages
+on:
+  push:
+    paths:
+      - scripts/reader-fast-patch.json
+      - scripts/build-reader-pages.py
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: reader-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install PyMuPDF==1.26.5 Pillow==11.3.0
+      - run: python scripts/build-reader-pages.py
+      - name: Activate verified reader
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          for name,content in json.load(open('scripts/reader-fast-patch.json')).items():
+              p=pathlib.Path(name);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(content)
+          PY
+          node --test tests/*.test.cjs
+      - name: Save generated pages and reader
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/magazines/pages/v2 assets/magazines/catalog.json assets/reader-images.mjs assets/reader.mjs assets/magazine-state.mjs reader.html identity.html tests/reader-images.test.cjs
+          git diff --cached --quiet || git commit -m 'Fix stalled magazine reader with verified on-demand WebP pages'
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
