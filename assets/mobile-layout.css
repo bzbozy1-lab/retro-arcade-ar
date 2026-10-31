@@ -22,7 +22,7 @@
  .sectionhead h1,.sectionhead h2{font-size:26px;padding:2px 8px;line-height:1.35}
  .sectionhead p,.platform small,.meta,.notice{font-size:12px!important;line-height:1.6}
  .hero{padding:20px 0 28px}body[data-page="home"] .hero .wrap{padding-top:76px;padding-inline-end:0}
- .hero-mascot.carto-sprite{width:76px;height:76px;top:0;left:0}
+ .hero-mascot.carto-sprite{transform:none!important;width:76px;height:76px;top:0;left:0}
  .hero h1{font-size:30px!important;line-height:1.4!important;margin:8px 0 12px}.hero .eyebrow{font-size:10px;letter-spacing:0}.hero-credit{font-size:13px}
  .heroactions{gap:10px;margin-top:16px}.btn,.heroactions .btn{font-size:14px;min-height:44px;padding:8px 12px;line-height:1.5}
  .platforms{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.platform{padding:12px 8px;min-width:0}

@@ -27,7 +27,7 @@
   }
   trigger.addEventListener('click',()=>setOpen(!open,false));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){setOpen(false,true);e.preventDefault();}});
-  document.addEventListener('click',e=>{if(open&&!trigger.contains(e.target)&&(!header.contains(e.target)||e.target.closest('a')))setOpen(false,false);});
+  document.addEventListener('click',e=>{if(open&&!trigger.contains(e.target)&&(!header.contains(e.target)||e.target.closest('a')))setOpen(false,false);},true);
   document.addEventListener('focusin',e=>{if(open&&!header.contains(e.target)&&!trigger.contains(e.target))setOpen(false,false);});
   window.addEventListener('scroll',()=>{const y=window.scrollY;if(open&&Math.abs(y-lastY)>8)setOpen(false,header.contains(document.activeElement));lastY=y;},{passive:true});
   media.addEventListener('change',()=>setOpen(false,false));
