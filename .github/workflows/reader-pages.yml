@@ -2,7 +2,6 @@ name: Build fast magazine pages
 on:
   push:
     paths:
-      - scripts/reader-fast-patch.json
       - scripts/build-reader-pages.py
   workflow_dispatch:
 permissions:
@@ -23,14 +22,8 @@ jobs:
           python-version: '3.12'
       - run: pip install PyMuPDF==1.26.5 Pillow==11.3.0
       - run: python scripts/build-reader-pages.py
-      - name: Activate verified reader
-        run: |
-          python - <<'PY'
-          import json,pathlib
-          for name,content in json.load(open('scripts/reader-fast-patch.json')).items():
-              p=pathlib.Path(name);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(content)
-          PY
-          node --test tests/*.test.cjs
+      - name: Validate reader and page metadata
+        run: node --test tests/*.test.cjs
       - name: Save generated pages and reader
         run: |
           git config user.name 'github-actions[bot]'

@@ -8,7 +8,7 @@ export function validatePageImages(issue,data){
  const prefix=`assets/magazines/pages/v2/${issue.id}/`;
  if(data.version!==1||data.id!==issue.id||data.sourceSHA256!==issue.sha256||!Array.isArray(data.pages)||data.pages.length!==issue.pages||!Array.isArray(data.packs)||!data.packs.length)throw Error('Invalid page manifest');
  for(const pack of data.packs){if(!pack.file.startsWith(prefix)||!/^((cover\.webp)|(pages-\d+\.bin))$/.test(pack.file.slice(prefix.length))||!Number.isInteger(pack.bytes)||pack.bytes<1||pack.bytes>3e6)throw Error('Invalid page pack');}
- for(const page of data.pages){const pack=data.packs[page.pack];if(!pack||!Number.isInteger(page.offset)||!Number.isInteger(page.bytes)||page.offset<0||page.bytes<12||page.offset+page.bytes>pack.bytes||!Number.isInteger(page.width)||!Number.isInteger(page.height)||page.width<1||page.height<1||page.width*page.height>8e6)throw Error('Invalid page bounds');}
+ for(const page of data.pages){const pack=data.packs[page.pack];if(!pack||!Number.isInteger(page.offset)||!Number.isInteger(page.bytes)||page.offset<0||page.bytes<12||page.offset+page.bytes>pack.bytes||!Number.isInteger(page.width)||!Number.isInteger(page.height)||page.width<1||page.height<1||page.width*page.height>12e6)throw Error('Invalid page bounds');}
  return true;
 }
 export class ImagePagesDocument{
