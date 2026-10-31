@@ -35,7 +35,8 @@ test('all pages use consistent navigation, safe internal paths and a single appe
   for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
     const html=source(file);
     const nav=html.match(/<nav class="navlinks"[^>]*>(.*?)<\/nav>/s)[1];
-    navs.push(nav.replace(/class="active" aria-current="page" /g,''));
+    navs.push(nav.replace(/class="active" aria-current="page" /g,'').replace(/<a href="sakhr\.html">بوابة صخر<\/a>/g,''));
+    if(!['magazines.html','reader.html'].includes(file)) assert(nav.includes('href="sakhr.html"'),file+': Sakhr navigation');
     const markup=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'');
     for(const match of markup.matchAll(/(?:src|href)="([^"#]+)"/g)){
       const url=match[1]; if(/^(https?:|data:)/.test(url))continue;
@@ -103,3 +104,4 @@ test('dialog traps forward/backward Tab, restores focus and preserves existing i
   assert.equal(dialog.hidden,true);assert.equal(main.inert,false);assert.equal(alreadyInert.inert,true);
   assert.equal(document.activeElement,opener);assert.equal(document.body.style.overflow,'auto');
 });
+
