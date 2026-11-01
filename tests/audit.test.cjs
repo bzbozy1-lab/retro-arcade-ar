@@ -13,13 +13,13 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   vm.runInContext(source('assets/catalog.js'), context);
   vm.runInContext(source('assets/app.js'), context);
   const result = vm.runInContext('({library:getGames(),gems:GEM_GAMES})', context);
-  assert.equal(result.library.length,104);
+  assert.equal(result.library.length,119);
   assert.equal(result.gems.length,57);
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
     assert.ok(r?.image, name);
     assert.match(r.source,/^https:\/\/en\.wikipedia\.org\/wiki\//);
-    assert.match(r.image,/^https:\/\/(thumb|upload)\.wikimedia\.org\//);
+    assert.match(r.image,/^https:\/\//); if(r.imageSource){assert.match(r.imageSource,/^https:\/\//);assert(['images.launchbox-app.com','flipjeuxvideo.com','cavegamers.com','r.mprd.se','retrogaming.me','cdn.mobygames.com','www.retroplace.com','www.powerupgaming.ca','down-br.img.susercontent.com','retrospillkongen.no'].includes(new URL(r.image).hostname));}else assert.match(r.image,/^https:\/\/(thumb|upload)\.wikimedia\.org\//);
     assert.ok(r.release && r.developer, name);
   }
   for (const name of ['Black','Deadpool','X-Men Origins: Wolverine','Kingdom Hearts','Tearaway','Sleeping Dogs']) {

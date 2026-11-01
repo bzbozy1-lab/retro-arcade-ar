@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 var KEY="carto-personal-wishlist";
-var DEVICE_NAMES={xbox360:"Xbox 360",wii:"Nintendo Wii","3ds":"Nintendo 3DS",vita:"PS Vita",ps3:"PlayStation 3",ps2:"PlayStation 2",ds:"Nintendo DS",gems:"الألعاب المكنوزة",unknown:"جهاز غير محدد"};
+var DEVICE_NAMES={xbox360:"Xbox 360",wii:"Nintendo Wii","3ds":"Nintendo 3DS",vita:"PS Vita",ps3:"PlayStation 3",ps2:"PlayStation 2",ds:"Nintendo DS",gba:"Game Boy Advance",gems:"الألعاب المكنوزة",unknown:"جهاز غير محدد"};
 var CATEGORIES=[
 {id:"avoid",label:"لا أرغب في لعبها",emoji:"🙅"},
 {id:"later",label:"أكملها لاحقًا",emoji:"⏳"},
