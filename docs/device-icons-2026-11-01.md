@@ -2,9 +2,9 @@
 
 Seven original SVG illustrations replace the old repeated console/controller compositions. Devices share a 64-unit grid, 2.2-unit main ink outline, cream paper edge, hard offset shadow, and CARTO blue/lime accents. Optical sizing is checked at 96, 44 and 30 pixels on cream and charcoal backgrounds. The artwork is kept inside the grid with a shared 0.96 inset; no raster images, SVG filters or font glyphs are used.
 
-- Xbox 360: curved original white tower, disc tray and circular power light.
-- Wii: tilted console, blue disc slot, angled stand and Wii Remote.
-- PS2: ribbed original tower, black facets and blue base.
+- Xbox 360: gently curved original white tower, disc tray and circular power light.
+- Wii: slim console, blue disc slot, flat stand and Wii Remote.
+- PS2: horizontal original stepped shell, disc tray, controller ports and blue accents.
 - PS3: original rounded horizontal shell and chrome front edge.
 - PS Vita: oval handheld, wide screen, two analog sticks, contrasting controls.
 - Nintendo 3DS: wider upper screen, Circle Pad, narrower lower touchscreen.
@@ -21,3 +21,6 @@ Only hardware routes move to `assets/carto-devices.svg`; section/category artwor
 - Material icon keylines and optical corrections: https://m1.material.io/style/icons.html
 
 These references inform recognition and proportion; the final SVG paths are newly drawn CARTO artwork, not copied UI icon packs or official company logos.
+
+## Placement refinement
+Every device page now displays its own 76px heading icon (48px on mobile). All 104 catalog game cards display a matching 28px device icon (22px on mobile) beside the readable device name. Covers and interactive buttons keep their existing space. Hidden-gem entries without a single declared device retain their existing category rather than being assigned an invented platform. The SVG and icon loader URLs are versioned for fresh artwork.
