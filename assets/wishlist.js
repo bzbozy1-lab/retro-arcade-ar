@@ -25,11 +25,11 @@ function ensureModal(){
  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
 }
 function closeModal(){window.CartoDialog.close(document.getElementById("wishlistModal"))}
-function openModal(name,device){
+function openModal(name,device,removalOnly=false){
  ensureModal();var m=document.getElementById("wishlistModal"),saved=find(name);
  m.dataset.name=name;m.dataset.device=device||"unknown";
  m.querySelector("#wishlistGameName").textContent=name;
- m.querySelector("#wishlistModalTitle").textContent=saved?"غيّر تصنيف اللعبة":"أضف إلى قائمة تحفك الفنية";
+ m.querySelector("#wishlistModalTitle").textContent=removalOnly?"إزالة اللعبة من قائمتك؟":saved?"غيّر تصنيف اللعبة":"أضف إلى قائمة تحفك الفنية";m.querySelector("#wishlistOptions").hidden=removalOnly;m.querySelector(".wishlist-help").hidden=removalOnly;
  m.querySelector("#wishlistRemove").hidden=!saved;
  m.querySelector("#wishlistOptions").innerHTML=CATEGORIES.map(function(c){return '<button type="button" class="wishlist-option '+(saved&&saved.category===c.id?"selected":"")+'" data-category="'+c.id+'"><span class="wishlist-optionemoji">'+window.CartoIcons.markup(c.id)+'</span><span>'+esc(c.label)+'</span><span class="wishlist-check">'+(saved&&saved.category===c.id?"✓":"＋")+'</span></button>'}).join("");
  window.CartoDialog.open(m);
@@ -68,7 +68,7 @@ function collectionCard(game){
  var cover='<span class="collection-cover-fallback" aria-hidden="true">'+window.CartoIcons.markup(game.device)+'<small>الغلاف غير متاح</small></span>';
  if(record.image&&/^https:\/\//.test(record.image))cover+='<img data-collection-cover src="'+esc(record.image)+'" alt="'+esc((record.imageKind||'غلاف')+' — '+title)+'" width="84" height="112" loading="lazy" decoding="async">';
  var options=CATEGORIES.map(c=>'<option value="'+c.id+'"'+(game.category===c.id?' selected':'')+'>'+esc(c.label)+'</option>').join('');if(!CATEGORIES.some(c=>c.id===game.category))options='<option value="" selected disabled>اختر التصنيف</option>'+options;
- return '<article class="collection-card" data-collection-name="'+esc(game.name)+'" data-status="'+esc(game.category)+'"><div class="collection-cover">'+cover+'</div><div class="collection-card-info"><h3 dir="ltr" lang="en">'+esc(title)+'</h3><p class="collection-platform">'+window.CartoIcons.markup(game.device)+'<span>'+esc(device)+'</span></p>'+(record.genre?'<p class="collection-genre" dir="auto">'+esc(record.genre)+'</p>':'')+'</div><div class="collection-card-actions"><label><span class="collection-visually-hidden">تصنيف '+esc(title)+'</span><select data-collection-category data-game-name="'+esc(game.name)+'">'+options+'</select></label><button type="button" class="textbtn" data-details="'+esc(game.name)+'" data-device="'+esc(game.device||'unknown')+'" aria-label="تفاصيل '+esc(title)+'">تفاصيل ←</button></div></article>';
+ return '<article class="collection-card" data-collection-name="'+esc(game.name)+'" data-status="'+esc(game.category)+'"><div class="collection-cover">'+cover+'</div><div class="collection-card-info"><h3 dir="ltr" lang="en">'+esc(title)+'</h3><p class="collection-platform">'+window.CartoIcons.markup(game.device)+'<span>'+esc(device)+'</span></p>'+(record.genre?'<p class="collection-genre" dir="auto">'+esc(record.genre)+'</p>':'')+'</div><div class="collection-card-actions"><label><span class="collection-visually-hidden">تصنيف '+esc(title)+'</span><select data-collection-category data-game-name="'+esc(game.name)+'">'+options+'</select></label><button type="button" class="textbtn" data-details="'+esc(game.name)+'" data-device="'+esc(game.device||'unknown')+'" aria-label="تفاصيل '+esc(title)+'">تفاصيل ←</button><button type="button" class="collection-remove" data-collection-remove="'+esc(game.name)+'" data-device="'+esc(game.device||'unknown')+'" aria-label="إزالة '+esc(title)+' من القائمة">إزالة</button></div></article>';
 }
 function renderList(){
  if(document.body.dataset.page!=='reference')return;
@@ -87,7 +87,7 @@ function renderList(){
  document.getElementById('collectionEmptyReset')?.addEventListener('click',resetCollection);
 }
 function refresh(){if(document.body.dataset.page==="reference")renderList();else decorateCards()}
-document.addEventListener("click",function(e){var b=e.target.closest("[data-wish-name]");if(b){e.preventDefault();openModal(b.dataset.wishName,b.dataset.wishDevice);return}});
+document.addEventListener("click",function(e){var remove=e.target.closest("[data-collection-remove]");if(remove){openModal(remove.dataset.collectionRemove,remove.dataset.device,true);return}var b=e.target.closest("[data-wish-name]");if(b){e.preventDefault();openModal(b.dataset.wishName,b.dataset.wishDevice);return}});
 window.addEventListener("storage",refresh);
 function init(){ensureModal();refresh();document.addEventListener("carto:catalog-render",decorateCards)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
