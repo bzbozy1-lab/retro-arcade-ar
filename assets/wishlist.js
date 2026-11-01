@@ -75,12 +75,12 @@ function renderList(){
  var grid=document.getElementById('gameGrid');if(!grid)return;
  initCollection();var model=window.CartoCollection,list=model.records(read()),counts=model.counts(list),catalog=window.CARTO_CATALOG||{};
  document.getElementById('collectionTools').hidden=!list.length;
- document.getElementById('collectionTotal').textContent=list.length+' لعبة في قائمتك';
- document.querySelectorAll('[data-collection-status]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.collectionStatus===collectionState.status)));
+ document.getElementById('collectionTotal').textContent='عدد الألعاب: '+list.length;
+ document.querySelectorAll('[data-collection-status]').forEach(button=>{var id=button.dataset.collectionStatus;button.setAttribute('aria-pressed',String(id===collectionState.status));button.setAttribute('aria-label',(id==='all'?'كل الألعاب':category(id).label)+'، عدد الألعاب: '+counts[id]);});
  document.querySelectorAll('[data-collection-count]').forEach(counter=>counter.textContent=counts[counter.dataset.collectionCount]);
  var device=document.getElementById('collectionDevice'),devices=[...new Set(list.map(g=>g.device||'unknown'))];device.innerHTML='<option value="">كل الأجهزة</option>'+devices.map(id=>'<option value="'+esc(id)+'">'+esc(DEVICE_NAMES[id]||'جهاز غير محدد')+'</option>').join('');device.value=devices.includes(collectionState.device)?collectionState.device:'';collectionState.device=device.value;
  var result=model.select(list,collectionState,catalog,DEVICE_NAMES);
- document.getElementById('collectionResult').textContent=result.length+' من '+list.length+' لعبة';document.getElementById('collectionReset').hidden=!(collectionState.query||collectionState.status!=='all'||collectionState.device);
+ document.getElementById('collectionResult').textContent='عرض '+result.length+' من '+list.length;document.getElementById('collectionReset').hidden=!(collectionState.query||collectionState.status!=='all'||collectionState.device);
  grid.className='collection-grid';
  if(!list.length){grid.innerHTML='<section class="wishlist-empty">'+window.CartoMascot.markup('rest','wishlist-empty-mascot','كارتو ينتظر أول لعبة في قائمتك')+'<h2>أول لعبة تبدأ الحكاية</h2><p>اضغط قلب أي لعبة في الموسوعة، واختر تصنيفها لتظهر هنا.</p><a class="btn" href="games.html">تصفّح الألعاب ←</a></section>';return;}
  grid.innerHTML=result.length?result.map(collectionCard).join(''):'<section class="collection-no-results"><h2>لا توجد ألعاب بهذه التصفية</h2><p>ألعابك المحفوظة باقية. جرّب جهازًا أو تصنيفًا آخر.</p><button type="button" class="btn" id="collectionEmptyReset">عرض قائمتي كاملة</button></section>';
