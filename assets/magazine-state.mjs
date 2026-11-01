@@ -10,3 +10,7 @@ export function issueURL(id,page=1){const p=new URLSearchParams({id,page:String(
 export async function loadCatalog(url='assets/magazines/catalog.json'){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);let response;try{response=await fetch(url,{signal:controller.signal});if(!response.ok)throw Error('catalog');const data=await response.json();return data.items.filter(x=>/^[a-z0-9-]+$/.test(x.id)&&(x.file===`assets/magazines/pdf/${x.id}.pdf`||(!x.file&&Array.isArray(x.chunks)&&x.chunks.length>0&&x.chunks.every((c,i)=>c.file===`assets/magazines/pdf/${x.id}/chunk-${String(i+1).padStart(3,'0')}.bin`)))&&x.cover===`assets/magazines/covers/${x.id}.webp`&&x.pages>0)}finally{clearTimeout(timer)}}
 export function normalize(value){return String(value).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/[\u064B-\u065F]/g,'').replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim()}
 
+
+// Resume exclusively from explicit bookmarks; old reading history is preserved but ignored.
+export function latestBookmark(state,id,total){const pages=state.bookmarks?.[id];if(!Array.isArray(pages))return null;return [...pages].reverse().find(page=>Number.isInteger(page)&&page>=1&&page<=total)??null}
+export function openingPage(state,id,total,explicit){return explicit!==null&&explicit!==undefined&&explicit!==''?validPage(explicit,total):(latestBookmark(state,id,total)??1)}
