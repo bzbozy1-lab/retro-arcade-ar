@@ -38,6 +38,12 @@ for page in ROOT.glob('*.html'):
  # Version edited standalone scripts as well, without broad cache invalidation.
  text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',r'\1?v=opt-1',text)
  if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=opt-1"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
+ if page.stem=='reader':
+  catalog=json.loads((ROOT/'assets/magazines/catalog.json').read_text())['items']
+  fields=['id','title','category','cover','pages','bytes','sha256','pageImages']
+  boot=json.dumps([{key:issue[key] for key in fields} for issue in catalog],ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
+  text=re.sub(r'<script type="application/json" id="readerIssueIndex">.*?</script>','',text,flags=re.S)
+  text=text.replace('</head>','<script type="application/json" id="readerIssueIndex">'+boot+'</script></head>')
  page.write_text(text)
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(json.dumps({'sharedJS':js,'sharedCSS':css,'files':len(manifest)}))

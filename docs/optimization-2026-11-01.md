@@ -12,7 +12,7 @@
 - One wishlist storage read per render, event-based decoration, no grid mutation rescans; 100ms coalescing for game/term searches.
 - Bounded intent-based document prefetch, disabled for data saving/2G connections; no PDF or emulator prefetch.
 - Optional CacheStorage for verified page-image bytes, versioned by original source checksum/page. Maximum 48 entries and 16MB. Corrupt entries, quota errors and unavailable storage fall back to normal reading. Preferences and bookmarks remain in their existing keys.
-- Warm the next rendered page only, reducing background decoding; modulepreload the image adapter. Catalog loading has a body-inclusive 15s deadline.
+- Inline a small build-generated issue index in the reader HTML, removing the initial catalog network round trip; fetch original PDF chunk metadata only on explicit download. Warm the next rendered page only, reducing background decoding; modulepreload the image adapter. Catalog loading has a body-inclusive 15s deadline.
 
 ## Static request inventory (script + stylesheet elements only)
 | Page | Before | After |
@@ -26,4 +26,4 @@
 These counts exclude images, font files and module imports; they are not a percentage improvement in wall-clock load time.
 
 ## Validation
-Five new regression tests cover bounded disk caching, corruption/quota fallback, reopening without image network traffic, one wishlist read for 100 cards, and bundle dependency order. The complete repository suite additionally verifies original PDFs, all 19/1270 page manifests, lists, achievements, sound, themes and navigation. Run `node --test tests/*.test.cjs` from a complete checkout; regenerate bundles with `python scripts/build-performance.py` after shared source edits. CI verifies deterministic output.
+Six new regression tests cover bounded disk caching, corruption/quota fallback, reopening without image network traffic, one wishlist read for 100 cards, and bundle dependency order. The complete repository suite additionally verifies original PDFs, all 19/1270 page manifests, lists, achievements, sound, themes and navigation. Run `node --test tests/*.test.cjs` from a complete checkout; regenerate bundles with `python scripts/build-performance.py` after shared source edits. CI verifies deterministic output.
