@@ -26,3 +26,6 @@
 /* Keep heading emphasis readable on both paper and graphite. */
 .sakhr-page h2 span{color:#2f5bff}
 html[data-theme="dark"] .sakhr-page h2 span{color:#c8f31d}
+
+/* Owner-provided originals: full screenshots, crisp pixel art, and uncropped founder portrait. */
+.sakhr-program-preview{display:grid;place-items:center;aspect-ratio:4/3;background:#000;border:1px solid var(--line);margin:12px 0 0;overflow:hidden}.sakhr-program-preview img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}.sakhr-program-preview+h3{margin-top:14px}.sakhr-founder-photo{margin:0;width:min(100%,300px);justify-self:center;background:var(--bg);border:2px solid var(--line);padding:10px;box-shadow:5px 5px 0 var(--line)}.sakhr-founder-photo img{display:block;width:100%;height:auto;object-fit:contain}.sakhr-founder-photo figcaption{font-size:16px;font-weight:700;padding-top:12px}.sakhr-founder-photo small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:4px}@media(max-width:700px){.sakhr-program-preview{margin-top:10px}.sakhr-program-preview+h3{margin-top:12px}.sakhr-founder-photo{max-width:277px}}

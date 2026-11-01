@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "source": "Images supplied by the site owner, stored losslessly without cropping or resizing.",
+  "items": [
+    {
+      "id": "thinkwithme",
+      "file": "assets/sakhr/thinkwithme.webp",
+      "width": 252,
+      "height": 133,
+      "sha256": "94982a7ca804ceaa83d9b59ca66eadc74068c8c7546e8eb6e5ccba9858721e47",
+      "originalFile": "chrome_rc54ZIfaJK.png",
+      "originalSHA256": "dff51a4a388252cea466765e4fb19600fdd519ab27f8d8edf7c086be17cb013c"
+    },
+    {
+      "id": "testyouriq2",
+      "file": "assets/sakhr/testyouriq2.webp",
+      "width": 246,
+      "height": 189,
+      "sha256": "7ae3416a5b4590d26714f98cb1de7bfa1d47bfe3c07835a12988d44b4858877f",
+      "originalFile": "chrome_XGfJxFrnuW.png",
+      "originalSHA256": "d521ccfa7e2440ec7becb77590c6e73dcc501e352ab51287d3758788f3f6c137"
+    },
+    {
+      "id": "spellright",
+      "file": "assets/sakhr/spellright.webp",
+      "width": 256,
+      "height": 185,
+      "sha256": "a5f7c9a4bb9364c050ffb98a4fe060a553566ff9de0af44edbf75846c95c9e78",
+      "originalFile": "chrome_W955ch42AV.png",
+      "originalSHA256": "72936c3d508158fb605da2e1c580aefc6eca88843c840274227dc84e4b9fd7f9"
+    },
+    {
+      "id": "smallexplorer",
+      "file": "assets/sakhr/smallexplorer.webp",
+      "width": 246,
+      "height": 142,
+      "sha256": "98d2c1610f8cc76dee8e43b7cf7d830ddeeaa6e24154b891a5be7249eef75087",
+      "originalFile": "chrome_AgBJsW1isP.png",
+      "originalSHA256": "5f9a76b2b9fcb21b6b71eff3fa9d6d7cb460a8adf3a886af937177b7e284d8ca"
+    },
+    {
+      "id": "skywolf",
+      "file": "assets/sakhr/skywolf.webp",
+      "width": 257,
+      "height": 192,
+      "sha256": "cf4a913534f46d0c354d5f0e390619d23024fdb6d06de356c402e8d866b9abb3",
+      "originalFile": "chrome_lzzmKRA8zl.png",
+      "originalSHA256": "1392ed40fdf5b8aa3c7416932a00ebee6e2cc1e6612e13b9fe52ad41f650ed35"
+    },
+    {
+      "id": "shaterhassan",
+      "file": "assets/sakhr/shaterhassan.webp",
+      "width": 252,
+      "height": 174,
+      "sha256": "1ef8d672a7a696befbaedd833f56feb04fd77b2000db009701fc3b9a28826c0a",
+      "originalFile": "chrome_WvBXpZSssa.png",
+      "originalSHA256": "77adff4a14161d3d75cf1a585aa43f95cb838e4aed3b09ae809d1cf483906207"
+    },
+    {
+      "id": "seahorse",
+      "file": "assets/sakhr/seahorse.webp",
+      "width": 254,
+      "height": 184,
+      "sha256": "3bc47523a0fe8b5bb85ed744d7089bed5b812c9b3cc8f84902842c8bfa59da45",
+      "originalFile": "chrome_p062DIODeM.png",
+      "originalSHA256": "8745524b9360a0d1be934ff9ed1ea31a8ce4ba905f099a67f77282b9c77b796d"
+    },
+    {
+      "id": "sebaweh",
+      "file": "assets/sakhr/sebaweh.webp",
+      "width": 255,
+      "height": 175,
+      "sha256": "d9e2e41948fb6234c0d9879786351604a7f05052885fb73a05599ae0478b769d",
+      "originalFile": "chrome_NCdFIUunGH.png",
+      "originalSHA256": "1d2d75dc56a5295257da80e40df1deba2935025f814f17aacf60703ba8a4b1dc"
+    },
+    {
+      "id": "mohammad-al-sharekh",
+      "file": "assets/sakhr/mohammad-al-sharekh.webp",
+      "width": 277,
+      "height": 311,
+      "sha256": "0ec17f69507a61339de259267fed24310069d2523cf4d6b74ed6744ff377580f",
+      "originalFile": "chrome_ARARlafGx3.png",
+      "originalSHA256": "253b55ea16e2a0d89dbdbeaa758a0155743d2bba748d2804bc936d29cce64c19"
+    },
+    {
+      "id": "triptomekkah",
+      "file": "assets/sakhr/triptomekkah.webp",
+      "width": 254,
+      "height": 180,
+      "sha256": "1fb15500cddd070d1e7714cd3d6b658ac50ddad3be3f2b0f49fbeb69a053833d",
+      "originalFile": "chrome_XGV9ueSwMz.png",
+      "originalSHA256": "46f10d8c736056250301d35cc4277b6bc3c737428f5c213a74a735aeb21ee299"
+    },
+    {
+      "id": "treasure",
+      "file": "assets/sakhr/treasure.webp",
+      "width": 256,
+      "height": 188,
+      "sha256": "2f0a2486b3cd4a3d686ba662141980ffe00da98bc0644b75c5d601905fab5ad2",
+      "originalFile": "chrome_vEk8JgmBtb.png",
+      "originalSHA256": "2b24b28ef34cb53064663c6916e3d15a0dff5e10dfd42c6617bdede1b553e618"
+    }
+  ]
+}
