@@ -34,15 +34,16 @@ function openModal(name,device){
  m.querySelector("#wishlistOptions").innerHTML=CATEGORIES.map(function(c){return '<button type="button" class="wishlist-option '+(saved&&saved.category===c.id?"selected":"")+'" data-category="'+c.id+'"><span class="wishlist-optionemoji">'+window.CartoIcons.markup(c.id)+'</span><span>'+esc(c.label)+'</span><span class="wishlist-check">'+(saved&&saved.category===c.id?"✓":"＋")+'</span></button>'}).join("");
  window.CartoDialog.open(m);
 }
-function heart(name,device){var saved=find(name);return '<button type="button" class="wishlist-heart '+(saved?"is-saved":"")+'" data-wish-name="'+esc(name)+'" data-wish-device="'+esc(device||"unknown")+'" aria-label="'+(saved?"تعديل تصنيف "+esc(name):"أضف "+esc(name)+" إلى قائمة تحفك الفنية")+'" aria-pressed="'+(saved?"true":"false")+'" title="'+(saved?"موجودة في قائمة تحفك الفنية":"أضف إلى قائمة تحفك الفنية")+'">'+(saved?"♥":"♡")+'</button>'}
+function heart(name,device,saved=find(name)){return '<button type="button" class="wishlist-heart '+(saved?"is-saved":"")+'" data-wish-name="'+esc(name)+'" data-wish-device="'+esc(device||"unknown")+'" aria-label="'+(saved?"تعديل تصنيف "+esc(name):"أضف "+esc(name)+" إلى قائمة تحفك الفنية")+'" aria-pressed="'+(saved?"true":"false")+'" title="'+(saved?"موجودة في قائمة تحفك الفنية":"أضف إلى قائمة تحفك الفنية")+'">'+(saved?"♥":"♡")+'</button>'}
 function decorateCards(){
  if(document.body.dataset.page==="reference")return;
+ const savedGames=new Map(read().map(game=>[game.name,game]));
  document.querySelectorAll("#gameGrid .gamecard, #gemGrid .gamecard").forEach(function(card){
   var details=card.querySelector("[data-details]");var title=details?details.dataset.details:card.querySelector("h3")?.textContent?.trim();if(!title)return;
   var device=details?details.dataset.device:(card.closest("#gemGrid")?"gems":"unknown");
   var bottom=card.querySelector(".cardbottom")||card.querySelector(".gameinfo");if(!bottom)return;
-  var old=bottom.querySelector(".wishlist-heart");if(old){var s=find(title),heartText=s?"♥":"♡",pressed=s?"true":"false";if(old.classList.contains("is-saved")!==!!s)old.classList.toggle("is-saved",!!s);if(old.textContent!==heartText)old.textContent=heartText;if(old.getAttribute("aria-pressed")!==pressed)old.setAttribute("aria-pressed",pressed);var label=s?"تعديل تصنيف "+title:"أضف "+title+" إلى قائمة تحفك الفنية";if(old.getAttribute("aria-label")!==label)old.setAttribute("aria-label",label);var hint=s?"موجودة في قائمة تحفك الفنية":"أضف إلى قائمة تحفك الفنية";if(old.title!==hint)old.title=hint;return}
-  bottom.insertAdjacentHTML("beforeend",heart(title,device));
+  var old=bottom.querySelector(".wishlist-heart");if(old){var s=savedGames.get(title),heartText=s?"♥":"♡",pressed=s?"true":"false";if(old.classList.contains("is-saved")!==!!s)old.classList.toggle("is-saved",!!s);if(old.textContent!==heartText)old.textContent=heartText;if(old.getAttribute("aria-pressed")!==pressed)old.setAttribute("aria-pressed",pressed);var label=s?"تعديل تصنيف "+title:"أضف "+title+" إلى قائمة تحفك الفنية";if(old.getAttribute("aria-label")!==label)old.setAttribute("aria-label",label);var hint=s?"موجودة في قائمة تحفك الفنية":"أضف إلى قائمة تحفك الفنية";if(old.title!==hint)old.title=hint;return}
+  bottom.insertAdjacentHTML("beforeend",heart(title,device,savedGames.get(title)||null));
  });
 }
 function renderList(){
@@ -64,6 +65,6 @@ function renderList(){
 function refresh(){if(document.body.dataset.page==="reference")renderList();else decorateCards()}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-wish-name]");if(b){e.preventDefault();openModal(b.dataset.wishName,b.dataset.wishDevice);return}});
 window.addEventListener("storage",refresh);
-function init(){ensureModal();refresh();document.querySelectorAll("#gameGrid, #gemGrid").forEach(function(grid){if(document.body.dataset.page!=="reference")new MutationObserver(decorateCards).observe(grid,{childList:true,subtree:true})})}
+function init(){ensureModal();refresh();document.addEventListener("carto:catalog-render",decorateCards)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();

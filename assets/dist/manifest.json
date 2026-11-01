@@ -1,0 +1,22 @@
+{
+  "assets/dist/shared-b7e14e692b86.js": [
+    "assets/mascot.js",
+    "assets/audio.js",
+    "assets/dialog.js",
+    "assets/theme.js",
+    "assets/arcade-experience.js",
+    "assets/arcade-phase2.js",
+    "assets/phase3.js",
+    "assets/motion.js",
+    "assets/mobile-nav.js",
+    "assets/performance.js"
+  ],
+  "assets/dist/shared-b53b26ca0930.css": [
+    "assets/style.css",
+    "assets/arcade-experience.css",
+    "assets/arcade-phase2.css",
+    "assets/audit-fixes.css",
+    "assets/phase3.css",
+    "assets/phase4.css"
+  ]
+}

@@ -14,7 +14,7 @@
   if(query.matches||!('IntersectionObserver'in window))return;
   if(!observer)observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
    if(!entry.isIntersecting)return;
-   observer.unobserve(entry.target);pulse(entry.target,'sticker-arrive',720);
+   observer.unobserve(entry.target);entry.target.classList.add('sticker-arrive');
   }),{threshold:.12});
   document.querySelectorAll(cards).forEach((el,i)=>{if(visible.has(el))return;visible.add(el);el.style.setProperty('--sticker-order',Math.min(i%4,3));observer.observe(el)});
  }
@@ -29,8 +29,6 @@
    if(button&&!button.disabled)pulse(button);
    const sound=event.target.closest('.arcade-sound');if(sound)document.querySelectorAll('.arcade-sound').forEach(el=>pulse(el,'control-performance',850));
   },true);
-  const roots=document.querySelectorAll('#gameGrid,#gemGrid');
-  roots.forEach(el=>new MutationObserver(enroll).observe(el,{childList:true}));
   query.addEventListener('change',()=>{if(query.matches){observer?.disconnect();document.querySelectorAll('.sticker-arrive,.carto-pressed,.sticker-open,.control-performance').forEach(el=>el.classList.remove('sticker-arrive','carto-pressed','sticker-open','control-performance'))}else{visible=new WeakSet();enroll()}});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
