@@ -1,0 +1,158 @@
+{
+  "items": [
+    {
+      "group": "hardware",
+      "id": "ax170-box",
+      "file": "assets/sakhr/album/ax170-box.webp",
+      "originalFile": "images.jpg",
+      "title": "صخر AX170 مع علبته",
+      "description": "الجهاز ولوحة مفاتيحه العربية إلى جانب علبة التغليف الأصلية.",
+      "width": 527,
+      "height": 581,
+      "sha256": "b33184dd1fffdb26a6629b15e24e759e3ffb9852fa24dc62add950f8d75d4928"
+    },
+    {
+      "group": "hardware",
+      "id": "ax170-manuals",
+      "file": "assets/sakhr/album/ax170-manuals.webp",
+      "originalFile": "images (3).jpg",
+      "title": "صخر AX170 وأدلته",
+      "description": "الجهاز مع كتيّب الاستخدام ودليل لغة بيسك.",
+      "width": 619,
+      "height": 323,
+      "sha256": "0065617f6ba5f270f869cce99ab7f7802089eadf5344ff9b430064084a5b3118"
+    },
+    {
+      "group": "hardware",
+      "id": "yamaha-ax150",
+      "file": "assets/sakhr/album/yamaha-ax150.webp",
+      "originalFile": "images (2).jpg",
+      "title": "Yamaha AX150",
+      "description": "لقطة بالأبيض والأسود تُظهر لوحة المفاتيح العربية وعلامة MSX وصخر.",
+      "width": 515,
+      "height": 388,
+      "sha256": "00d93431546304a179acee6ae90d66098d2b4c007b08e3b6a3abedaac72f0e57"
+    },
+    {
+      "group": "hardware",
+      "id": "ax370",
+      "file": "assets/sakhr/album/ax370.webp",
+      "originalFile": "images (1).jpg",
+      "title": "صخر AX370",
+      "description": "تصميم أسود مع مشغّل أقراص مدمج ولوحة مفاتيح عربية.",
+      "width": 515,
+      "height": 388,
+      "sha256": "3be1a6e6331b2812402e446411748314dd54263318886cd4df39db8991448516"
+    },
+    {
+      "group": "hardware",
+      "id": "floppy",
+      "file": "assets/sakhr/album/floppy.webp",
+      "originalFile": "chrome_JVYvh3JzUu.png",
+      "title": "القرص المرن لصخر",
+      "description": "قرص مرن بقياس ٥٫٢٥ بوصة مع غلاف يحمل شعار صخر.",
+      "width": 260,
+      "height": 287,
+      "sha256": "261285b52db4abfc838eefa7479aa7af260a7dea4a7be108017a9811fe62953f"
+    },
+    {
+      "group": "programs",
+      "id": "islamic-treasure",
+      "file": "assets/sakhr/album/islamic-treasure.webp",
+      "originalFile": "chrome_XyFyBsDObV.png",
+      "title": "كنز المعلومات الإسلامية",
+      "description": "شاشة عنوان البرنامج، ويظهر عليها تاريخ ١٩٩٥.",
+      "width": 622,
+      "height": 465,
+      "sha256": "ced49ef3ea9454755012348c15b882bbbbb8da7f09836e966bd2a8ebd2de0f79"
+    },
+    {
+      "group": "programs",
+      "id": "islamic-quiz",
+      "file": "assets/sakhr/album/islamic-quiz.webp",
+      "originalFile": "chrome_eqTpx4PGCW.png",
+      "title": "اختبر معلوماتك — ٢: إسلاميات",
+      "description": "شاشة عنوان الجزء الثاني من برنامج الاختبارات.",
+      "width": 627,
+      "height": 471,
+      "sha256": "8e493c2dc44754151598f432127e75880edea6c5e8503795e603fb58f33399c8"
+    },
+    {
+      "group": "programs",
+      "id": "ozzie-science",
+      "file": "assets/sakhr/album/ozzie-science.webp",
+      "originalFile": "chrome_RUSPGTrvqr.png",
+      "title": "علوم أوزي",
+      "description": "واجهة مرسومة لبرنامج العلوم، مع اسم Digital Impact الظاهر في الصورة.",
+      "width": 643,
+      "height": 484,
+      "sha256": "8476d40cfec391dfb29c3cf1ec5af32751ca6081a48cf7cba1bedfad571027ee"
+    },
+    {
+      "group": "programs",
+      "id": "arab-world",
+      "file": "assets/sakhr/album/arab-world.webp",
+      "originalFile": "chrome_E6TRdZN7NJ.png",
+      "title": "مغامرات في الوطن العربي",
+      "description": "شاشة العنوان بخريطة مجسّمة للوطن العربي وشخصيتَي المغامرة.",
+      "width": 638,
+      "height": 481,
+      "sha256": "14e413955f4a1117e70fdddde3ef2566188ef81b29e583aaf64822b853023ec4"
+    },
+    {
+      "group": "quran",
+      "id": "quran-about",
+      "file": "assets/sakhr/album/quran-about.webp",
+      "originalFile": "chrome_w56y4qSieS.png",
+      "title": "القرآن الكريم — معلومات الإصدار",
+      "description": "نافذة معلومات البرنامج؛ يظهر فيها الإصدار ٦٫٣١ وحقوق صخر للفترة ١٩٩١–١٩٩٦.",
+      "width": 640,
+      "height": 478,
+      "sha256": "9a2188c4089b14487789b71fa459ee4622068621d96743b9b69deaf48e8ed645"
+    },
+    {
+      "group": "quran",
+      "id": "quran-reading",
+      "file": "assets/sakhr/album/quran-reading.webp",
+      "originalFile": "chrome_HTcZRTvpOL.png",
+      "title": "القرآن الكريم — شاشة القراءة",
+      "description": "عرض آيات من سورة البقرة مع أدوات القراءة والتفسير والترجمة.",
+      "width": 641,
+      "height": 479,
+      "sha256": "5bd7d87dac9748517797ce77cbd1c92b3edaf15f18e1c29324819b1657ccd4b3"
+    },
+    {
+      "group": "quran",
+      "id": "quran-controls",
+      "file": "assets/sakhr/album/quran-controls.webp",
+      "originalFile": "chrome_EreBSkkq6F.png",
+      "title": "القرآن الكريم — أدوات التنقّل",
+      "description": "واجهة أخرى لقراءة سورة البقرة، مع أزرار التنقّل واختيار السورة والآية.",
+      "width": 1028,
+      "height": 551,
+      "sha256": "4d4dc579c07370a8eaac041e9ac49252d72a34b9b42e84403e3b009d84f87807"
+    },
+    {
+      "group": "web",
+      "id": "sakhr-2005",
+      "file": "assets/sakhr/album/sakhr-2005.webp",
+      "originalFile": "chrome_s2Ue2hjpEm.png",
+      "title": "موقع صخر عام ٢٠٠٥",
+      "description": "لقطة قدّمها مالك الموقع بوصفها نسخة عام ٢٠٠٥؛ يظهر في تذييلها نطاق الحقوق ١٩٩٨–٢٠٠٥.",
+      "width": 783,
+      "height": 683,
+      "sha256": "8e36be19e08fde7cd55b1bb555c8232f61904ce3a002f77d8a069847696227cf"
+    },
+    {
+      "group": "web",
+      "id": "sakhr-logo",
+      "file": "assets/sakhr/album/sakhr-logo.webp",
+      "originalFile": "chrome_30ZuNFBKt0.png",
+      "title": "شعار صخر القديم",
+      "description": "صورة توثيقية للشعار، مع تعليق مرفق يشير إلى استخدامه في الثمانينيات.",
+      "width": 269,
+      "height": 172,
+      "sha256": "7e87381256e4c2d93b7d1067bef9e4181776caac8a70b930669d421c4d995c3c"
+    }
+  ]
+}
