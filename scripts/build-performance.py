@@ -37,6 +37,7 @@ for page in ROOT.glob('*.html'):
  text=text.replace('reader.mjs?v=reader-fast-2','reader.mjs?v=opt-1').replace('magazines.mjs?v=magazines-2','magazines.mjs?v=opt-1')
  # Version edited standalone scripts as well, without broad cache invalidation.
  text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',r'\1?v=opt-1',text)
+ text=text.replace('assets/app.js?v=opt-1','assets/app.js?v=opt-2')
  if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=opt-1"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
  if page.stem=='reader':
   catalog=json.loads((ROOT/'assets/magazines/catalog.json').read_text())['items']
