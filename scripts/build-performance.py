@@ -34,10 +34,11 @@ for page in ROOT.glob('*.html'):
  if 'https://fonts.gstatic.com' not in text:text=text.replace('</title>','</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',1)
  if page.stem in ['archive','sources','localization','identity','sakhr']:
   text=re.sub(r'<script\b[^>]*src="assets/(app|wishlist)\.js[^\"]*"[^>]*></script>','',text)
+ text=re.sub(r'(assets/magazines\.mjs)(?:\?[^\"]*)?',r'\1?v=mascot-1',text)
  text=text.replace('reader.mjs?v=reader-fast-2','reader.mjs?v=opt-1').replace('magazines.mjs?v=magazines-2','magazines.mjs?v=opt-1')
  text=text.replace('assets/wishlist.js?v=opt-1','assets/wishlist.js?v=collection-2')
  # Version edited standalone scripts as well, without broad cache invalidation.
- text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',lambda m:m[1]+('?v=gba-2' if 'catalog.js' in m[1] else '?v=gba-1'),text)
+ text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',lambda m:m[1]+('?v=gba-2' if 'catalog.js' in m[1] else '?v=mascot-1'),text)
  text=text.replace('assets/app.js?v=opt-1','assets/app.js?v=opt-3').replace('assets/app.js?v=opt-2','assets/app.js?v=opt-3')
  if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=opt-1"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
  if page.stem=='reader':

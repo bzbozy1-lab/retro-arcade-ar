@@ -83,7 +83,7 @@ function renderList(){
  document.getElementById('collectionResult').textContent='عرض '+result.length+' من '+list.length;document.getElementById('collectionReset').hidden=!(collectionState.query||collectionState.status!=='all'||collectionState.device);
  grid.className='collection-grid';
  if(!list.length){grid.innerHTML='<section class="wishlist-empty">'+window.CartoMascot.markup('rest','wishlist-empty-mascot','كارتو ينتظر أول لعبة في قائمتك')+'<h2>أول لعبة تبدأ الحكاية</h2><p>اضغط قلب أي لعبة في الموسوعة، واختر تصنيفها لتظهر هنا.</p><a class="btn" href="games.html">تصفّح الألعاب ←</a></section>';return;}
- grid.innerHTML=result.length?result.map(collectionCard).join(''):'<section class="collection-no-results"><h2>لا توجد ألعاب بهذه التصفية</h2><p>ألعابك المحفوظة باقية. جرّب جهازًا أو تصنيفًا آخر.</p><button type="button" class="btn" id="collectionEmptyReset">عرض قائمتي كاملة</button></section>';
+ grid.innerHTML=result.length?result.map(collectionCard).join(''):'<section class="collection-no-results">'+window.CartoMascot.markup('sad','carto-empty-mascot')+'<h2>لا توجد ألعاب بهذه التصفية</h2><p>ألعابك المحفوظة باقية. جرّب جهازًا أو تصنيفًا آخر.</p><button type="button" class="btn" id="collectionEmptyReset">عرض قائمتي كاملة</button></section>';
  document.getElementById('collectionEmptyReset')?.addEventListener('click',resetCollection);
 }
 function refresh(){if(document.body.dataset.page==="reference")renderList();else decorateCards()}

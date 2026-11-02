@@ -12,12 +12,17 @@
   holder.innerHTML=markup(pose,image.className,label??image.alt,image.getAttribute('style')||'');
   const actor=holder.firstElementChild;image.replaceWith(actor);return actor;
  }
- let timer;
- function mood(pose,duration=1600){
-  clearTimeout(timer);
-  const actors=document.querySelectorAll('.hero-mascot,.carto-mascot-live,.arcade-guide-robot,.page-companion');
-  actors.forEach(el=>{el.dataset.cartoPose=poses.includes(pose)?pose:'happy';el.classList.remove('carto-react');void el.offsetWidth;el.classList.add('carto-react')});
-  if(duration>0)timer=setTimeout(()=>actors.forEach(el=>{el.dataset.cartoPose='happy';el.classList.remove('carto-react')}),duration);
+ const reactions=new WeakMap();
+ function mood(pose,duration=1600,actor){
+  if(!actor||!actor.matches('[data-carto-feedback]'))return;
+  const previous=reactions.get(actor);
+  if(previous)clearTimeout(previous.timer);
+  const baseline=previous?.baseline||actor.dataset.cartoPose||'happy';
+  actor.dataset.cartoPose=poses.includes(pose)?pose:baseline;
+  actor.classList.remove('carto-react');
+  if(!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){void actor.offsetWidth;actor.classList.add('carto-react')}
+  const timer=duration>0?setTimeout(()=>{actor.dataset.cartoPose=baseline;actor.classList.remove('carto-react');reactions.delete(actor)},duration):null;
+  reactions.set(actor,{baseline,timer});
  }
  window.CartoMascot={markup,replace,mood,poses};
 })();

@@ -27,9 +27,9 @@ function loadImages(){
 }
 function gameDetails(title,device){
  const r=catalog()[title],d=DEVICES.find(x=>x.id===device);
- if(!r)return '<p>بيانات هذا العنوان قيد التوثيق.</p>';
+ if(!r)return window.CartoMascot.markup('surprised','carto-detail-mascot')+'<p>بيانات هذا العنوان قيد التوثيق.</p>';
  const rows=[['الجهاز في هذه القائمة',d?.name||'لعبة مكنوزة مستقلة'],['المطور / المصمم',r.developer],['الناشر',r.publisher],['الإصدار',r.release],['النوع',r.genre],['الأجهزة في المصدر',r.platforms]];
- return '<dl class="game-facts">'+rows.filter(x=>x[1]).map(([label,value])=>'<div><dt>'+esc(label)+'</dt><dd dir="auto">'+esc(value)+'</dd></div>').join('')+'</dl>'+
+ return '<div class="carto-detail-intro">'+window.CartoMascot.markup('surprised','carto-detail-mascot')+'<p>تعرّف إلى اللعبة</p></div><dl class="game-facts">'+rows.filter(x=>x[1]).map(([label,value])=>'<div><dt>'+esc(label)+'</dt><dd dir="auto">'+esc(value)+'</dd></div>').join('')+'</dl>'+
  (r.note?'<p class="edition-note">'+esc(r.note)+'</p>':'')+
  '<p class="muted">قد تختلف تواريخ المنافذ والنسخ المحسنة حسب الجهاز والمنطقة. '+esc(r.imageKind)+': '+esc(r.imageCaption||'صورة اللعبة في صفحة المصدر')+'</p><p><a class="btn alt" target="_blank" rel="noopener" href="'+esc(r.source)+'">اقرأ المصدر وتفاصيل اللعبة ↗</a></p>';
 }

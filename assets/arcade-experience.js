@@ -2,9 +2,11 @@
 (function(){
 "use strict";
 const doc=document,root=doc.documentElement;
-function toast(message,duration=2600){
+function toast(message,duration=2600,pose=""){
  const box=doc.getElementById("arcadeToast");if(!box)return;
- box.textContent=message;box.hidden=false;
+ box.replaceChildren();
+ if(pose){const icon=doc.createElement("span");icon.innerHTML=window.CartoMascot.markup(pose,"carto-toast-mascot");box.append(icon.firstElementChild)}
+ const copy=doc.createElement("span");copy.textContent=message;box.append(copy);box.hidden=false;
  clearTimeout(toast.timer);toast.timer=setTimeout(()=>{box.hidden=true},duration);
 }
 window.CartoToast=toast;
@@ -39,7 +41,7 @@ function init(){
   }
  }
  const toastEl=doc.createElement("div");toastEl.id="arcadeToast";toastEl.className="arcade-toast";toastEl.setAttribute("role","status");toastEl.setAttribute("aria-live","polite");toastEl.hidden=true;doc.body.append(toastEl);
- doc.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save")toast("✓ تم تحديث قائمتك الشخصية");else toast("تمت إزالة اللعبة من قائمتك")});
+ doc.addEventListener("carto:wishlist-change",event=>{if(event.detail?.action==="save")toast("تم تحديث قائمتك الشخصية",2600,"celebrate");else toast("تمت إزالة اللعبة من قائمتك")});
  const year=doc.getElementById("yearNow");if(year)year.textContent=new Date().getFullYear();
 
 }
