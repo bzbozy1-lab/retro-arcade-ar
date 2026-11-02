@@ -23,7 +23,7 @@ for page in ROOT.glob('*.html'):
  for f in common:text=re.sub(r'<script\b[^>]*src="'+re.escape(f)+r'(?:\?[^\"]*)?"[^>]*></script>','',text)
  script=f'<script defer src="{js}" data-sources="'+ ' '.join(common)+'"></script>'
  # Place after app/catalog but before page modules, matching the previous dependency ordering.
- dependent=re.search(r'<script\b[^>]*src="assets/(?:catalog|app|wishlist)\.js',text)
+ dependent=re.search(r'<script\b[^>]*src="assets/(?:catalog|app|wishlist|magazine-entry-audio)\.js',text)
  module=text.find('<script type="module"')
  position=dependent.start() if dependent else (module if module>=0 else text.rfind('</body>'))
  text=text[:position]+script+text[position:]
