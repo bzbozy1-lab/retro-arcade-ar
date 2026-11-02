@@ -1,5 +1,5 @@
 {
-  "assets/dist/shared-6efe23f7b6bf.js": [
+  "assets/dist/shared-ed955163b034.js": [
     "assets/mascot.js",
     "assets/audio.js",
     "assets/dialog.js",
@@ -9,14 +9,16 @@
     "assets/phase3.js",
     "assets/motion.js",
     "assets/mobile-nav.js",
-    "assets/performance.js"
+    "assets/performance.js",
+    "assets/crt.js"
   ],
-  "assets/dist/shared-602668f534bb.css": [
+  "assets/dist/shared-e1366533bc59.css": [
     "assets/style.css",
     "assets/arcade-experience.css",
     "assets/arcade-phase2.css",
     "assets/audit-fixes.css",
     "assets/phase3.css",
-    "assets/phase4.css"
+    "assets/phase4.css",
+    "assets/crt.css"
   ]
 }

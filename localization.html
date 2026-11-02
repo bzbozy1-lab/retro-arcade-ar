@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F3EBDD">
 <meta name="description" content="دليل فرق ومبادرات تعريب الألعاب إلى اللغة العربية — CARTO.">
-<title>الألعاب المعربة | CARTO</title><link rel="stylesheet" href="assets/dist/shared-602668f534bb.css" data-sources="assets/style.css assets/arcade-experience.css assets/arcade-phase2.css assets/audit-fixes.css assets/phase3.css assets/phase4.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>الألعاب المعربة | CARTO</title><link rel="stylesheet" href="assets/dist/shared-e1366533bc59.css" data-sources="assets/style.css assets/arcade-experience.css assets/arcade-phase2.css assets/audit-fixes.css assets/phase3.css assets/phase4.css assets/crt.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Silkscreen:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
@@ -91,5 +91,5 @@ const sources=[
 document.addEventListener("click",e=>{const b=e.target.closest("[data-source]");if(b){const s=sources[Number(b.dataset.source)];if(!s)return;document.getElementById("modalTitle").textContent=s.name;document.getElementById("modalContent").innerHTML='<div class="local-modal-source"><img src="assets/arabic-pixel-mark.svg" alt=""><div><strong>'+s.name+'</strong><small>'+s.alias+'</small></div></div><p>'+s.about+'</p><p class="muted">الرابط المخصص لهذا المصدر في دليل CARTO:</p><a class="local-modal-link" href="'+s.url+'" target="_blank" rel="noopener">'+s.label+' ↗</a>';window.CartoDialog.open(document.getElementById("modal"))}if(e.target.closest("#modalClose")||e.target.id==="modal"){window.CartoDialog.close(document.getElementById("modal"))}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")window.CartoDialog.close(document.getElementById("modal"))});
 </script>
-<script defer src="assets/dist/shared-6efe23f7b6bf.js" data-sources="assets/mascot.js assets/audio.js assets/dialog.js assets/theme.js assets/arcade-experience.js assets/arcade-phase2.js assets/phase3.js assets/motion.js assets/mobile-nav.js assets/performance.js"></script></body></html>
+<script defer src="assets/dist/shared-ed955163b034.js" data-sources="assets/mascot.js assets/audio.js assets/dialog.js assets/theme.js assets/arcade-experience.js assets/arcade-phase2.js assets/phase3.js assets/motion.js assets/mobile-nav.js assets/performance.js assets/crt.js"></script></body></html>
 
