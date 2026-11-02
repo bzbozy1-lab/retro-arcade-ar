@@ -2,10 +2,10 @@
 (function(){
  'use strict';
  function init(){
-  if(['magazines','reader'].includes(document.body.dataset.page))return;
+  if(document.body.dataset.page==='reader')return;
   const header=document.querySelector('header.nav');
   if(!header||document.querySelector('.mobile-nav-trigger'))return;
-  const media=window.matchMedia('(max-width:700px)');
+  const media=window.matchMedia(document.body.dataset.page==='magazines'?'(max-width:700px), (max-width:1100px) and (max-height:600px)':'(max-width:700px)');
   const trigger=document.createElement('button');
   trigger.type='button';trigger.className='mobile-nav-trigger';
   trigger.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span>القائمة</span>';
