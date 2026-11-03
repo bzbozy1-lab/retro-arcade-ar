@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "size": [
+    32,
+    32
+  ],
+  "families": {
+    "arrow": {
+      "hotspot": [
+        3,
+        3
+      ],
+      "states": {
+        "normal": {
+          "svg": {
+            "file": "assets/cursors/arrow.svg",
+            "bytes": 2237,
+            "sha256": "fc38dd6c1628c95f92cb8fe3ee75e11344848558a0f64362f27a9b038258f318"
+          },
+          "png": {
+            "file": "assets/cursors/arrow.png",
+            "bytes": 425,
+            "sha256": "d8d7d0138f8773868a7cc8301bd40d60b826989112cd4cb5cda4a4cb8bdc14d1"
+          }
+        },
+        "pressed": {
+          "svg": {
+            "file": "assets/cursors/arrow-pressed.svg",
+            "bytes": 2238,
+            "sha256": "9f7c0fb467a01c6b0ef3b1c369f78b218275ed4e2df3e27b9812b1d6d9e39bd9"
+          },
+          "png": {
+            "file": "assets/cursors/arrow-pressed.png",
+            "bytes": 399,
+            "sha256": "b7116c69af41a7bebd356e5ce558f4e20da65babaa52a88dad1984df21ca217e"
+          }
+        }
+      }
+    },
+    "glove": {
+      "hotspot": [
+        12,
+        3
+      ],
+      "states": {
+        "normal": {
+          "svg": {
+            "file": "assets/cursors/glove.svg",
+            "bytes": 2661,
+            "sha256": "cf72984eaacae1dab54146a87251e05262a8059711b9348b3e207b1243037e94"
+          },
+          "png": {
+            "file": "assets/cursors/glove.png",
+            "bytes": 482,
+            "sha256": "d889d44c64239780c408ed77b9a9bad0f1c19101ea881a88bd41562495039149"
+          }
+        },
+        "pressed": {
+          "svg": {
+            "file": "assets/cursors/glove-pressed.svg",
+            "bytes": 2701,
+            "sha256": "de1194ad4a64c0ee988b4a4714a744ec236bc2b4b35da31d55a2eabbcd1c1983"
+          },
+          "png": {
+            "file": "assets/cursors/glove-pressed.png",
+            "bytes": 493,
+            "sha256": "1e8d32c67b3c85ec56971f5b9b0f3bfef60a953bf7ff962ef7127d129c4a5a4e"
+          }
+        }
+      }
+    },
+    "pak": {
+      "hotspot": [
+        3,
+        3
+      ],
+      "states": {
+        "normal": {
+          "svg": {
+            "file": "assets/cursors/pak.svg",
+            "bytes": 3193,
+            "sha256": "7288d315b5341c6b7051e3e525c8e9d14004aeb68fbcb1ca51e0db671c8744cb"
+          },
+          "png": {
+            "file": "assets/cursors/pak.png",
+            "bytes": 575,
+            "sha256": "376702d6bd63d49fb73762d76439042ee00ecb74dd352145bb16fb847a011f91"
+          }
+        },
+        "pressed": {
+          "svg": {
+            "file": "assets/cursors/pak-pressed.svg",
+            "bytes": 3196,
+            "sha256": "a02c2f39fd10c729688bbaeccf274e45730823661ea98803541af68bfa91b4dc"
+          },
+          "png": {
+            "file": "assets/cursors/pak-pressed.png",
+            "bytes": 577,
+            "sha256": "bdf27e376cd929875002b8909dffff30212e1062841304ea8e3a7c20a3be74a6"
+          }
+        }
+      }
+    }
+  }
+}
