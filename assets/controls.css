@@ -1,0 +1,49 @@
+/* Compact native switches: shared geometry, independent behavior and preferences. */
+body .arcade-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+body .arcade-controls .control-switch.control-switch,
+body .identity-section .control-switch.control-switch{
+ --tool-paper:#FFFBF2;--tool-shade:#E9DFC9;--tool-ink:#101216;
+ display:inline-flex;align-items:center;justify-content:flex-start;flex:none;
+ width:108px;min-width:108px;height:48px;min-height:48px;gap:5px;
+ padding:5px 6px!important;border:2px solid var(--tool-ink);border-radius:4px;
+ background:linear-gradient(155deg,var(--tool-paper),var(--tool-shade))!important;
+ color:var(--tool-ink)!important;box-shadow:2px 2px 0 #101216!important;
+ text-shadow:none;line-height:1.2;transform:none;overflow:hidden;
+ transition:box-shadow 140ms ease-out,translate 140ms ease-out;
+}
+body .arcade-controls .control-copy,body .identity-section .control-copy{gap:2px;text-align:start;white-space:nowrap}
+body .arcade-controls .control-copy>span,body .identity-section .control-copy>span{font:700 10px/1.2 Tajawal,sans-serif}
+body .arcade-controls .control-copy>strong,body .identity-section .control-copy>strong{font:700 13px/1.2 Tajawal,sans-serif}
+body .arcade-controls .control-icon,body .arcade-controls .control-icon svg,
+body .identity-section .control-icon,body .identity-section .control-icon svg{width:26px;height:26px}
+body .arcade-controls .mode-scene,body .identity-section .mode-scene{border:0;background:transparent;color:inherit}
+body .arcade-controls .control-switch[data-state="on"],
+body .arcade-controls .appearance-toggle[data-state="light"],
+body .identity-section .control-switch[data-state="on"],
+body .identity-section .appearance-toggle[data-state="light"]{--tool-paper:#F4FFD3;--tool-shade:#C8F31D}
+html[data-theme="dark"] body .arcade-controls .control-switch:not([data-state="on"]),
+html[data-theme="dark"] body .identity-section .control-switch:not([data-state="on"]){--tool-paper:#343A48;--tool-shade:#242936;--tool-ink:#F3EBDD}
+body .arcade-controls .control-switch:hover,body .identity-section .control-switch:hover{box-shadow:3px 3px 0 #101216!important;translate:0 -1px}
+body .arcade-controls .control-switch:active,body .identity-section .control-switch:active{transform:none!important;translate:1px 1px;box-shadow:1px 1px 0 #101216!important}
+body .arcade-controls :is(.control-switch,.crt-settings-button):focus-visible,
+body .identity-section .control-switch:focus-visible{outline:3px solid #2F5BFF;outline-offset:4px;z-index:1}
+html[data-theme="dark"] body .arcade-controls :is(.control-switch,.crt-settings-button):focus-visible{outline-color:#C8F31D}
+body .arcade-controls .crt-control{align-items:stretch;width:140px;grid-column:auto}
+body .arcade-controls .crt-control .crt-toggle.control-switch{width:96px;min-width:0;flex:1;border-start-end-radius:4px;border-end-end-radius:4px;border-start-start-radius:0;border-end-start-radius:0}
+body .arcade-controls .crt-control .crt-settings-button{flex:0 0 44px;width:44px;min-width:44px;height:48px;min-height:48px;padding:8px;box-shadow:2px 2px 0 #101216;border-radius:4px 0 0 4px;background:var(--panel);color:var(--text)}
+body .arcade-controls .crt-settings-button svg{width:18px;height:18px}
+body .arcade-controls .crt-settings-button[aria-expanded="true"]{background:#FF5B2E;color:#101216}
+body[data-page="archive"] .archivegrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#sakhrPortal{scroll-margin-top:110px}
+@media(max-width:700px), (max-width:1100px) and (max-height:600px){
+ body.mobile-nav-ready .nav .arcade-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(124px,1.3fr);gap:6px;width:100%;margin:0}
+ body.mobile-nav-ready .nav .arcade-controls .control-switch.control-switch{width:100%;min-width:0;padding:5px 4px!important;gap:4px;justify-content:center}
+ body.mobile-nav-ready .nav .arcade-controls .control-icon,body.mobile-nav-ready .nav .arcade-controls .control-icon svg{width:20px;height:20px}
+ body.mobile-nav-ready .nav .arcade-controls .control-copy>span{font-size:9px}
+ body.mobile-nav-ready .nav .arcade-controls .control-copy>strong{font-size:12px}
+ body.mobile-nav-ready .nav .arcade-controls .crt-control{width:100%;grid-column:auto;min-width:0}
+ body.mobile-nav-ready .nav .arcade-controls .crt-control .crt-toggle{width:auto;justify-content:center}
+}
+@media(max-width:600px){body[data-page="archive"] .archivegrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){body .arcade-controls .control-switch,body .identity-section .control-switch{transition:none;translate:none!important}}
+@media(forced-colors:active){body .arcade-controls .control-switch.control-switch{background:ButtonFace!important;color:ButtonText!important;border-color:ButtonText;box-shadow:none!important}body .arcade-controls .control-switch[aria-pressed="true"]{outline:2px solid Highlight;outline-offset:-5px}}

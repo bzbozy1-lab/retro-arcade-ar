@@ -1,0 +1,1074 @@
+:root{--bg:#121212;--panel:#1e1e1e;--panel2:#272727;--text:#e0e0e0;--muted:#aaa;--cyan:#00ffff;--magenta:#ff00ff;--gold:#ffd700;--line:#393939;--body:'Cairo',sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.8}a{color:var(--cyan);text-decoration:none}a:hover{color:#fff;text-shadow:0 0 9px #00ffff80}.wrap{width:min(1180px,92%);margin:auto}.scanlines{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.07;background:repeating-linear-gradient(0deg,transparent 0 3px,#000 4px 5px)}.topline{height:3px;background:linear-gradient(90deg,var(--magenta),var(--cyan),var(--gold))}.nav{position:sticky;top:0;z-index:20;background:#121212f5;border-bottom:1px solid #00ffff55;backdrop-filter:blur(12px)}.navin{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 0}.brand{display:flex;align-items:center;gap:10px;color:var(--cyan);font-weight:800}.brandicon{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--cyan);font-size:23px;box-shadow:0 0 12px #00ffff2a}.brandname{font-size:14px;letter-spacing:1px;line-height:1.4}.brandname small{display:block;font-size:11px;letter-spacing:0;color:var(--text)}.navlinks{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13px}.navlinks a{color:var(--text)}.navlinks a.active,.navlinks a:hover{color:var(--cyan)}.hero{padding:64px 0 52px;background:radial-gradient(ellipse at 85% 25%,#5b145d50,transparent 40%),radial-gradient(ellipse at 15% 80%,#006b7845,transparent 42%),#15121a;border-bottom:1px solid #ff00ff40}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.35;margin:10px 0 18px}.hero h1 em{font-style:normal;color:var(--magenta);text-shadow:0 0 20px #ff00ff55}.hero p{max-width:720px;color:#c7c7c7}.heroactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.btn{border:1px solid var(--magenta);background:var(--magenta);color:#170017;padding:9px 16px;font:700 13px var(--body);display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:.2s}.btn:hover{box-shadow:0 0 18px #ff00ff55;color:#fff;transform:translateY(-1px)}.btn.alt{background:transparent;color:var(--cyan);border-color:var(--cyan)}.btn.alt:hover{background:#00ffff10;color:var(--cyan)}.btn.gold{background:transparent;color:var(--gold);border-color:var(--gold)}.section{padding:42px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}.sectionhead h1,.sectionhead h2{font-size:clamp(24px,3vw,34px);margin:0;line-height:1.4}.sectionhead h1 span,.sectionhead h2 span{color:var(--cyan)}.sectionhead p{margin:5px 0 0;color:var(--muted);font-size:13px}.tag{display:inline-block;border:1px solid #00ffff70;color:var(--cyan);padding:2px 9px;font-size:11px}.muted{color:var(--muted)}.field{background:#101010;border:1px solid #444;color:var(--text);padding:10px 12px;font:inherit;min-width:0;outline:none}.field:focus{border-color:var(--cyan);box-shadow:0 0 0 2px #00ffff20}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.filters input{flex:1;min-width:220px}.filters select{min-width:155px}.platforms{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.platform{background:var(--panel);border:1px solid var(--line);padding:18px 12px;text-align:center;color:var(--text);transition:.2s;display:block}.platform:hover{border-color:var(--cyan);box-shadow:0 0 16px #00ffff20;transform:translateY(-2px)}.platform .emoji{font-size:30px;display:block}.platform strong{display:block;margin-top:5px}.platform small{font-size:11px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.gamecard{background:var(--panel);border:1px solid var(--line);overflow:hidden;min-width:0;transition:.2s}.gamecard:hover{border-color:var(--cyan);box-shadow:0 0 16px #00ffff1c;transform:translateY(-2px)}.gameimage{height:210px;background:#181818;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid #333}.gameimage img{width:100%;height:100%;object-fit:contain;background:#171717;display:block}.gameimage .loading{color:#777;font-size:12px;padding:12px;text-align:center}.gameimage .source{position:absolute;bottom:6px;left:6px;background:#000b;padding:1px 6px;font-size:10px;color:#ccc}.gameinfo{padding:13px}.gameinfo h3{font-size:15px;line-height:1.5;margin:0 0 8px;direction:ltr;text-align:right}.meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px}.cardbottom{display:flex;justify-content:space-between;align-items:center;margin-top:11px}.textbtn{border:0;background:none;color:var(--cyan);padding:0;font:600 12px var(--body);cursor:pointer}.textbtn:hover{color:#fff}.platformhero{background:linear-gradient(110deg,#1b2628,#211522);border:1px solid #00ffff45;padding:20px;margin-bottom:22px}.platformhero h2{margin:0 0 5px}.platformhero p{margin:0;color:#bbb}.empty{grid-column:1/-1;padding:35px;text-align:center;border:1px dashed #444;color:var(--muted)}.notice{border:1px dashed #555;padding:12px;color:var(--muted);font-size:12px;margin-top:18px}.gemgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gemcard,.archivecard{background:var(--panel);border:1px solid var(--line);padding:20px}.gemcard{border-color:#ffd70055}.gemcard h3,.archivecard h3{margin:8px 0}.gemcard p,.archivecard p{font-size:13px;color:#bbb}.glossary{background:#171717;border:1px solid var(--line);padding:20px}.letters{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.letter{background:#222;border:1px solid #454545;color:var(--text);padding:4px 10px;cursor:pointer}.letter.active,.letter:hover{border-color:var(--magenta);color:var(--magenta)}.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.term{padding:14px;border-right:2px solid var(--cyan);background:#202020}.term h3{margin:0;color:var(--cyan)}.term .translation{font-size:12px;color:var(--gold)}.term p{font-size:13px;color:#bbb;margin:7px 0}.archivegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.archivecard .icon{font-size:30px}.footer{border-top:1px solid #00ffff40;padding:24px 0;background:#101010;margin-top:30px}.footerin{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.footer p{color:var(--muted);font-size:12px;margin:0}.footerlinks{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}.backtop{display:inline-block;margin-top:18px;font-size:12px}.modal{position:fixed;inset:0;background:#000c;z-index:50;display:none;place-items:center;padding:20px}.modal.open{display:grid}.modalbox{background:var(--panel);border:1px solid var(--cyan);max-width:650px;width:100%;max-height:85vh;overflow:auto;padding:23px;box-shadow:0 0 35px #00ffff20}.modalhead{display:flex;justify-content:space-between;gap:15px;align-items:center}.modalhead h2{margin:0}.close{background:none;border:1px solid #555;color:var(--text);padding:4px 12px;cursor:pointer}.modalbox p{color:#c8c8c8}.modalbox h3{color:var(--cyan)}@media(max-width:900px){.navin{flex-wrap:wrap}.navlinks{width:100%;justify-content:center}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.platforms{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.hero{padding:42px 0}.navlinks{gap:10px;font-size:12px}.section{padding:30px 0}.sectionhead{align-items:start;flex-direction:column}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gameimage{height:160px}.platforms{grid-template-columns:repeat(2,1fr)}.gemgrid,.archivegrid,.terms{grid-template-columns:1fr}.filters input{flex-basis:100%}.footerin{align-items:flex-start;flex-direction:column}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* CARTO visual identity — sticker-bomb, pixel, and solid-shadow system */
+:root{--bg:#F3EBDD;--panel:#FFFBF2;--panel2:#C8F31D;--text:#101216;--muted:#56534d;--cyan:#C8F31D;--magenta:#FF5B2E;--gold:#2F5BFF;--line:#101216;--body:'Tajawal',sans-serif;color-scheme:light}
+
+body{background-color:var(--bg);background-image:radial-gradient(#10121617 1.2px,transparent 1.6px);background-size:14px 14px}
+a{color:inherit}a:hover{color:#101216;text-shadow:none}
+.topline{height:7px;background:linear-gradient(90deg,#C8F31D 0 33%,#FF5B2E 33% 66%,#2F5BFF 66%)}
+.scanlines{opacity:.035;background:repeating-linear-gradient(0deg,transparent 0 3px,#101216 4px 5px)}
+.nav{background:var(--bg);border-bottom:4px solid var(--line);backdrop-filter:none}
+.navin{min-height:76px}
+.brand{color:var(--text);gap:9px}
+.brandicon{width:44px;height:44px;border:3px solid var(--line);background:var(--lime,#C8F31D);color:var(--text);box-shadow:4px 4px 0 #101216;font-size:26px}
+.brandname{font:26px Lalezar,Tajawal,sans-serif;letter-spacing:0;line-height:1}
+.brandname small{font:9px Silkscreen,monospace;letter-spacing:1px;color:#FF5B2E;margin-top:4px}
+.navlinks{gap:5px;font-size:14px}
+.navlinks a{padding:3px 8px;color:var(--text);font-weight:700}
+.navlinks a.active,.navlinks a:hover{background:#C8F31D;color:#101216;box-shadow:3px 3px 0 #101216}
+.hero{padding:54px 0;background:var(--panel);border-bottom:4px solid var(--line);position:relative}
+.hero .wrap{position:relative}
+.hero .eyebrow{display:inline-block;background:#C8F31D;color:#101216;border:3px solid #101216;padding:3px 10px;font:12px Silkscreen,monospace;letter-spacing:1px;box-shadow:4px 4px 0 #101216}
+.hero h1{font:400 clamp(36px,6vw,66px)/1.2 Lalezar,Tajawal,sans-serif;color:#101216;margin:22px 0 12px}
+.hero h1 em{display:inline-block;background:#C8F31D;color:#101216;text-shadow:none;padding:0 12px;transform:rotate(-1deg);border:3px solid #101216;box-shadow:5px 5px 0 #101216}
+.hero p{color:#101216;font:20px Lalezar,Tajawal,sans-serif}
+.btn{border:3px solid #101216;background:#FF5B2E;color:#101216;padding:7px 18px;font:22px Lalezar,Tajawal,sans-serif;box-shadow:4px 4px 0 #101216;transition:transform .12s,box-shadow .12s}
+.btn:hover{box-shadow:6px 6px 0 #101216;color:#101216;transform:translate(-2px,-2px)}
+.btn.alt{background:#FFFBF2;color:#101216;border-color:#101216}
+.btn.gold{background:#C8F31D;color:#101216;border-color:#101216}
+.sectionhead h1,.sectionhead h2{font:400 clamp(28px,4vw,38px)/1.3 Lalezar,Tajawal,sans-serif;background:#C8F31D;color:#101216;border:3px solid #101216;box-shadow:4px 4px 0 #101216;display:inline-block;padding:1px 14px;transform:rotate(-.6deg)}
+.sectionhead h1 span,.sectionhead h2 span{color:#101216}
+.tag{border:2px solid #101216;background:#FF5B2E;color:#101216;font:10px Silkscreen,monospace;padding:4px 8px}
+.field{background:#FFFBF2;border:3px solid #101216;color:#101216;border-radius:0;box-shadow:3px 3px 0 #101216}
+.field:focus{border-color:#FF5B2E;box-shadow:3px 3px 0 #101216;outline:2px solid #FF5B2E}
+.platform,.gamecard,.gemcard,.archivecard,.glossary,.term,.platformhero,.notice,.modalbox{background:#FFFBF2;color:#101216;border:3px solid #101216;border-radius:0;box-shadow:5px 5px 0 #101216}
+.platform{transition:transform .12s,box-shadow .12s}
+.platform:hover{background:#C8F31D;border-color:#101216;box-shadow:8px 8px 0 #101216;transform:translate(-2px,-2px);color:#101216}
+.platform .emoji{font-size:34px}
+.platform strong{font:23px Lalezar,Tajawal,sans-serif}
+.platform small,.platformhero p,.gemcard p,.archivecard p,.term p,.modalbox p{color:#56534d}
+.gamecard{overflow:hidden;transition:transform .12s,box-shadow .12s}
+.gamecard:hover{border-color:#101216;box-shadow:8px 8px 0 #101216;transform:translate(-2px,-2px)}
+.gameimage{background:#2F5BFF;border-bottom:3px solid #101216}
+.gameimage img{background:#FFFBF2}
+.gameinfo h3{font:16px Silkscreen,monospace;line-height:1.7;color:#101216}
+.meta{color:#56534d}
+.textbtn{color:#101216;text-decoration:underline;text-decoration-color:#FF5B2E;text-decoration-thickness:2px}
+.textbtn:hover{color:#FF5B2E}
+.platformhero{background:#C8F31D}
+.empty{border:3px dashed #101216;color:#56534d;background:#FFFBF2}
+.gemcard{background:#C8F31D}
+.gemcard h3,.archivecard h3{font:25px Lalezar,Tajawal,sans-serif}
+.letters .letter{background:#FFFBF2;color:#101216;border:2px solid #101216;border-radius:0}
+.letter.active,.letter:hover{background:#C8F31D;color:#101216;border-color:#101216}
+.term{border-right:6px solid #FF5B2E;background:#FFFBF2}
+.term h3{font:24px Lalezar,Tajawal,sans-serif;color:#101216}
+.term .translation{color:#2F5BFF;font-weight:700}
+.footer{border-top:4px solid #101216;background:#FFFBF2}
+.footerlinks a:hover{background:#C8F31D;color:#101216}
+.modal{background:#101216cc}
+.modalbox{box-shadow:8px 8px 0 #2F5BFF;max-width:680px}
+.modalhead h2{font:30px Lalezar,Tajawal,sans-serif}
+.close{background:#FF5B2E;color:#101216;border:3px solid #101216}
+@media(prefers-color-scheme:dark){body{color-scheme:light}}
+@media(max-width:900px){.navin{align-items:flex-start}.navlinks{justify-content:flex-start}}
+@media(max-width:600px){.hero{padding:38px 0}.brandname{font-size:24px}.navlinks a{padding:3px 6px}}
+
+
+/* Appearance switch: CARTO light/dark themes */
+.appearance-toggle{flex:0 0 auto;border:3px solid var(--line);background:var(--panel2);color:var(--text);padding:5px 11px;font:700 14px var(--body);box-shadow:3px 3px 0 var(--line);cursor:pointer;white-space:nowrap}
+.appearance-toggle:hover{transform:translateY(-1px)}
+.navin{flex-wrap:wrap}
+@media(max-width:900px){.appearance-toggle{margin-inline:auto}}
+html[data-theme="dark"]{color-scheme:dark;--bg:#15131A;--panel:#211E28;--panel2:#302A38;--text:#F3EBDD;--muted:#C0B8C8;--cyan:#C8F31D;--magenta:#FF7858;--gold:#7190FF;--line:#F3EBDD}
+html[data-theme="dark"] body{background-color:var(--bg);background-image:radial-gradient(#F3EBDD12 1.2px,transparent 1.6px);color:var(--text)}
+html[data-theme="dark"] .nav{background:#15131AF5;border-bottom-color:var(--line)}
+html[data-theme="dark"] .navlinks a{color:var(--text)}
+html[data-theme="dark"] .navlinks a.active,html[data-theme="dark"] .navlinks a:hover{background:var(--cyan);color:#101216;box-shadow:3px 3px 0 var(--line)}
+html[data-theme="dark"] .hero{background:#211E28;border-bottom-color:var(--line)}
+html[data-theme="dark"] .hero h1,html[data-theme="dark"] .hero p{color:var(--text)}
+html[data-theme="dark"] .hero h1 em{background:var(--cyan);color:#101216}
+html[data-theme="dark"] .platform,html[data-theme="dark"] .gamecard,html[data-theme="dark"] .gemcard,html[data-theme="dark"] .archivecard,html[data-theme="dark"] .glossary,html[data-theme="dark"] .term,html[data-theme="dark"] .modalbox{background:var(--panel);color:var(--text);border-color:var(--line)}
+html[data-theme="dark"] .platformhero{background:#252532;border-color:var(--line)}
+html[data-theme="dark"] .platformhero p,html[data-theme="dark"] .gemcard p,html[data-theme="dark"] .archivecard p,html[data-theme="dark"] .term p,html[data-theme="dark"] .modalbox p,html[data-theme="dark"] .hero p{color:var(--muted)}
+html[data-theme="dark"] .gameimage,html[data-theme="dark"] .gameimage img{background:#17151C;border-color:#514A5A}
+html[data-theme="dark"] .field{background:#17151C;border-color:#665D70;color:var(--text)}
+html[data-theme="dark"] .letter{background:#302A38;border-color:#665D70;color:var(--text)}
+html[data-theme="dark"] .footer{background:#100F14;border-top-color:var(--line)}
+html[data-theme="dark"] .identity-hero{background:#38470B!important;color:#F3EBDD}
+html[data-theme="dark"] .identity-card{background:var(--panel)!important;color:var(--text);border-color:var(--line);box-shadow:5px 5px 0 #08080A}
+html[data-theme="dark"] .identity-card p,html[data-theme="dark"] .identity-card small{color:var(--muted)}
+html[data-theme="dark"] .swatch,html[data-theme="dark"] .mascot,html[data-theme="dark"] .sample{border-color:var(--line)}
+html[data-theme="dark"] .logo-chip{background:#08080A;color:var(--text)}
+html[data-theme="dark"] .tag{border-color:var(--line);color:var(--text)}
+html[data-theme="dark"] .empty,html[data-theme="dark"] .notice{border-color:#665D70;color:var(--muted)}
+html[data-theme="dark"] .brand,html[data-theme="dark"] .brandname small{color:var(--text)}
+html[data-theme="dark"] .brandicon{background:var(--cyan);box-shadow:4px 4px 0 #08080A}
+html[data-theme="dark"] .btn{background:var(--magenta);color:#101216;border-color:var(--line);box-shadow:4px 4px 0 #08080A}
+html[data-theme="dark"] .btn.alt{background:transparent;color:var(--cyan)}
+html[data-theme="dark"] .btn.gold{color:var(--gold)}
+
+
+/* Reliable global light/dark appearance overrides */
+html[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:#15131A;--panel:#211E28;--panel2:#302A38;--text:#F3EBDD;
+ --muted:#C0B8C8;--cyan:#C8F31D;--magenta:#FF7858;--gold:#7190FF;--line:#F3EBDD;
+}
+html[data-theme="light"]{color-scheme:light}
+html[data-theme="dark"] body{background-color:var(--bg)!important;color:var(--text)!important;background-image:radial-gradient(#F3EBDD12 1.2px,transparent 1.6px)!important}
+html[data-theme="dark"] .nav,html[data-theme="dark"] .footer{background:var(--bg)!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .hero,html[data-theme="dark"] .platformhero,html[data-theme="dark"] .glossary,html[data-theme="dark"] .term,html[data-theme="dark"] .platform,html[data-theme="dark"] .gamecard,html[data-theme="dark"] .gemcard,html[data-theme="dark"] .archivecard,html[data-theme="dark"] .modalbox,html[data-theme="dark"] .identity-card{background:var(--panel)!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .hero h1,html[data-theme="dark"] .hero p,html[data-theme="dark"] .platform strong,html[data-theme="dark"] .gameinfo h3,html[data-theme="dark"] .identity-hero h1,html[data-theme="dark"] .identity-hero p{color:var(--text)!important}
+html[data-theme="dark"] .hero h1 em{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .hero .eyebrow{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .gameimage,html[data-theme="dark"] .gameimage img,html[data-theme="dark"] .field{background:#17151C!important;color:var(--text)!important;border-color:#665D70!important}
+html[data-theme="dark"] .platform small,html[data-theme="dark"] .gameinfo .meta,html[data-theme="dark"] .gemcard p,html[data-theme="dark"] .archivecard p,html[data-theme="dark"] .term p,html[data-theme="dark"] .modalbox p,html[data-theme="dark"] .muted,html[data-theme="dark"] .footer p{color:var(--muted)!important}
+html[data-theme="dark"] .navlinks a{color:var(--text)!important}
+html[data-theme="dark"] .navlinks a.active,html[data-theme="dark"] .navlinks a:hover{background:var(--cyan)!important;color:#101216!important}
+html[data-theme="dark"] .btn{background:var(--magenta)!important;color:#101216!important;border-color:var(--line)!important}
+html[data-theme="dark"] .btn.alt{background:transparent!important;color:var(--cyan)!important}
+html[data-theme="dark"] .btn.gold{background:transparent!important;color:var(--gold)!important}
+html[data-theme="dark"] .textbtn,html[data-theme="dark"] a{color:var(--cyan)}
+html[data-theme="dark"] .letter{background:#302A38!important;color:var(--text)!important;border-color:#665D70!important}
+html[data-theme="dark"] .letter.active{color:var(--cyan)!important;border-color:var(--cyan)!important}
+html[data-theme="dark"] .identity-hero{background:#252D14!important;color:var(--text)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .identity-hero .tag{color:var(--text)!important}
+html[data-theme="dark"] .identity-card p,html[data-theme="dark"] .identity-card small{color:var(--muted)!important}
+html[data-theme="dark"] .logo-chip{background:#09080C!important;color:var(--text)!important}
+html[data-theme="dark"] .notice,html[data-theme="dark"] .empty{color:var(--muted)!important;border-color:#665D70!important}
+.appearance-toggle{border:3px solid var(--line);background:var(--panel2);color:var(--text);padding:5px 11px;font:700 14px var(--body);box-shadow:3px 3px 0 var(--line);cursor:pointer;white-space:nowrap}
+.appearance-toggle:hover{transform:translateY(-1px)}
+
+/* CARTO — personal wishlist / الجوهر المفقود */
+.wishlist-heart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:36px;margin-inline-start:8px;padding:0 8px;border:3px solid #101216;background:#FFFBF2;color:#FF5B2E;font:700 25px/1 Arial,sans-serif;box-shadow:3px 3px 0 #101216;cursor:pointer;transition:transform .12s,background .12s}
+.wishlist-heart:hover{background:#C8F31D;transform:translate(-1px,-1px)}
+.wishlist-heart.is-saved{background:#FF5B2E;color:#101216}
+.cardbottom{gap:8px;flex-wrap:wrap}
+.wishlist-modal{position:fixed;inset:0;z-index:100;background:#101216cc;display:none;place-items:center;padding:18px}
+.wishlist-modal.open{display:grid}
+.wishlist-modalbox{width:min(100%,520px);max-height:90vh;overflow:auto;background:#FFFBF2;color:#101216;border:4px solid #101216;box-shadow:9px 9px 0 #2F5BFF;padding:22px}
+.wishlist-modalhead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.wishlist-modalhead h2,.wishlist-empty h2,.wishlist-grouphead h2{font:400 27px/1.3 Lalezar,Tajawal,sans-serif;margin:5px 0}
+.wishlist-modalhead p{font:700 14px Tajawal,sans-serif;margin:6px 0;color:#56534d;overflow-wrap:anywhere}
+.wishlist-kicker{font:10px Silkscreen,monospace;letter-spacing:.5px;color:#2F5BFF}
+.wishlist-close{border:3px solid #101216;background:#FF5B2E;color:#101216;font-weight:900;padding:5px 10px;cursor:pointer;box-shadow:3px 3px 0 #101216}
+.wishlist-help{color:#56534d;font-size:14px}
+.wishlist-options{display:grid;gap:9px;margin-top:14px}
+.wishlist-option{display:flex;align-items:center;gap:11px;width:100%;text-align:right;padding:11px 12px;border:3px solid #101216;background:#fffaf0;color:#101216;box-shadow:3px 3px 0 #101216;font:700 16px Tajawal,sans-serif;cursor:pointer}
+.wishlist-option:hover,.wishlist-option.selected{background:#C8F31D}
+.wishlist-optionemoji{font-size:22px}.wishlist-check{margin-inline-start:auto;font-size:20px}
+.wishlist-remove{margin-top:15px;border:2px dashed #FF5B2E;background:transparent;color:#B52D17;padding:8px 12px;font:700 14px Tajawal,sans-serif;cursor:pointer}
+.wishlist-empty{grid-column:1/-1;text-align:center;padding:clamp(28px,6vw,60px) 20px;background:#FFFBF2;border:4px dashed #101216;box-shadow:6px 6px 0 #C8F31D}
+.wishlist-emptyicon{font:90px/1 Arial,sans-serif;color:#FF5B2E;text-shadow:4px 4px 0 #101216;margin-bottom:12px}
+.wishlist-empty p{max-width:560px;margin:8px auto 22px;color:#56534d;line-height:1.9}
+.wishlist-groups{display:grid;grid-template-columns:1fr;gap:22px}
+.wishlist-group{min-width:0}
+.wishlist-grouphead{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:3px solid #101216;margin-bottom:12px;padding:4px 0 9px}
+.wishlist-grouphead h2{font-size:24px}
+.wishlist-grouphead>span{border:2px solid #101216;background:#C8F31D;padding:3px 9px;font-weight:800;white-space:nowrap}
+.wishlist-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.wishlist-game{display:flex;align-items:center;gap:11px;min-width:0;background:#FFFBF2;border:3px solid #101216;padding:12px;box-shadow:4px 4px 0 #101216}
+.wishlist-gameicon{display:grid;place-items:center;flex:0 0 42px;height:42px;background:#C8F31D;border:2px solid #101216;font-size:23px}
+.wishlist-gametext{min-width:0;flex:1}
+.wishlist-gametext h3{font:11px/1.7 Silkscreen,monospace;overflow-wrap:anywhere;margin:0;color:#101216}
+.wishlist-gametext p{font-size:11px;color:#56534d;margin:5px 0 0}
+.wishlist-gameactions{display:flex;align-items:center;gap:7px}
+.wishlist-gameactions .wishlist-heart{margin:0}
+.wishlist-edit{border:2px solid #101216;background:#FF5B2E;color:#101216;padding:5px 8px;font:700 12px Tajawal,sans-serif;cursor:pointer}
+.wishlist-groupempty{border:2px dashed #aaa;padding:12px;color:#777;font-size:13px}
+[hidden]{display:none!important}
+html[data-theme="dark"] .wishlist-modalbox,html[data-theme="dark"] .wishlist-empty,html[data-theme="dark"] .wishlist-game{background:var(--panel);color:var(--text);border-color:var(--line)}
+html[data-theme="dark"] .wishlist-option{background:#302A38;color:var(--text);border-color:var(--line)}
+html[data-theme="dark"] .wishlist-option:hover,html[data-theme="dark"] .wishlist-option.selected,html[data-theme="dark"] .wishlist-grouphead>span{background:var(--cyan);color:#101216}
+html[data-theme="dark"] .wishlist-gametext h3,html[data-theme="dark"] .wishlist-modalhead h2,html[data-theme="dark"] .wishlist-empty h2,html[data-theme="dark"] .wishlist-grouphead h2{color:var(--text)}
+html[data-theme="dark"] .wishlist-help,html[data-theme="dark"] .wishlist-modalhead p,html[data-theme="dark"] .wishlist-empty p,html[data-theme="dark"] .wishlist-gametext p{color:var(--muted)}
+html[data-theme="dark"] .wishlist-heart{background:var(--panel);color:var(--magenta);border-color:var(--line);box-shadow:3px 3px 0 #08080A}
+html[data-theme="dark"] .wishlist-heart.is-saved,html[data-theme="dark"] .wishlist-edit{background:var(--magenta);color:#101216}
+html[data-theme="dark"] .wishlist-grouphead{border-color:var(--line)}
+@media(max-width:650px){.wishlist-list{grid-template-columns:1fr}.wishlist-game{padding:9px;gap:8px}.wishlist-gameactions{gap:5px}.wishlist-heart{min-width:34px;height:33px;font-size:23px;margin-inline-start:4px}.wishlist-modalbox{padding:16px}}
+
+
+/* CARTO dark theme contrast pass: explicit foreground/background pairs */
+html[data-theme="dark"] .tag{background:#FF7858!important;color:#17131B!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .sectionhead h1,html[data-theme="dark"] .sectionhead h2{background:#C8F31D!important;color:#101216!important;box-shadow:4px 4px 0 #08080A!important}
+html[data-theme="dark"] .sectionhead h1 span,html[data-theme="dark"] .sectionhead h2 span{color:#101216!important}
+html[data-theme="dark"] .platform .emoji{filter:none}
+html[data-theme="dark"] .platform:hover{background:#C8F31D!important;color:#101216!important}
+html[data-theme="dark"] .platform:hover small{color:#292929!important}
+html[data-theme="dark"] .gemcard,html[data-theme="dark"] .platformhero{background:#302A38!important;color:#F3EBDD!important}
+html[data-theme="dark"] .gemcard h3,html[data-theme="dark"] .archivecard h3,html[data-theme="dark"] .term h3{color:#F3EBDD!important}
+html[data-theme="dark"] .term .translation{color:#A9BFFF!important}
+html[data-theme="dark"] .field::placeholder{color:#C0B8C8!important;opacity:1}
+html[data-theme="dark"] select option{background:#211E28;color:#F3EBDD}
+html[data-theme="dark"] .empty,html[data-theme="dark"] .notice,html[data-theme="dark"] .wishlist-groupempty{background:#211E28!important;color:#D8D0DF!important;border-color:#8B8296!important}
+html[data-theme="dark"] .modal{background:rgba(0,0,0,.82)!important}
+html[data-theme="dark"] .wishlist-modal{background:rgba(0,0,0,.84)!important}
+html[data-theme="dark"] .wishlist-option{background:#302A38!important;color:#F3EBDD!important;border-color:#A69CAF!important}
+html[data-theme="dark"] .wishlist-option:hover,html[data-theme="dark"] .wishlist-option.selected{background:#C8F31D!important;color:#101216!important}
+html[data-theme="dark"] .wishlist-remove{color:#FF9B88!important;border-color:#FF7858!important}
+html[data-theme="dark"] .wishlist-gameicon{background:#C8F31D!important;color:#101216!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .wishlist-edit{background:#FF7858!important;color:#101216!important;border-color:#F3EBDD!important}
+html[data-theme="dark"] .identity-hero{background:#302A38!important;color:#F3EBDD!important}
+html[data-theme="dark"] .mascot{background:#302A38!important}
+html[data-theme="dark"] .swatch{border-color:#F3EBDD!important}
+html[data-theme="dark"] .sample{background:#FF7858!important;color:#101216!important}
+html[data-theme="dark"] .logo-chip{border-color:#F3EBDD!important}
+html[data-theme="dark"] .brandicon{background:transparent!important;border:0!important;box-shadow:none!important}
+.brandicon{display:block;object-fit:contain;padding:0!important}
+.brandmascot{width:48px;height:48px;flex:0 0 48px;image-rendering:pixelated}
+.footer .brandmascot{width:42px;height:42px;flex-basis:42px}
+.hero-credit{display:block;margin-top:8px!important;font:700 14px Tajawal,sans-serif!important;color:#56534D!important;letter-spacing:0}
+.hero-mascot{position:absolute;inset-inline-end:0;top:4px;width:72px;height:72px;image-rendering:pixelated;transform:rotate(5deg)}
+body[data-page="home"] .hero .wrap{padding-inline-end:88px}
+@media(max-width:600px){.hero-mascot{width:54px;height:54px}body[data-page="home"] .hero .wrap{padding-inline-end:65px}}
+html[data-theme="dark"] .hero-credit{color:#D8D0DF!important}
+
+/* Verified-cover workflow: make missing art explicit instead of implying a random thumbnail is the cover. */
+.gameimage .cover-pending{object-fit:contain;padding:18px;background:#F3EBDD}
+.gameimage .cover-pending-label{position:absolute;top:8px;right:8px;background:#C8F31D;color:#101216;border:2px solid #101216;padding:2px 7px;font-size:11px;font-weight:800;box-shadow:2px 2px 0 #101216}
+
+
+/* Game cover frame: portrait ratio with consistent sizing on desktop and mobile. */
+.gameimage{
+  height:auto;
+  aspect-ratio:3 / 4;
+  min-height:0;
+  background:#2F5BFF;
+}
+.gameimage img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.gameimage .cover-pending{
+  object-fit:contain;
+  padding:14px;
+  background:#F3EBDD;
+}
+@media(max-width:600px){
+  .gameimage{height:auto;aspect-ratio:3 / 4}
+}
+
+
+/* Hidden gems manifesto — CARTO sticker-bomb identity */
+.gems-manifesto{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  margin:18px 0 28px;
+  padding:clamp(24px,4vw,44px);
+  background:#C8F31D;
+  color:#101216;
+  border:4px solid #101216;
+  box-shadow:8px 8px 0 #101216;
+  transform:rotate(-.35deg);
+}
+.gems-manifesto::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:210px;height:210px;
+  inset-inline-end:-38px;top:-65px;
+  border:18px solid #FF5B2E;
+  border-radius:50%;
+  opacity:.9;
+}
+.gems-manifesto::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:150px;height:150px;
+  inset-inline-start:-45px;bottom:-95px;
+  background:#2F5BFF;
+  transform:rotate(25deg);
+  border:4px solid #101216;
+}
+.gems-manifesto p{
+  max-width:820px;
+  margin:14px 0 0;
+  font:400 clamp(23px,3.8vw,38px)/1.55 Lalezar,Tajawal,sans-serif;
+  position:relative;
+  z-index:1;
+}
+.gems-manifesto-stamp{
+  display:inline-block;
+  padding:5px 9px;
+  background:#FF5B2E;
+  border:3px solid #101216;
+  box-shadow:3px 3px 0 #101216;
+  font:11px Silkscreen,monospace;
+  transform:rotate(1deg);
+}
+.gems-manifesto-mark{
+  position:absolute;
+  left:28px;bottom:5px;
+  font-size:70px;line-height:1;
+  color:#2F5BFF;
+  text-shadow:3px 3px 0 #101216;
+}
+.gem-game .gameimage{aspect-ratio:3/4;height:auto}
+.gem-game .gameinfo h3{overflow-wrap:anywhere}
+html[data-theme="dark"] .gems-manifesto{
+  background:#38470B;color:#F3EBDD;border-color:#F3EBDD;
+  box-shadow:8px 8px 0 #08080A;
+}
+html[data-theme="dark"] .gems-manifesto p{color:#F3EBDD}
+html[data-theme="dark"] .gems-manifesto-stamp{color:#101216}
+@media(max-width:600px){
+  .gems-manifesto{padding:24px 18px}
+  .gems-manifesto-mark{font-size:48px;left:12px}
+}
+
+/* The independent hidden-gems collection uses the same four-column card rhythm as the encyclopedia. */
+.gemgrid.cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.gemgrid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.gemgrid.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+
+/* FIX: enforce CARTO light palette on pages with legacy page-level styles */
+html[data-theme="light"]{color-scheme:light;--bg:#F3EBDD;--panel:#FFFBF2;--panel2:#C8F31D;--text:#101216;--muted:#56534D;--cyan:#C8F31D;--magenta:#FF5B2E;--gold:#2F5BFF;--line:#101216}
+html[data-theme="light"] body{background-color:#F3EBDD!important;background-image:radial-gradient(#10121617 1.2px,transparent 1.6px)!important;color:#101216!important}
+html[data-theme="light"] .nav{background:#F3EBDD!important;border-bottom:4px solid #101216!important}
+html[data-theme="light"] .navlinks a{color:#101216}
+html[data-theme="light"] .footer{background:#FFFBF2!important;color:#101216!important}
+html[data-theme="light"] .identity-hero{background:#C8F31D!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .identity-card{background:#FFFBF2!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .mascot{background:#2F5BFF!important}
+html[data-theme="light"] .appearance-toggle{background:#C8F31D!important;color:#101216!important;border:3px solid #101216!important;box-shadow:3px 3px 0 #101216!important}
+
+
+/* CARTO LIGHT MODE HOTFIX v2 — override legacy dark hard-coded surfaces consistently */
+html[data-theme="light"]{color-scheme:light!important;--bg:#F3EBDD!important;--panel:#FFFBF2!important;--panel2:#C8F31D!important;--text:#101216!important;--muted:#56534D!important;--cyan:#2F5BFF!important;--magenta:#FF5B2E!important;--gold:#765600!important;--line:#101216!important}
+html[data-theme="light"] body{background:#F3EBDD!important;background-image:radial-gradient(#10121612 1px,transparent 1.5px)!important;color:#101216!important}
+html[data-theme="light"] .nav{background:#F3EBDD!important;color:#101216!important;border-bottom:3px solid #101216!important}
+html[data-theme="light"] .navlinks a,html[data-theme="light"] .brand{color:#101216!important}
+html[data-theme="light"] .hero{background:#FFFBF2!important;color:#101216!important;border-bottom:3px solid #101216!important}
+html[data-theme="light"] .hero p,html[data-theme="light"] .platformhero p,html[data-theme="light"] .gemcard p,html[data-theme="light"] .archivecard p,html[data-theme="light"] .term p,html[data-theme="light"] .modalbox p{color:#45413A!important}
+html[data-theme="light"] .sectionhead h1,html[data-theme="light"] .sectionhead h2{color:#101216!important}
+html[data-theme="light"] .sectionhead h1 span,html[data-theme="light"] .sectionhead h2 span{color:#2F5BFF!important}
+html[data-theme="light"] .platform,html[data-theme="light"] .gamecard,html[data-theme="light"] .gemcard,html[data-theme="light"] .archivecard,html[data-theme="light"] .identity-card,html[data-theme="light"] .modalbox{background:#FFFBF2!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .platform strong,html[data-theme="light"] .gameinfo h3,html[data-theme="light"] .gemcard h3,html[data-theme="light"] .archivecard h3,html[data-theme="light"] .term h3{color:#101216!important}
+html[data-theme="light"] .glossary,html[data-theme="light"] .term,html[data-theme="light"] .field,html[data-theme="light"] .letter,html[data-theme="light"] .empty,html[data-theme="light"] .notice{background:#FFFBF2!important;color:#101216!important;border-color:#777064!important}
+html[data-theme="light"] .gameimage,html[data-theme="light"] .gameimage img{background:#E8E0D0!important}
+html[data-theme="light"] .platformhero{background:#E7EFC0!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .footer{background:#E8E0D0!important;color:#101216!important;border-top:3px solid #101216!important}
+html[data-theme="light"] .footer p,html[data-theme="light"] .footerlinks a,html[data-theme="light"] .brandname small{color:#45413A!important}
+html[data-theme="light"] .btn{background:#C8F31D!important;color:#101216!important;border:2px solid #101216!important}
+html[data-theme="light"] .btn.alt{background:#FF5B2E!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .tag{background:#FF5B2E!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .appearance-toggle{background:#C8F31D!important;color:#101216!important;border:3px solid #101216!important;box-shadow:3px 3px 0 #101216!important}
+html[data-theme="light"] .identity-hero{background:#C8F31D!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .mascot{background:#2F5BFF!important}
+html[data-theme="light"] .identity-reference-frame{background:#1B1E25!important;color:#F3EBDD!important}
+html[data-theme="light"] .logo-variant.variant-paper{background:#FFFBF2!important;color:#101216!important;border-color:#101216!important}
+html[data-theme="light"] .logo-variant.variant-dark{background:#101216!important;color:#F3EBDD!important}
+html[data-theme="light"] .logo-variant.variant-lime{background:#C8F31D!important;color:#101216!important}
+html[data-theme="light"] .scanlines{opacity:.025}
+
+
+/* CARTO — Gaming sources page */
+.sources-intro{position:relative;overflow:hidden;margin:18px 0 30px;padding:clamp(24px,4vw,42px);background:#C8F31D;color:#101216;border:4px solid #101216;box-shadow:8px 8px 0 #101216;isolation:isolate}
+.sources-intro:after{content:"";position:absolute;z-index:-1;width:190px;height:190px;border:18px solid #FF5B2E;border-radius:50%;inset-inline-end:-50px;top:-85px}
+.sources-intro h2{font:38px/1.3 Lalezar,Tajawal,sans-serif;margin:14px 0 4px}
+.sources-intro p{font-size:18px;font-weight:700;max-width:700px;margin:0}
+.sources-sticker{display:inline-block;background:#FF5B2E;border:3px solid #101216;box-shadow:3px 3px 0 #101216;padding:4px 9px;font:11px Silkscreen,monospace}
+.sources-mascot{position:absolute;width:88px;height:88px;object-fit:contain;left:25px;bottom:18px;image-rendering:pixelated;transform:rotate(-7deg)}
+.gaming-sources-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:26px 0 34px}
+.gaming-source-card{position:relative;min-width:0;overflow:hidden;text-align:center;padding:22px;background:#FFFBF2;color:#101216;border:4px solid #101216;box-shadow:7px 7px 0 #101216}
+.gaming-source-card:before{content:"";position:absolute;top:0;right:0;width:100%;height:10px;background:#FF5B2E}
+.gaming-source-card.source-card-blue:before{background:#2F5BFF}
+.gaming-source-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 0 20px}
+.source-index{font:20px Silkscreen,monospace;color:#2F5BFF}
+.source-logo-link{display:grid;place-items:center;width:148px;height:148px;margin:0 auto 16px;padding:8px;background:#F3EBDD;border:4px solid #101216;box-shadow:5px 5px 0 #C8F31D;transform:rotate(-2deg)}
+.source-card-blue .source-logo-link{box-shadow:5px 5px 0 #2F5BFF;transform:rotate(2deg)}
+.source-channel-logo{width:100%;height:100%;object-fit:contain;image-rendering:auto}
+.gaming-source-card h2{font:32px/1.35 Lalezar,Tajawal,sans-serif;margin:12px 0 4px;overflow-wrap:anywhere}
+.source-description{min-height:64px;margin:0 auto 16px;max-width:420px}
+.source-visit{margin-top:4px}
+.sources-back{margin-top:8px}
+html[data-theme="dark"] .sources-intro{background:#38470B;color:#F3EBDD;border-color:#F3EBDD;box-shadow:8px 8px 0 #08080A}
+html[data-theme="dark"] .sources-intro p{color:#F3EBDD}
+html[data-theme="dark"] .gaming-source-card{background:#211E28;color:#F3EBDD;border-color:#F3EBDD;box-shadow:7px 7px 0 #08080A}
+html[data-theme="dark"] .source-logo-link{background:#302A38;border-color:#F3EBDD}
+html[data-theme="dark"] .gaming-source-card h2{color:#F3EBDD}
+@media(max-width:650px){.gaming-sources-grid{grid-template-columns:1fr;gap:18px}.sources-mascot{width:62px;height:62px;left:12px;bottom:10px}.sources-intro{padding:24px 18px}.sources-intro p{padding-bottom:34px}.source-logo-link{width:132px;height:132px}}
+
+
+/* CARTO mobile layout refinement — 2026-10-28 */
+html{width:100%;overflow-x:hidden}
+body{width:100%;min-width:0;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%}
+.wrap{width:min(1180px,92%)}
+.navin{min-width:0}
+.navlinks{min-width:0}
+.gamecard,.platform,.gaming-source-card,.archivecard,.term,.wishlist-group{min-width:0}
+.gameinfo h3,.wishlist-gametext h3{overflow-wrap:anywhere;word-break:normal}
+.field,button,select,input{max-width:100%}
+@media(max-width:768px){
+  .wrap{width:calc(100% - 28px)}
+  .nav{position:relative}
+  .navin{align-items:center;gap:12px;padding:12px 0}
+  .navlinks{display:flex;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;width:100%;gap:7px;padding:7px 3px 10px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .navlinks a{flex:0 0 auto;white-space:nowrap;font-size:13px;padding:6px 9px}
+  .hero{padding:34px 0 32px}
+  .hero h1{font-size:clamp(30px,8vw,46px);line-height:1.35;overflow-wrap:anywhere}
+  .hero p{font-size:17px}
+  .heroactions{gap:10px}
+  .heroactions .btn{flex:1 1 145px}
+  .section{padding:28px 0}
+  .sectionhead{gap:12px;margin-bottom:18px}
+  .sectionhead h1,.sectionhead h2{max-width:100%;font-size:clamp(24px,6vw,32px);overflow-wrap:anywhere}
+  .cards,.gemgrid.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .platforms{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .gameimage{height:auto;aspect-ratio:4/3}
+  .gem-game .gameimage{aspect-ratio:3/4}
+  .gameinfo{padding:10px}
+  .gameinfo h3{font-size:clamp(11px,3.2vw,14px);line-height:1.55}
+  .meta{font-size:10px;flex-wrap:wrap}
+  .cardbottom{gap:8px;align-items:flex-start;flex-wrap:wrap}
+  .textbtn{font-size:11px;text-align:start}
+  .filters{gap:9px}
+  .filters input,.filters select{width:100%;min-width:0;flex:1 1 100%}
+  .modal{padding:12px}
+  .modalbox{padding:16px;max-height:88dvh}
+  .footerin{gap:12px}
+  .footerlinks{gap:8px 12px}
+  .gaming-sources-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .gaming-source-card{padding:16px 12px;box-shadow:4px 4px 0 #101216}
+  .source-logo-link{width:min(100%,120px);height:auto;aspect-ratio:1}
+  .gaming-source-card h2{font-size:clamp(20px,5vw,28px)}
+  .source-description{min-height:0;font-size:13px}
+  .sources-intro h2{font-size:clamp(27px,7vw,36px)}
+  .sources-intro p{font-size:16px}
+  .gems-manifesto{padding:24px 16px}
+  .gems-manifesto p{max-width:100%;font-size:17px}
+  .gems-manifesto-mark{font-size:42px;left:10px;bottom:4px}
+  .identity-grid,.identity-layout{grid-template-columns:1fr!important}
+  .wishlist-modalbox{width:min(100%,520px);max-height:88dvh;overflow:auto;padding:18px}
+  .wishlist-options{gap:8px}
+  .wishlist-option{min-height:48px}
+  .wishlist-gametext h3{font-size:13px}
+}
+@media(max-width:420px){
+  .wrap{width:calc(100% - 22px)}
+  .brandicon{width:36px;height:36px}
+  .brandname{font-size:23px}
+  .brandname small{font-size:8px;letter-spacing:0}
+  .cards,.gemgrid.cards{gap:9px}
+  .gameimage{aspect-ratio:1/1}
+  .gem-game .gameimage{aspect-ratio:3/4}
+  .gameinfo{padding:8px}
+  .gameinfo h3{font-size:11px}
+  .cardbottom{flex-direction:column;align-items:flex-start}
+  .platform{padding:13px 8px}
+  .platform strong{font-size:19px;line-height:1.4}
+  .sectionhead h1,.sectionhead h2{font-size:24px;padding:2px 9px}
+  .gaming-sources-grid{grid-template-columns:1fr}
+  .gaming-source-card{padding:18px}
+  .source-logo-link{width:128px}
+  .sources-mascot{display:none}
+  .wishlist-game{gap:8px;padding:10px}
+  .wishlist-gameactions{gap:6px}
+}
+
+/* CARTO Arcade Experience — shared refinement, loaded after the established identity */
+:root{--arc-ink:#101216;--arc-lime:#C8F31D;--arc-orange:#FF5B2E;--arc-blue:#2F5BFF;--arc-cream:#F3EBDD;--arc-paper:#FFFBF2}
+html{scroll-padding-top:112px}
+body{min-height:100dvh;display:flex;flex-direction:column}
+main{flex:1;position:relative}
+::selection{background:#2F5BFF;color:white}
+a,button{touch-action:manipulation}
+:focus-visible{outline:3px dashed #2F5BFF!important;outline-offset:4px}
+html[data-theme="dark"] :focus-visible{outline-color:#C8F31D!important}
+.skip-content{position:fixed;top:-100px;right:15px;z-index:100;background:#C8F31D;color:#101216;border:3px solid #101216;padding:10px 18px;font-weight:800}
+.skip-content:focus{top:12px}
+.topline{height:8px;background:repeating-linear-gradient(90deg,#C8F31D 0 32px,#101216 32px 36px,#FF5B2E 36px 68px,#101216 68px 72px,#2F5BFF 72px 104px,#101216 104px 108px)}
+.nav{position:sticky!important;top:0!important;z-index:40!important;background:#F3EBDDf5!important;box-shadow:0 5px 0 #1012161a;isolation:isolate}
+.navin{gap:12px!important;min-height:76px}
+.nav .brand{min-width:150px;gap:12px}
+.nav .brandmascot{border:3px solid #101216!important;background:#C8F31D!important;padding:3px;box-shadow:4px 4px 0 #101216;image-rendering:pixelated;transform-origin:center bottom}
+.nav .brandname{font-size:30px;letter-spacing:.5px}
+.nav .brandname small{letter-spacing:0;font:700 10px Tajawal,sans-serif;color:#56534d}
+.navlinks{flex:1;display:flex;align-items:center;gap:5px}
+.navlinks a{border:2px solid transparent;border-radius:2px;padding:6px 10px;font-size:13px;line-height:1.3;transition:background .15s,transform .15s}
+.navlinks a:is(:hover,:focus-visible){background:#FF5B2E!important;border-color:#101216;box-shadow:3px 3px 0 #101216;transform:translateY(-2px);color:#101216!important}
+.navlinks a.active{background:#C8F31D!important;border:2px solid #101216!important;box-shadow:3px 3px 0 #101216!important;color:#101216!important}
+.arcade-controls{display:flex;align-items:center;gap:7px;margin-inline-start:auto}
+.arcade-sound{background:#FFFBF2;border:2px solid #101216;color:#101216;padding:7px 10px;font:800 12px Tajawal,sans-serif;box-shadow:3px 3px 0 #101216;cursor:pointer;white-space:nowrap}
+.arcade-sound[aria-pressed="true"]{background:#C8F31D}
+.arcade-sound:hover{background:#FF5B2E}
+.appearance-toggle{padding:7px 10px!important;font-size:12px!important;box-shadow:3px 3px 0 #101216!important}
+.arcade-ticker{background:#101216;color:#C8F31D;border-bottom:4px solid #2F5BFF;text-align:center;font:700 12px Tajawal,sans-serif;letter-spacing:.1px;padding:5px 12px}
+.arcade-ticker b{font:12px Silkscreen,monospace;color:#FF5B2E;margin-inline:8px}
+.hero{overflow:hidden;isolation:isolate}
+.hero:before{content:"";position:absolute;width:210px;height:210px;left:-65px;top:-85px;border:20px solid #2F5BFF;border-radius:50%;opacity:.35;pointer-events:none}
+.hero:after{content:"";position:absolute;width:90px;height:90px;right:4%;bottom:-44px;background:#FF5B2E;transform:rotate(23deg);opacity:.7;pointer-events:none}
+.hero h1{max-width:920px}
+.hero-mascot{image-rendering:pixelated;transform-origin:center bottom;animation:carto-bob 3.6s ease-in-out infinite}
+.heroactions .btn{position:relative}
+.sectionhead{position:relative}
+.sectionhead h1,.sectionhead h2{box-shadow:5px 5px 0 #101216}
+.platforms,.cards,.gemgrid,.archivegrid,.gaming-sources-grid{align-items:stretch}
+.platform,.gamecard,.gemcard,.archivecard,.gaming-source-card,.identity-card,.local-card{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.platform:hover,.gamecard:hover,.gemcard:hover,.archivecard:hover,.gaming-source-card:hover,.identity-card:hover,.local-card:hover{transform:translateY(-4px) rotate(-.3deg);box-shadow:7px 9px 0 #101216}
+.btn,.local-btn,.textbtn,.wishlist-heart{transition:transform .14s ease,box-shadow .14s ease,filter .14s ease}
+.btn:active,.local-btn:active,.arcade-sound:active,.appearance-toggle:active{transform:translate(3px,3px)!important;box-shadow:1px 1px 0 #101216!important}
+.gamecard:focus-within,.platform:focus-visible{outline:3px dashed #2F5BFF;outline-offset:4px}
+.modalbox,.wishlist-modalbox{animation:carto-pop .19s ease-out both}
+.arcade-toast{position:fixed;inset-inline-end:16px;bottom:20px;z-index:101;background:#C8F31D;color:#101216;border:3px solid #101216;box-shadow:6px 6px 0 #101216;max-width:min(92vw,380px);padding:11px 16px;font:800 15px Tajawal,sans-serif;pointer-events:none;animation:carto-pop .19s ease-out}
+.arcade-toast[hidden]{display:none}
+.arcade-footer{background:#101216;color:#F3EBDD;border-top:7px solid #C8F31D;margin-top:45px;padding:32px 0 24px;position:relative;overflow:hidden}
+.arcade-footer:before{content:"";position:absolute;left:-55px;top:-100px;width:190px;height:190px;border:15px solid #2F5BFF;border-radius:50%;opacity:.3;pointer-events:none}
+.arcade-footer .footerin{position:relative;display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(180px,1fr) auto;gap:24px;align-items:start}
+.arcade-footer .brand{color:#F3EBDD}
+.arcade-footer .brandname small{color:#C8F31D!important}
+.arcade-footer .brandicon{background:#C8F31D;color:#101216}
+.arcade-footer .footerlinks{display:flex;max-width:500px;gap:10px 16px}
+.arcade-footer .footerlinks a{color:#F3EBDD!important;line-height:1.6}
+.arcade-footer .footerlinks a:hover{color:#C8F31D!important;background:transparent!important}
+.arcade-footer .footerin>p{color:#DAD1BD!important;font-size:12px;text-align:start}
+.arcade-footer-info{font-size:13px;color:#DAD1BD;max-width:270px;margin-top:9px}
+.arcade-footer-stamp{font:13px Silkscreen,monospace;color:#C8F31D;direction:ltr;display:inline-flex;border:2px solid #C8F31D;padding:7px 10px;margin-top:12px}
+.arcade-footer-bottom{grid-column:1/-1;border-top:1px dashed #F3EBDD66;padding-top:13px;font-size:12px;color:#DAD1BD;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.arcade-footer-bottom a{color:#C8F31D}
+html[data-theme="dark"] .nav{background:#15131Af4!important;box-shadow:0 5px 0 #05050788}
+html[data-theme="dark"] .navlinks a:not(.active){color:#F3EBDD!important}
+html[data-theme="dark"] .navlinks a:hover{color:#101216!important}
+html[data-theme="dark"] .arcade-sound{background:#302A38;color:#F3EBDD;border-color:#F3EBDD;box-shadow:3px 3px 0 #070707}
+html[data-theme="dark"] .arcade-sound[aria-pressed="true"]{background:#C8F31D;color:#101216}
+html[data-theme="dark"] .arcade-footer{background:#101216!important;color:#F3EBDD!important;border-top-color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer{background:#101216!important;color:#F3EBDD!important;border-top-color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer .brand,html[data-theme="light"] .arcade-footer .footerlinks a,html[data-theme="light"] .arcade-footer .footerin>p{color:#F3EBDD!important}
+@keyframes carto-bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes carto-pop{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1100px){.nav .brand{min-width:auto}.navlinks a{font-size:12px;padding:6px}}
+@media(max-width:900px){
+ .navin{display:flex;flex-wrap:wrap!important;align-items:center!important}
+ .navlinks{order:3;flex:0 0 100%;width:100%;overflow-x:auto;flex-wrap:nowrap!important;white-space:nowrap;justify-content:flex-start!important;scrollbar-width:thin;padding:8px 4px 11px}
+ .navlinks a{flex-shrink:0;font-size:13px;padding:7px 10px}
+ .arcade-controls{margin-inline-start:auto}
+ .arcade-footer .footerin{grid-template-columns:1fr 1fr}
+ .arcade-footer .footerin>p{grid-column:1/-1}
+}
+@media(max-width:600px){
+ .nav{position:sticky!important}
+ .navin{padding:9px 0!important;gap:7px!important}
+ .nav .brandname{font-size:25px}
+ .nav .brandname small{font-size:9px}
+ .nav .brandmascot{width:38px;height:38px}
+ .arcade-sound,.appearance-toggle{font-size:11px!important;padding:6px 8px!important}
+ .arcade-ticker{font-size:11px}
+ .arcade-footer{margin-top:25px;padding:26px 0 18px}
+ .arcade-footer .footerin{grid-template-columns:1fr;gap:16px}
+ .arcade-footer .footerin>p,.arcade-footer-bottom{grid-column:1}
+ .arcade-footer .footerlinks{gap:8px 12px}
+ .hero:before{width:120px;height:120px;border-width:12px}
+ .hero-mascot{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){.hero-mascot{animation:none!important}.modalbox,.wishlist-modalbox,.arcade-toast{animation:none!important}.platform,.gamecard,.gemcard,.archivecard,.gaming-source-card,.identity-card,.local-card{transition:none!important;transform:none!important}}
+
+/* Footer brand layout and legacy overrides */
+.arcade-footer .footerin>.brand{display:flex;flex-wrap:wrap;align-content:start;align-items:center;max-width:330px;gap:8px 12px}
+.arcade-footer .footerin>.brand .arcade-footer-info{flex:0 0 100%;width:100%;margin:6px 0 0}
+.arcade-footer .footerin>.brand .arcade-footer-stamp{flex:0 0 auto;margin-top:6px}
+html[data-theme="light"] .arcade-footer .footerin>.brand .arcade-footer-info,
+html[data-theme="dark"] .arcade-footer .footerin>.brand .arcade-footer-info{color:#DAD1BD!important}
+html[data-theme="light"] .arcade-footer .brandname small,html[data-theme="dark"] .arcade-footer .brandname small{color:#C8F31D!important}
+html[data-theme="dark"] .arcade-footer .footerlinks a{color:#F3EBDD!important}
+html[data-theme="light"] .arcade-footer .footerlinks a:hover,html[data-theme="dark"] .arcade-footer .footerlinks a:hover{color:#C8F31D!important}
+html[data-theme="light"] .arcade-footer .arcade-footer-bottom a,html[data-theme="dark"] .arcade-footer .arcade-footer-bottom a{color:#C8F31D!important}
+@media(max-width:600px){.arcade-footer .footerin>.brand{max-width:100%}}
+
+/* CARTO Arcade Experience — Phase 02, expressive mascot + discovery */
+.arcade-discovery-board{background:#101216;color:#F3EBDD;padding:clamp(18px,3vw,36px);border:4px solid #101216;box-shadow:9px 9px 0 #2F5BFF;position:relative;overflow:hidden}
+.arcade-discovery-board:before{content:"";position:absolute;width:135px;height:135px;left:-44px;top:-40px;border:18px solid #FF5B2E;border-radius:50%;opacity:.25;pointer-events:none}
+.arcade-guide{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;padding-bottom:18px;border-bottom:2px dashed #C8F31D88}
+.arcade-guide img{width:150px;image-rendering:pixelated;filter:drop-shadow(6px 7px 0 #2F5BFF);animation:carto-bob 3.6s ease-in-out infinite}
+.arcade-guide h2{font:clamp(30px,4vw,46px)/1.2 Lalezar,Tajawal,sans-serif;margin:4px 0;color:#C8F31D}
+.arcade-guide p{max-width:690px;font-size:16px;line-height:1.8;margin:0;color:#F3EBDD}
+.arcade-8bit{font:11px Silkscreen,monospace;color:#FF5B2E;direction:ltr;display:inline-block}
+.arcade-achievements-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 12px}
+.arcade-achievements-title strong{font:26px Lalezar,Tajawal,sans-serif}
+.arcade-achievements-title span{font:12px Silkscreen,monospace;color:#C8F31D}
+.arcade-achievement-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.arcade-achievement{position:relative;background:#252532;border:2px solid #666678;min-width:0;padding:14px 10px;text-align:center;opacity:.7}
+.arcade-achievement.unlocked{opacity:1;background:#34431C;border-color:#C8F31D;box-shadow:3px 3px 0 #2F5BFF}
+.arcade-achievement>span{display:block;font:40px Lalezar,sans-serif;line-height:1;color:#C8F31D}
+.arcade-achievement strong{display:block;font:20px Lalezar,Tajawal,sans-serif;margin-top:6px;color:#F3EBDD}
+.arcade-achievement small{display:block;font:9px Silkscreen,monospace;color:#F3EBDD;letter-spacing:0}
+.arcade-achievement p{font-size:12px;line-height:1.5;color:#DDDBD5;margin:8px 0 0}
+.arcade-identity-showcase{margin:35px 0;border:4px solid #101216;box-shadow:8px 8px 0 #2F5BFF;background:#101216;color:#F3EBDD;padding:clamp(16px,3vw,30px)}
+.arcade-showcase-banner h2{font:clamp(30px,4vw,44px)/1.3 Lalezar,Tajawal,sans-serif;color:#C8F31D;margin:8px 0}
+.arcade-showcase-banner p,.arcade-identity-rules p{color:#F3EBDD;line-height:1.85}
+.arcade-moods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:24px 0}
+.arcade-moods figure{margin:0;text-align:center;background:#F3EBDD;color:#101216;border:3px solid #C8F31D;padding:12px 8px;min-width:0}
+.arcade-moods img{width:min(100%,125px);height:125px;object-fit:contain;image-rendering:pixelated}
+.arcade-moods figcaption{font:700 12px Tajawal,sans-serif}
+.arcade-identity-rules{border-top:2px dashed #C8F31D;padding-top:18px}
+.arcade-identity-rules h3{color:#C8F31D;font:28px Lalezar,sans-serif;margin:0}
+.arcade-identity-rules .arcade-achievement-grid{margin-top:10px}
+.arcade-reveal{opacity:0;transform:translateY(18px);transition:opacity .35s ease,transform .35s ease;transition-delay:var(--arcade-reveal-delay,0ms)}
+.arcade-reveal.arcade-visible{opacity:1;transform:translateY(0)}
+.arcade-reveal.arcade-visible:hover{transform:translateY(-4px) rotate(-.3deg)}
+body[data-page="localization"] .local-hero img{animation:carto-bob 4.5s ease-in-out infinite}
+body[data-page="glossary"] .term:hover{background:#C8F31D!important;color:#101216!important}
+body[data-page="archive"] .archivecard:hover{outline:3px dashed #2F5BFF;outline-offset:4px}
+body[data-page="gems"] .gem-game:hover{box-shadow:7px 9px 0 #2F5BFF}
+@media(max-width:900px){.arcade-achievement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.arcade-guide{grid-template-columns:1fr;text-align:center;justify-items:center;gap:10px}.arcade-guide img{width:95px}.arcade-guide p{font-size:14px}.arcade-moods{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-moods img{height:90px}.arcade-achievement{padding:9px 7px}.arcade-achievement strong{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.arcade-reveal{opacity:1!important;transform:none!important;transition:none!important}.arcade-guide img,body[data-page="localization"] .local-hero img{animation:none!important}}
+
+.arcade-search-companion{display:flex;align-items:center;gap:10px;margin:5px 0 22px;padding:7px 13px;background:var(--panel);border:2px dashed var(--line);width:max-content;max-width:100%;font-weight:700;font-size:12px}
+.arcade-search-companion img{width:44px;height:50px;object-fit:contain;image-rendering:pixelated}
+.arcade-search-companion span{color:var(--text)}
+.arcade-identity-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:5px 0 28px;background:#101216;padding:15px;border:4px solid #2F5BFF;box-shadow:5px 5px 0 #101216}
+.arcade-identity-tabs a{border:2px solid #C8F31D;padding:5px 12px;color:#F3EBDD;font-weight:800;font-size:13px}
+.arcade-identity-tabs a:hover,.arcade-identity-tabs a:focus-visible{color:#101216;background:#C8F31D}
+.arcade-identity-tabs strong{flex:0 0 100%;color:#C8F31D;font:24px Lalezar,sans-serif}
+body[data-page="identity"] .arcade-identity-showcase{scroll-margin-top:145px}
+@media(max-width:600px){.arcade-identity-tabs{gap:6px;padding:11px}.arcade-identity-tabs a{font-size:12px;padding:5px 9px}}
+
+/* CARTO audit repairs: keep the sticker/pixel identity, remove layout traps. */
+[hidden]{display:none!important}
+html{overflow-x:clip;scroll-padding-top:150px}
+body{overflow-x:clip}
+html[data-theme="light"]{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+.navin,.arcade-controls,.gameinfo,.wishlist-gametext{min-width:0}
+.navlinks{flex-wrap:wrap}
+.footerlinks{flex-wrap:wrap}
+a:hover{text-shadow:none}
+.nav .brandname small{font-size:11px!important}
+.tag,.arcade-8bit{font-size:12px}
+.arcade-achievement small,.logo-chip small{font-size:11px!important}
+.logo-variant{padding:14px}
+.wordmark small{font-size:11px;color:inherit}
+.sectionhead h1,.sectionhead h2{padding:4px 12px}
+.cardbottom{gap:10px;flex-wrap:wrap}
+.cardbottom .textbtn{min-height:36px;display:inline-flex;align-items:center;text-align:start}
+.wishlist-heart{min-width:44px!important;min-height:44px!important;height:44px!important;flex-shrink:0}
+.gameimage .source{color:#fff;background:#101216;padding:3px 7px;font:700 12px Tajawal,sans-serif;line-height:1.5;z-index:1}
+.cover-kind{position:absolute;inset-block-start:7px;inset-inline-end:7px;background:#F3EBDD;color:#101216;border:2px solid #101216;padding:2px 7px;font:700 12px Tajawal,sans-serif}
+.gameimage .cover-pending{object-fit:contain;padding:36px}
+.modal,.wishlist-modal{overscroll-behavior:contain}
+.modalbox,.wishlist-modalbox{max-height:calc(100dvh - 32px);overscroll-behavior:contain;overflow-y:auto;overflow-wrap:anywhere}
+.modalhead,.wishlist-modalhead{align-items:flex-start}
+.modalhead h2,.wishlist-modalhead h2{min-width:0;overflow-wrap:anywhere}
+.close,.wishlist-close{min-width:44px;min-height:44px;flex-shrink:0}
+.game-facts{margin:18px 0}
+.game-facts>div{display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,2fr);gap:14px;padding:10px 0;border-bottom:1px dashed currentColor}
+.game-facts dt{font-weight:700}
+.game-facts dd{margin:0;overflow-wrap:anywhere;unicode-bidi:plaintext}
+.edition-note{padding:12px;border:2px dashed currentColor;font-size:14px}
+.arcade-reveal{opacity:1;transform:none;transition:box-shadow .18s ease}
+.arcade-reveal.arcade-visible{animation:carto-card-in .3s ease-out both;animation-delay:var(--arcade-reveal-delay,0ms)}
+@keyframes carto-card-in{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:none}}
+.identity-audit-notes{margin:28px 0}
+.identity-audit-notes li{margin-block:10px}
+.identity-audit-notes h2{font:32px Lalezar,Tajawal,sans-serif;margin:0 0 12px}
+.identity-audit-notes p,.identity-audit-notes li{line-height:1.9}
+@media(max-width:900px){
+ .navlinks{flex:0 0 100%;width:100%;overflow-x:auto;overscroll-behavior-inline:contain;flex-wrap:nowrap}
+ .navlinks a{min-height:44px;display:inline-flex;align-items:center}
+}
+@media(max-width:600px){
+ .navin{display:grid!important;grid-template-columns:1fr;gap:9px!important}
+ .nav .brand{justify-self:start}
+ .arcade-controls{width:100%;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+ .arcade-controls button{min-height:44px;white-space:normal;font-size:13px!important}
+ .navlinks{order:initial;max-width:100%;font-size:14px}
+ .sectionhead p,.platform small,.meta,.notice{font-size:14px!important}
+ .gameinfo h3,.wishlist-gametext h3{font-size:14px!important;line-height:1.65}
+ .textbtn{font-size:13px!important}
+ .field{font-size:16px!important;min-height:48px}
+ .cardbottom{flex-direction:row;align-items:center}
+ .cardbottom .textbtn{flex:1 1 100%;min-height:36px}
+ .game-facts>div{grid-template-columns:1fr;gap:4px}
+ .modal,.wishlist-modal{padding:12px}
+ .modalbox,.wishlist-modalbox{padding:16px;max-height:calc(100dvh - 24px)}
+ .wishlist-game{flex-wrap:wrap}
+ .wishlist-gameactions{margin-inline-start:auto}
+ .wishlist-option{min-height:48px}
+ .arcade-search-companion{width:auto;font-size:14px}
+ body[data-page="home"] .hero .wrap{padding-inline-end:0;padding-top:64px}
+ .hero h1{font-size:clamp(32px,8vw,44px)!important;line-height:1.35!important}
+ .hero h1 em{max-width:100%;padding-inline:6px}
+ .term p,.archivecard p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+ .arcade-reveal,.arcade-reveal.arcade-visible,.arcade-reveal.arcade-visible:hover{opacity:1!important;transform:none!important}
+}
+
+/* CARTO III — a game-pak sticker, six clear expressions, two meaningful controls. */
+.carto-sprite[data-carto-pose]{display:inline-block;position:relative;width:80px;aspect-ratio:1;height:auto;flex-shrink:0;vertical-align:middle;background-image:url(../carto-phase3.webp)!important;background-repeat:no-repeat!important;background-size:300% 200%!important;background-color:transparent!important;image-rendering:pixelated;animation:none!important}
+.carto-sprite[data-carto-pose="happy"]{background-position:0 0!important}
+.carto-sprite[data-carto-pose="curious"]{background-position:50% 0!important}
+.carto-sprite[data-carto-pose="sad"]{background-position:100% 0!important}
+.carto-sprite[data-carto-pose="surprised"]{background-position:0 100%!important}
+.carto-sprite[data-carto-pose="celebrate"]{background-position:50% 100%!important}
+.carto-sprite[data-carto-pose="rest"]{background-position:100% 100%!important}
+.brandmascot.carto-sprite{width:54px;height:54px;padding:0!important;border:0!important;box-shadow:none!important;transform:none!important}
+.wordmark .carto-sprite.robot{width:58px;height:58px}
+.robot-scale .carto-sprite{width:28px;height:28px}
+.robot-scale .carto-sprite:nth-child(2){width:44px;height:44px}
+.robot-scale .carto-sprite:nth-child(3){width:72px;height:72px}
+.logo-chip .carto-sprite{width:48px;height:48px}
+body[data-page="home"] .hero .wrap{padding-inline-end:180px}
+.hero-mascot.carto-sprite{position:absolute;left:0;top:38px;width:150px;height:150px;transform:none}
+.arcade-guide .carto-sprite{width:150px;height:150px}
+.arcade-search-companion .carto-sprite{width:52px;height:52px}
+.gameimage .carto-sprite.cover-pending{width:68%;height:auto;aspect-ratio:1;padding:0}
+.sources-mascot.carto-sprite{width:92px;height:92px}
+.wishlist-empty-mascot.carto-sprite{width:120px;height:120px;display:block;margin:0 auto 12px}
+.gems-companion.carto-sprite{position:absolute;left:18px;bottom:14px;width:110px;height:110px}
+.gems-manifesto p{padding-inline-end:115px}
+.gems-manifesto-mark{display:none}
+.archive-companion.carto-sprite{width:76px;height:76px}
+.carto-sprite.carto-react{animation:carto-sticker-react .38s steps(3,end) 1!important}
+@keyframes carto-sticker-react{0%{translate:0 0;rotate:0deg}35%{translate:0 -5px;rotate:-3deg}70%{translate:0 -2px;rotate:2deg}100%{translate:0 0;rotate:0deg}}
+.control-switch.control-switch{display:inline-flex;align-items:center;justify-content:flex-start;gap:9px;min-height:54px;min-width:142px;padding:7px 11px!important;white-space:normal;cursor:pointer;line-height:1.2;border:2px solid var(--text);background:var(--panel);color:var(--text);position:relative;overflow:hidden}
+.control-copy{display:grid;gap:3px;text-align:start;min-width:0}
+.control-copy>span{font:700 11px/1.3 Tajawal,sans-serif;color:inherit}
+.control-copy>strong{font:700 16px/1.15 Tajawal,sans-serif;color:inherit}
+.control-icon{display:inline-grid;place-items:center;width:32px;height:32px;flex-shrink:0;overflow:hidden;isolation:isolate}
+.control-icon svg{width:32px;height:32px;overflow:visible}
+.mode-scene{background:#101216;color:#C8F31D;border:2px solid currentColor}
+.mode-sun{transform-origin:16px 16px;translate:0 0;rotate:0deg;opacity:1;transition:translate .25s cubic-bezier(.16,1,.3,1),rotate .3s ease,opacity .2s ease}
+.mode-moon{translate:0 -33px;opacity:0;transition:translate .25s cubic-bezier(.16,1,.3,1),opacity .2s ease}
+.appearance-toggle[data-state="dark"] .mode-sun{translate:0 34px;rotate:75deg;opacity:0}
+.appearance-toggle[data-state="dark"] .mode-moon{translate:0 0;opacity:1}
+.audio-bars rect{transform-box:fill-box;transform-origin:center;transition:scale .2s ease,opacity .2s ease}
+.audio-cross{opacity:1;rotate:0deg;transform-origin:center;transition:opacity .2s ease,rotate .25s ease}
+.arcade-sound[data-state="on"] .audio-cross{opacity:0;rotate:-35deg}
+.arcade-sound[data-state="off"] .audio-bars{opacity:0}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect{animation:carto-level .42s ease-out 1}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect:nth-child(2){animation-delay:45ms}
+.arcade-sound.is-switching[data-state="on"] .audio-bars rect:nth-child(3){animation-delay:90ms}
+@keyframes carto-level{0%{scale:1 .2}50%{scale:1 1}75%{scale:1 .5}100%{scale:1 1}}
+.arcade-sound[data-state="on"]{background:#C8F31D!important;color:#101216!important}
+.control-switch:active{transform:translate(2px,2px)!important}
+.identity-section{margin-block:38px;scroll-margin-top:155px}
+.identity-section>h2{font:36px/1.3 Lalezar,Tajawal,sans-serif;margin:0 0 14px}
+.identity-intro{max-width:68ch;font-size:17px;line-height:1.9}
+.character-stage{display:grid;grid-template-columns:minmax(200px,.8fr) minmax(0,1.5fr);align-items:center;gap:26px;background:#101216;color:#F3EBDD;border:3px solid #101216;box-shadow:7px 7px 0 #2F5BFF;padding:26px}
+.character-stage .carto-sprite{width:100%;max-width:280px;justify-self:center}
+.character-stage h3{font:36px Lalezar,Tajawal,sans-serif;color:#C8F31D;margin:0 0 10px}
+.character-stage p{color:#F3EBDD;font-size:17px;line-height:1.9}
+.character-poses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-block:24px}
+.character-poses figure{margin:0;padding:14px;background:var(--panel);border:2px solid var(--text);text-align:center;min-width:0}
+.character-poses .carto-sprite{width:min(100%,150px)}
+.character-poses figcaption{font-weight:700;font-size:16px;margin-top:8px}
+.character-poses small{display:block;font-size:14px;color:var(--muted)}
+.identity-rules{padding:18px 22px;border:2px dashed var(--text);line-height:1.9}
+.identity-rules ul{padding-inline-start:24px;margin-block:8px}
+.identity-rules li{margin-block:7px}
+.control-lab{display:flex;flex-wrap:wrap;gap:16px;padding:20px;border:3px solid var(--text);background:var(--panel)}
+.motion-table-wrap{overflow:auto;border:2px solid var(--text)}
+.motion-table{border-collapse:collapse;width:100%;font-size:16px}
+.motion-table th,.motion-table td{text-align:start;padding:14px;border-bottom:1px dashed var(--muted)}
+.sound-lab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-block:18px}
+.sound-preview{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;text-align:start;background:var(--panel);color:var(--text);border:2px solid var(--text);font:700 16px Tajawal,sans-serif;cursor:pointer;min-width:0;min-height:65px}
+.sound-preview span{display:block;font-size:14px;font-weight:400;margin-top:6px}
+.sound-preview svg{width:24px;height:24px;flex-shrink:0}
+.sound-preview:disabled{opacity:.6;cursor:not-allowed}
+.sound-preview:not(:disabled):hover{background:#C8F31D;color:#101216}
+.sound-status{min-height:2em;font-size:16px;line-height:1.7}
+.identity-history summary{cursor:pointer;font-weight:700;font-size:18px;padding:14px}
+@media(max-width:900px){.arcade-controls{gap:9px}.control-switch.control-switch{min-width:130px}.character-stage{gap:16px;padding:20px}}
+@media(max-width:600px){
+ .brandmascot.carto-sprite{width:48px;height:48px}
+ .control-switch.control-switch{width:100%;min-width:0;min-height:56px;padding:8px!important;gap:8px}
+ .control-copy>span{font-size:12px}.control-copy>strong{font-size:16px}
+ body[data-page="home"] .hero .wrap{padding-inline-end:0;padding-top:112px}
+ .hero-mascot.carto-sprite{width:112px;height:112px;top:-6px;left:50%;transform:translateX(-50%)}
+ .arcade-guide .carto-sprite{width:115px;height:115px}
+ .gems-manifesto{padding-bottom:105px}.gems-manifesto p{padding-inline-end:0}
+ .gems-companion.carto-sprite{width:92px;height:92px;bottom:4px;left:12px}
+ body[data-page="archive"] .sectionhead{position:relative;padding-inline-end:80px}
+ .archive-companion.carto-sprite{position:absolute;left:0;top:0;width:70px;height:70px}
+ .identity-section{margin-block:30px;scroll-margin-top:235px}
+ .identity-section>h2{font-size:30px}.character-stage{grid-template-columns:1fr;padding:18px}
+ .character-stage .carto-sprite{max-width:205px}.character-stage h3{font-size:31px}
+ .character-poses{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.character-poses figure{padding:10px}
+ .character-poses small{font-size:13px}.character-poses figcaption{font-size:15px}
+ .sound-lab{grid-template-columns:1fr}.control-lab{display:grid;grid-template-columns:1fr 1fr;padding:12px;gap:10px}
+ .identity-rules{padding:16px}.motion-table th,.motion-table td{padding:10px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .carto-sprite.carto-react,.arcade-sound.is-switching .audio-bars rect{animation:none!important}
+ .mode-sun,.mode-moon,.audio-cross,.audio-bars rect{transition:none!important}
+}
+/* Readable wordmark caption; palette swatches retain the original brand colors. */
+.wordmark{grid-template-columns:auto 58px}
+.wordmark small{font-size:11px;letter-spacing:1px;color:#b83210}
+html[data-theme="dark"] .wordmark small{color:#ff986f}
+.motion-table-wrap{padding:8px}
+.variant-dark .wordmark small{color:#ff986f}
+/* Legacy dark-brand shorthand must not clear the shared mascot atlas. */
+html[data-theme="dark"] .brandmascot.carto-sprite{background-image:url(../carto-phase3.webp)!important;background-size:300% 200%!important;background-repeat:no-repeat!important}
+
+/* Context belongs to its surface; the brand mark is deliberately stable. */
+.carto-context-heading{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.carto-heading-mascot.carto-sprite{width:72px;height:72px}
+.carto-reader-mascot.carto-sprite{width:40px;height:40px}
+.carto-detail-intro{display:flex;align-items:center;gap:12px;margin-block:0 18px}
+.carto-detail-intro p{margin:0;font-weight:700}
+.carto-detail-mascot.carto-sprite{width:64px;height:64px}
+.carto-empty-mascot.carto-sprite{display:block;width:88px;height:88px;margin:0 auto 14px}
+.arcade-toast:not([hidden]){display:flex;align-items:center;gap:12px;max-width:min(460px,calc(100vw - 32px));pointer-events:none}
+.carto-toast-mascot.carto-sprite{width:48px;height:48px}
+.arcade-search-companion{min-height:60px}
+@media(max-width:700px){
+ .carto-heading-mascot.carto-sprite{width:56px;height:56px}
+ .carto-context-heading{gap:10px}
+ .carto-detail-mascot.carto-sprite{width:52px;height:52px}
+ .carto-toast-mascot.carto-sprite{width:40px;height:40px}
+}
+
+/* Authored sticker symbols and deliberate motion throughout CARTO. */
+.carto-symbol{display:inline-block;width:64px;height:64px;vertical-align:middle;flex-shrink:0;overflow:visible;transform-origin:50% 75%}
+.platform>.carto-symbol{display:block;width:78px;height:78px;margin:0 auto 14px}
+.archivecard>.carto-symbol{width:78px;height:78px;margin-bottom:12px}
+.wishlist-optionemoji .carto-symbol{width:46px;height:46px}
+.wishlist-grouphead h2{display:flex;align-items:center;gap:9px}
+.wishlist-grouphead .carto-symbol,.wishlist-gameicon .carto-symbol{width:46px;height:46px}
+.arcade-achievement .carto-symbol{width:58px;height:58px}
+.symbol-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin:20px 0}
+.symbol-gallery figure{margin:0;text-align:center;padding:14px;border:2px solid var(--text);background:var(--panel)}
+.symbol-gallery figcaption{font:700 14px Tajawal,sans-serif;margin-top:12px}
+.symbol-gallery .carto-symbol{width:76px;height:76px}
+/* Sun shutter and equalizer are deliberately large enough to read while switching. */
+.control-icon,.control-icon svg{width:38px;height:38px}
+.control-switch .control-icon{position:relative}
+.mode-scene{width:40px;height:40px}
+.mode-sun,.mode-moon{transition:translate .55s cubic-bezier(.16,1,.3,1),rotate .7s ease,opacity .35s ease}
+.control-switch.is-switching .mode-scene{animation:carto-shutter .75s steps(5,end) 1}
+.appearance-toggle.is-switching .mode-sun{animation:carto-solar .75s ease-out 1}
+.appearance-toggle.is-switching .mode-moon{animation:carto-lunar .75s ease-out 1}
+.control-switch.is-switching .control-copy strong{animation:carto-state .6s steps(4,end) 1}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect{animation:carto-meter .75s ease-in-out 1}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect:nth-child(2){animation-delay:.06s}
+.arcade-sound[data-state="on"].control-performance .audio-bars rect:nth-child(3){animation-delay:.12s}
+.arcade-sound[data-state="off"].control-performance .audio-scene{animation:carto-mute .7s steps(5,end) 1}
+.control-switch::after{content:"";position:absolute;inset:0;pointer-events:none;border:3px solid transparent}
+.control-switch.is-switching::after,.control-switch.control-performance::after{animation:carto-control-frame .8s steps(2,end) 1}
+@keyframes carto-shutter{0%{clip-path:inset(0)}25%{clip-path:inset(40% 0)}50%{clip-path:inset(0 20%)}100%{clip-path:inset(0)}}
+@keyframes carto-solar{0%{rotate:-85deg;scale:.65}100%{rotate:0deg;scale:1}}
+@keyframes carto-lunar{0%{rotate:45deg;scale:.5}100%{rotate:0deg;scale:1}}
+@keyframes carto-state{0%{translate:0 6px;opacity:.3}100%{translate:0 0;opacity:1}}
+@keyframes carto-meter{0%,100%{scale:1 .65}20%,65%{scale:1 1.15}40%,80%{scale:1 .25}}
+@keyframes carto-mute{0%{rotate:0deg;scale:1}30%{rotate:-14deg;scale:.85}65%{rotate:8deg;scale:1.1}100%{rotate:0deg;scale:1}}
+@keyframes carto-control-frame{0%,100%{border-color:transparent}35%,65%{border-color:#2f5bff}}
+/* A sticker lands once in the viewport; its text remains visible throughout. */
+@media(prefers-reduced-motion:no-preference){
+ .arcade-reveal{opacity:1!important;transform:none!important}
+ .sticker-arrive{animation:carto-sticker-land .48s cubic-bezier(.16,1,.3,1) 1!important;animation-delay:calc(var(--sticker-order,0)*45ms)!important}
+ .platform:hover>.carto-symbol,.platform:focus-visible>.carto-symbol,.archivecard:hover>.carto-symbol,.symbol-gallery figure:hover>.carto-symbol{animation:carto-stamp-turn .6s steps(5,end) 1}
+ .carto-pressed{animation:carto-print-press .25s ease-out 1}
+ .wishlist-heart.carto-pressed{animation:carto-heart-pick .55s ease-out 1}
+ .sticker-open{animation:carto-slot-open .42s cubic-bezier(.16,1,.3,1) 1!important}
+ .wishlist-modal.open .wishlist-option{animation:carto-option-deal .34s cubic-bezier(.16,1,.3,1) 1;animation-delay:calc(var(--option-order,0)*45ms)}
+ .wishlist-option:nth-child(2){--option-order:1}.wishlist-option:nth-child(3){--option-order:2}.wishlist-option:nth-child(4){--option-order:3}.wishlist-option:nth-child(5){--option-order:4}
+ .navlinks a,.footerlinks a{position:relative}
+ .footerlinks a::after{content:"";position:absolute;inset-inline:0;bottom:-3px;height:3px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .22s ease-out}
+ .footerlinks a:hover::after,.footerlinks a:focus-visible::after{transform:scaleX(1)}
+ .sectionhead h1,.sectionhead h2{transition:rotate .3s ease,translate .3s ease}
+ .sectionhead:hover h1,.sectionhead:hover h2{rotate:-1deg;translate:-2px -2px}
+ .carto-theme-shift .topline{animation:carto-theme-bar .8s steps(6,end) 1}
+ .hero-mascot.carto-sprite{animation:carto-wave-in .75s steps(5,end) 1!important}
+}
+@keyframes carto-sticker-land{0%{translate:0 15px;rotate:1.2deg;scale:.97}70%{rotate:-.4deg}100%{translate:0 0;rotate:0deg;scale:1}}
+@keyframes carto-stamp-turn{0%{rotate:0deg;scale:1}35%{rotate:-9deg;scale:1.12}75%{rotate:3deg}100%{rotate:0deg;scale:1}}
+@keyframes carto-print-press{0%{translate:0 0}40%{translate:2px 3px}100%{translate:0 0}}
+@keyframes carto-heart-pick{0%,100%{scale:1}25%{scale:.8}60%{scale:1.22;rotate:-8deg}}
+@keyframes carto-slot-open{0%{clip-path:inset(0 0 30% 0);translate:0 14px}100%{clip-path:inset(0);translate:0 0}}
+@keyframes carto-option-deal{0%{translate:15px 0;opacity:.45}100%{translate:0 0;opacity:1}}
+@keyframes carto-theme-bar{0%{background-position:0 0}100%{background-position:216px 0}}
+@keyframes carto-wave-in{0%{rotate:-10deg;scale:.85}65%{rotate:4deg}100%{rotate:0deg;scale:1}}
+@media(max-width:600px){.platform>.carto-symbol{width:64px;height:64px;margin-bottom:10px}.archivecard>.carto-symbol{width:70px;height:70px}.control-switch.control-switch{gap:7px}.control-icon,.control-icon svg{width:34px;height:34px}.mode-scene{width:36px;height:36px}.symbol-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){
+ .sticker-arrive,.sticker-open,.carto-pressed,.control-performance,.is-switching,.is-switching *,.control-performance *,.hero-mascot.carto-sprite,.wishlist-modal.open .wishlist-option{animation:none!important}
+ .mode-sun,.mode-moon,.control-copy strong,.footerlinks a::after{transition:none!important}
+ .carto-symbol{animation:none!important;transform:none!important}
+}
+.nav .brandname small{font-size:11px;letter-spacing:0}
+.archivecard h2{font:27px/1.3 Lalezar,Tajawal,sans-serif;margin:8px 0}
+
+/* Device identity stays beside names, never overlays covers or interactive controls. */
+.device-page-heading{display:flex;align-items:center;gap:16px;min-width:0}.device-page-heading>div{min-width:0}#devicePageSymbol{display:block;flex-shrink:0}#devicePageSymbol .carto-symbol{width:76px;height:76px}.gameinfo .meta{align-items:center;gap:8px}.game-device-tag{display:inline-flex;align-items:center;gap:6px;min-width:0}.game-device-tag .carto-symbol{width:28px;height:28px}.game-device-tag>span{overflow-wrap:anywhere}
+@media(max-width:600px){.device-page-heading{gap:10px}#devicePageSymbol .carto-symbol{width:48px;height:48px}.game-device-tag{gap:4px}.game-device-tag .carto-symbol{width:22px;height:22px}}
+
+/* CARTO CRT: neutral glass optics, never a filter on text, covers or reader pages. */
+:root{--crt-line:.018;--crt-edge:.035;--crt-glass:.035;--crt-radius:20px;--crt-cabinet:#F3EBDD;--crt-signal:#2F5BFF}
+html[data-crt-level="medium"]{--crt-line:.034;--crt-edge:.065;--crt-glass:.055;--crt-radius:24px}
+html[data-crt-level="strong"]{--crt-line:.052;--crt-edge:.095;--crt-glass:.075;--crt-radius:28px}
+/* Consolidate the old always-on scanline decoration into the explicit CRT preference. */
+body .scanlines{display:none!important}
+#cartoCrtLens,#cartoCrtTransition{position:fixed;inset:0;pointer-events:none;z-index:180;box-sizing:border-box}
+#cartoCrtLens{display:none;border-radius:var(--crt-radius);background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(16,18,22,var(--crt-line)) 2px 3px),radial-gradient(ellipse at center,transparent 65%,rgba(16,18,22,var(--crt-edge)) 100%);box-shadow:inset 0 0 0 1px rgba(16,18,22,.16),inset 0 0 20px rgba(255,255,255,var(--crt-glass)),inset 0 0 3px rgba(47,91,255,var(--crt-glass))}
+html[data-crt="on"] body:not([data-page="reader"]) #cartoCrtLens{display:block}
+#cartoCrtLens:after{content:"";position:absolute;inset:2px;border:1px solid rgba(255,255,255,var(--crt-glass));border-radius:inherit;background:radial-gradient(ellipse 70% 12% at 50% -8%,rgba(255,255,255,var(--crt-glass)),transparent)}
+#cartoCrtTransition{display:none;border:3px solid #2F5BFF;border-radius:var(--crt-radius);opacity:0}
+.crt-control{display:flex;align-items:stretch;gap:0;min-width:0}
+.crt-control .crt-toggle.control-switch{min-width:122px;box-shadow:3px 3px 0 #101216;--crt-cabinet:#F3EBDD}
+.crt-toggle .crt-icon{width:36px;height:36px;overflow:visible;color:#101216}
+.crt-toggle .crt-icon svg{width:36px;height:36px;overflow:visible}
+.crt-icon-glass{fill:#101216}
+.crt-icon-signal{opacity:.38;transform-origin:17px 22px}
+.crt-icon-power{fill:#888}
+.crt-toggle[data-state="on"]{background:#C8F31D!important;color:#101216!important;--crt-cabinet:#C8F31D;--crt-signal:#C8F31D}
+.crt-toggle[data-state="on"] .crt-icon-signal{opacity:1}
+.crt-toggle[data-state="on"] .crt-icon-power{fill:#FF5B2E}
+.crt-control .crt-settings-button{display:grid;place-items:center;flex:0 0 44px;min-width:44px;min-height:48px;padding:8px;border:2px solid var(--text);border-inline-start:0;background:var(--panel);color:var(--text);box-shadow:3px 3px 0 #101216;cursor:pointer}
+.crt-settings-button svg{width:22px;height:22px}
+.crt-settings-button[aria-expanded="true"]{background:#FF5B2E;color:#101216}
+.crt-settings{position:fixed;inset:auto;right:12px;top:100px;margin:0;box-sizing:border-box;width:min(330px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:18px;border:3px solid var(--text);background:var(--panel);color:var(--text);box-shadow:5px 5px 0 #101216;z-index:190;text-align:start;line-height:1.65}
+.crt-settings[hidden]{display:none!important}
+.crt-settings::backdrop{background:transparent}
+.crt-settings-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.crt-settings-heading strong{font:25px/1.2 Lalezar,Tajawal,sans-serif}
+.crt-settings-heading button{min-height:44px;padding:6px 10px;border:2px solid var(--text);background:var(--bg);color:var(--text);font:700 14px Tajawal,sans-serif;cursor:pointer}
+.crt-settings fieldset{border:0;margin:0;padding:0;min-width:0}
+.crt-settings legend{font-weight:700;margin-bottom:8px}
+.crt-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.crt-levels label{position:relative;cursor:pointer;min-width:0}
+.crt-levels input{position:absolute;width:1px;height:1px;opacity:0}
+.crt-levels span{display:grid;place-items:center;min-height:48px;padding:8px 4px;border:2px solid var(--text);font-weight:700}
+.crt-levels input:checked+span{background:#C8F31D;color:#101216;box-shadow:2px 2px 0 #101216}
+.crt-levels input:focus-visible+span{outline:3px dashed var(--text);outline-offset:3px}
+.crt-settings p{margin:16px 0 12px;font-size:14px}
+.crt-settings a{color:var(--text);font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.crt-visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html[data-theme="dark"] .crt-toggle:not([data-state="on"]){--crt-cabinet:#F3EBDD}
+/* One cabinet-opening gesture, not a screen-wide blackout or phosphor flicker. */
+@media(prefers-reduced-motion:no-preference){
+ #cartoCrtTransition[data-running]{display:block;animation:carto-crt-rim 380ms cubic-bezier(.16,1,.3,1) 1 both}
+ .crt-toggle.crt-switching .crt-icon-signal{animation:carto-crt-tube 340ms cubic-bezier(.16,1,.3,1) 1 both}
+}
+@keyframes carto-crt-rim{from{transform:scale(.985,.97);opacity:.12}to{transform:scale(1);opacity:0}}
+@keyframes carto-crt-tube{from{transform:scaleY(.12)}to{transform:scaleY(1)}}
+@media(max-width:700px), (max-width:1100px) and (max-height:600px){
+ .mobile-nav-ready .arcade-controls .crt-control{grid-column:1/-1;width:100%}
+ .mobile-nav-ready .crt-control .crt-toggle.control-switch{flex:1;min-width:0;justify-content:center}
+ .crt-control .crt-settings-button{flex-basis:48px}
+ :root{--crt-radius:14px;--crt-glass:.02;--crt-edge:.025;--crt-line:.015}
+ html[data-crt-level="medium"]{--crt-radius:16px;--crt-line:.026;--crt-edge:.045;--crt-glass:.035}
+ html[data-crt-level="strong"]{--crt-radius:18px;--crt-line:.04;--crt-edge:.065;--crt-glass:.045}
+}
+html[data-crt-economy="true"] #cartoCrtLens{background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(16,18,22,var(--crt-line)) 2px 3px);box-shadow:inset 0 0 0 1px #10121624}
+html[data-crt-economy="true"] #cartoCrtLens:after{display:none}
+/* The entire reader (paper, flipping leaves, thumbnails and tools) is optically neutral. */
+body[data-page="reader"] :is(#cartoCrtLens,#cartoCrtTransition){display:none!important}
+@media(prefers-reduced-motion:reduce){#cartoCrtTransition{display:none!important}.crt-toggle.crt-switching .crt-icon-signal{animation:none!important}}
+@media(forced-colors:active){#cartoCrtLens,#cartoCrtTransition{display:none!important}.crt-levels input:checked+span{outline:3px solid Highlight}.crt-icon-glass{fill:Canvas}.crt-icon-signal{fill:CanvasText}}
+@media print{#cartoCrtLens,#cartoCrtTransition,.crt-control{display:none!important}}
+/* Identity: a single live test screen in the incumbent sticker world. */
+.crt-identity{margin-block:30px;padding:28px;border:3px solid var(--text);background:var(--panel);color:var(--text);box-shadow:5px 5px 0 #101216}
+.crt-identity h2{font:clamp(26px,3vw,38px)/1.3 Lalezar,Tajawal,sans-serif;margin-top:0}
+.crt-identity-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:start}
+.crt-demo-cabinet{background:#101216;color:#F3EBDD;padding:20px 20px 12px;border:3px solid #101216;box-shadow:6px 6px 0 #2F5BFF;min-width:0}
+.crt-demo-screen{position:relative;border-radius:18px;border:2px solid #F3EBDD;padding:28px 18px;text-align:center;background:#F3EBDD;color:#101216;overflow:hidden;min-height:250px;display:grid;place-items:center;gap:12px}
+.crt-demo-screen p{font:28px/1.4 Lalezar,Tajawal,sans-serif;margin:0}
+.crt-demo-screen .carto-sprite{width:90px;height:90px}
+.crt-demo-colors{display:flex;gap:5px;justify-content:center}
+.crt-demo-colors span{height:12px;width:40px;background:#C8F31D}.crt-demo-colors span:nth-child(2){background:#FF5B2E}.crt-demo-colors span:nth-child(3){background:#2F5BFF}
+.crt-demo-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;font-size:14px}
+.crt-demo-led{width:7px;height:7px;background:#777;display:inline-block;margin-inline-end:7px}
+[data-crt-demo][data-enabled="true"] .crt-demo-led{background:#C8F31D}
+.crt-demo-tools{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:18px}
+.crt-demo-tools button,.crt-demo-tools select{min-height:44px;font:700 15px Tajawal,sans-serif;border:2px solid var(--text);background:var(--panel);color:var(--text);padding:8px 12px;cursor:pointer}
+.crt-demo-tools button[aria-pressed="true"]{background:#C8F31D;color:#101216}
+.crt-identity dl{margin:0}.crt-identity dt{font-weight:700;margin-top:16px}.crt-identity dt:first-child{margin-top:0}.crt-identity dd{margin:4px 0 0;font-size:16px}
+@media(max-width:700px){.crt-identity{padding:18px}.crt-identity-grid{grid-template-columns:1fr;gap:24px}.crt-demo-screen{min-height:220px}.crt-demo-caption{flex-wrap:wrap}}
+
+/* Six fixed 32px native assets; hotspots remain identical in normal/pressed states. */
+:root{
+ --carto-arrow:url(../cursors/arrow.svg) 3 3,url(../cursors/arrow.png) 3 3,auto;
+ --carto-arrow-down:url(../cursors/arrow-pressed.svg) 3 3,url(../cursors/arrow-pressed.png) 3 3,auto;
+ --carto-glove:url(../cursors/glove.svg) 12 3,url(../cursors/glove.png) 12 3,pointer;
+ --carto-glove-down:url(../cursors/glove-pressed.svg) 12 3,url(../cursors/glove-pressed.png) 12 3,pointer;
+ --carto-pak:url(../cursors/pak.svg) 3 3,url(../cursors/pak.png) 3 3,auto;
+ --carto-pak-down:url(../cursors/pak-pressed.svg) 3 3,url(../cursors/pak-pressed.png) 3 3,auto;
+ --carto-pak-link:url(../cursors/pak.svg) 3 3,url(../cursors/pak.png) 3 3,pointer;
+ --carto-pak-link-down:url(../cursors/pak-pressed.svg) 3 3,url(../cursors/pak-pressed.png) 3 3,pointer;
+}
+@media(any-hover:hover) and (any-pointer:fine){
+ html[data-carto-cursor="on"] body{cursor:var(--carto-arrow)}
+ html[data-carto-cursor="on"] body:active{cursor:var(--carto-arrow-down)}
+ html[data-carto-cursor="on"] :is(a[href],button,summary,[role="button"],[role="link"],label[for],.crt-levels label,input[type="checkbox"],input[type="radio"]){cursor:var(--carto-glove)}
+ html[data-carto-cursor="on"] :is(a[href],button,summary,[role="button"],[role="link"],label[for],.crt-levels label,input[type="checkbox"],input[type="radio"]):active{cursor:var(--carto-glove-down)}
+ html[data-carto-cursor="on"] :is(.gamecard,.collection-card,.platformhero,.magazine-issue,.sakhr-program,[data-cursor-family="pak"]){cursor:var(--carto-pak)}
+ html[data-carto-cursor="on"] :is(.gamecard,.collection-card,.platformhero,.magazine-issue,.sakhr-program,[data-cursor-family="pak"]):active{cursor:var(--carto-pak-down)}
+ html[data-carto-cursor="on"] :is(a.platform,a.archivecard,.magazine-cover,.gameimage a,button[data-details],a[data-cursor-family="pak"],button[data-cursor-family="pak"]){cursor:var(--carto-pak-link)}
+ html[data-carto-cursor="on"] :is(a.platform,a.archivecard,.magazine-cover,.gameimage a,button[data-details],a[data-cursor-family="pak"],button[data-cursor-family="pak"]):active{cursor:var(--carto-pak-link-down)}
+ html[data-carto-cursor="on"] [data-cursor-family="arrow"]{cursor:var(--carto-arrow)}
+ html[data-carto-cursor="on"] [data-cursor-family="arrow"]:active{cursor:var(--carto-arrow-down)}
+ /* Preserve native editing, selection and reader operations. */
+ html[data-carto-cursor="on"] :is(p,blockquote,.gameinfo h3,.collection-card h3,.term h3,input:not([type]),input[type="text"],input[type="search"],input[type="email"],input[type="url"],input[type="password"],input[type="number"],textarea,[contenteditable]:not([contenteditable="false"]),[role="textbox"]){cursor:text}
+ html[data-carto-cursor="on"] :is(a[href],button,[role="button"],summary) :is(p,h3,small,strong,span){cursor:inherit}
+ html[data-carto-cursor="on"] :is(select,input[type="range"],input[type="file"],input[type="color"],#readerStage,#readerStage *){cursor:auto}
+ html[data-carto-cursor="on"] :is(:disabled,[aria-disabled="true"]){cursor:not-allowed}
+ html[data-carto-cursor="on"] :is([aria-busy="true"] button:disabled,.reader-downloads button:disabled){cursor:wait}
+}
+/* Identity documentation: enlarged anatomy and actual-size copies, never oversized native cursors. */
+.cursor-identity{margin-block:28px;padding:28px;border:3px solid var(--text);background:var(--panel);color:var(--text);box-shadow:5px 5px 0 #101216}
+.cursor-identity>h2{font:clamp(28px,3vw,38px)/1.3 Lalezar,Tajawal,sans-serif;margin-top:0}
+.cursor-families{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-block:24px}
+.cursor-family{min-width:0}.cursor-family h3{font:26px/1.3 Lalezar,Tajawal,sans-serif;margin:0 0 14px}
+.cursor-artboard{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:2px solid var(--text);padding:14px;background:var(--bg)}
+.cursor-artboard figure{margin:0;text-align:center;min-width:0}
+.cursor-artboard img{display:block;width:128px;max-width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;margin:auto}
+.cursor-artboard figcaption{font-size:13px;margin-top:10px}
+.cursor-dimensions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:14px}
+.cursor-dimensions img{width:32px;height:32px;image-rendering:pixelated;flex-shrink:0}
+.cursor-family p{font-size:15px;margin-bottom:0}
+.cursor-test{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-top:20px;border-top:2px solid var(--text)}
+.cursor-arrow-test{padding:12px 18px;border:2px dashed var(--text);min-height:44px}
+.cursor-test button{min-height:44px;font:700 15px/1.4 Tajawal,sans-serif;border:2px solid var(--text);padding:9px 14px;background:var(--panel);color:var(--text);box-shadow:3px 3px 0 #101216}
+.cursor-test button[data-cursor-demo="pak"]{background:#C8F31D;color:#101216;border-color:#101216}
+.cursor-system-toggle{margin-top:20px}
+.cursor-identity .cursor-status{min-height:26px;font-size:14px}
+@media(max-width:900px){.cursor-families{grid-template-columns:1fr}.cursor-family{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px}.cursor-family h3{grid-column:1/-1}.cursor-artboard{grid-row:2/4}.cursor-dimensions{margin:0;align-self:start}.cursor-family p{align-self:end;margin-top:8px}}
+@media(max-width:500px){.cursor-identity{padding:18px}.cursor-family{display:block}.cursor-dimensions{margin-top:12px}.cursor-artboard img{width:112px}.cursor-test{align-items:stretch}.cursor-test>*{flex:1 1 100%;text-align:center}}
+
+/* Compact native switches: shared geometry, independent behavior and preferences. */
+body .arcade-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+body .arcade-controls .control-switch.control-switch,
+body .identity-section .control-switch.control-switch{
+ --tool-paper:#FFFBF2;--tool-shade:#E9DFC9;--tool-ink:#101216;
+ display:inline-flex;align-items:center;justify-content:flex-start;flex:none;
+ width:108px;min-width:108px;height:48px;min-height:48px;gap:5px;
+ padding:5px 6px!important;border:2px solid var(--tool-ink);border-radius:4px;
+ background:linear-gradient(155deg,var(--tool-paper),var(--tool-shade))!important;
+ color:var(--tool-ink)!important;box-shadow:2px 2px 0 #101216!important;
+ text-shadow:none;line-height:1.2;transform:none;overflow:hidden;
+ transition:box-shadow 140ms ease-out,translate 140ms ease-out;
+}
+body .arcade-controls .control-copy,body .identity-section .control-copy{gap:2px;text-align:start;white-space:nowrap}
+body .arcade-controls .control-copy>span,body .identity-section .control-copy>span{font:700 10px/1.2 Tajawal,sans-serif}
+body .arcade-controls .control-copy>strong,body .identity-section .control-copy>strong{font:700 13px/1.2 Tajawal,sans-serif}
+body .arcade-controls .control-icon,body .arcade-controls .control-icon svg,
+body .identity-section .control-icon,body .identity-section .control-icon svg{width:26px;height:26px}
+body .arcade-controls .mode-scene,body .identity-section .mode-scene{border:0;background:transparent;color:inherit}
+body .arcade-controls .control-switch[data-state="on"],
+body .arcade-controls .appearance-toggle[data-state="light"],
+body .identity-section .control-switch[data-state="on"],
+body .identity-section .appearance-toggle[data-state="light"]{--tool-paper:#F4FFD3;--tool-shade:#C8F31D}
+html[data-theme="dark"] body .arcade-controls .control-switch:not([data-state="on"]),
+html[data-theme="dark"] body .identity-section .control-switch:not([data-state="on"]){--tool-paper:#343A48;--tool-shade:#242936;--tool-ink:#F3EBDD}
+body .arcade-controls .control-switch:hover,body .identity-section .control-switch:hover{box-shadow:3px 3px 0 #101216!important;translate:0 -1px}
+body .arcade-controls .control-switch:active,body .identity-section .control-switch:active{transform:none!important;translate:1px 1px;box-shadow:1px 1px 0 #101216!important}
+body .arcade-controls :is(.control-switch,.crt-settings-button):focus-visible,
+body .identity-section .control-switch:focus-visible{outline:3px solid #2F5BFF;outline-offset:4px;z-index:1}
+html[data-theme="dark"] body .arcade-controls :is(.control-switch,.crt-settings-button):focus-visible{outline-color:#C8F31D}
+body .arcade-controls .crt-control{align-items:stretch;width:140px;grid-column:auto}
+body .arcade-controls .crt-control .crt-toggle.control-switch{width:96px;min-width:0;flex:1;border-start-end-radius:4px;border-end-end-radius:4px;border-start-start-radius:0;border-end-start-radius:0}
+body .arcade-controls .crt-control .crt-settings-button{flex:0 0 44px;width:44px;min-width:44px;height:48px;min-height:48px;padding:8px;box-shadow:2px 2px 0 #101216;border-radius:4px 0 0 4px;background:var(--panel);color:var(--text)}
+body .arcade-controls .crt-settings-button svg{width:18px;height:18px}
+body .arcade-controls .crt-settings-button[aria-expanded="true"]{background:#FF5B2E;color:#101216}
+body[data-page="archive"] .archivegrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#sakhrPortal{scroll-margin-top:110px}
+@media(max-width:700px), (max-width:1100px) and (max-height:600px){
+ body.mobile-nav-ready .nav .arcade-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(124px,1.3fr);gap:6px;width:100%;margin:0}
+ body.mobile-nav-ready .nav .arcade-controls .control-switch.control-switch{width:100%;min-width:0;padding:5px 4px!important;gap:4px;justify-content:center}
+ body.mobile-nav-ready .nav .arcade-controls .control-icon,body.mobile-nav-ready .nav .arcade-controls .control-icon svg{width:20px;height:20px}
+ body.mobile-nav-ready .nav .arcade-controls .control-copy>span{font-size:9px}
+ body.mobile-nav-ready .nav .arcade-controls .control-copy>strong{font-size:12px}
+ body.mobile-nav-ready .nav .arcade-controls .crt-control{width:100%;grid-column:auto;min-width:0}
+ body.mobile-nav-ready .nav .arcade-controls .crt-control .crt-toggle{width:auto;justify-content:center}
+}
+@media(max-width:600px){body[data-page="archive"] .archivegrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){body .arcade-controls .control-switch,body .identity-section .control-switch{transition:none;translate:none!important}}
+@media(forced-colors:active){body .arcade-controls .control-switch.control-switch{background:ButtonFace!important;color:ButtonText!important;border-color:ButtonText;box-shadow:none!important}body .arcade-controls .control-switch[aria-pressed="true"]{outline:2px solid Highlight;outline-offset:-5px}}

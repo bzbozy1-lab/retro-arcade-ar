@@ -35,8 +35,10 @@ test('all pages use consistent navigation, safe internal paths and a single appe
   for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
     const html=source(file);
     const nav=html.match(/<nav class="navlinks"[^>]*>(.*?)<\/nav>/s)[1];
-    navs.push(nav.replace(/class="active" aria-current="page" /g,'').replace(/<a href="sakhr\.html">بوابة صخر<\/a>/g,''));
-    if(!['magazines.html','reader.html'].includes(file)) assert(nav.includes('href="sakhr.html"'),file+': Sakhr navigation');
+    navs.push(nav.replace(/class="active" aria-current="page" /g,''));
+    assert(!nav.includes('href="sakhr.html"'),file+': Sakhr belongs in archive only');
+    assert.equal((html.match(/href="sakhr.html"/g)||[]).length,file==='archive.html'?1:0,file+': one archive entry only');
+    if(file==='archive.html') assert.match(html,/<article class="archivecard archive-sakhr-link" id="sakhrPortal">[\s\S]*?<h2>بوابة صخر<\/h2>/);
     const markup=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'');
     for(const match of markup.matchAll(/(?:src|href)="([^"#]+)"/g)){
       const url=match[1]; if(/^(https?:|data:)/.test(url))continue;
