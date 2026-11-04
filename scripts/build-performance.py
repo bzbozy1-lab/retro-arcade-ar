@@ -4,7 +4,7 @@ import re,json,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'assets/dist';OUT.mkdir(parents=True,exist_ok=True)
 common=['assets/mascot.js','assets/audio.js','assets/dialog.js','assets/theme.js','assets/arcade-experience.js','assets/arcade-phase2.js','assets/phase3.js','assets/motion.js','assets/mobile-nav.js','assets/performance.js','assets/crt.js','assets/cursors.js']
-styles=['assets/style.css','assets/arcade-experience.css','assets/arcade-phase2.css','assets/audit-fixes.css','assets/phase3.css','assets/phase4.css','assets/crt.css','assets/cursors.css','assets/controls.css']
+styles=['assets/style.css','assets/arcade-experience.css','assets/arcade-phase2.css','assets/audit-fixes.css','assets/phase3.css','assets/phase4.css','assets/crt.css','assets/cursors.css','assets/controls.css','assets/palette.css']
 manifest={}
 def bundle(label,files,ext):
  content=('\n;\n' if ext=='js' else '\n').join((ROOT/f).read_text() for f in files)

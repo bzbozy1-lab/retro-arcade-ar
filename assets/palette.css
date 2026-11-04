@@ -1,0 +1,109 @@
+/* CARTO surfaces: ivory and cool slate by day, ink blue by night. */
+html[data-theme="light"] {
+  --bg: #f5f3eb !important;
+  --panel: #fffdf6 !important;
+  --text: #172136 !important;
+  --muted: #49556b !important;
+  --line: #24314b !important;
+  --palette-canvas: linear-gradient(145deg, #faf7ee, #edf1f7 55%, #e3ebf6);
+  --palette-bar: linear-gradient(105deg, #fffdf6, #edf2fa);
+  --palette-surface: linear-gradient(150deg, #fffdf6, #edf2fa);
+  --palette-feature: linear-gradient(120deg, #faf7ee, #e3ecf9);
+  --palette-footer: linear-gradient(120deg, #17243b, #243954);
+  --palette-dot: #27385514;
+  --palette-focus: #2549b5;
+}
+html[data-theme="dark"] {
+  --bg: #111828;
+  --panel: #1b263d;
+  --panel2: #25334e;
+  --text: #f4f1e8;
+  --muted: #bac8df;
+  --line: #a1b2cd;
+  --palette-canvas: linear-gradient(145deg, #19253c, #111827 58%, #141e32);
+  --palette-bar: linear-gradient(105deg, #1b2941, #111827);
+  --palette-surface: linear-gradient(150deg, #25334e, #1a2439);
+  --palette-feature: linear-gradient(120deg, #283b59, #1a253b);
+  --palette-footer: linear-gradient(120deg, #101827, #1c2b43);
+  --palette-dot: #c3d3ef15;
+  --palette-focus: #d6f866;
+}
+:root {
+  --palette-accent: linear-gradient(130deg, #e2fa82, #b9e929);
+  --palette-ink: #152019;
+}
+html[data-theme] body {
+  background-color: var(--bg) !important;
+  background-image: radial-gradient(var(--palette-dot) 1px, transparent 1.5px), var(--palette-canvas) !important;
+  background-size: 14px 14px, 100% 100% !important;
+  color: var(--text) !important;
+}
+html[data-theme] .nav {
+  background: var(--palette-bar) !important;
+  color: var(--text) !important;
+  border-bottom-color: var(--line) !important;
+}
+html[data-theme] .nav .brand,
+html[data-theme] .nav .brandname small {
+  color: var(--text) !important;
+}
+html[data-theme] .navlinks a:is(.active, :hover, :focus-visible) {
+  background: var(--palette-accent) !important;
+  color: var(--palette-ink) !important;
+}
+html[data-theme] .footer.arcade-footer {
+  background: var(--palette-footer) !important;
+}
+html[data-theme] :is(.hero, .platformhero, .identity-hero, .library-hero) {
+  background: var(--palette-feature) !important;
+  color: var(--text) !important;
+}
+html[data-theme] :is(.platform, .gamecard, .gemcard, .archivecard, .identity-card, .modalbox, .term, .glossary,
+  .local-intro, .local-card, .gaming-source-card, .collection-card, .wishlist-modalbox,
+  .identity-section, .cursor-identity, .crt-identity, .issue-caption, .reader-topbar, .reader-pager, .reader-options) {
+  background: var(--palette-surface) !important;
+  color: var(--text) !important;
+}
+html[data-theme] .platform:is(:hover, :focus-visible) {
+  background: var(--palette-accent) !important;
+  color: var(--palette-ink) !important;
+  border-color: var(--palette-ink) !important;
+}
+html[data-theme] .platform:is(:hover, :focus-visible) :is(strong, small, .muted) {
+  color: inherit !important;
+}
+html[data-theme] .platform:is(:hover, :focus-visible) {
+  text-shadow: none;
+}
+html[data-theme] .field {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+}
+html[data-theme] .field::placeholder {
+  color: var(--muted) !important;
+}
+html[data-theme] :is(.platform, .navlinks a, .field):focus-visible {
+  outline: 3px solid var(--palette-focus) !important;
+  outline-offset: 3px;
+}
+html[data-theme="dark"] body :is(.arcade-controls, .identity-section) .control-switch:not([data-state="on"]) {
+  --tool-paper: #2b3a56;
+  --tool-shade: #1b263d;
+  --tool-ink: #f4f1e8;
+}
+@media (forced-colors: active) {
+  html[data-theme] :is(.platform, .navlinks a, .field):focus-visible {
+    outline-color: Highlight !important;
+  }
+}
+html[data-theme="light"] .btn:not(.alt, .gold) {
+  background: var(--palette-accent) !important;
+  color: var(--palette-ink) !important;
+}
+html[data-theme] .sectionhead :is(h1, h2) {
+  background: var(--palette-accent) !important;
+  color: var(--palette-ink) !important;
+}
+html[data-theme] .sectionhead :is(h1, h2) span {
+  color: inherit !important;
+}

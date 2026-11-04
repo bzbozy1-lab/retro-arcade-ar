@@ -13,7 +13,7 @@
     "assets/crt.js",
     "assets/cursors.js"
   ],
-  "assets/dist/shared-397e7b47cf9a.css": [
+  "assets/dist/shared-b66f7e4ef80c.css": [
     "assets/style.css",
     "assets/arcade-experience.css",
     "assets/arcade-phase2.css",
@@ -22,6 +22,7 @@
     "assets/phase4.css",
     "assets/crt.css",
     "assets/cursors.css",
-    "assets/controls.css"
+    "assets/controls.css",
+    "assets/palette.css"
   ]
 }
