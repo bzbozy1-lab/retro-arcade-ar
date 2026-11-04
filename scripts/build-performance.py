@@ -34,7 +34,7 @@ for page in ROOT.glob('*.html'):
  if 'https://fonts.gstatic.com' not in text:text=text.replace('</title>','</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',1)
  if page.stem in ['archive','sources','localization','identity','sakhr']:
   text=re.sub(r'<script\b[^>]*src="assets/(app|wishlist)\.js[^\"]*"[^>]*></script>','',text)
- text=re.sub(r'(assets/magazines\.mjs)(?:\?[^\"]*)?',r'\1?v=mascot-1',text)
+ text=re.sub(r'(assets/magazines\.mjs)(?:\?[^\"]*)?',r'\1?v=polish-1',text)
  text=text.replace('reader.mjs?v=reader-fast-2','reader.mjs?v=opt-1').replace('magazines.mjs?v=magazines-2','magazines.mjs?v=opt-1')
  text=text.replace('assets/wishlist.js?v=opt-1','assets/wishlist.js?v=collection-2')
  # Version edited standalone scripts as well, without broad cache invalidation.
@@ -46,7 +46,22 @@ for page in ROOT.glob('*.html'):
   fields=['id','title','category','cover','pages','bytes','sha256','pageImages']
   boot=json.dumps([{key:issue[key] for key in fields} for issue in catalog],ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
   text=re.sub(r'<script type="application/json" id="readerIssueIndex">.*?</script>','',text,flags=re.S)
-  text=text.replace('</head>','<script type="application/json" id="readerIssueIndex">'+boot+'</script></head>')
+  preload='''<script id="readerManifestPreload">
+{
+ const id=new URLSearchParams(location.search).get('id');
+ const issue=JSON.parse(document.getElementById('readerIssueIndex').textContent).find(item=>item.id===id);
+ if(issue?.pageImages){
+  const hint=document.createElement('link');
+  hint.rel='preload';
+  hint.as='fetch';
+  hint.crossOrigin='anonymous';
+  hint.href=issue.pageImages;
+  document.head.append(hint);
+ }
+}
+</script>'''
+  text=re.sub(r'<script id="readerManifestPreload">.*?</script>','',text,flags=re.S)
+  text=text.replace('</head>','<script type="application/json" id="readerIssueIndex">'+boot+'</script>'+preload+'</head>')
  page.write_text(text)
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(json.dumps({'sharedJS':js,'sharedCSS':css,'files':len(manifest)}))

@@ -53,3 +53,9 @@ body.reading-focus .nav,body.reading-focus .arcade-ticker,body.reading-focus .fo
 .reader-downloads button:disabled{opacity:.55;cursor:wait}
 #magazineFilters{scroll-margin-top:20px}
 @media(max-width:650px){#magazineFilters{scroll-margin-top:130px}}
+
+/* Keep the read action visible on touch, and avoid widening the shelf on narrow screens. */
+body[data-page="magazines"] .issue-actions>a{min-height:44px;display:inline-flex;align-items:center}
+@media(hover:none){
+ .magazine-cover .cover-open{opacity:1;translate:0}
+}

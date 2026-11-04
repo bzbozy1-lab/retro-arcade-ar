@@ -1,8 +1,8 @@
 import{PageCache,swipeStep}from './reader-engine.mjs?v=reader-book-1';
 import{readState,updateState,validPage,openingPage,issueURL,loadCatalog,formatSize}from './magazine-state.mjs?v=bookmarks-1';
-import{downloadIssue}from './magazine-range.mjs?v=reader-book-1';
+import{openImageDocument}from './reader-images.mjs?v=opt-1';
 const $=s=>document.querySelector(s),app=$('#readerApp'),stage=$('#readerStage'),sheet=$('#pageSheet'),status=$('#readerStatus'),input=$('#readerPage');
-let issue,pdf,loadingTask,renderTask,request=0,current=1,zoom=1,rotation=0,thumbObserver,thumbGeneration=0,engine,wanted=1,retryNumber=1,prefetchTimer,turnTimer;
+let issue,pdf,request=0,current=1,zoom=1,rotation=0,thumbObserver,thumbGeneration=0,engine,wanted=1,retryNumber=1,loadingTimer,turnTimer,opened=false;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const say=text=>{status.textContent=text};
 const options=$('#readerOptions');
@@ -14,7 +14,13 @@ $('#closeReaderOptions').addEventListener('click',closeOptions);
 options.addEventListener('click',e=>{if(e.target===options)closeOptions();});
 $('#focusReader').setAttribute('aria-pressed','true');$('#focusReader').setAttribute('aria-label','إظهار واجهة الموقع');$('#focusReader').querySelector('span').textContent='إظهار الموقع';
 
-function busy(value){stage.setAttribute('aria-busy',String(value));$('#readerLoading').hidden=!value}
+function busy(value){
+ clearTimeout(loadingTimer);
+ stage.setAttribute('aria-busy',String(value));
+ const indicator=$('#readerLoading');
+ if(!value)indicator.hidden=true;
+ else if(indicator.hidden)loadingTimer=setTimeout(()=>{indicator.hidden=false;},120);
+}
 function fail(text){busy(false);if(!sheet.querySelector('canvas'))$('#readerPreview').hidden=true;say(text);$('#readerError').hidden=false;$('#readerErrorText').textContent=text}
 function controls(){input.value=current;input.max=pdf.numPages;$('#readerPosition').textContent='صفحة '+current+' من '+pdf.numPages;$('#readerJump').setAttribute('aria-label','صفحة '+current+' من '+pdf.numPages+'، انتقل إلى صفحة');$('#readerTotal').textContent=pdf.numPages;$('#previousPage').disabled=current<=1;$('#nextPage').disabled=current>=pdf.numPages;$('#zoomOut').disabled=zoom<=.65;$('#zoomIn').disabled=zoom>=3;$('#zoomLabel').textContent=Math.round(zoom*100)+'٪';const marked=(readState().bookmarks[issue.id]||[]).includes(current);$('#bookmarkPage').setAttribute('aria-pressed',String(marked));$('#bookmarkPage').setAttribute('aria-label',marked?'إزالة علامة الصفحة':'وضع علامة على الصفحة');$('#bookmarkPage').querySelector('span').textContent=marked?'معلّمة':'علامة';const select=$('#savedPages'),selected=select.value;select.replaceChildren(new Option('علاماتك',''));(readState().bookmarks[issue.id]||[]).filter(p=>Number.isInteger(p)&&p>=1&&p<=pdf.numPages).sort((a,b)=>a-b).forEach(p=>select.add(new Option('صفحة '+p,p)));select.value=selected;select.disabled=select.options.length===1}
 function layout(){return {width:stage.clientWidth-24,height:stage.clientHeight-24,zoom,rotation,ratio:devicePixelRatio||1};}
@@ -26,16 +32,50 @@ function displayPage(entry,next){
  sheet.replaceChildren(entry.canvas);stage.classList.toggle('is-zoomed',zoom>1);stage.scrollTop=0;stage.scrollLeft=0;
  if(previous&&previous!==entry.canvas&&Math.abs(direction)===1&&zoom===1&&!reduced.matches){
   const leaf=document.createElement('div');leaf.className='turn-leaf '+(direction>0?'forward':'backward');leaf.setAttribute('aria-hidden','true');leaf.style.width=previous.style.width;leaf.style.height=previous.style.height;leaf.style.left=((entry.width-parseFloat(previous.style.width))/2)+'px';
-  const front=document.createElement('div');front.className='leaf-front';front.append(previous);const back=document.createElement('div');back.className='leaf-back';leaf.append(front,back);sheet.append(leaf);leaf.addEventListener('animationend',()=>leaf.remove(),{once:true});turnTimer=setTimeout(()=>leaf.remove(),650);
+  const front=document.createElement('div');front.className='leaf-front';front.append(previous);const back=document.createElement('div');back.className='leaf-back';leaf.append(front,back);sheet.append(leaf);leaf.addEventListener('animationend',()=>leaf.remove(),{once:true});turnTimer=setTimeout(()=>leaf.remove(),450);
  }
 }
 async function showPage(number){
- if(!pdf||!engine)return;const next=validPage(number,pdf.numPages),seq=++request;wanted=next;busy(true);$('#readerLoading').textContent='جارٍ تحميل صفحة '+next+'…';say('جارٍ تحميل صفحة '+next+'…');$('#readerError').hidden=true;clearTimeout(prefetchTimer);
- try{const entry=await engine.get(next,layout());if(seq!==request)return;displayPage(entry,next);current=next;controls();$('#readerPreview').hidden=true;history.replaceState(null,'',issueURL(issue.id,current));busy(false);say('صفحة '+current+' من '+pdf.numPages+' — '+issue.title);
- prefetchTimer=setTimeout(async()=>{if(seq!==request||document.hidden||zoom!==1)return;try{if(current<pdf.numPages)await engine.get(current+1,layout());}catch{}},250);
- }catch(error){if(seq!==request||error?.name==='RenderingCancelledException')return;retryNumber=next;wanted=current;fail('تعذر عرض هذه الصفحة. أعد المحاولة أو نزّل نسخة القراءة PDF.');}
+ if(!pdf||!engine)return;
+ const next=validPage(number,pdf.numPages),seq=++request;
+ const view=layout();
+ wanted=next;
+ busy(true);
+ $('#readerLoading').textContent='جارٍ تحميل صفحة '+next+'…';
+ $('#readerError').hidden=true;
+ try{
+  const entry=await engine.get(next,view);
+  if(seq!==request)return;
+  displayPage(entry,next);
+  current=next;
+  controls();
+  $('#readerPreview').hidden=true;
+  history.replaceState(null,'',issueURL(issue.id,current));
+  busy(false);
+  say('صفحة '+current+' من '+pdf.numPages+' — '+issue.title);
+  if(!opened){
+   opened=true;
+   document.dispatchEvent(new Event('carto:magazine-open'));
+  }
+  // Prepare only the next leaf, after the visible page has been committed.
+  if(next<pdf.numPages&&zoom===1&&!document.hidden&&!navigator.connection?.saveData){
+   engine.get(next+1,view).catch(()=>{});
+  }
+ }catch(error){
+  if(seq!==request||error?.name==='RenderingCancelledException')return;
+  retryNumber=next;
+  wanted=current;
+  fail('تعذر عرض هذه الصفحة. أعد المحاولة أو نزّل نسخة القراءة PDF.');
+ }
 }
-function pageStep(amount){if(!pdf)return;window.CartoAudio?.play('navigate');closeOptions();showPage(wanted+amount)}
+function pageStep(amount){
+ if(!pdf)return;
+ const next=validPage(wanted+amount,pdf.numPages);
+ if(next===wanted)return;
+ window.CartoAudio?.play('navigate');
+ closeOptions();
+ showPage(next);
+}
 $('#previousPage').addEventListener('click',()=>pageStep(-1));$('#nextPage').addEventListener('click',()=>pageStep(1));$('#readerPageForm').addEventListener('submit',event=>{event.preventDefault();closeOptions();showPage(input.value)});$('#zoomOut').addEventListener('click',()=>{zoom=Math.max(.65,Math.round((zoom-.25)*100)/100);showPage(current,{save:false})});$('#zoomIn').addEventListener('click',()=>{zoom=Math.min(3,Math.round((zoom+.25)*100)/100);showPage(current,{save:false})});$('#fitPage').addEventListener('click',()=>{zoom=1;showPage(current,{save:false})});$('#rotatePage').addEventListener('click',()=>{rotation=(rotation+90)%360;showPage(current,{save:false})});
 $('#bookmarkPage').addEventListener('click',()=>{const marked=(readState().bookmarks[issue.id]||[]).includes(current);if(updateState(state=>{const all=state.bookmarks[issue.id]||[];state.bookmarks[issue.id]=marked?all.filter(p=>p!==current):[...all,current]})){controls();window.CartoAudio?.play('save');say(marked?'أُزيلت علامة هذه الصفحة.':'وُضعت علامة على صفحة '+current+'.')}else say('تعذر حفظ العلامة في المتصفح.')});$('#savedPages').addEventListener('change',event=>{if(event.target.value){closeOptions();showPage(event.target.value);}});
 $('#copyPageLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);say('نُسخ رابط هذه الصفحة.')}catch{$('#shareFallback').hidden=false;$('#shareFallback').value=location.href;$('#shareFallback').select();say('انسخ رابط الصفحة من الحقل الظاهر.')}});
@@ -48,11 +88,11 @@ async function openThumbnails(){const drawer=$('#readerThumbnails'),opening=!dra
  thumbObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;thumbObserver.unobserve(entry.target);if(entry.target.querySelector('canvas'))continue;const number=Number(entry.target.dataset.thumbPage);queue.push(()=>pdf.getPage(number).then(async page=>{if(generation!==thumbGeneration||!drawer.open)return;const natural=page.getViewport({scale:1}),view=page.getViewport({scale:Math.min(135/natural.width,170/natural.height)}),canvas=document.createElement('canvas');canvas.width=Math.ceil(view.width);canvas.height=Math.ceil(view.height);canvas.setAttribute('aria-hidden','true');await page.render({canvasContext:canvas.getContext('2d'),viewport:view}).promise;if(generation===thumbGeneration&&drawer.open)entry.target.prepend(canvas)}).catch(()=>{}));drain();}},{root:drawer});$('#thumbnailList').querySelectorAll('button').forEach(b=>thumbObserver.observe(b));}
 $('#toggleThumbnails').addEventListener('click',openThumbnails);$('#thumbnailList').addEventListener('click',event=>{const button=event.target.closest('[data-thumb-page]');if(button){showPage(Number(button.dataset.thumbPage));openThumbnails();$('#readerOptionsButton').focus()}});$('#closeThumbnails').addEventListener('click',()=>{openThumbnails();$('#readerOptionsButton').focus()});$('#retryPage').addEventListener('click',()=>pdf?showPage(retryNumber,{save:false}):location.reload());
 
-$('#downloadReadingCopy').addEventListener('click',async()=>{if(!issue)return;const button=$('#downloadReadingCopy');button.disabled=true;try{say('جارٍ تجهيز نسخة القراءة للتنزيل…');const complete=(await loadCatalog()).find(x=>x.id===issue.id&&x.sha256===issue.sha256);if(!complete)throw Error("Missing download source");const blob=await downloadIssue(complete,(loaded,total)=>say('تجهيز التنزيل… '+Math.round(loaded/total*100)+'٪'));const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=issue.id+'.pdf';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);say('جُهّزت نسخة القراءة وأُرسل طلب التنزيل إلى المتصفح.')}catch{say('تعذر تجهيز التنزيل. تحقق من الاتصال وأعد المحاولة.')}finally{button.disabled=false}});
+$('#downloadReadingCopy').addEventListener('click',async()=>{if(!issue)return;const button=$('#downloadReadingCopy');button.disabled=true;try{say('جارٍ تجهيز نسخة القراءة للتنزيل…');const complete=(await loadCatalog()).find(x=>x.id===issue.id&&x.sha256===issue.sha256);if(!complete)throw Error("Missing download source");const {downloadIssue}=await import('./magazine-range.mjs?v=reader-fast-1');const blob=await downloadIssue(complete,(loaded,total)=>say('تجهيز التنزيل… '+Math.round(loaded/total*100)+'٪'));const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=issue.id+'.pdf';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);say('جُهّزت نسخة القراءة وأُرسل طلب التنزيل إلى المتصفح.')}catch{say('تعذر تجهيز التنزيل. تحقق من الاتصال وأعد المحاولة.')}finally{button.disabled=false}});
 let resizeTimer;new ResizeObserver(()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(pdf)showPage(wanted,{save:false})},120)}).observe(stage);new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-nav-height',$('.nav').getBoundingClientRect().height+'px')}).observe($('.nav'));
 window.addEventListener('pageshow',event=>{if(event.persisted)location.reload()});
-window.addEventListener('pagehide',()=>{++request;clearTimeout(prefetchTimer);stopTurn();engine?.dispose();loadingTask?.destroy()},{once:true});
-try{const items=JSON.parse($('#readerIssueIndex').textContent),params=new URLSearchParams(location.search);issue=items.find(x=>x.id===params.get('id'));if(!issue)throw Error('unknown');$('#readerTitle').textContent=issue.title;$('#readerCoverPreview').src=issue.cover;$('#readerPreview').hidden=false;document.title=issue.title+' | قراءة CARTO';$('#readerCategory').textContent=({general:'مجلات منوعة',specials:'حلول وأعداد خاصة',manuals:'أدلة الأجهزة'})[issue.category];$('#readerFileSize').textContent='نسخة القراءة · '+formatSize(issue.bytes);$('#downloadReadingCopy').hidden=false;if(issue.file){$('#openReadingCopy').href=issue.file;$('#openReadingCopy').hidden=false}const {openImageDocument}=await import('./reader-images.mjs?v=opt-1');pdf=await openImageDocument(issue);loadingTask={destroy:()=>pdf?.destroy()};engine=new PageCache(pdf);document.querySelectorAll('[data-reader-control]').forEach(b=>b.disabled=false);current=openingPage(readState(),issue.id,pdf.numPages,params.get('page'));wanted=current;await showPage(current);}
+window.addEventListener('pagehide',()=>{++request;clearTimeout(loadingTimer);clearTimeout(resizeTimer);stopTurn();engine?.dispose();pdf?.destroy()},{once:true});
+try{const items=JSON.parse($('#readerIssueIndex').textContent),params=new URLSearchParams(location.search);issue=items.find(x=>x.id===params.get('id'));if(!issue)throw Error('unknown');$('#readerTitle').textContent=issue.title;$('#readerCoverPreview').src=issue.cover;$('#readerPreview').hidden=false;document.title=issue.title+' | قراءة CARTO';$('#readerCategory').textContent=({general:'مجلات منوعة',specials:'حلول وأعداد خاصة',manuals:'أدلة الأجهزة'})[issue.category];$('#readerFileSize').textContent='نسخة القراءة · '+formatSize(issue.bytes);$('#downloadReadingCopy').hidden=false;if(issue.file){$('#openReadingCopy').href=issue.file;$('#openReadingCopy').hidden=false}pdf=await openImageDocument(issue);engine=new PageCache(pdf);document.querySelectorAll('[data-reader-control]').forEach(b=>b.disabled=false);current=openingPage(readState(),issue.id,pdf.numPages,params.get('page'));wanted=current;await showPage(current);}
 catch(error){$('#readerTitle').textContent=issue?.title||'العدد غير موجود';fail(issue?'تعذر فتح الملف. تحقق من الاتصال، أو نزّل نسخة القراءة PDF.':'رابط العدد غير صحيح. عد إلى المكتبة واختر أحد الإصدارات المتاحة.');}
 
 let gesture;stage.addEventListener('pointerdown',event=>{if(event.pointerType==='mouse'||zoom>1||event.target.closest('button,a,input,select'))return;gesture={x:event.clientX,y:event.clientY};});

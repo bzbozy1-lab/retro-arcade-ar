@@ -86,7 +86,7 @@
   if(!link&&event.target.closest('[data-letter]')){schedule('navigate');return}
   if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target||link.hasAttribute('download'))return;
   const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;
-  if(!enabled)return;
+  if(!enabled||url.pathname.endsWith('/reader.html'))return;
   const cue=classifyLink(link);
   // Let opt-in navigation cues finish, bounded to 260ms. Other navigation is immediate.
   event.preventDefault();schedule(cue);setTimeout(()=>location.assign(url.href),Math.min(endOf(cue)*1000,260));
