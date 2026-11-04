@@ -2,7 +2,7 @@ import{PageCache,swipeStep}from './reader-engine.mjs?v=reader-book-1';
 import{readState,updateState,validPage,openingPage,issueURL,loadCatalog,formatSize}from './magazine-state.mjs?v=bookmarks-1';
 import{openImageDocument}from './reader-images.mjs?v=opt-1';
 const $=s=>document.querySelector(s),app=$('#readerApp'),stage=$('#readerStage'),sheet=$('#pageSheet'),status=$('#readerStatus'),input=$('#readerPage');
-let issue,pdf,request=0,current=1,zoom=1,rotation=0,thumbObserver,thumbGeneration=0,engine,wanted=1,retryNumber=1,loadingTimer,turnTimer,opened=false;
+let issue,pdf,request=0,current=1,zoom=1,rotation=0,thumbObserver,thumbGeneration=0,engine,wanted=1,retryNumber=1,loadingTimer,turnTimer;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const say=text=>{status.textContent=text};
 const options=$('#readerOptions');
@@ -53,10 +53,6 @@ async function showPage(number){
   history.replaceState(null,'',issueURL(issue.id,current));
   busy(false);
   say('صفحة '+current+' من '+pdf.numPages+' — '+issue.title);
-  if(!opened){
-   opened=true;
-   document.dispatchEvent(new Event('carto:magazine-open'));
-  }
   // Prepare only the next leaf, after the visible page has been committed.
   if(next<pdf.numPages&&zoom===1&&!document.hidden&&!navigator.connection?.saveData){
    engine.get(next+1,view).catch(()=>{});
@@ -92,7 +88,7 @@ $('#downloadReadingCopy').addEventListener('click',async()=>{if(!issue)return;co
 let resizeTimer;new ResizeObserver(()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(pdf)showPage(wanted,{save:false})},120)}).observe(stage);new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-nav-height',$('.nav').getBoundingClientRect().height+'px')}).observe($('.nav'));
 window.addEventListener('pageshow',event=>{if(event.persisted)location.reload()});
 window.addEventListener('pagehide',()=>{++request;clearTimeout(loadingTimer);clearTimeout(resizeTimer);stopTurn();engine?.dispose();pdf?.destroy()},{once:true});
-try{const items=JSON.parse($('#readerIssueIndex').textContent),params=new URLSearchParams(location.search);issue=items.find(x=>x.id===params.get('id'));if(!issue)throw Error('unknown');$('#readerTitle').textContent=issue.title;$('#readerCoverPreview').src=issue.cover;$('#readerPreview').hidden=false;document.title=issue.title+' | قراءة CARTO';$('#readerCategory').textContent=({general:'مجلات منوعة',specials:'حلول وأعداد خاصة',manuals:'أدلة الأجهزة'})[issue.category];$('#readerFileSize').textContent='نسخة القراءة · '+formatSize(issue.bytes);$('#downloadReadingCopy').hidden=false;if(issue.file){$('#openReadingCopy').href=issue.file;$('#openReadingCopy').hidden=false}pdf=await openImageDocument(issue);engine=new PageCache(pdf);document.querySelectorAll('[data-reader-control]').forEach(b=>b.disabled=false);current=openingPage(readState(),issue.id,pdf.numPages,params.get('page'));wanted=current;await showPage(current);}
+try{const items=JSON.parse($('#readerIssueIndex').textContent),params=new URLSearchParams(location.search);issue=items.find(x=>x.id===params.get('id'));if(!issue)throw Error('unknown');document.dispatchEvent(new Event('carto:magazine-open'));$('#readerTitle').textContent=issue.title;$('#readerCoverPreview').src=issue.cover;$('#readerPreview').hidden=false;document.title=issue.title+' | قراءة CARTO';$('#readerCategory').textContent=({general:'مجلات منوعة',specials:'حلول وأعداد خاصة',manuals:'أدلة الأجهزة'})[issue.category];$('#readerFileSize').textContent='نسخة القراءة · '+formatSize(issue.bytes);$('#downloadReadingCopy').hidden=false;if(issue.file){$('#openReadingCopy').href=issue.file;$('#openReadingCopy').hidden=false}pdf=await openImageDocument(issue);engine=new PageCache(pdf);document.querySelectorAll('[data-reader-control]').forEach(b=>b.disabled=false);current=openingPage(readState(),issue.id,pdf.numPages,params.get('page'));wanted=current;await showPage(current);}
 catch(error){$('#readerTitle').textContent=issue?.title||'العدد غير موجود';fail(issue?'تعذر فتح الملف. تحقق من الاتصال، أو نزّل نسخة القراءة PDF.':'رابط العدد غير صحيح. عد إلى المكتبة واختر أحد الإصدارات المتاحة.');}
 
 let gesture;stage.addEventListener('pointerdown',event=>{if(event.pointerType==='mouse'||zoom>1||event.target.closest('button,a,input,select'))return;gesture={x:event.clientX,y:event.clientY};});

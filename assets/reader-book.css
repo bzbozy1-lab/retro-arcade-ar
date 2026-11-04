@@ -32,3 +32,6 @@ body[data-page="reader"] .reader-error{position:absolute;inset:70px 16px auto;z-
 .reader-pager #readerJump{background:var(--bg);border:1px solid var(--line)}
 .reader-topbar #readerOptionsButton{box-shadow:2px 2px 0 var(--text)}
 .reader-pager button:not(:disabled):active{translate:0 1px}
+
+.reader-topbar #readerSoundRetry[hidden]{display:none}
+.reader-topbar #readerSoundRetry{font-size:12px;background:#c8f31d;color:#101216}
