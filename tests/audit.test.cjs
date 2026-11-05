@@ -13,11 +13,22 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   vm.runInContext(source('assets/catalog.js'), context);
   vm.runInContext(source('assets/app.js'), context);
   const result = vm.runInContext('({library:getGames(),gems:GEM_GAMES})', context);
-  assert.equal(result.library.length,119);
+  assert.equal(result.library.length,230);
   assert.equal(result.gems.length,57);
+  assert.equal(new Set(result.library.map(game=>game.name)).size,230);
+  for(const [device,count] of [['snes',31],['gamecube',39],['ps1',41]]){
+    assert.equal(result.library.filter(game=>game.device===device).length,count);
+  }
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
     assert.ok(r?.image, name);
+    if (/^(snes|gamecube|ps1)-\d+$/.test(r.id)) {
+      const platform = {snes:'Nintendo_-_Super_Nintendo_Entertainment_System',gamecube:'Nintendo_-_GameCube',ps1:'Sony_-_PlayStation'}[r.id.split('-')[0]];
+      assert.equal(new URL(r.image).hostname,'raw.githubusercontent.com');
+      assert.ok(new URL(r.image).pathname.startsWith('/libretro-thumbnails/'+platform+'/master/Named_Boxarts/'),name);
+      assert.ok(r.imageSource.startsWith('https://github.com/libretro-thumbnails/'+platform+'/blob/master/Named_Boxarts/'),name);
+      continue;
+    }
     assert.match(r.source,/^https:\/\/en\.wikipedia\.org\/wiki\//);
     assert.match(r.image,/^https:\/\//); if(r.imageSource){assert.match(r.imageSource,/^https:\/\//);assert(['images.launchbox-app.com','flipjeuxvideo.com','cavegamers.com','r.mprd.se','retrogaming.me','cdn.mobygames.com','www.retroplace.com','www.powerupgaming.ca','down-br.img.susercontent.com','retrospillkongen.no'].includes(new URL(r.image).hostname));}else assert.match(r.image,/^https:\/\/(thumb|upload)\.wikimedia\.org\//);
     assert.ok(r.release && r.developer, name);

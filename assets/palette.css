@@ -107,3 +107,31 @@ html[data-theme] .sectionhead :is(h1, h2) {
 html[data-theme] .sectionhead :is(h1, h2) span {
   color: inherit !important;
 }
+
+/* Two accents join the five identity colors. Use tints on surfaces and ink for text. */
+:root {
+  --carto-indigo: #5e42bc;
+  --carto-phosphor: #007c73;
+}
+html[data-theme="light"] {
+  --palette-feature: linear-gradient(120deg, #faf7ee, #edf0fa 56%, #eee8fc);
+  --palette-focus: var(--carto-phosphor);
+}
+html[data-theme="dark"] {
+  --palette-feature: linear-gradient(120deg, #283b59, #29233f 58%, #1a253b);
+  --palette-focus: #72e2d2;
+}
+.swatch.swatch-violet {
+  background: linear-gradient(140deg, var(--carto-indigo), #493391);
+  color: #fff;
+}
+.swatch.swatch-teal {
+  background: linear-gradient(140deg, var(--carto-phosphor), #005d58);
+  color: #fff;
+}
+html[data-theme] .platform[href$="device=gamecube"]:not(:hover, :focus-visible) {
+  background: var(--palette-feature) !important;
+}
+html[data-theme] .crt-demo-cabinet {
+  box-shadow: 6px 6px 0 var(--carto-indigo);
+}
