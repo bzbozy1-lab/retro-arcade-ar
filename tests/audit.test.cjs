@@ -27,6 +27,8 @@ test('catalog covers every library and independent gem, without ambiguous runtim
       assert.equal(new URL(r.image).hostname,'raw.githubusercontent.com');
       assert.ok(new URL(r.image).pathname.startsWith('/libretro-thumbnails/'+platform+'/master/Named_Boxarts/'),name);
       assert.ok(r.imageSource.startsWith('https://github.com/libretro-thumbnails/'+platform+'/blob/master/Named_Boxarts/'),name);
+      for (const field of ['developer','publisher','release','genre','platforms']) assert.ok(r[field],name+': '+field);
+      assert.notEqual(r.source,r.imageSource,name);
       continue;
     }
     assert.match(r.source,/^https:\/\/en\.wikipedia\.org\/wiki\//);
