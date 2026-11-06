@@ -22,14 +22,14 @@ test('workshop combines normalized search, category and device filters and reset
     }));
   const categories = [...html.matchAll(/data-workshop-category="([^"]+)"/g)]
     .map(([, category]) => Object.assign(control(), {dataset: {workshopCategory: category}}));
-  const form = Object.assign(control(), {elements: {query: control(), device: control()}});
+  const reset = control();
+  const form = Object.assign(control(), {elements: {query: control(), device: control()}, querySelector: () => reset});
   const count = {};
   const empty = {};
   const filters = {querySelector: () => form, querySelectorAll: () => categories};
   const elements = {workshopFilters: filters, workshopCount: count, workshopEmpty: empty};
   vm.runInNewContext(fs.readFileSync('assets/workshop.js', 'utf8'), {
-    document: {querySelector: selector => elements[selector.slice(1)], querySelectorAll: () => cards},
-    requestAnimationFrame: callback => callback()
+    document: {querySelector: selector => elements[selector.slice(1)], querySelectorAll: () => cards}
   });
 
   const visible = () => cards.filter(card => !card.hidden).map(card => card.id);
@@ -50,9 +50,9 @@ test('workshop combines normalized search, category and device filters and reset
   search('unknown');
   assert.equal(empty.hidden, false);
   assert.equal(count.textContent, 'لا توجد نتائج.');
-  form.elements.query.value = '';
-  form.elements.device.value = '';
-  form.handlers.reset();
+  reset.handlers.click();
+  assert.equal(form.elements.query.value, '');
+  assert.equal(form.elements.device.value, '');
   assert.equal(visible().length, 11);
   assert.equal(empty.hidden, true);
   assert.ok(categories.every(button => button.attrs['aria-pressed'] === 'false'));

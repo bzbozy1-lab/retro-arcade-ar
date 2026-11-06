@@ -50,9 +50,11 @@
   query.addEventListener('input', update);
   device.addEventListener('change', update);
   form.addEventListener('submit', event => event.preventDefault());
-  form.addEventListener('reset', () => {
+  form.querySelector('[data-workshop-reset]').addEventListener('click', () => {
+    query.value = '';
+    device.value = '';
     setCategory('');
-    requestAnimationFrame(update);
+    update();
   });
   filters.hidden = false;
   update();
