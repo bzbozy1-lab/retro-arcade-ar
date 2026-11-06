@@ -56,6 +56,10 @@
     setCategory('');
     update();
   });
+  const requestedDevice = new URLSearchParams(location.search).get('device');
+  if (cards.some(entry => entry.devices.includes(requestedDevice))) {
+    device.value = requestedDevice;
+  }
   filters.hidden = false;
   update();
 })();

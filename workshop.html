@@ -1,5 +1,5 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F3EBDD"><meta name="description" content="أدلة عربية للعناية بأجهزة الألعاب الكلاسيكية وتشخيص الأعطال الأولية وتوصيل الشاشات."><title>ورشة كارتو | CARTO</title><link rel="stylesheet" href="assets/dist/shared-08f69c2ca779.css" data-sources="assets/style.css assets/arcade-experience.css assets/arcade-phase2.css assets/audit-fixes.css assets/phase3.css assets/phase4.css assets/crt.css assets/cursors.css assets/controls.css assets/palette.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Silkscreen:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet"><script defer src="assets/icons-refined.js?v=devices-5"></script>
-<link rel="preload" as="image" href="assets/carto-phase3.webp"><link rel="stylesheet" href="assets/mobile-layout.css?v=20261031-mobile-4"><link rel="stylesheet" href="assets/workshop.css"><script defer src="assets/workshop.js?v=2"></script></head><body data-page="workshop"><div class="topline"></div><div class="scanlines"></div><header class="nav"><div class="wrap navin"><a class="brand" href="index.html"><span class="carto-sprite brandicon brandmascot" data-carto-pose="happy" aria-hidden="true"></span><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></a><nav class="navlinks" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="reference.html">تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></nav></div></header>
+<link rel="preload" as="image" href="assets/carto-phase3.webp"><link rel="stylesheet" href="assets/mobile-layout.css?v=20261031-mobile-4"><link rel="stylesheet" href="assets/workshop.css"><script defer src="assets/workshop.js?v=3"></script></head><body data-page="workshop"><div class="topline"></div><div class="scanlines"></div><header class="nav"><div class="wrap navin"><a class="brand" href="index.html"><span class="carto-sprite brandicon brandmascot" data-carto-pose="happy" aria-hidden="true"></span><span class="brandname">CARTO<small>متحف الألعاب الكلاسيكية</small></span></a><nav class="navlinks" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a href="games.html">الموسوعة</a><a href="gems.html">الألعاب المكنوزة</a><a href="glossary.html">القاموس</a><a href="archive.html">الأرشيف</a><a href="reference.html">تحفك الفنية</a><a href="identity.html">الهوية البصرية</a></nav></div></header>
 <main class="workshop wrap" id="main-content">
   <p class="workshop-crumb"><a href="archive.html">الأرشيف</a> <span aria-hidden="true">/</span> ورشة كارتو</p>
   <section class="workshop-hero" aria-labelledby="workshopTitle">
@@ -21,7 +21,7 @@
       <div class="workshop-categories" role="group" aria-label="التصنيف"><button type="button" data-workshop-category="care" aria-pressed="false"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></button><button type="button" data-workshop-category="diagnosis" aria-pressed="false"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></button><button type="button" data-workshop-category="display" aria-pressed="false"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#display"></use></svg><span>التوصيل بالشاشات الحديثة</span></button><button type="button" data-workshop-category="tools" aria-pressed="false"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></button></div>
       <form class="workshop-filters" role="search" aria-label="أدلة الورشة">
         <label>ابحث عن دليل<input type="search" name="query" dir="auto" placeholder="مثال: لا تظهر الصورة، Wii"></label>
-        <label>الجهاز<select name="device"><option value="">كل الأجهزة</option><option value="ps2">PlayStation 2</option><option value="ps3">PlayStation 3</option><option value="wii">Nintendo Wii</option><option value="xbox360">Xbox 360</option><option value="ds">Nintendo DS</option><option value="3ds">Nintendo 3DS</option></select></label>
+        <label>الجهاز<select name="device"><option value="">كل الأجهزة</option><option value="ps2">PlayStation 2</option><option value="ps3">PlayStation 3</option><option value="wii">Nintendo Wii</option><option value="xbox360">Xbox 360</option><option value="ds">Nintendo DS</option><option value="vita">PS Vita</option><option value="gba">Game Boy Advance</option><option value="snes">Super Nintendo (SNES)</option><option value="gamecube">Nintendo GameCube</option><option value="ps1">PlayStation</option><option value="3ds">Nintendo 3DS</option></select></label>
         <button type="button" data-workshop-reset class="btn alt">إعادة الضبط</button>
       </form>
       <p id="workshopCount" role="status" aria-atomic="true"></p>
@@ -49,50 +49,252 @@
 <article class="workshop-card" id="guide-ps3-care" data-category="care" data-device="ps3" data-keywords="ps3 بلايستيشن سوني cleaning">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
   <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps3"></use></svg><bdi>PlayStation 3</bdi></div>
-  <h3>العناية بجهاز PlayStation 3 من الخارج</h3><p>موضوع عن تنظيف الهيكل الخارجي وحماية فتحات التهوية.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <h3>العناية بجهاز PlayStation 3 من الخارج</h3><p>تنظيف الهيكل من دون سوائل أو مواد كاشطة.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>أوقف الجهاز وافصل سلك الكهرباء قبل التنظيف. امسح الهيكل الخارجي بقماش ناعم وجاف. تجنّب المذيبات والمناديل المعالجة كيميائيًا. راجع كتيب طراز CECH الخاص بجهازك قبل تنظيف الفتحات.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/ps3-docs/CECH-2501A-3.30_1.pdf"><bdi>Sony — دليل PS3 لطراز CECH-2501A</bdi></a></li></ul>
+  </div></details></div>
 </article>
-<article class="workshop-card" id="guide-controllers" data-category="care" data-device="" data-keywords="يد كنترولر controller cleaning">
+<article class="workshop-card" id="guide-controllers" data-category="care" data-device="ps3" data-keywords="يد كنترولر controller cleaning">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
-  <div class="workshop-card-body"><div class="workshop-device"><bdi>عدة أجهزة</bdi></div>
-  <h3>تنظيف أذرع التحكم والعناية بها</h3><p>موضوع عن العناية بالأزرار والأسطح الخارجية بحسب طراز الذراع.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps3"></use></svg><bdi>PlayStation 3</bdi></div>
+  <h3>تنظيف أذرع التحكم والعناية بها</h3><p>عناية خارجية بذراع DualShock 3.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>أطفئ الذراع وافصل كابل USB. امسح السطح بقماش ناعم وجاف، واترك الفتحات بعيدة عن السوائل. إذا بقي زر عالقًا بعد تنظيف السطح، سجّل اسم الزر وطراز الذراع لطلب الفحص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/ps3-docs/CECH-2501A-3.30_1.pdf"><bdi>Sony — دليل PS3 لطراز CECH-2501A</bdi></a></li></ul>
+  </div></details></div>
 </article>
 <article class="workshop-card" id="guide-ps2-display" data-category="display" data-device="ps2" data-keywords="ps2 بلايستيشن سوني hdmi component av">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#display"></use></svg><span>التوصيل بالشاشات الحديثة</span></div>
   <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps2"></use></svg><bdi>PlayStation 2</bdi></div>
-  <h3>توصيل PlayStation 2 بشاشة حديثة</h3><p>موضوع عن خيارات AV وComponent والتحقق من توافق محولات HDMI.</p>
-  <p class="workshop-meta"><span>متوسط</span><span>قيد الإعداد</span></p></div>
+  <h3>توصيل PlayStation 2 بشاشة حديثة</h3><p>اختيار مسار التوصيل حسب مداخل الشاشة.</p>
+  <p class="workshop-meta"><span>متوسط</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>اقرأ أسماء مداخل الشاشة وحدّد إن كانت تقبل AV أو Component. عند استخدام Component اختر الإعداد المطابق للكابل في قائمة الجهاز. إذا كانت الشاشة تقبل HDMI فقط، تحقق من أن المحوّل يقبل خرج PS2 والدقات التي تستخدمها ألعابك قبل الشراء.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/ps2-docs/scph-90004/SCPH-90002CB_90003CB_PS2_UG_EN.pdf"><bdi>Sony — دليل PS2 لطرازي SCPH-90002 وSCPH-90003</bdi></a></li></ul>
+  </div></details></div>
 </article>
 <article class="workshop-card" id="guide-xbox-air" data-category="care" data-device="xbox360" data-keywords="اكسبوكس إكس بوكس xbox overheating ventilation">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
   <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#xbox360"></use></svg><bdi>Xbox 360</bdi></div>
-  <h3>تهوية Xbox 360 والعناية به</h3><p>موضوع عن اختيار مكان مناسب للجهاز وإبقاء فتحات التهوية مكشوفة.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <h3>تهوية Xbox 360 والعناية به</h3><p>تهيئة مساحة تهوية للجهاز ومزوّد الطاقة.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>ضع الجهاز ومزوّد طاقته في مكان مكشوف وعلى سطح ثابت، واترك فتحات التهوية خالية. تجنّب وضعهما فوق سطح ليّن أو بجانب مصدر حرارة. إذا تكرر الإطفاء رغم التهوية، دوّن ما يظهر من مؤشرات واطلب الفحص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://download.microsoft.com/download/c/5/1/c516c773-0650-4719-8b1e-fbee939075f5/XBOX%20360%20MANUAL%20EN%20ES%20-%20LATAM.pdf"><bdi>Microsoft — دليل Xbox 360</bdi></a></li></ul>
+  </div></details></div>
 </article>
 <article class="workshop-card" id="guide-ds-screens" data-category="care" data-device="ds 3ds" data-keywords="نينتندو دي اس touchscreen">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
   <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ds"></use></svg><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#3ds"></use></svg><bdi>Nintendo DS · Nintendo 3DS</bdi></div>
-  <h3>العناية بشاشات Nintendo DS وNintendo 3DS</h3><p>موضوع عن التعامل مع الشاشتين والشاشة اللمسية في الأجهزة المحمولة.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <h3>العناية بشاشات Nintendo DS وNintendo 3DS</h3><p>تنظيف السطح من دون الضغط على الشاشة.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>أطفئ الجهاز. امسح الأتربة برفق بقماش ناعم خالٍ من الوبر. ارجع إلى طريقة Nintendo عند وجود بقعة لا تزول بالمسح الجاف، ولا ترش سائلًا على الجهاز أو تدفعه نحو الحواف والفتحات.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/59960"><bdi>Nintendo — العناية العامة بالأجهزة المحمولة</bdi></a></li></ul>
+  </div></details></div>
 </article>
-<article class="workshop-card" id="guide-cartridges" data-category="care" data-device="" data-keywords="cartridge شريط snes gba">
+<article class="workshop-card" id="guide-cartridges" data-category="care" data-device="gba snes" data-keywords="cartridge شريط snes gba">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
-  <div class="workshop-card-body"><div class="workshop-device"><bdi>عدة أجهزة</bdi></div>
-  <h3>المحافظة على أشرطة الألعاب القديمة</h3><p>موضوع عن تخزين الأشرطة والتعامل مع موصلاتها.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#gba"></use></svg><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#snes"></use></svg><bdi>Game Boy Advance · Super Nintendo (SNES)</bdi></div>
+  <h3>المحافظة على أشرطة الألعاب القديمة</h3><p>حماية الموصلات والغلاف عند التخزين.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>أمسك الشريط من غلافه وتجنّب لمس موصلاته. خزّنه بعيدًا عن الرطوبة والحرارة والغبار، وأطفئ الجهاز قبل نزع شريط GBA. إذا ظهر تآكل على الموصلات، اتركه للفحص المتخصص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.nintendo.com/eu/media/downloads/support_1/game_boy_advance_4/HealthSafety_GBA_UK.pdf"><bdi>Nintendo — احتياطات Game Boy Advance</bdi></a></li></ul>
+  </div></details></div>
 </article>
-<article class="workshop-card" id="guide-no-power" data-category="diagnosis" data-device="" data-keywords="no power كهرباء تشغيل">
+<article class="workshop-card" id="guide-no-power" data-category="diagnosis" data-device="xbox360" data-keywords="no power كهرباء تشغيل">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
-  <div class="workshop-card-body"><div class="workshop-device"><bdi>عدة أجهزة</bdi></div>
-  <h3>الفحوصات الأولية لجهاز لا يعمل</h3><p>موضوع عن وصف أعراض انقطاع الطاقة قبل طلب الفحص المتخصص.</p>
-  <p class="workshop-meta"><span>مبتدئ</span><span>قيد الإعداد</span></p></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#xbox360"></use></svg><bdi>Xbox 360</bdi></div>
+  <h3>الفحوصات الأولية لجهاز لا يعمل</h3><p>فحوصات خارجية تبدأ بالمقبس والكابل.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من المقبس ومن تثبيت الكابلات ومطابقة مزوّد الطاقة لطراز الجهاز. إذا وجدت تلفًا في الكابل أو رائحة احتراق، أوقف الاستخدام. دوّن حالة مؤشر الطاقة قبل التواصل مع فني.</p>
+    <h4>المراجع</h4><ul><li><a href="https://download.microsoft.com/download/c/5/1/c516c773-0650-4719-8b1e-fbee939075f5/XBOX%20360%20MANUAL%20EN%20ES%20-%20LATAM.pdf"><bdi>Microsoft — دليل Xbox 360</bdi></a></li></ul>
+  </div></details></div>
 </article>
 <article class="workshop-card" id="guide-part-match" data-category="tools" data-device="" data-keywords="spare parts model number رقم الطراز">
   <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
   <div class="workshop-card-body"><div class="workshop-device"><bdi>عدة أجهزة</bdi></div>
-  <h3>كيف تعرف توافق قطعة غيار مع جهازك؟</h3><p>موضوع عن قراءة رقم الطراز ومقارنته بمواصفات القطعة.</p>
-  <p class="workshop-meta"><span>متوسط</span><span>قيد الإعداد</span></p></div>
+  <h3>كيف تعرف توافق قطعة غيار مع جهازك؟</h3><p>مطابقة رقم الطراز ورقم القطعة قبل الشراء.</p>
+  <p class="workshop-meta"><span>متوسط</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>دوّن رقم الطراز من ملصق الجهاز ورقم القطعة إن كان ظاهرًا من الخارج. قارن الرقمين بقائمة التوافق لدى المورّد وراجع صور الموصلات. اطلب تأكيدًا إذا كانت الصفحة تذكر اسم عائلة الجهاز فقط.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.ifixit.com/Info/Part_Verification"><bdi>iFixit — التحقق من توافق القطعة</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ps2-saves" data-category="tools" data-device="ps2" data-keywords="ps2 tools">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps2"></use></svg><bdi>PlayStation 2</bdi></div>
+  <h3>اختيار بطاقة حفظ لـ PlayStation 2</h3><p>الفرق بين حفظ ألعاب PS2 وألعاب PlayStation الأصلية.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>حدّد جيل اللعبة أولًا. استخدم بطاقة PS2 بسعة 8 MB لحفظ ألعاب PS2، وبطاقة PlayStation لحفظ ألعاب الجيل الأول عند تشغيلها على PS2. راجع طريقة الحفظ في دليل اللعبة قبل استبدال البطاقة.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/ps2-docs/scph-90004/SCPH-90002CB_90003CB_PS2_UG_EN.pdf"><bdi>Sony — دليل PS2 لطرازي SCPH-90002 وSCPH-90003</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ps3-video" data-category="display" data-device="ps3" data-keywords="ps3 display">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#display"></use></svg><span>التوصيل بالشاشات الحديثة</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps3"></use></svg><bdi>PlayStation 3</bdi></div>
+  <h3>استعادة صورة PlayStation 3 بعد تبديل الشاشة</h3><p>إعادة ضبط إعداد خرج الفيديو.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من المدخل والكابل أولًا. إذا بقيت الشاشة فارغة بعد تغيير خرج الفيديو، أطفئ الجهاز ثم شغّله بالضغط المستمر على زر الطاقة لخمس ثوانٍ على الأقل وفق دليل Sony لإعادة إعدادات الفيديو إلى الدقة القياسية.</p>
+    <h4>المراجع</h4><ul><li><a href="https://manuals.playstation.net/document/en/ps3/current/settings/videooutput.html"><bdi>Sony — إعدادات خرج الفيديو</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ps3-disc-care" data-category="care" data-device="ps3" data-keywords="ps3 care">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#care"></use></svg><span>العناية والتنظيف</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps3"></use></svg><bdi>PlayStation 3</bdi></div>
+  <h3>العناية بأقراص PlayStation 3</h3><p>مسح القرص وتخزينه بطريقة مناسبة.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>أمسك القرص من حافته وامسحه بقماش ناعم من المركز نحو الحافة الخارجية. ضعه في علبته بعد الاستخدام، وأبعده عن الشمس المباشرة. تجنّب المذيبات المنزلية عند التنظيف.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/ps3-docs/CECH-2501B-3.30_1.pdf"><bdi>Sony — دليل PS3 لطراز CECH-2501B</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ps3-game-start" data-category="diagnosis" data-device="ps3" data-keywords="ps3 diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps3"></use></svg><bdi>PlayStation 3</bdi></div>
+  <h3>أين تظهر لعبة القرص على PlayStation 3؟</h3><p>التحقق من ظهور أيقونة اللعبة قبل تشخيص العطل.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>بعد إدخال قرص اللعبة، انتقل إلى قائمة Game وابحث عن أيقونة القرص. إذا ظهرت، افتحها من القائمة. إذا غابت، سجّل نوع القرص وطراز الجهاز وجرّب قرص لعبة PS3 متوافقًا قبل طلب الفحص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://manuals.playstation.net/document/en/ps3/current/game/2start.html"><bdi>Sony — بدء الألعاب وإغلاقها</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-wii-remote" data-category="diagnosis" data-device="wii" data-keywords="wii diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#wii"></use></svg><bdi>Nintendo Wii</bdi></div>
+  <h3>إقران Wii Remote بالجهاز</h3><p>استخدام المزامنة القياسية لذراع Wii.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>شغّل الجهاز وتحقق من بطاريات الذراع. افتح غطاء البطاريات واضغط زر SYNC في الذراع، ثم اضغط زر SYNC في الجهاز وفق موضعه في طرازك. اكتمال المزامنة يظهر باستقرار مؤشر اللاعب.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/2443/p/604/c/947"><bdi>Nintendo — المزامنة القياسية</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-wii-sensor" data-category="diagnosis" data-device="wii" data-keywords="wii diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#wii"></use></svg><bdi>Nintendo Wii</bdi></div>
+  <h3>أزرار Wii تعمل والمؤشر لا يظهر</h3><p>تمييز مشكلة المؤشر عن مشكلة الاقتران.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من توصيل شريط الاستشعار ومن وجوده فوق الشاشة أو تحتها حسب إعداد الجهاز. أزل العوائق وجرّب بعيدًا عن الضوء القوي المواجه للشريط. إذا كانت الأزرار تستجيب فابدأ بهذا الفحص قبل إعادة المزامنة.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/4733/p/172/c/898"><bdi>Nintendo — مشكلات مؤشر Wii Remote</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-wii-sd" data-category="tools" data-device="wii" data-keywords="wii tools">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#wii"></use></svg><bdi>Nintendo Wii</bdi></div>
+  <h3>اختيار بطاقة SD لجهاز Wii</h3><p>مراجعة سعة البطاقة ونسخة قائمة النظام.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من طراز Wii أولًا لأن Wii mini لا يملك فتحة SD. تذكر Nintendo أن Wii يدعم SD حتى 2 GB، وأن تحديث قائمة النظام إلى 4.0 أو أحدث يتيح SDHC حتى 32 GB. تحقق أيضًا من متطلبات اللعبة أو القناة التي ستستخدم البطاقة معها.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/p/604/c/947/a_id/2516"><bdi>Nintendo — بطاقات SD المتوافقة مع Wii</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ds-calibration" data-category="diagnosis" data-device="ds" data-keywords="ds diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ds"></use></svg><bdi>Nintendo DS</bdi></div>
+  <h3>معايرة اللمس في Nintendo DS وDS Lite</h3><p>تصحيح انحراف موضع اللمس من إعدادات الجهاز.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>افتح إعدادات الجهاز واختر معايرة شاشة اللمس. استخدم القلم للمس الأهداف التي تظهر واتبع تعليمات الحفظ. إذا تعذّر إكمال المعايرة، دوّن مواضع عدم الاستجابة قبل طلب الفحص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/3928/p/606/c/188"><bdi>Nintendo — معايرة شاشة اللمس</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ds-buttons" data-category="diagnosis" data-device="ds" data-keywords="ds diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ds"></use></svg><bdi>Nintendo DS</bdi></div>
+  <h3>زر لا يستجيب في Nintendo DS</h3><p>حصر المشكلة في لعبة واحدة أو في الجهاز.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من أن اللعبة تستخدم الزر في الشاشة التي تختبرها. جرّبه في لعبة أخرى تدعم الزر نفسه. إذا تكررت المشكلة، سجّل اسم الزر وتوقيت العطل عند التواصل مع الصيانة.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/4774/p/50"><bdi>Nintendo — أزرار DS لا تستجيب</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-3ds-card" data-category="diagnosis" data-device="3ds" data-keywords="3ds diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#3ds"></use></svg><bdi>Nintendo 3DS</bdi></div>
+  <h3>بطاقة لعبة لا تظهر على Nintendo 3DS</h3><p>عزل المشكلة بين البطاقة وفتحة الجهاز.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من توافق البطاقة مع الجهاز وأعد إدخالها بالاتجاه الصحيح دون ضغط زائد. جرّب بطاقة متوافقة أخرى. إذا لم يقرأ الجهاز عدة بطاقات سليمة، دوّن طرازه واطلب الفحص.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.nintendo.com/en-gb/Support/Legacy-system/Nintendo-3DS-Game-Cards-cannot-be-read-or-cannot-be-read-properly-242089.html"><bdi>Nintendo — تعذّر قراءة بطاقة لعبة 3DS</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-3ds-circle" data-category="diagnosis" data-device="3ds" data-keywords="3ds diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#3ds"></use></svg><bdi>Nintendo 3DS</bdi></div>
+  <h3>معايرة عصا Circle Pad على Nintendo 3DS</h3><p>مراجعة حركة العصا من إعدادات النظام.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>من إعدادات النظام افتح الإعدادات الأخرى واختر معايرة Circle Pad. اتبع نقاط الاختبار على الشاشة. إذا استمر انحراف الحركة بعد المعايرة، سجّل الاتجاه الذي يظهر فيه الانحراف.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/484/p/50/c/898"><bdi>Nintendo — عصا Circle Pad لا تستجيب</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-vita-charge" data-category="tools" data-device="vita" data-keywords="vita tools">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#vita"></use></svg><bdi>PS Vita</bdi></div>
+  <h3>اختيار كابل شحن PS Vita</h3><p>تمييز متطلبات سلسلة PCH-1000 عن PCH-2000.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>اقرأ رقم PCH من الجهاز. لسلسلة PCH-1000 وصلة مختلفة عن منفذ Micro-USB في PCH-2000. قارن طرف الكابل بالرسم الموجود في دليل طرازك واستخدم محوّل الطاقة المناسب.</p>
+    <h4>المراجع</h4><ul><li><a href="https://manuals.playstation.net/document/en/psvita/basic/charge.html"><bdi>Sony — شحن سلسلة PCH-1000</bdi></a></li><li><a href="https://www.playstation.com/content/dam/global_pdc/en/corporate/support/manuals/psvita-docs/PCH-2001-3.0_1_EN_AMER_QSG.pdf"><bdi>Sony — دليل البدء لطراز PCH-2001</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-vita-media" data-category="tools" data-device="vita" data-keywords="vita tools">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#vita"></use></svg><bdi>PS Vita</bdi></div>
+  <h3>الفرق بين بطاقة لعبة PS Vita وبطاقة الذاكرة</h3><p>تمييز وسائط اللعب والتخزين قبل شراء بديل.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>بطاقة اللعبة تُدخل في فتحة بطاقات PS Vita، وللتخزين الخارجي بطاقة ذاكرة PS Vita مخصصة. تحقق من اسم الوسيط ورقم طراز جهازك قبل الشراء، وأطفئ الجهاز قبل إزالة بطاقة الذاكرة وفق الدليل.</p>
+    <h4>المراجع</h4><ul><li><a href="https://manuals.playstation.net/document/en/psvita/basic/media.html"><bdi>Sony — أنواع البطاقات في PS Vita</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-gba-sp-charge" data-category="tools" data-device="gba" data-keywords="gba tools">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#tools"></use></svg><span>الأدوات وقطع الغيار</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#gba"></use></svg><bdi>Game Boy Advance</bdi></div>
+  <h3>شحن Game Boy Advance SP</h3><p>التحقق من الطراز والمحوّل ومؤشر الشحن.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تأكد من أن الجهاز طراز SP القابل للشحن. اتبع رسم التوصيل في كتيّب AGS واستخدم محوّلًا مطابقًا. راقب مؤشر الشحن، وإذا وجدت انتفاخًا أو تلفًا أو سخونة غير معتادة فتوقف عن الشحن.</p>
+    <h4>المراجع</h4><ul><li><a href="https://csassets.nintendo.com/noaext/image/private/t_KA_PDF/agsmanual_english?_a=DATAg1AAZAA0"><bdi>Nintendo — دليل Game Boy Advance SP</bdi></a></li><li><a href="https://www.ifixit.com/Info/Device_Safety"><bdi>iFixit — سلامة التعامل مع الأجهزة</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-gc-video" data-category="display" data-device="gamecube" data-keywords="gamecube display">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#display"></use></svg><span>التوصيل بالشاشات الحديثة</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#gamecube"></use></svg><bdi>Nintendo GameCube</bdi></div>
+  <h3>تحديد مخارج الصورة في Nintendo GameCube</h3><p>قراءة ملصق DOL قبل اختيار الكابل.</p>
+  <p class="workshop-meta"><span>متوسط</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>قارن رقم طراز الجهاز بمخطط المنافذ في دليل Nintendo. افحص وجود منفذ Digital AV Out فعليًا قبل شراء كابل يعتمد عليه، وتحقق من توافق مدخل الشاشة مع الإشارة.</p>
+    <h4>المراجع</h4><ul><li><a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/16961"><bdi>Nintendo — كتيبات GameCube حسب الطراز</bdi></a></li><li><a href="https://csassets.nintendo.com/noaext/image/private/t_KA_PDF/gcn101_manual_english?_a=DATAg1AAZAA0"><bdi>Nintendo — كتيب DOL-101</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-snes-picture" data-category="diagnosis" data-device="snes" data-keywords="snes diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#snes"></use></svg><bdi>Super Nintendo (SNES)</bdi></div>
+  <h3>Super Nintendo يعمل من دون صورة</h3><p>البدء بمسار الفيديو والشريط من خارج الجهاز.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>تحقق من اختيار مدخل الشاشة وتثبيت طرفي كابل الفيديو. أطفئ الجهاز قبل إعادة إدخال الشريط. جرّب شريطًا متوافقًا آخر ثم دوّن هل يوجد صوت أو ضوء تشغيل لتحديد الخطوة التالية مع الفني.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.ifixit.com/Wiki/Super_Nintendo_Troubleshooting"><bdi>iFixit — تشخيص أعطال Super Nintendo</bdi></a></li></ul>
+  </div></details></div>
+</article>
+<article class="workshop-card" id="guide-ps1-disc" data-category="diagnosis" data-device="ps1" data-keywords="ps1 diagnosis">
+  <div class="workshop-card-art"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/workshop-icons.svg#diagnosis"></use></svg><span>تشخيص الأعطال</span></div>
+  <div class="workshop-card-body"><div class="workshop-device"><svg class="workshop-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="assets/carto-devices.svg?v=5#ps1"></use></svg><bdi>PlayStation</bdi></div>
+  <h3>قرص واحد لا يعمل على PlayStation الأصلية</h3><p>اختبار ما إذا كانت المشكلة مرتبطة بقرص محدد.</p>
+  <p class="workshop-meta"><span>مبتدئ</span><span>دليل تمهيدي متاح</span></p>
+  <details><summary>افتح الدليل التمهيدي</summary><div class="workshop-guide">
+    <h4>خطوات الفحص أو العناية</h4><p>افحص سطح القرص بصريًا وتحقق من توافق المنطقة ونوع القرص. جرّب لعبة متوافقة أخرى. إذا تكرر العطل مع عدة أقراص، دوّن رسالة الخطأ وطراز SCPH واطلب فحص الجهاز.</p>
+    <h4>المراجع</h4><ul><li><a href="https://www.ifixit.com/Wiki/PlayStation_Troubleshooting"><bdi>iFixit — تشخيص أعطال PlayStation الأصلية</bdi></a></li></ul>
+  </div></details></div>
 </article></div>
   </section>
 </main>
