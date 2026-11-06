@@ -6,10 +6,8 @@
   const info = exhibit.querySelector('.museum-info');
   const title = info.querySelector('h2');
   const description = info.querySelector('p');
-  const listing = exhibit.querySelector('.museum-parts');
   const modes = [...exhibit.querySelectorAll('[data-museum-mode]')];
   const views = [...exhibit.querySelectorAll('[data-museum-view]')];
-  const motion = exhibit.querySelector('.museum-motion');
   let view = 'angle';
   let active = null;
   const model = window.CartoMuseumModel;
@@ -81,9 +79,7 @@
     modes.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.museumMode === mode)));
     views.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.museumView === view)));
     angles.hidden = mode !== 'explore';
-    motion.hidden = mode !== 'components';
     stage.hidden = mode === 'compare';
-    listing.hidden = stage.hidden;
     comparison.hidden = !stage.hidden;
     if (stage.hidden) {
       comparison.querySelectorAll('[data-src]').forEach(img => {
@@ -101,13 +97,11 @@
       image.dataset.layer = name;
       return image;
     });
-    const labels = [];
     const pins = scene.points.map(([id, x, y], index) => {
       const number = String(index + 1).padStart(2, '0');
       const pin = buttonFor(id, number, 'museum-pin');
       pin.style.left = x / 480 * 100 + '%';
       pin.style.top = y / 300 * 100 + '%';
-      labels.push(buttonFor(id, number + ' · ' + parts[id][0], 'museum-label'));
       return pin;
     });
     if (mode === 'components') {
@@ -130,7 +124,6 @@
     } else {
       stage.replaceChildren(...art, ...pins);
     }
-    listing.replaceChildren(...labels);
   }
 
   modes.forEach(button => button.addEventListener('click', () => {
@@ -141,10 +134,6 @@
     view = button.dataset.museumView;
     render('explore');
   }));
-  motion.addEventListener('click', () => {
-    const paused = stage.classList.toggle('museum-paused');
-    motion.setAttribute('aria-pressed', String(paused));
-  });
   info.querySelector('button').addEventListener('click', () => clearInfo(true));
   exhibit.addEventListener('keydown', event => {
     if (event.key === 'Escape' && active) clearInfo(true);

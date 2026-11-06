@@ -17,7 +17,7 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-for (const model of ['ps2', 'ps1', 'ps3', 'gamecube']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
   const window = {};
   if (model !== 'ps2') vm.runInNewContext(fs.readFileSync('assets/museum-' + model + '.js', 'utf8'), {window});
   const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
@@ -27,19 +27,15 @@ for (const model of ['ps2', 'ps1', 'ps3', 'gamecube']) test(model + ' museum swi
   const title = new Element();
   const stage = new Element();
   const comparison = new Element();
-  const parts = new Element();
   const angles = new Element();
   const controls = new Element();
-  const motion = new Element();
-  const classes = new Set();
-  stage.classList = {toggle(name) { if (classes.delete(name)) return false; classes.add(name); return true; }};
-  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
+  const sources = (model === 'gamecube' ? ['rear', 'revision'] : model === 'snes' ? ['angle', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
     dataset: {src: directory + name + '.svg'}
   }));
   comparison.querySelectorAll = () => sources;
   info.querySelector = selector => selector === 'button' ? close : selector === 'h2' ? title : new Element();
   const elements = {'.museum-stage': stage, '.museum-angles': angles, '.museum-comparison': comparison,
-    '.museum-info': info, '.museum-parts': parts, '.museum-controls': controls, '.museum-motion': motion};
+    '.museum-info': info, '.museum-controls': controls};
   const options = (key, names) => names.map(name => Object.assign(new Element(), {dataset: {[key]: name}}));
   const modes = options('museumMode', ['explore', 'components', 'compare']);
   const views = options('museumView', ['angle', 'front', 'rear', 'top']);
@@ -70,9 +66,7 @@ for (const model of ['ps2', 'ps1', 'ps3', 'gamecube']) test(model + ' museum swi
     const [art, pin] = layer.children[0].children;
     return fs.existsSync(art.src) && Boolean(pin.handlers.click);
   }));
-  motion.click();
-  assert.equal(motion.attrs['aria-pressed'], 'true');
-  parts.children[2].click();
+  layers.find(layer => layer.dataset.component === 'board').children[0].children[1].click();
   assert.equal(stage.dataset.part, 'board');
   exhibit.handlers.keydown({key: 'Escape'});
   assert.equal(info.hidden, true);

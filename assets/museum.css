@@ -6,12 +6,12 @@
 .museum-intro { max-inline-size: 100%; margin-block-end: 1.5rem; }
 .museum-panel { border: 3px solid var(--line); box-shadow: 5px 5px 0 var(--line); background: var(--palette-surface,var(--panel)); }
 .museum-controls { padding: clamp(.65rem, 2vw, 1.25rem); display: grid; gap: .6rem; }
-.museum-controls > div, .museum-parts { display: flex; flex-wrap: wrap; gap: .45rem; }
-.museum-controls button, .museum-label, .museum-info button {
+.museum-controls > div { display: flex; flex-wrap: wrap; gap: .45rem; }
+.museum-controls button, .museum-info button {
   font: 700 1rem Tajawal,sans-serif; color: var(--text); background: var(--panel);
   border: 2px solid var(--line); min-block-size: 44px; padding: .35rem .65rem;
 }
-.museum-controls button[aria-pressed="true"], .museum-label[aria-pressed="true"] { background: #cefa41; color: #121820; border-color: #121820; }
+.museum-controls button[aria-pressed="true"] { background: #cefa41; color: #121820; border-color: #121820; }
 .museum-page button:focus-visible, .museum-page a:focus-visible { outline: 3px solid var(--palette-focus,#2549b5); outline-offset: 3px; }
 .museum-display { background: #17233a; border-block: 3px solid var(--line); padding: clamp(.35rem, 2vw, 1.4rem); }
 .museum-stage, .museum-compare-art {
@@ -33,7 +33,7 @@
   font: 700 .7rem Silkscreen,monospace;
 }
 .museum-pin[aria-pressed="true"] { background: #ff784d; z-index: 3; }
-.museum-parts, .museum-info { padding: .85rem; }
+.museum-info { padding: .85rem; }
 .museum-info { border-block-start: 2px solid var(--line); }
 .museum-info h2, .museum-info p { margin: .25rem 0 .55rem; }
 .museum-comparison { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; color: #f5eedb; }
@@ -45,23 +45,21 @@
 .museum-layer, .museum-float, .museum-assembled { position: absolute; inset: 0; pointer-events: none; }
 .museum-assembled { width: 100%; height: 100%; visibility: hidden; }
 .museum-float .museum-pin { pointer-events: auto; }
-.museum-motion { justify-self: start; }
-.museum-layer[data-component="lid"]   { --pack-x: -2%; --pack-y: 39%; --delay: .15s; --drift: -5px; --period: 7.3s; }
-.museum-layer[data-component="drive"] { --pack-x:  3%; --pack-y: 22%; --delay: .26s; --drift:  3px; --period: 8.1s; }
-.museum-layer[data-component="board"] { --pack-x:  0%; --pack-y:  8%; --delay: .37s; --drift: -3px; --period: 8.9s; }
+.museum-layer[data-component="lid"]   { --pack-x: -2%; --pack-y: 39%; --delay: .15s; --drift: -5px; --period: 2.7s; }
+.museum-layer[data-component="drive"] { --pack-x:  3%; --pack-y: 22%; --delay: .26s; --drift:  3px; --period: 3.1s; }
+.museum-layer[data-component="board"] { --pack-x:  0%; --pack-y:  8%; --delay: .37s; --drift: -3px; --period: 3.4s; }
 .museum-layer[data-component="base"]  { --pack-x:  0%; --pack-y: -6%; --delay: .30s; }
-.museum-layer[data-component="ports"] { --pack-x: -7%; --pack-y: 20%; --delay: .46s; --drift:  4px; --period: 7.7s; }
+.museum-layer[data-component="ports"] { --pack-x: -7%; --pack-y: 20%; --delay: .46s; --drift:  4px; --period: 2.9s; }
 @media (prefers-reduced-motion: no-preference) {
   .museum-art, .museum-info:not([hidden]) { animation: museum-in .27s ease-out both; }
   .museum-layer .museum-art { animation: none; }
   .museum-assembled { animation: museum-shell .56s linear both; }
   .museum-layer { animation: museum-unpack .74s cubic-bezier(.18,.7,.3,1) var(--delay) both; }
   .museum-layer:not([data-component="base"]) .museum-float {
-    animation: museum-hover var(--period) ease-in-out calc(var(--delay) + .74s) infinite;
+    animation: museum-hover var(--period) ease-in-out calc(var(--delay) + .74s) both;
   }
   .museum-layer .museum-pin:not(:focus-visible) { animation: museum-pin-in .18s ease-out calc(var(--delay) + .52s) both; }
   .museum-layer:focus-within, .museum-layer:hover { z-index: 4; }
-  .museum-stage.museum-paused .museum-layer .museum-float,
   .museum-layer:focus-within .museum-float,
   .museum-layer:has(.museum-pin:hover) .museum-float,
   .museum-stage[data-part="lid"] [data-component="lid"] .museum-float,
@@ -82,12 +80,8 @@
   @keyframes museum-hover { 50% { transform: translateY(var(--drift)); } }
   @keyframes museum-pin-in { from { opacity: 0; pointer-events: none; } }
 }
-@media (prefers-reduced-motion: reduce) {
-  .museum-page .museum-motion { display: none; }
-}
 @media (max-width: 650px) {
   .museum-pin { width: 28px; height: 28px; font-size: .6rem; }
-  .museum-label { flex: 1 1 9rem; }
 }
 @media (max-width: 430px) {
   .museum-comparison { grid-template-columns: 1fr; }
