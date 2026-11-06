@@ -1,0 +1,38 @@
+name: Publish CARTO with extended Pages timeout
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/pages-recovery.yml']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: carto-pages-recovery
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage tracked site files
+        run: |
+          mkdir -p "$RUNNER_TEMP/carto-site"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/carto-site"
+          test -s "$RUNNER_TEMP/carto-site/index.html"
+          test -s "$RUNNER_TEMP/carto-site/museum-ps3.html"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/carto-site
+      - uses: actions/deploy-pages@v4
+        id: deployment
+        with:
+          timeout: 1800000
