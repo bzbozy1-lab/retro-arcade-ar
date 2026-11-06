@@ -29,6 +29,8 @@ jobs:
           git archive HEAD | tar -x -C "$RUNNER_TEMP/carto-site"
           test -s "$RUNNER_TEMP/carto-site/index.html"
           test -s "$RUNNER_TEMP/carto-site/museum-ps3.html"
+          test -s "$RUNNER_TEMP/carto-site/museum-3ds.html"
+          test -s "$RUNNER_TEMP/carto-site/museum-vita.html"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ runner.temp }}/carto-site
