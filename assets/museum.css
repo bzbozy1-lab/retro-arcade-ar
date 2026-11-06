@@ -61,7 +61,7 @@
   }
   .museum-layer .museum-pin:not(:focus-visible) { animation: museum-pin-in .18s ease-out calc(var(--delay) + .52s) both; }
   .museum-layer:focus-within, .museum-layer:hover { z-index: 4; }
-  .museum-paused .museum-float,
+  .museum-stage.museum-paused .museum-layer .museum-float,
   .museum-layer:focus-within .museum-float,
   .museum-layer:has(.museum-pin:hover) .museum-float,
   .museum-stage[data-part="lid"] [data-component="lid"] .museum-float,
