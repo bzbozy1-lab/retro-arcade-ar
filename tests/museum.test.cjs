@@ -17,7 +17,7 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-for (const model of ['ps2', 'ps1', 'ps3']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1', 'ps3', 'gamecube']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
   const window = {};
   if (model !== 'ps2') vm.runInNewContext(fs.readFileSync('assets/museum-' + model + '.js', 'utf8'), {window});
   const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
@@ -33,7 +33,7 @@ for (const model of ['ps2', 'ps1', 'ps3']) test(model + ' museum switches scenes
   const motion = new Element();
   const classes = new Set();
   stage.classList = {toggle(name) { if (classes.delete(name)) return false; classes.add(name); return true; }};
-  const sources = ['angle', 'slim'].map(name => Object.assign(new Element(), {
+  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
     dataset: {src: directory + name + '.svg'}
   }));
   comparison.querySelectorAll = () => sources;
