@@ -1,0 +1,58 @@
+.museum-page { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.museum-page [hidden] { display: none; }
+.museum-page h1 { font: clamp(2.85rem, 7.4vw, 6.4rem)/.95 Lalezar,Tajawal,sans-serif; margin: .55rem 0; }
+.museum-page h1 bdi { display: block; }
+.museum-intro { max-inline-size: 60ch; margin-block-end: 1.5rem; }
+.museum-panel { border: 3px solid var(--line); box-shadow: 5px 5px 0 var(--line); background: var(--palette-surface,var(--panel)); }
+.museum-controls { padding: clamp(.65rem, 2vw, 1.25rem); display: grid; gap: .6rem; }
+.museum-controls > div, .museum-parts { display: flex; flex-wrap: wrap; gap: .45rem; }
+.museum-controls button, .museum-label, .museum-info button {
+  font: 700 1rem Tajawal,sans-serif; color: var(--text); background: var(--panel);
+  border: 2px solid var(--line); min-block-size: 44px; padding: .35rem .65rem;
+}
+.museum-controls button[aria-pressed="true"], .museum-label[aria-pressed="true"] { background: #cefa41; color: #121820; border-color: #121820; }
+.museum-page button:focus-visible, .museum-page a:focus-visible { outline: 3px solid var(--palette-focus,#2549b5); outline-offset: 3px; }
+.museum-display { background: #17233a; border-block: 3px solid var(--line); padding: clamp(.35rem, 2vw, 1.4rem); }
+.museum-stage, .museum-compare-art {
+  background: radial-gradient(#9cabc540 1px,transparent 1.5px) 0 0 / 15px 15px, linear-gradient(145deg,#314565,#17233a);
+  position: relative; width: 100%; aspect-ratio: 8 / 5; isolation: isolate;
+}
+.museum-stage { max-inline-size: 720px; margin-inline: auto; border: 2px solid #93a6c3; }
+.museum-art, .museum-compare-art img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.museum-art { pointer-events: none; }
+.museum-stage[data-part="lid"] [data-layer="lid"],
+.museum-stage[data-part="board"] [data-layer="board"],
+.museum-stage[data-part="drive"] [data-layer="drive"],
+.museum-stage[data-part="base"] [data-layer="base"],
+.museum-stage[data-part="ports"] [data-layer="ports"] { filter: brightness(1.35) drop-shadow(0 0 3px #cefa41); }
+.museum-pin {
+  position: absolute; transform: translate(-50%,-50%); z-index: 2;
+  width: 44px; height: 44px; padding: 0; color: #101622;
+  background: #cefa41; border: 2px solid #101622; box-shadow: 2px 2px #f5eedb;
+  font: 700 .7rem Silkscreen,monospace;
+}
+.museum-pin[aria-pressed="true"] { background: #ff784d; z-index: 3; }
+.museum-parts, .museum-info { padding: .85rem; }
+.museum-info { border-block-start: 2px solid var(--line); }
+.museum-info h2, .museum-info p { margin: .25rem 0 .55rem; }
+.museum-comparison { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; color: #f5eedb; }
+.museum-comparison article { border: 2px solid #93a6c3; padding: .65rem; }
+.museum-comparison h2 { margin: .3rem 0; font-size: 1.2rem; }
+.museum-comparison p { margin-block: .4rem; }
+.museum-notes { margin-block: 1rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .museum-art, .museum-info:not([hidden]) { animation: museum-in .27s ease-out both; }
+  [data-museum="components"] .museum-art { animation: museum-lift .52s ease-out both; }
+  [data-museum="components"] [data-layer="lid"] { --museum-lift: 17px; }
+  [data-museum="components"] [data-layer="drive"] { --museum-lift: 11px; }
+  [data-museum="components"] [data-layer="base"] { --museum-lift: -8px; }
+  @keyframes museum-in { from { opacity: .65; } }
+  @keyframes museum-lift { from { opacity: .6; transform: translateY(var(--museum-lift,6px)); } }
+}
+@media (max-width: 650px) {
+  .museum-pin { width: 28px; height: 28px; font-size: .6rem; }
+  .museum-label { flex: 1 1 9rem; }
+}
+@media (max-width: 430px) {
+  .museum-comparison { grid-template-columns: 1fr; }
+}
