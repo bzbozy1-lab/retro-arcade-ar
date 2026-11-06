@@ -1,0 +1,101 @@
+.workshop-icon { display: inline-block; inline-size: 3rem; block-size: 3rem; flex: none; vertical-align: middle; }
+.workshop-entry > .workshop-icon { display: block; inline-size: 4rem; block-size: 4rem; margin-block-end: .5rem; }
+.workshop { padding-block: 2rem 5rem; }
+.workshop [hidden] { display: none; }
+.workshop-crumb { color: var(--muted); margin-block: 0 1.5rem; }
+.workshop a:not(.btn) { text-decoration: underline; text-underline-offset: .2em; }
+.workshop-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
+  background: var(--palette-feature, var(--panel));
+  border: 3px solid var(--line);
+  box-shadow: 6px 6px 0 var(--line);
+  padding: clamp(1rem, 4vw, 3.5rem);
+}
+.workshop h1, .workshop h2 { font-family: Lalezar, Tajawal, sans-serif; line-height: 1.1; }
+.workshop h1 { font-size: clamp(3rem, 7vw, 6.25rem); margin: .5rem 0 0; }
+.workshop h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-block: 0 1.25rem; }
+.workshop-intro > p { max-inline-size: 43ch; }
+.workshop-motto { font-weight: 700; font-size: clamp(1.15rem, 2vw, 1.6rem); margin-block: .35rem; }
+.workshop-bench {
+  margin: 0;
+  background: #18243b;
+  color: #f5eedb;
+  border: 3px solid var(--line);
+  box-shadow: 5px 5px 0 var(--line);
+  overflow: hidden;
+}
+.workshop-pegboard {
+  display: flex; justify-content: space-evenly; padding: .8rem .25rem;
+  background: radial-gradient(#9aa9cb50 1px, transparent 1.5px) 0 0 / 12px 12px, #243450;
+  border-block-end: 3px solid #101216;
+}
+.workshop-mat {
+  display: flex; align-items: center; justify-content: space-around; gap: .25rem;
+  padding: .75rem .25rem; margin: 1rem;
+  border: 2px solid #af9bec;
+  background: linear-gradient(135deg, #40318c, #252148);
+}
+.workshop-mat .workshop-icon { inline-size: clamp(5rem, 13vw, 10rem); block-size: auto; aspect-ratio: 1; }
+.workshop-mat .carto-sprite { inline-size: clamp(4rem, 11vw, 9rem); block-size: auto; aspect-ratio: 1; }
+.workshop-bench figcaption { display: flex; justify-content: space-between; gap: .4rem; padding: .7rem; font: .72rem Silkscreen, monospace; }
+.workshop-bench figcaption span:first-child { color: #cefa41; }
+.workshop-guides { margin-block-start: 3.5rem; scroll-margin-block-start: 8rem; }
+.workshop-categories, .workshop-grid { display: grid; gap: 1rem; }
+.workshop-categories { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.workshop-categories button, .workshop-filters input, .workshop-filters select {
+  min-block-size: 44px; border: 2px solid var(--line); color: var(--text);
+  background: var(--panel); font: inherit;
+}
+.workshop-categories button {
+  display: flex; align-items: center; gap: .5rem; padding: .55rem;
+  font-weight: 700; text-align: start; box-shadow: 3px 3px 0 var(--line);
+}
+.workshop-categories button[aria-pressed="true"] { background: var(--palette-accent, #cefa41); color: #152019; border-color: #152019; box-shadow: 0 0 0 2px var(--line); }
+.workshop-categories .workshop-icon { inline-size: 2.5rem; block-size: 2.5rem; }
+.workshop-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: .8rem; align-items: end; margin-block-start: 1.25rem; }
+.workshop-filters label { display: grid; gap: .3rem; font-weight: 700; }
+.workshop-filters input, .workshop-filters select { inline-size: 100%; padding-inline: .65rem; }
+.workshop-filters input::placeholder { color: var(--muted); opacity: 1; }
+.workshop :focus-visible { outline: 3px solid var(--palette-focus, #2549b5); outline-offset: 4px; }
+.workshop-safety { margin-block: 1.4rem; padding: .75rem 1rem; background: var(--panel); border: 2px solid var(--line); border-inline-start: 6px solid #ff5b2e; }
+.workshop-safety h3, .workshop-safety p { margin: 0; }
+.workshop-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 1.4rem; }
+.workshop-card { background: var(--palette-surface, var(--panel)); border: 2px solid var(--line); box-shadow: 4px 4px 0 var(--line); overflow-wrap: anywhere; }
+.workshop-card-art {
+  display: flex; align-items: center; gap: .7rem; padding: .5rem .85rem;
+  color: #f5eedb; font-weight: 700; border-block-end: 2px solid var(--line);
+  background: repeating-linear-gradient(0deg, transparent 0 5px, #ffffff0b 5px 6px), #2c2853;
+}
+.workshop-card[data-category="care"] .workshop-card-art { background-color: #21443d; }
+.workshop-card[data-category="display"] .workshop-card-art { background-color: #233962; }
+.workshop-card[data-category="tools"] .workshop-card-art { background-color: #513343; }
+.workshop-card-body { padding: .85rem; }
+.workshop-device, .workshop-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; color: var(--muted); }
+.workshop-device .workshop-icon { inline-size: 1.75rem; block-size: 1.75rem; }
+.workshop-card h3 { margin: .35rem 0; line-height: 1.45; }
+.workshop-meta span { padding: .15rem .45rem; border: 1px solid var(--line); font-size: .9rem; }
+.workshop-card summary { min-block-size: 44px; padding: .55rem; border: 2px solid var(--line); font-weight: 700; }
+.workshop-guide { padding-inline: .15rem; }
+.workshop-guide h4 { margin-block-end: .2rem; }
+.workshop-guide p { margin-block-start: .35rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .workshop-card details[open] .workshop-guide { animation: workshop-reveal .18s ease-out both; }
+  @keyframes workshop-reveal { from { opacity: .65; transform: translateY(-3px); } }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .workshop-entry .workshop-icon, .workshop-categories .workshop-icon { transition: transform .16s ease-out; }
+  .workshop-entry:hover .workshop-icon, .workshop-categories button:hover .workshop-icon { transform: rotate(-7deg); }
+}
+@media (max-width: 950px) {
+  .workshop-categories, .workshop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .workshop { padding-block-start: 3.75rem; }
+  .workshop-hero, .workshop-filters, .workshop-grid { grid-template-columns: minmax(0, 1fr); }
+  .workshop-categories { gap: .65rem; }
+  .workshop-categories button { flex-direction: column; text-align: center; justify-content: center; }
+  .workshop-guides { scroll-margin-block-start: 4rem; }
+}

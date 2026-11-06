@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <symbol id="workshop" viewBox="0 0 64 64">
+    <path fill="#f5eedb" d="M5 20h8v-6h33v6h8v8h6v23h-7v6H40v-7H24v7H11v-6H4V28h1z"/>
+    <path fill="#101216" d="M9 24h8v-6h27v6h9v8h3v16h-6v5h-7V46H21v7h-7v-5H8V32h1z"/>
+    <path fill="#5e42bc" d="M14 31h7v-7h19v7h9v14h-5v-5H20v5h-6z"/>
+    <path fill="#f5eedb" d="M20 30h4v4h4v4h-4v4h-4v-4h-4v-4h4z"/>
+    <path fill="#cefa41" stroke="#101216" stroke-width="3" d="M31 33l12-15v-7l7-6h7l-5 7 4 4 6-5v8l-7 6h-7L37 40z"/>
+  </symbol>
+  <symbol id="care" viewBox="0 0 64 64">
+    <path fill="#cefa41" stroke="#101216" stroke-width="4" d="M10 38l20-20h23v21L35 54H10z"/>
+    <path fill="none" stroke="#101216" stroke-width="4" d="M11 39h23l18-20M34 39v13"/>
+    <path fill="#ff5b2e" d="M15 6h4v6h6v4h-6v6h-4v-6H9v-4h6z"/>
+  </symbol>
+  <symbol id="diagnosis" viewBox="0 0 64 64">
+    <path fill="#ff5b2e" stroke="#101216" stroke-width="4" d="M33 39l7-7 16 16v8h-8z"/>
+    <path fill="#f5eedb" stroke="#101216" stroke-width="4" d="M17 9h19l9 9v17l-9 9H17l-9-9V18z"/>
+    <path fill="none" stroke="#007c73" stroke-width="4" d="M13 28h7l5-9 5 15 4-6h6"/>
+  </symbol>
+  <symbol id="display" viewBox="0 0 64 64">
+    <path fill="#101216" d="M5 13h54v35H36v5h11v5H17v-5h11v-5H5z"/>
+    <path fill="#2f5bff" d="M10 18h44v25H10z"/>
+    <path fill="#cefa41" d="M28 23h5v6h7v8H24v-8h4z"/>
+  </symbol>
+  <symbol id="tools" viewBox="0 0 64 64">
+    <path fill="#ff5b2e" stroke="#101216" stroke-width="4" d="M6 27h52v25H6zM23 27V16h18v11"/>
+    <path fill="#101216" d="M8 34h48v4H8z"/>
+    <path fill="#f5eedb" stroke="#101216" stroke-width="3" d="M27 32h10v11H27z"/>
+  </symbol>
+</svg>
