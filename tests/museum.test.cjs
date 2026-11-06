@@ -17,7 +17,10 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-test('PS2 museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+  const window = {};
+  if (model === 'ps1') vm.runInNewContext(fs.readFileSync('assets/museum-ps1.js', 'utf8'), {window});
+  const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
   const exhibit = new Element();
   const info = new Element();
   const close = new Element();
@@ -31,7 +34,7 @@ test('PS2 museum switches scenes and restores focus when a part closes', () => {
   const classes = new Set();
   stage.classList = {toggle(name) { if (classes.delete(name)) return false; classes.add(name); return true; }};
   const sources = ['angle', 'slim'].map(name => Object.assign(new Element(), {
-    dataset: {src: 'assets/museum/' + name + '.svg'}
+    dataset: {src: directory + name + '.svg'}
   }));
   comparison.querySelectorAll = () => sources;
   info.querySelector = selector => selector === 'button' ? close : selector === 'h2' ? title : new Element();
@@ -43,12 +46,13 @@ test('PS2 museum switches scenes and restores focus when a part closes', () => {
   exhibit.querySelector = selector => elements[selector];
   exhibit.querySelectorAll = selector => selector === '[data-museum-mode]' ? modes : views;
   vm.runInNewContext(fs.readFileSync('assets/museum.js', 'utf8'), {
-    Image: Element,
+    window, Image: Element,
     document: {querySelector: () => exhibit, createElement: () => new Element()}
   });
   for (const view of views) {
     view.click();
     const [art, pin] = stage.children;
+    assert.equal(art.src, directory + view.dataset.museumView + '.svg');
     assert.ok(fs.existsSync(art.src));
     pin.click();
     assert.equal(info.hidden, false);

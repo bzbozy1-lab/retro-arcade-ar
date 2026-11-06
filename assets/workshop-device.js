@@ -7,5 +7,9 @@
   link.href = 'workshop.html?' + params + '#workshopGuides';
   link.hidden = false;
 
-  if (device.id === "ps2") document.querySelector("#deviceMuseum").hidden = false;
+  if (device.id === 'ps1' || device.id === 'ps2') {
+    const museum = document.querySelector('#deviceMuseum');
+    museum.href = 'museum-' + device.id + '.html';
+    museum.hidden = false;
+  }
 })();

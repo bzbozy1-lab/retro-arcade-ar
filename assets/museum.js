@@ -12,7 +12,9 @@
   const motion = exhibit.querySelector('.museum-motion');
   let view = 'angle';
   let active = null;
-  const parts = {
+  const model = window.CartoMuseumModel;
+  const directory = model?.directory ?? 'assets/museum/';
+  const parts = model?.parts ?? {
     tray: ['درج الأقراص', 'درج أمامي يحمل قرص اللعبة أو الفيلم إلى وحدة القراءة.'],
     memory: ['فتحتا بطاقة الذاكرة', 'تُستخدمان لحفظ تقدّم الألعاب على بطاقة متوافقة.'],
     controller: ['منافذ التحكم', 'منفذان أماميان لتوصيل ذراعي التحكم السلكيتين.'],
@@ -31,7 +33,7 @@
     ports: ['مجموعة المنافذ', 'تفصيل بصري لمخارج الاتصال الخلفية يبرز وظيفتها داخل الهيكل.']
   };
   // Coordinates use the artwork viewBox, with the origin at its upper-left corner.
-  const scenes = {
+  const scenes = model?.scenes ?? {
     angle: {art: ['angle'], points: [['lid',230,143],['tray',278,184],['memory',107,177],['usb',192,222]]},
     front: {art: ['front'], points: [['memory',96,106],['controller',121,145],['usb',184,184],['ilink',224,162],['tray',332,125],['power',419,158]]},
     rear: {art: ['rear'], points: [['fan',104,132],['bay',210,181],['av',306,150],['optical',345,181],['ac',396,142]]},
@@ -94,7 +96,7 @@
     const art = scene.art.map(name => {
       const image = new Image();
       image.alt = '';
-      image.src = 'assets/museum/' + name + '.svg';
+      image.src = directory + name + '.svg';
       image.className = 'museum-art';
       image.dataset.layer = name;
       return image;
@@ -111,7 +113,7 @@
     if (mode === 'components') {
       const assembled = new Image();
       assembled.alt = '';
-      assembled.src = 'assets/museum/angle.svg';
+      assembled.src = directory + 'angle.svg';
       assembled.className = 'museum-assembled';
       const layers = art.map(image => {
         const layer = document.createElement('div');
