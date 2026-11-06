@@ -12,6 +12,7 @@
   let active = null;
   const model = window.CartoMuseumModel;
   const directory = model?.directory ?? 'assets/museum/';
+  const artUrl = name => directory + (model?.files?.[name] ?? name + '.svg');
   const parts = model?.parts ?? {
     tray: ['درج الأقراص', 'درج أمامي يحمل قرص اللعبة أو الفيلم إلى وحدة القراءة.'],
     memory: ['فتحتا بطاقة الذاكرة', 'تُستخدمان لحفظ تقدّم الألعاب على بطاقة متوافقة.'],
@@ -92,7 +93,7 @@
     const art = scene.art.map(name => {
       const image = new Image();
       image.alt = '';
-      image.src = directory + name + '.svg';
+      image.src = artUrl(name);
       image.className = 'museum-art';
       image.dataset.layer = name;
       return image;
@@ -107,7 +108,7 @@
     if (mode === 'components') {
       const assembled = new Image();
       assembled.alt = '';
-      assembled.src = directory + 'angle.svg';
+      assembled.src = artUrl('angle');
       assembled.className = 'museum-assembled';
       const layers = art.map(image => {
         const layer = document.createElement('div');

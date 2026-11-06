@@ -17,7 +17,7 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds', 'gba']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
   const window = {};
   if (model !== 'ps2') vm.runInNewContext(fs.readFileSync('assets/museum-' + model + '.js', 'utf8'), {window});
   const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
@@ -29,8 +29,9 @@ for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds']) test(model 
   const comparison = new Element();
   const angles = new Element();
   const controls = new Element();
-  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['snes', 'ds'].includes(model) ? ['angle', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
-    dataset: {src: directory + name + '.svg'}
+  const artUrl = name => directory + (window.CartoMuseumModel?.files?.[name] ?? name + '.svg');
+  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['snes', 'ds', 'gba'].includes(model) ? ['angle', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
+    dataset: {src: artUrl(name)}
   }));
   comparison.querySelectorAll = () => sources;
   info.querySelector = selector => selector === 'button' ? close : selector === 'h2' ? title : new Element();
@@ -48,7 +49,7 @@ for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds']) test(model 
   for (const view of views) {
     view.click();
     const [art, pin] = stage.children;
-    assert.equal(art.src, directory + view.dataset.museumView + '.svg');
+    assert.equal(art.src, artUrl(view.dataset.museumView));
     assert.ok(fs.existsSync(art.src));
     pin.click();
     assert.equal(info.hidden, false);

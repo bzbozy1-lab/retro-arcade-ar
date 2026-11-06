@@ -86,3 +86,5 @@
 @media (max-width: 430px) {
   .museum-comparison { grid-template-columns: 1fr; }
 }
+
+.museum-art[src$=".webp"], .museum-assembled[src$=".webp"], .museum-compare-art img[src$=".webp"] { object-fit: contain; }
