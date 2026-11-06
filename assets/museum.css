@@ -1,8 +1,9 @@
-.museum-page { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.museum-page { padding-block: clamp(3.5rem, 4vw, 4.25rem); }
 .museum-page [hidden] { display: none; }
-.museum-page h1 { font: clamp(2.85rem, 7.4vw, 6.4rem)/.95 Lalezar,Tajawal,sans-serif; margin: .55rem 0; }
-.museum-page h1 bdi { display: block; }
-.museum-intro { max-inline-size: 60ch; margin-block-end: 1.5rem; }
+.museum-page h1 { font: clamp(2.1rem, 5vw, 4.25rem)/.95 Lalezar,Tajawal,sans-serif; margin: .55rem 0; }
+.museum-page h1 bdi { display: block; white-space: nowrap; }
+.museum-intro > p { max-inline-size: 64ch; }
+.museum-intro { max-inline-size: 100%; margin-block-end: 1.5rem; }
 .museum-panel { border: 3px solid var(--line); box-shadow: 5px 5px 0 var(--line); background: var(--palette-surface,var(--panel)); }
 .museum-controls { padding: clamp(.65rem, 2vw, 1.25rem); display: grid; gap: .6rem; }
 .museum-controls > div, .museum-parts { display: flex; flex-wrap: wrap; gap: .45rem; }
