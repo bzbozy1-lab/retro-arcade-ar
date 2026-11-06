@@ -7,7 +7,7 @@
   link.href = 'workshop.html?' + params + '#workshopGuides';
   link.hidden = false;
 
-  if (device.id === 'ps1' || device.id === 'ps2') {
+  if (['ps1', 'ps2', 'ps3'].includes(device.id)) {
     const museum = document.querySelector('#deviceMuseum');
     museum.href = 'museum-' + device.id + '.html';
     museum.hidden = false;

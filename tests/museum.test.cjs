@@ -17,9 +17,9 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-for (const model of ['ps2', 'ps1']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1', 'ps3']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
   const window = {};
-  if (model === 'ps1') vm.runInNewContext(fs.readFileSync('assets/museum-ps1.js', 'utf8'), {window});
+  if (model !== 'ps2') vm.runInNewContext(fs.readFileSync('assets/museum-' + model + '.js', 'utf8'), {window});
   const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
   const exhibit = new Element();
   const info = new Element();
