@@ -9,6 +9,7 @@
   const listing = exhibit.querySelector('.museum-parts');
   const modes = [...exhibit.querySelectorAll('[data-museum-mode]')];
   const views = [...exhibit.querySelectorAll('[data-museum-view]')];
+  const motion = exhibit.querySelector('.museum-motion');
   let view = 'angle';
   let active = null;
   const parts = {
@@ -78,6 +79,7 @@
     modes.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.museumMode === mode)));
     views.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.museumView === view)));
     angles.hidden = mode !== 'explore';
+    motion.hidden = mode !== 'components';
     stage.hidden = mode === 'compare';
     listing.hidden = stage.hidden;
     comparison.hidden = !stage.hidden;
@@ -106,7 +108,26 @@
       labels.push(buttonFor(id, number + ' · ' + parts[id][0], 'museum-label'));
       return pin;
     });
-    stage.replaceChildren(...art, ...pins);
+    if (mode === 'components') {
+      const assembled = new Image();
+      assembled.alt = '';
+      assembled.src = 'assets/museum/angle.svg';
+      assembled.className = 'museum-assembled';
+      const layers = art.map(image => {
+        const layer = document.createElement('div');
+        layer.className = 'museum-layer';
+        const name = image.dataset.layer;
+        layer.dataset.component = name;
+        const float = document.createElement('div');
+        float.className = 'museum-float';
+        float.replaceChildren(image, pins[scene.points.findIndex(([id]) => id === name)]);
+        layer.replaceChildren(float);
+        return layer;
+      });
+      stage.replaceChildren(assembled, ...layers);
+    } else {
+      stage.replaceChildren(...art, ...pins);
+    }
     listing.replaceChildren(...labels);
   }
 
@@ -118,6 +139,10 @@
     view = button.dataset.museumView;
     render('explore');
   }));
+  motion.addEventListener('click', () => {
+    const paused = stage.classList.toggle('museum-paused');
+    motion.setAttribute('aria-pressed', String(paused));
+  });
   info.querySelector('button').addEventListener('click', () => clearInfo(true));
   exhibit.addEventListener('keydown', event => {
     if (event.key === 'Escape' && active) clearInfo(true);

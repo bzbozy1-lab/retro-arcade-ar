@@ -27,13 +27,16 @@ test('PS2 museum switches scenes and restores focus when a part closes', () => {
   const parts = new Element();
   const angles = new Element();
   const controls = new Element();
+  const motion = new Element();
+  const classes = new Set();
+  stage.classList = {toggle(name) { if (classes.delete(name)) return false; classes.add(name); return true; }};
   const sources = ['angle', 'slim'].map(name => Object.assign(new Element(), {
     dataset: {src: 'assets/museum/' + name + '.svg'}
   }));
   comparison.querySelectorAll = () => sources;
   info.querySelector = selector => selector === 'button' ? close : selector === 'h2' ? title : new Element();
   const elements = {'.museum-stage': stage, '.museum-angles': angles, '.museum-comparison': comparison,
-    '.museum-info': info, '.museum-parts': parts, '.museum-controls': controls};
+    '.museum-info': info, '.museum-parts': parts, '.museum-controls': controls, '.museum-motion': motion};
   const options = (key, names) => names.map(name => Object.assign(new Element(), {dataset: {[key]: name}}));
   const modes = options('museumMode', ['explore', 'components', 'compare']);
   const views = options('museumView', ['angle', 'front', 'rear', 'top']);
@@ -56,7 +59,15 @@ test('PS2 museum switches scenes and restores focus when a part closes', () => {
   }
   modes[1].click();
   assert.equal(angles.hidden, true);
-  assert.equal(stage.children.filter(child => child.src && fs.existsSync(child.src)).length, 5);
+  const [assembled, ...layers] = stage.children;
+  assert.ok(fs.existsSync(assembled.src));
+  assert.equal(layers.length, 5);
+  assert.ok(layers.every(layer => {
+    const [art, pin] = layer.children[0].children;
+    return fs.existsSync(art.src) && Boolean(pin.handlers.click);
+  }));
+  motion.click();
+  assert.equal(motion.attrs['aria-pressed'], 'true');
   parts.children[2].click();
   assert.equal(stage.dataset.part, 'board');
   exhibit.handlers.keydown({key: 'Escape'});
