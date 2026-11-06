@@ -17,7 +17,7 @@ class Element {
   click() { this.handlers.click(); }
 }
 
-for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds', 'gba', 'xbox360']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
+for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds', 'gba', 'xbox360', 'wii']) test(model + ' museum switches scenes and restores focus when a part closes', () => {
   const window = {};
   if (model !== 'ps2') vm.runInNewContext(fs.readFileSync('assets/museum-' + model + '.js', 'utf8'), {window});
   const directory = window.CartoMuseumModel?.directory ?? 'assets/museum/';
@@ -30,7 +30,7 @@ for (const model of ['ps2', 'ps1', 'ps3', 'gamecube', 'snes', 'ds', 'gba', 'xbox
   const angles = new Element();
   const controls = new Element();
   const artUrl = name => directory + (window.CartoMuseumModel?.files?.[name] ?? name + '.svg');
-  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['snes', 'ds', 'gba', 'xbox360'].includes(model) ? ['angle', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
+  const sources = (model === 'gamecube' ? ['rear', 'revision'] : ['snes', 'ds', 'gba', 'xbox360', 'wii'].includes(model) ? ['angle', 'revision'] : ['angle', 'slim']).map(name => Object.assign(new Element(), {
     dataset: {src: artUrl(name)}
   }));
   comparison.querySelectorAll = () => sources;
