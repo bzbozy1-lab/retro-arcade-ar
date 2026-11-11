@@ -23,7 +23,7 @@ function init(){
   if(theme)controls.append(theme);
   navin.append(controls);
   window.CartoAudio.refresh();
-  const strip=doc.createElement("div");strip.className="arcade-ticker";strip.innerHTML='<b>PLAYER 01</b> ذاكرة الألعاب بلغتنا · اكتشف، اقرأ، وأضف ألعابك إلى قائمتك <b>● CARTO</b>';
+  const strip=doc.createElement("div");strip.className="arcade-ticker";strip.innerHTML='<b>PLAYER 01</b> ذاكرة الألعاب بلغتنا · اكتشف، اقرأ، وأضف ألعابك إلى قائمتك <b>● SHAWQ AWAR</b>';
   nav.insertAdjacentElement("afterend",strip);
  }
  const footer=doc.querySelector(".footer");
@@ -31,9 +31,6 @@ function init(){
   footer.classList.add("arcade-footer");
   const inner=footer.querySelector(".footerin");
   if(inner){
-   const brand=inner.querySelector(".brand");
-   if(brand){const p=doc.createElement("p");p.className="arcade-footer-info";p.textContent="أرشيف عربي لعوالم الألعاب الكلاسيكية، يصنعه الشغف والاكتشاف.";brand.append(p);
-   const stamp=doc.createElement("span");stamp.className="arcade-footer-stamp";stamp.textContent="INSERT COIN · CARTO";brand.append(stamp)}
    const links=inner.querySelector(".footerlinks");
    if(links&&!links.querySelector('a[href="localization.html"]')){const a=doc.createElement("a");a.href="localization.html";a.textContent="الألعاب المعربة";links.append(a)}
    const bottom=doc.createElement("div");bottom.className="arcade-footer-bottom";bottom.innerHTML='<span>صُمم بروح ملصقات الألعاب القديمة والبكسل.</span><a href="identity.html">تعرّف إلى الهوية البصرية ↗</a>';

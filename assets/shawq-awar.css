@@ -1,0 +1,33 @@
+/* Site identity is independent of the Carto character and interface controls. */
+.nav .brand:has(.shawq-wordmark), .footer .brand:has(.shawq-wordmark) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+}
+.shawq-wordmark { display: block; inline-size: 164px; max-inline-size: 100%; }
+.shawq-wordmark img { display: block; inline-size: 100%; block-size: auto; }
+.shawq-wordmark .shawq-mark-dark,
+html[data-theme="dark"] .shawq-wordmark .shawq-mark-light,
+.footer .shawq-wordmark .shawq-mark-light { display: none; }
+html[data-theme="dark"] .shawq-wordmark .shawq-mark-dark,
+.footer .shawq-wordmark .shawq-mark-dark { display: block; }
+.shawq-brand-description { font: 700 11px/1.35 Tajawal, Arial, sans-serif; color: var(--text); }
+.footer .shawq-brand-description { color: #F3EBDD; }
+.shawq-logo-examples { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.shawq-logo-example { margin: 0; min-width: 0; background: #F3EBDD; color: #101216; padding: 18px 10px; text-align: center; display: grid; justify-items: center; align-content: center; gap: 10px; }
+.shawq-logo-example.dark { background: #111828; color: #F3EBDD; }
+.shawq-logo-example img { width: min(100%, 260px); max-height: 118px; object-fit: contain; }
+.shawq-icon-example img { vertical-align: middle; margin-inline-end: .5rem; }
+.shawq-about { max-inline-size: 760px; }
+.shawq-about h1,.shawq-about h2 { line-height: 1.4; }
+.shawq-about h2 { margin-block: 1.4em .3em; }
+.shawq-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width:700px) {
+  .nav .shawq-wordmark { inline-size: 148px; }
+  .nav .shawq-brand-description { font-size: 10px; }
+}
+.hero .shawq-official { font-weight: 700; }
+.hero .shawq-quote { margin-block-end: 0; font-size: 1rem; font-weight: 700; }
+.hero .shawq-quote + .hero-credit { margin-block-start: 0; }

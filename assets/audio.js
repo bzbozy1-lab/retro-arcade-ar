@@ -60,7 +60,7 @@
   interacted=true;enabled=!!value;stop();
   try{localStorage.setItem('carto-sound',enabled?'on':'off')}catch(e){}
   paint();await schedule(enabled?'enable':'disable',true);
-  window.CartoToast?.(enabled?'تم تشغيل مؤثرات CARTO':'تم إيقاف المؤثرات الصوتية');
+  window.CartoToast?.(enabled?'تم تشغيل المؤثرات الصوتية':'تم إيقاف المؤثرات الصوتية');
  }
  function createToggle(){const button=document.createElement('button');button.type='button';button.className='arcade-sound control-switch';return button}
  function classifyLink(link){

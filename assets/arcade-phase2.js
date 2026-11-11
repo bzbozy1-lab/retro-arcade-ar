@@ -38,7 +38,7 @@ function addHomePanel(){
  if(d.body.dataset.page!=="home")return;
  const main=d.querySelector("main");if(!main)return;
  const panel=d.createElement("section");panel.className="section arcade-discovery";panel.setAttribute("aria-labelledby","arcadeExploreTitle");
- panel.innerHTML='<div class="wrap"><div class="arcade-discovery-board"><div class="arcade-guide">'+window.CartoMascot.markup('curious','arcade-guide-robot','كارتو، مرشد الاكتشاف')+'<div><span class="arcade-8bit">PLAYER ONE · ACHIEVEMENTS</span><h2 id="arcadeExploreTitle">رحلتك في عالم كارتو</h2><p>اكتشف الألعاب، واجمع ذكرياتك، وتعرّف إلى جهود التعريب العربي. إنجازاتك تُحفظ في هذا المتصفح دون حساب.</p></div></div><div class="arcade-achievements-title"><strong>لوحة الإنجازات</strong><span id="cartoAchievementCount">0 / 4</span></div><div class="arcade-achievement-grid"></div></div></div>';
+ panel.innerHTML='<div class="wrap"><div class="arcade-discovery-board"><div class="arcade-guide">'+window.CartoMascot.markup('curious','arcade-guide-robot','كارتو، مرشد الاكتشاف')+'<div><span class="arcade-8bit">PLAYER ONE · ACHIEVEMENTS</span><h2 id="arcadeExploreTitle">رحلتك في شوق آور</h2><p>اكتشف الألعاب، واجمع ذكرياتك، وتعرّف إلى جهود التعريب العربي. إنجازاتك تُحفظ في هذا المتصفح دون حساب.</p></div></div><div class="arcade-achievements-title"><strong>لوحة الإنجازات</strong><span id="cartoAchievementCount">0 / 4</span></div><div class="arcade-achievement-grid"></div></div></div>';
  const footer=main.lastElementChild;
  if(footer)footer.insertAdjacentElement("afterend",panel);else main.append(panel);
  refreshAchievements();
