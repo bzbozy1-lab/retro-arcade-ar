@@ -1,4 +1,4 @@
-name: Publish CARTO with extended Pages timeout
+name: Publish SHAWQ AWAR with extended Pages timeout
 on:
   workflow_dispatch:
   push:
