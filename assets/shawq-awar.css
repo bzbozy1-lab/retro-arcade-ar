@@ -31,3 +31,73 @@ html[data-theme="dark"] .shawq-wordmark .shawq-mark-dark,
 .hero .shawq-official { font-weight: 700; }
 .hero .shawq-quote { margin-block-end: 0; font-size: 1rem; font-weight: 700; }
 .hero .shawq-quote + .hero-credit { margin-block-start: 0; }
+
+.shawq-quotation { margin: .8rem 0; }
+.shawq-quotation .shawq-quote {
+  margin: 0;
+  padding-inline-start: .75rem;
+  border-inline-start: 3px solid #2F5BFF;
+}
+.shawq-quotation .shawq-quote p { margin: 0; color: var(--text); }
+.shawq-quotation .hero-credit { margin: .25rem 0 0; }
+
+.sources-intro.shawq-source-feature,
+html[data-theme="dark"] .sources-intro.shawq-source-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(8rem, 22vw, 16rem);
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3.5rem);
+  padding: clamp(1.2rem, 3.6vw, 2.8rem);
+  border: 2px solid #647eb6;
+  background: linear-gradient(110deg, #21365d, #111828 64%);
+  color: #F3EBDD;
+  box-shadow: 5px 5px 0 #101216;
+  text-align: start;
+}
+.sources-intro.shawq-source-feature::after { content: none; }
+.shawq-source-feature h2 {
+  margin: 0 0 .35rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  color: #F3EBDD;
+}
+.sources-intro.shawq-source-feature p {
+  max-width: 56ch;
+  margin: 0;
+  padding: 0;
+  color: #DCE4FF;
+  font-size: clamp(.95rem, 1.6vw, 1.14rem);
+  font-weight: 600;
+}
+.shawq-source-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  min-height: 44px;
+  margin-block-start: 1rem;
+  padding: .35rem .8rem;
+  border: 1px solid #C8F31D;
+  color: #C8F31D;
+  text-decoration: none;
+}
+.shawq-source-jump:hover { background: #C8F31D; color: #101216; text-shadow: none; }
+.shawq-source-jump:focus-visible { outline: 2px solid #F3EBDD; outline-offset: 4px; }
+.shawq-source-screen {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 5 / 3;
+  padding: .45rem;
+  border: 2px solid #AFC3F2;
+  background: radial-gradient(#92aef065 1px, transparent 1px) 0 0 / 9px 9px, #131f35;
+  box-shadow: inset 0 0 0 4px #101216, 5px 5px 0 #2F5BFF;
+}
+.shawq-source-screen .shawq-source-carto {
+  width: clamp(4.25rem, 10vw, 8.25rem);
+  height: clamp(4.25rem, 10vw, 8.25rem);
+}
+#source-channels { scroll-margin-top: 9rem; }
+@media (max-width: 620px) {
+  .sources-intro.shawq-source-feature { grid-template-columns: minmax(0, 1fr) 4.5rem; gap: .85rem; }
+  .shawq-source-screen { aspect-ratio: 1; align-self: start; }
+  .shawq-source-screen .shawq-source-carto { width: 3.6rem; height: 3.6rem; }
+  #source-channels { scroll-margin-top: 4.5rem; }
+}
