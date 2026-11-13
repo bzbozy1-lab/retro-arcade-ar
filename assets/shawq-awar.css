@@ -101,3 +101,43 @@ html[data-theme="dark"] .sources-intro.shawq-source-feature {
   .shawq-source-screen .shawq-source-carto { width: 3.6rem; height: 3.6rem; }
   #source-channels { scroll-margin-top: 4.5rem; }
 }
+
+.archive-return {
+  display: flex;
+  margin-block: 0 1rem;
+}
+.archive-return .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 44px;
+}
+.sakhr-page > .wrap > .archive-return { margin-block: 1rem 0; }
+.game-museum-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 44px;
+  margin-block-start: .65rem;
+  padding: .4rem .55rem;
+  border: 2px solid #2f5bff;
+  background: #e8efff;
+  color: #192f69;
+  font-weight: 700;
+  text-align: center;
+}
+html[data-theme="dark"] .game-museum-link {
+  background: #243557;
+  color: #eef3ff;
+  border-color: #819dff;
+}
+.game-museum-link:hover, html[data-theme="dark"] .game-museum-link:hover {
+  background: #c8f31d;
+  color: #101216;
+  text-shadow: none;
+}
+.game-museum-link:focus-visible, .archive-return a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

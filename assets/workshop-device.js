@@ -7,9 +7,10 @@
   link.href = 'workshop.html?' + params + '#workshopGuides';
   link.hidden = false;
 
-  if (['ps1', 'ps2', 'ps3', 'gamecube', 'snes', 'ds', 'gba', 'xbox360', 'wii', '3ds', 'vita'].includes(device.id)) {
+  const museumUrl = deviceMuseumUrl(device.id);
+  if (museumUrl) {
     const museum = document.querySelector('#deviceMuseum');
-    museum.href = 'museum-' + device.id + '.html';
+    museum.href = museumUrl;
     document.querySelector('#deviceMuseumName').textContent = device.name;
     document.querySelector('#deviceMuseumSymbol').innerHTML = window.CartoIcons.markup(device.id);
     document.querySelector('#deviceMuseumCard').hidden = false;
