@@ -63,6 +63,9 @@
 .workshop-grid .workshop-meta span { font-size: .72rem; padding: .1rem .25rem; }
 .workshop-grid .workshop-card summary { padding: .35rem .4rem; font-size: .85rem; }
 
+.details-label-mobile,
+.mobile-cover-links { display: none; }
+
 @media (min-width: 1100px) {
   :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
     grid-template-columns: repeat(6,minmax(0,1fr));
@@ -70,10 +73,45 @@
 }
 @media (max-width: 760px) {
   :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 8px;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
   }
-  :is(#gameGrid,#gemGrid) > .gamecard .gameinfo { padding: 6px; }
+
+  :is(#gameGrid, #gemGrid) > .gamecard {
+    display: flex;
+    flex-direction: column;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .gameimage {
+    height: clamp(112px, 34vw, 180px);
+    flex: none;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .gameinfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+    padding: 7px;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .cardbottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: center;
+    margin-block-start: auto;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .cardbottom [data-details] {
+    justify-content: center;
+    padding-inline: 3px;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .cardbottom .wishlist-heart {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard :is(.cover-kind, .gameimage .source, .cardbottom a, .game-museum-link, .details-label-full) {
+    display: none;
+  }
+  .details-label-mobile { display: inline; }
+  .mobile-cover-links { display: block; }
   :is(#gameGrid,#gemGrid) > .gamecard .gameinfo h3 { font-size: 13px !important; line-height: 1.35 !important; }
   :is(#gameGrid,#gemGrid) > .gamecard .gameimage .cover-pending { padding: 6px; }
   :is(.gaming-sources-grid,.local-grid,.workshop-grid) {
@@ -101,6 +139,6 @@
 }
 @media (max-width: 350px) {
   :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 }
