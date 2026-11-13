@@ -14,7 +14,7 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   vm.runInContext(source('assets/app.js'), context);
   const result = vm.runInContext('({library:getGames(),gems:GEM_GAMES})', context);
   assert.equal(result.library.length,230);
-  assert.equal(result.gems.length,57);
+  assert.equal(result.gems.length,71);
   assert.equal(new Set(result.library.map(game=>game.name)).size,230);
   for(const [device,count] of [['snes',31],['gamecube',39],['ps1',41]]){
     assert.equal(result.library.filter(game=>game.device===device).length,count);
@@ -22,6 +22,15 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
     assert.ok(r?.image, name);
+    if (r.image.startsWith('assets/covers/gems/')) {
+      assert.ok(result.gems.includes(name));
+      assert.match(r.source, /^https:\/\//);
+      assert.match(r.imageSource, /^https:\/\//);
+      assert.ok(r.imageCaption, name);
+      const bytes = fs.readFileSync(r.image);
+      assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
+      continue;
+    }
     if (/^(snes|gamecube|ps1)-\d+$/.test(r.id)) {
       const platform = {snes:'Nintendo_-_Super_Nintendo_Entertainment_System',gamecube:'Nintendo_-_GameCube',ps1:'Sony_-_PlayStation'}[r.id.split('-')[0]];
       assert.equal(new URL(r.image).hostname,'raw.githubusercontent.com');
