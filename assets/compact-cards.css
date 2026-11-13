@@ -1,0 +1,106 @@
+/* Compact catalog cards and reading cards. Each grid follows its content. */
+:is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+:is(#gameGrid, #gemGrid) > .gamecard {
+  min-width: 0;
+  border-width: 2px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+:is(#gameGrid, #gemGrid) > .gamecard .gameimage {
+  height: clamp(92px, 25vw, 150px);
+  aspect-ratio: auto;
+}
+:is(#gameGrid, #gemGrid) > .gamecard .gameimage img { object-fit: contain; }
+:is(#gameGrid, #gemGrid) > .gamecard .gameinfo { padding: 8px; }
+:is(#gameGrid, #gemGrid) > .gamecard h3 { overflow-wrap: anywhere; }
+:is(#gameGrid, #gemGrid) > .gamecard .game-device-tag { min-width: 0; flex-wrap: wrap; gap: 3px; }
+:is(#gameGrid, #gemGrid) > .gamecard .game-device-tag .carto-symbol { width: 22px; height: 22px; }
+:is(#gameGrid, #gemGrid) > .gamecard .cardbottom { gap: 0 .35rem; margin-top: 3px; flex-direction: row; }
+:is(#gameGrid, #gemGrid) > .gamecard :is(.textbtn,.game-museum-link) {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  font-size: .78rem;
+}
+:is(#gameGrid, #gemGrid) > .gamecard .game-museum-link { display: flex; margin-block-start: 3px; }
+:is(.gaming-sources-grid,.local-grid,.workshop-grid) {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+}
+.gaming-sources-grid > .gaming-source-card,
+.local-grid > .local-card,
+.workshop-grid > .workshop-card {
+  min-width: 0;
+  border-width: 2px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.gaming-sources-grid > .gaming-source-card { padding: 12px 10px; }
+.gaming-source-card::before { height: 4px; }
+.gaming-source-card .source-logo-link { width: 68px; height: 68px; margin-block: 5px; }
+.gaming-source-card h2, .local-grid .local-card h2 { font-size: clamp(17px,2vw,23px); line-height: 1.25; overflow-wrap: anywhere; }
+.gaming-source-card .source-description,
+.local-grid .local-card .local-specialty { min-height: 0; margin: 7px 0; font-size: .875rem; line-height: 1.45; overflow-wrap: anywhere; }
+.gaming-source-card .source-visit, .local-grid .local-actions .local-btn {
+  min-height: 44px;
+  padding: .3rem .45rem;
+  font-size: .85rem;
+  text-align: center;
+  white-space: normal;
+}
+.local-grid .local-card-body, .workshop-grid .workshop-card-body { padding: 9px; }
+.local-grid .local-card-top { height: 4px; }
+.local-grid .local-actions { display: flex; flex-wrap: wrap; gap: 5px; margin-block-start: .45rem; }
+.workshop-grid .workshop-card-art { padding: .3rem .5rem; gap: .4rem; font-size: .83rem; }
+.workshop-grid .workshop-card-art .workshop-icon { width: 25px; height: 25px; flex: none; }
+.workshop-grid .workshop-card h3 { font-size: 1rem; line-height: 1.35; }
+.workshop-grid .workshop-card-body > p { font-size: .875rem; line-height: 1.45; margin: .35rem 0; }
+.workshop-grid .workshop-meta { gap: .2rem; margin: .35rem 0; }
+.workshop-grid .workshop-meta span { font-size: .72rem; padding: .1rem .25rem; }
+.workshop-grid .workshop-card summary { padding: .35rem .4rem; font-size: .85rem; }
+
+@media (min-width: 1100px) {
+  :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
+    grid-template-columns: repeat(6,minmax(0,1fr));
+  }
+}
+@media (max-width: 760px) {
+  :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 8px;
+  }
+  :is(#gameGrid,#gemGrid) > .gamecard .gameinfo { padding: 6px; }
+  :is(#gameGrid,#gemGrid) > .gamecard .gameinfo h3 { font-size: 13px !important; line-height: 1.35 !important; }
+  :is(#gameGrid,#gemGrid) > .gamecard .gameimage .cover-pending { padding: 6px; }
+  :is(.gaming-sources-grid,.local-grid,.workshop-grid) {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 9px;
+  }
+  .gaming-source-card .source-logo-link { width: 52px; height: 52px; }
+  .gaming-source-card .gaming-source-top { gap: 3px; flex-wrap: wrap; }
+  .local-grid .local-actions > * { flex: 1 1 auto; }
+  [data-page="reference"] .collection-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 9px;
+  }
+  [data-page="reference"] .collection-card {
+    grid-template-columns: minmax(0,1fr);
+    grid-template-rows: auto 1fr auto;
+    padding: 7px;
+    gap: 5px;
+  }
+  [data-page="reference"] .collection-cover { width: 100%; height: clamp(65px,22vw,100px); }
+  [data-page="reference"] .collection-card h3 { font-size: .94rem; margin: 0 0 .25rem; }
+  [data-page="reference"] .collection-platform { margin-block-end: .2rem; flex-wrap: wrap; }
+  [data-page="reference"] .collection-card-actions { flex-wrap: wrap; gap: 2px; padding-top: 3px; }
+  [data-page="reference"] .collection-card-actions label { flex-basis: 100%; }
+}
+@media (max-width: 350px) {
+  :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
