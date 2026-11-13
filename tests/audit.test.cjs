@@ -14,7 +14,7 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   vm.runInContext(source('assets/app.js'), context);
   const result = vm.runInContext('({library:getGames(),gems:GEM_GAMES})', context);
   assert.equal(result.library.length,230);
-  assert.equal(result.gems.length,71);
+  assert.equal(result.gems.length,72);
   assert.equal(new Set(result.library.map(game=>game.name)).size,230);
   for(const [device,count] of [['snes',31],['gamecube',39],['ps1',41]]){
     assert.equal(result.library.filter(game=>game.device===device).length,count);
@@ -22,6 +22,13 @@ test('catalog covers every library and independent gem, without ambiguous runtim
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
     assert.ok(r?.image, name);
+    if (name === 'P.T.') {
+      assert.equal(r.platforms, 'PlayStation 4');
+      assert.equal(r.imageKind, 'صورة الإعلان');
+      assert.equal(new URL(r.image).hostname, 'www.gematsu.com');
+      assert.match(r.source, /^https:\/\/www\.gematsu\.com\//);
+      continue;
+    }
     if (r.image.startsWith('assets/covers/gems/')) {
       assert.ok(result.gems.includes(name));
       assert.match(r.source, /^https:\/\//);
