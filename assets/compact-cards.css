@@ -63,12 +63,44 @@
 .workshop-grid .workshop-meta span { font-size: .72rem; padding: .1rem .25rem; }
 .workshop-grid .workshop-card summary { padding: .35rem .4rem; font-size: .85rem; }
 
-.details-label-mobile,
-.mobile-cover-links { display: none; }
-
-@media (min-width: 1100px) {
+@media (min-width: 761px) {
   :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
-    grid-template-columns: repeat(6,minmax(0,1fr));
+    gap: 18px;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard {
+    display: flex;
+    flex-direction: column;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .gameimage {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    flex: none;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .gameinfo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .cardbottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: center;
+    margin-block-start: auto;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard .cardbottom .wishlist-heart {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+  :is(#gameGrid, #gemGrid) > .gamecard :is(.cover-kind, .gameimage .source, .cardbottom a, .game-museum-link, .details-label-full) {
+    display: none;
+  }
+}
+@media (761px <= width < 1000px) {
+  :is([data-page="games"], [data-page="device"], [data-page="gems"]) :is(#gameGrid, #gemGrid) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (max-width: 760px) {
