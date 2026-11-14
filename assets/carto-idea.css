@@ -1,0 +1,13 @@
+.carto-sprite.carto-idea[data-carto-pose="curious"],
+.arcade-search-companion .carto-mascot-live[data-carto-pose="curious"] {
+  background-image: url("carto-idea-still.webp") !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carto-sprite.carto-idea[data-carto-pose="curious"],
+  .arcade-search-companion .carto-mascot-live[data-carto-pose="curious"] {
+    background-image: url("carto-idea.webp") !important;
+  }
+}
