@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+<symbol id="works" viewBox="0 0 96 96">
+<g stroke="#172136" stroke-width="4" stroke-linejoin="miter"><path fill="#d7f653" d="M12 24h72v54H12z"/><path fill="#fffbef" d="M34 14h28v10H34zM22 34h52v32H22z"/><path fill="#2f5bff" d="M30 42h36v16H30z"/><path fill="none" d="M40 48h16M44 42v16M26 78v8m44-8v8"/></g>
+</symbol>
+<symbol id="translations" viewBox="0 0 96 96">
+<g stroke="#172136" stroke-width="4"><path fill="#d7f653" d="M16 18h64v64H16z"/><path fill="#fffbef" d="M26 18h44v30H26zM28 60h40v22H28z"/><path fill="#2f5bff" d="M36 66h24v16H36z"/><path fill="none" d="M34 30h28M34 38h18M10 28H4m6 12H4m82-12h6m-6 12h6"/></g><text x="48" y="43" fill="#172136" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">ع</text>
+</symbol>
+<symbol id="releases" viewBox="0 0 96 96">
+<g stroke="#172136" stroke-width="4"><path fill="#fffbef" d="M14 22h68v62H14z"/><path fill="#ff6132" d="M14 22h68v18H14z"/><path fill="none" d="M30 12v20m36-20v20M26 52h10m8 0h10m8 0h10M26 66h10m8 0h10"/><path fill="#d7f653" d="M60 60h18v16H60z"/></g>
+</symbol>
+<symbol id="soon" viewBox="0 0 96 96">
+<g stroke="#172136" stroke-width="4"><path fill="#f8ba55" d="m14 34 34-16 34 16v44H14z"/><path fill="#fffbef" d="m14 34 34 14 34-14-34-16z"/><path fill="none" d="M48 48v30M32 26l34 15v16"/><path fill="#d7f653" d="M36 52h24v20H36z"/></g><text x="48" y="68" fill="#172136" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold">?</text>
+</symbol>
+<symbol id="preparing" viewBox="0 0 96 96">
+<g stroke="#172136" stroke-width="4"><path fill="#b3c8ff" d="M18 18h26v26H18zM52 52h26v26H52z"/><path fill="#d7f653" d="M18 52h26v26H18z"/><path fill="none" stroke-dasharray="5 4" d="M52 18h26v26H52z"/><path fill="#ff6132" d="m62 8 20 20 8-8L70 0z"/></g>
+</symbol>
+</defs></svg>
