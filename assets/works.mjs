@@ -155,6 +155,12 @@ function releases(data) {
   const calendar = $('#releaseCalendar');
   const heading = $('#calendarMonth');
   const cards = $('#releaseGrid');
+  if (!$('#releasePending')) {
+    cards.closest('section').insertAdjacentHTML('afterend',
+      '<section id="releasePending" aria-labelledby="releasePendingTitle" hidden>' +
+      '<h2 id="releasePendingTitle">إصدارات بلا يوم محدّد</h2>' +
+      '<div id="releasePendingGrid" class="work-release-list"></div></section>');
+  }
   const platforms = [...new Set(data.flatMap(release => release.platforms))].sort();
   select.innerHTML = '<option value="">كل المنصات</option>' + platforms.map(value =>
     '<option>' + escapeHTML(value) + '</option>').join('');
