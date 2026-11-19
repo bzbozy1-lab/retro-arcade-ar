@@ -172,3 +172,7 @@ html[data-theme="dark"] .work-filters :is(input,select) { color-scheme:dark; }
  .work-home-entry h2 { font-size:30px; }
  .work-home-entry p { font-size:14px; }
 }
+
+.work-portal-soon .work-portal-art { top:50%; width:clamp(100px, 33%, 176px); transform:translateY(-50%); }
+.work-portal-soon:hover .work-portal-art { transform:translateY(-50%); }
+.work-portal-soon .work-icon { display:block; border:2px solid var(--line); }
