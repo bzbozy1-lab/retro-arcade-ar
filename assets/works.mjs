@@ -1,4 +1,4 @@
-import { safeUrl, validateData, releaseState, dateInZone, monthDays, shiftMonth } from './works-core.mjs';
+import { safeUrl, validateData, releaseState, dateInZone, monthDays, shiftMonth } from './works-core.mjs?v=release-precision-1';
 
 const $ = selector => document.querySelector(selector);
 if ($('#yearNow')) $('#yearNow').textContent = new Date().getFullYear();
@@ -124,22 +124,30 @@ function countdownMarkup(release, now) {
     '<span><b>' + String(state[key]).padStart(2, '0') + '</b><small>' + label + '</small></span>').join('');
 }
 function releaseCard(release, now) {
+  const opening = '<article class="work-release">' + cover(release) + '<div class="work-game-copy">' +
+    '<p class="work-meta">' + escapeHTML(release.platforms.join(' · ')) + '</p><h3 lang="en" dir="ltr">' +
+    escapeHTML(release.title) + '</h3>';
+  const closing = (release.note ? '<p>' + escapeHTML(release.note) + '</p>' : '') +
+    link(release.source, 'المصدر', 'work-file') + '</div></article>';
+  if (!release.date) {
+    return opening + '<p>' + (release.year ? '<time datetime="' + release.year + '">' +
+      release.year + '</time>' : 'يُعلن ويُحدّد لاحقًا') + '</p>' + closing;
+  }
   const time = release.instant ? new Intl.DateTimeFormat('ar-SA', {
     timeZone: release.timeZone, hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
   }).format(new Date(release.instant)) : 'وقت الإطلاق لم يُعلن';
-  return '<article class="work-release">' + cover(release) + '<div class="work-game-copy">' +
-    '<p class="work-meta">' + escapeHTML(release.platforms.join(' · ')) + '</p><h3 lang="en" dir="ltr">' +
-    escapeHTML(release.title) + '</h3><p><time datetime="' + escapeHTML(release.instant || release.date) + '">' +
+  return opening + '<p><time datetime="' + escapeHTML(release.instant || release.date) + '">' +
     dateLabel(release.date) + '</time></p><p class="work-meta">' + escapeHTML(release.region) + ' · ' +
     escapeHTML(time) + '</p><p class="work-zone">' + escapeHTML(release.timeZone) + '</p>' +
     '<div class="work-countdown" data-countdown="' + escapeHTML(release.id) +
-    '" role="timer" aria-label="الوقت المتبقي للإصدار">' + countdownMarkup(release, now) + '</div>' +
-    (release.note ? '<p>' + escapeHTML(release.note) + '</p>' : '') +
-    link(release.source, 'موعد الإصدار لدى المصدر', 'work-file') + '</div></article>';
+    '" role="timer" aria-label="الوقت المتبقي للإصدار">' + countdownMarkup(release, now) + '</div>' + closing;
 }
 function releases(data) {
   const baseZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
-  let month = dateInZone(new Date(), baseZone).slice(0, 7);
+  const today = dateInZone(new Date(), baseZone);
+  const dated = data.filter(item => item.date);
+  const nextDate = dated.map(item => item.date).filter(date => date >= today).sort()[0];
+  let month = nextDate?.slice(0, 7) || today.slice(0, 7);
   let day = '';
   let platform = '';
   const select = $('#releasePlatform');
@@ -151,11 +159,12 @@ function releases(data) {
   select.innerHTML = '<option value="">كل المنصات</option>' + platforms.map(value =>
     '<option>' + escapeHTML(value) + '</option>').join('');
   select.parentElement.hidden = platforms.length < 2;
-  const filtered = () => data.filter(item => item.date.startsWith(month) &&
-    (!platform || item.platforms.includes(platform)));
+  const matchesPlatform = item => !platform || item.platforms.includes(platform);
+  const pending = data.filter(item => !item.date).sort((a, b) =>
+    (a.year ?? Infinity) - (b.year ?? Infinity) || a.title.localeCompare(b.title));
   function render() {
     const now = new Date();
-    const rows = filtered();
+    const rows = dated.filter(item => item.date.startsWith(month) && matchesPlatform(item));
     const visible = rows.filter(item => !day || item.date === day)
       .sort((a, b) => a.date.localeCompare(b.date) || (a.instant || '').localeCompare(b.instant || ''));
     monthInput.value = month;
@@ -190,6 +199,9 @@ function releases(data) {
       empty(day ? 'لا توجد إصدارات لهذا اليوم' : 'التقويم ينتظر مواعيده',
         day ? 'اختر يومًا آخر أو اعرض الشهر كاملًا.' :
           'ستظهر الألعاب هنا مع مواعيدها ومصادرها عند إضافتها إلى هذا الشهر.', 'releases');
+    const pendingRows = pending.filter(matchesPlatform);
+    $('#releasePending').hidden = !pendingRows.length;
+    $('#releasePendingGrid').innerHTML = pendingRows.map(release => releaseCard(release, now)).join('');
     watchCovers();
   }
   $('#previousMonth').addEventListener('click', () => changeMonth(shiftMonth(month, -1)));
@@ -212,7 +224,7 @@ function releases(data) {
     if (day) calendar.querySelector('[data-date="' + day + '"]')?.focus({ preventScroll: true });
   });
   $('#clearDay').addEventListener('click', () => { day = ''; render(); });
-  const lookup = new Map(data.map(release => [release.id, release]));
+  const lookup = new Map(dated.map(release => [release.id, release]));
   function tick() {
     if (document.hidden) return;
     const now = new Date();
@@ -225,7 +237,7 @@ function releases(data) {
   let timer;
   function schedule() {
     clearInterval(timer);
-    if (!document.hidden && data.length) { tick(); timer = setInterval(tick, 1000); }
+    if (!document.hidden && dated.length) { tick(); timer = setInterval(tick, 1000); }
   }
   document.addEventListener('visibilitychange', schedule);
   schedule();

@@ -1,4 +1,205 @@
 {
   "translations": [],
-  "releases": []
+  "releases": [
+    {
+      "id": "resident-evil-veronica",
+      "title": "Resident Evil Veronica",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "Nintendo Switch 2",
+        "PC"
+      ],
+      "year": 2027,
+      "source": "https://www.capcom.co.jp/ir/english/news/html/e260608.html"
+    },
+    {
+      "id": "persona-4-revival",
+      "title": "Persona 4 Revival",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "Nintendo Switch 2",
+        "PC"
+      ],
+      "date": "2027-02-18",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://asia.sega.com/p4r/en/product/"
+    },
+    {
+      "id": "persona-6",
+      "title": "Persona 6",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "PC"
+      ],
+      "source": "https://sega.co.jp/en/release/260608_5.html"
+    },
+    {
+      "id": "final-fantasy-vii-revelation",
+      "title": "FINAL FANTASY VII REVELATION",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "Nintendo Switch 2",
+        "PC"
+      ],
+      "date": "2027-04-08",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://press.na.square-enix.com/en-US/FINAL-FANTASY-VII-REVELATION-RELEASES-APRIL-8-2027-ON-PHYSICAL-AND-DIG"
+    },
+    {
+      "id": "muramasa-revenant-blades",
+      "title": "Muramasa: Revenant Blades",
+      "platforms": [
+        "PlayStation 5",
+        "Nintendo Switch 2",
+        "Nintendo Switch",
+        "PC"
+      ],
+      "date": "2027-02-04",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://marvelous-usa.com/2026/09/03/muramasa-revenant-blades-cuts-a-path-towards-a-feb-4-2027-launch-on-playstation5-pc-nintendo-switch-2-and-nintendo-switch/"
+    },
+    {
+      "id": "wo-long-2-wings-of-ember",
+      "title": "Wo Long 2: Wings of Ember",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "Nintendo Switch 2",
+        "PC"
+      ],
+      "date": "2027-03-04",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://www.koeitecmoeurope.com/news/return-to-the-demon-infested-world-of-the-three-kingdoms-in-wo-long-2-wings-of-ember-on-4th-march-2027/"
+    },
+    {
+      "id": "expedition-backrooms",
+      "title": "Expedition: Backrooms",
+      "platforms": [
+        "PC"
+      ],
+      "year": 2027,
+      "source": "https://steamcommunity.com/app/2700560/discussions/0/658233614222352034/",
+      "note": "سنة مستهدفة بحسب المطوّر."
+    },
+    {
+      "id": "deadlock",
+      "title": "Deadlock",
+      "platforms": [
+        "PC"
+      ],
+      "source": "https://store.steampowered.com/app/1422450/Deadlock/"
+    },
+    {
+      "id": "metro-2039",
+      "title": "METRO 2039",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "PC"
+      ],
+      "date": "2027-02-04",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://press.plaion.com/en-US/METRO-2039-LAUNCHES-FEBRUARY-4th-2027"
+    },
+    {
+      "id": "pon",
+      "title": "P.O.N.",
+      "platforms": [
+        "PC"
+      ],
+      "source": "https://store.steampowered.com/app/3864580/PON/"
+    },
+    {
+      "id": "clockwork-revolution",
+      "title": "Clockwork Revolution",
+      "platforms": [
+        "Xbox Series X|S",
+        "PC"
+      ],
+      "year": 2027,
+      "source": "https://news.xbox.com/en-us/2026/06/07/clockwork-revolution-preview-xbox-games-showcase-2026/"
+    },
+    {
+      "id": "stranger-than-heaven",
+      "title": "STRANGER THAN HEAVEN",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "PC"
+      ],
+      "date": "2027-01-15",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://sega.prezly.com/tupac-shakur-joins-segars-stranger-than-heaven"
+    },
+    {
+      "id": "outward-2",
+      "title": "Outward 2",
+      "platforms": [
+        "PC"
+      ],
+      "date": "2027-02-08",
+      "timeZone": "Asia/Riyadh",
+      "region": "الموعد المعلن",
+      "source": "https://www.ninedotsstudio.com/news/outward-2-new-release-date",
+      "note": "دخول مبكر على الحاسب الشخصي."
+    },
+    {
+      "id": "atomic-heart-2",
+      "title": "Atomic Heart 2",
+      "platforms": [
+        "PC"
+      ],
+      "source": "https://store.steampowered.com/app/3788800/Atomic_Heart_2/"
+    },
+    {
+      "id": "alien-isolation-2",
+      "title": "Alien: Isolation 2",
+      "platforms": [
+        "PlayStation 5",
+        "Xbox Series X|S",
+        "Nintendo Switch 2",
+        "PC"
+      ],
+      "source": "https://www.sega.co.jp/en/release/260608_6.html"
+    },
+    {
+      "id": "tenebyss",
+      "title": "Tenebyss",
+      "platforms": [
+        "PC"
+      ],
+      "source": "https://store.steampowered.com/app/3516100/Tenebyss/"
+    },
+    {
+      "id": "the-wolf-among-us-2",
+      "title": "The Wolf Among Us 2",
+      "platforms": [
+        "PlayStation 5",
+        "PlayStation 4",
+        "Xbox Series X|S",
+        "Xbox One",
+        "PC"
+      ],
+      "year": 2027,
+      "source": "https://telltale.com/news/the-big-bad-wolf-returns/"
+    },
+    {
+      "id": "moylo",
+      "title": "Moylo",
+      "platforms": [
+        "PC"
+      ],
+      "source": "https://store.steampowered.com/app/4877950/"
+    }
+  ]
 }

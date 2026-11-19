@@ -97,14 +97,19 @@ export function validateData(data) {
     checkBase(item, 'release');
     if (!Array.isArray(item.platforms) || !item.platforms.length ||
       item.platforms.some(p => typeof p !== 'string' || !p.trim())) throw new Error('منصات الإصدار مطلوبة.');
-    if (!validDate(item.date)) throw new Error('تاريخ الإصدار غير صالح.');
-    requireText(item.timeZone, 'timeZone');
-    requireText(item.region, 'region');
     requireText(item.source, 'source');
-    new Intl.DateTimeFormat('ar', { timeZone: item.timeZone }).format();
-    if (item.instant && (!instantPattern.test(item.instant) || !Number.isFinite(Date.parse(item.instant)) ||
-      dateInZone(new Date(item.instant), item.timeZone) !== item.date)) {
-      throw new Error('وقت الإصدار لا يطابق تاريخه في المنطقة الزمنية المحددة.');
+    if (item.date !== undefined) {
+      if (!validDate(item.date) || item.year !== undefined) throw new Error('تاريخ الإصدار غير صالح.');
+      requireText(item.timeZone, 'timeZone');
+      requireText(item.region, 'region');
+      new Intl.DateTimeFormat('ar', { timeZone: item.timeZone }).format();
+      if (item.instant && (!instantPattern.test(item.instant) || !Number.isFinite(Date.parse(item.instant)) ||
+        dateInZone(new Date(item.instant), item.timeZone) !== item.date)) {
+        throw new Error('وقت الإصدار لا يطابق تاريخه في المنطقة الزمنية المحددة.');
+      }
+    } else if (item.instant !== undefined || (item.year !== undefined &&
+      (!Number.isInteger(item.year) || item.year < 1900 || item.year > 2200))) {
+      throw new Error('سنة الإصدار أو توقيته غير صالح.');
     }
     if (item.note !== undefined && typeof item.note !== 'string') throw new Error('ملاحظة الإصدار غير صالحة.');
   });
