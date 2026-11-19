@@ -176,3 +176,6 @@ html[data-theme="dark"] .work-filters :is(input,select) { color-scheme:dark; }
 .work-portal-soon .work-portal-art { top:50%; width:clamp(100px, 33%, 176px); transform:translateY(-50%); }
 .work-portal-soon:hover .work-portal-art { transform:translateY(-50%); }
 .work-portal-soon .work-icon { display:block; border:2px solid var(--line); }
+
+.work-stamp-approved { background:#fffbef; transform:none; }
+.work-stamp-approved img { display:block; object-fit:contain; }
