@@ -1,4 +1,4 @@
-(() => {
+function initNavScroll() {
   const header = document.querySelector('header.nav');
   if (!header || document.body.dataset.page === 'reader') return;
 
@@ -39,4 +39,5 @@
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule, { passive: true });
   window.addEventListener('pageshow', schedule);
-})();
+}
+document.addEventListener('DOMContentLoaded', initNavScroll, { once: true });
