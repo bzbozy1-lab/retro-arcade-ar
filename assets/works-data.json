@@ -33,7 +33,8 @@
       ],
       "year": 2027,
       "source": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4824610/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4824610/28045d733a3ada082858b5b1a5149e33ee40f378/header.jpg?t=1780990195",
+      "coverFallback": "https://image.api.playstation.com/vulcan/ap/rnd/202606/0600/18ffdebf95534a56925322bf23cab9187c0abc655f7c0ecb.png"
     },
     {
       "id": "persona-4-revival",
@@ -48,7 +49,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://asia.sega.com/p4r/en/product/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2963950/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2963950/e83b7da1c2e9ddbed1a27038bd86e9714b2aa893/header.jpg?t=1794969647",
+      "coverFallback": "https://image.api.playstation.com/vulcan/ap/rnd/202605/2501/e18dbddae30b20599f147ffc5eddf683f3274e8e703fcddb.jpg"
     },
     {
       "id": "persona-6",
@@ -59,7 +61,8 @@
         "PC"
       ],
       "source": "https://sega.co.jp/en/release/260608_5.html",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2649560/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2649560/96402e10ba89cccb7906eecd235d7d812f8f9eb0/header.jpg?t=1781799583",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/2649560/header.jpg"
     },
     {
       "id": "final-fantasy-vii-revelation",
@@ -74,7 +77,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://press.na.square-enix.com/en-US/FINAL-FANTASY-VII-REVELATION-RELEASES-APRIL-8-2027-ON-PHYSICAL-AND-DIG",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4354570/header.jpg"
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354570/e1750093047ef96e99879977810c9b4c774bab68/header.jpg?t=1793980510",
+      "coverFallback": "https://www.square-enix.com/asia/newsportal/ja/topics/img/ffvii-revelation_KV_1920x1920.jpg"
     },
     {
       "id": "muramasa-revenant-blades",
@@ -89,7 +93,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://marvelous-usa.com/2026/09/03/muramasa-revenant-blades-cuts-a-path-towards-a-feb-4-2027-launch-on-playstation5-pc-nintendo-switch-2-and-nintendo-switch/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4253770/header.jpg"
+      "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/0501/f57b71f48d0a670aaff0de70d09eef6b973f6cfff79a1e2d.jpg",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/4253770/header.jpg"
     },
     {
       "id": "wo-long-2-wings-of-ember",
@@ -104,7 +109,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://www.koeitecmoeurope.com/news/return-to-the-demon-infested-world-of-the-three-kingdoms-in-wo-long-2-wings-of-ember-on-4th-march-2027/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4507990/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4507990/7e7746ce07e19dc3a0e7f9b08546b9ffb9cbefd0/header.jpg?t=1794905093",
+      "coverFallback": "https://teamninja-studio.com/wolong2/assets/img/og_teaser_0608.jpg"
     },
     {
       "id": "expedition-backrooms",
@@ -115,7 +121,8 @@
       "year": 2027,
       "source": "https://steamcommunity.com/app/2700560/discussions/0/658233614222352034/",
       "note": "سنة مستهدفة بحسب المطوّر.",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2700560/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2700560/32cd48d349d8d7d3e8b05edcc902fc98b0598713/header.jpg?t=1783841849",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/2700560/header.jpg"
     },
     {
       "id": "deadlock",
@@ -124,7 +131,8 @@
         "PC"
       ],
       "source": "https://store.steampowered.com/app/1422450/Deadlock/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1422450/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1422450/aa249c5e8cc8f90941bd1dbdc311773cd1afe065/header.jpg?t=1790716179",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/1422450/header.jpg"
     },
     {
       "id": "metro-2039",
@@ -138,7 +146,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://press.plaion.com/en-US/METRO-2039-LAUNCHES-FEBRUARY-4th-2027",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2590240/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2590240/6998fb70f896b0f155061de0b472a8262bd06ef9/header.jpg?t=1792741532",
+      "coverFallback": "https://arkaden.dk/app/uploads/2026/04/M2039_KeyArt_3840x2160_Variant-scaled.jpg"
     },
     {
       "id": "pon",
@@ -147,7 +156,8 @@
         "PC"
       ],
       "source": "https://store.steampowered.com/app/3864580/PON/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3864580/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3864580/1edd9e7a8f48a168cc270f5c996e983fd53f4eb2/header.jpg?t=1780325656",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/3864580/header.jpg"
     },
     {
       "id": "clockwork-revolution",
@@ -158,7 +168,8 @@
       ],
       "year": 2027,
       "source": "https://news.xbox.com/en-us/2026/06/07/clockwork-revolution-preview-xbox-games-showcase-2026/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2439280/header.jpg"
+      "cover": "https://inx-assets-f2bqdze9c5gzazeh.z01.azurefd.net/dev/assets/large_Clock_Announce_wide_523c38c0b5.jpg",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/2439280/header.jpg"
     },
     {
       "id": "stranger-than-heaven",
@@ -172,7 +183,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://sega.prezly.com/tupac-shakur-joins-segars-stranger-than-heaven",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4260840/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4260840/3e40b76faf9a3eafb4397dd51308eb2e48ac3660/header.jpg?t=1794198873",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/4260840/header.jpg"
     },
     {
       "id": "outward-2",
@@ -185,7 +197,8 @@
       "region": "الموعد المعلن",
       "source": "https://www.ninedotsstudio.com/news/outward-2-new-release-date",
       "note": "دخول مبكر على الحاسب الشخصي.",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2849490/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2849490/8c4c2ce64e17967617a5a155920561d54b5fe351/header.jpg?t=1791475432",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/2849490/header.jpg"
     },
     {
       "id": "atomic-heart-2",
@@ -194,7 +207,8 @@
         "PC"
       ],
       "source": "https://store.steampowered.com/app/3788800/Atomic_Heart_2/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3788800/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3788800/ddbc5938e486052c2b51819e280a1993b5f510ac/header.jpg?t=1749814046",
+      "coverFallback": "https://file.mundfish.com/download/upload/media/image/ah2-2-68441e9e9a61d752766318.jpg"
     },
     {
       "id": "alien-isolation-2",
@@ -206,7 +220,8 @@
         "PC"
       ],
       "source": "https://www.sega.co.jp/en/release/260608_6.html",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4665290/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4665290/21eb5925869fb99fccbc24e682b0db22b9494543/header.jpg?t=1782805186",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/4665290/header.jpg"
     },
     {
       "id": "tenebyss",
@@ -215,7 +230,8 @@
         "PC"
       ],
       "source": "https://store.steampowered.com/app/3516100/Tenebyss/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3516100/header.jpg"
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3516100/header.jpg?t=1783882460",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/3516100/header.jpg"
     },
     {
       "id": "the-wolf-among-us-2",
@@ -229,7 +245,8 @@
       ],
       "year": 2027,
       "source": "https://telltale.com/news/the-big-bad-wolf-returns/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1884870/header.jpg"
+      "cover": "https://www.journaldugeek.com/app/uploads/2026/06/the-wolf-among-us-2-date-sortie.jpg",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/1884870/header.jpg"
     },
     {
       "id": "moylo",
@@ -238,7 +255,8 @@
         "PC"
       ],
       "source": "https://store.steampowered.com/app/4877950/",
-      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4877950/header.jpg"
+      "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4877950/390bed1eff708f1e5ec819c219a03604ef77d09b/header.jpg?t=1790971989",
+      "coverFallback": "https://cdn.akamai.steamstatic.com/steam/apps/4877950/header.jpg"
     }
   ]
 }

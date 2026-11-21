@@ -219,3 +219,51 @@ body[data-works="translations"] .work-game .work-cover { height:100%; max-height
 }
 
 body[data-works] .work-filters [hidden] { display:none; }
+
+/* Release cards give the artwork the full width of the card. */
+body[data-works="releases"] .work-release-month .work-release-list,
+body[data-works="releases"] #releaseGrid:not(.work-chronology) {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px;
+}
+body[data-works="releases"] .work-release {
+  display:flex; flex-direction:column; align-items:stretch; min-width:0;
+  overflow:hidden; border:2px solid var(--line); box-shadow:5px 5px 0 var(--line);
+}
+.work-release-art {
+  position:relative; display:grid; place-items:center; aspect-ratio:16/9;
+  overflow:hidden; background:repeating-linear-gradient(135deg,#172136 0 15px,#223862 15px 30px);
+  color:#f4fae8; text-align:center; isolation:isolate;
+}
+.work-release-art span { padding:16px; font:700 clamp(17px,2.3vw,28px)/1.15 Tajawal,sans-serif; }
+.work-release-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#131d30; }
+body[data-works="releases"] .work-release .work-game-copy {
+  display:flex; flex:1; flex-direction:column; align-items:start; gap:11px; padding:16px 18px;
+}
+body[data-works="releases"] .work-release h3 { margin:0; font-size:clamp(17px,2vw,22px); text-align:start; }
+.work-release-date { background:#d7f653; color:#172136; padding:3px 10px; font-weight:700; }
+.work-platform-tags { display:flex; flex-wrap:wrap; gap:5px; list-style:none; padding:0; margin:0; }
+.work-platform-tags li { border:1px solid currentColor; border-radius:3px; padding:2px 6px; font-size:12px; }
+.work-release-note { margin:0; font-size:14px; }
+.work-release-footer {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  width:100%; margin-block-start:auto; padding-block-start:9px; border-block-start:1px solid currentColor;
+}
+.work-release-footer .work-countdown { border:0; padding:0; margin:0; gap:6px; }
+.work-release-footer .work-file { margin:0; }
+body[data-works="releases"] .work-month-bar {
+  background:var(--panel); color:var(--text); border-block-end:3px solid #2f5bff;
+  border-inline-end:0; padding-inline:0; box-shadow:none;
+}
+body[data-works="releases"] .work-spotlight .work-release { display:grid; grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); }
+.work-spotlight .work-release-art { align-self:stretch; }
+body[data-works="releases"] .work-spotlight .work-game-copy { justify-content:center; padding:clamp(16px,3vw,32px); }
+body[data-works="releases"] .work-spotlight h3 { font-size:clamp(20px,3vw,38px); }
+@media(max-width:900px) {
+  body[data-works="releases"] .work-release-month .work-release-list,
+  body[data-works="releases"] #releaseGrid:not(.work-chronology) { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:580px) {
+  body[data-works="releases"] .work-release-month .work-release-list,
+  body[data-works="releases"] #releaseGrid:not(.work-chronology),
+  body[data-works="releases"] .work-spotlight .work-release { grid-template-columns:minmax(0,1fr); }
+}

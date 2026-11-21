@@ -125,23 +125,38 @@ function countdownMarkup(release, now) {
     '<span><b>' + String(state[key]).padStart(2, '0') + '</b><small>' + label + '</small></span>').join('');
 }
 function releaseCard(release, now) {
-  const opening = '<article class="work-release">' + cover(release) + '<div class="work-game-copy">' +
-    '<p class="work-meta">' + escapeHTML(release.platforms.join(' · ')) + '</p><h3 lang="en" dir="ltr">' +
-    escapeHTML(release.title) + '</h3>';
-  const closing = (release.note ? '<p>' + escapeHTML(release.note) + '</p>' : '') +
-    link(release.source, 'المصدر', 'work-file') + '</div></article>';
-  if (!release.date) {
-    return opening + '<p>' + (release.year ? '<time datetime="' + release.year + '">' +
-      release.year + '</time>' : 'يُعلن ويُحدّد لاحقًا') + '</p>' + closing;
-  }
-  const time = release.instant ? new Intl.DateTimeFormat('ar-SA', {
-    timeZone: release.timeZone, hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
-  }).format(new Date(release.instant)) : 'وقت الإطلاق لم يُعلن';
-  return opening + '<p><time datetime="' + escapeHTML(release.instant || release.date) + '">' +
-    dateLabel(release.date) + '</time></p><p class="work-meta">' + escapeHTML(release.region) + ' · ' +
-    escapeHTML(time) + '</p><p class="work-zone">' + escapeHTML(release.timeZone) + '</p>' +
-    '<div class="work-countdown" data-countdown="' + escapeHTML(release.id) +
-    '" role="timer" aria-label="الوقت المتبقي للإصدار">' + countdownMarkup(release, now) + '</div>' + closing;
+  const src = safeUrl(release.cover);
+  const fallback = safeUrl(release.coverFallback);
+  const date = release.date ? '<time datetime="' + release.date + '">' + dateLabel(release.date) + '</time>' :
+    release.year ? '<time datetime="' + release.year + '">' + release.year + '</time>' : 'يُعلن ويُحدّد لاحقًا';
+  return '<article class="work-release">' +
+    '<div class="work-release-art"><span aria-hidden="true">' + escapeHTML(release.title) + '</span>' +
+    (src ? '<img src="' + escapeHTML(src) + '" data-fallback="' + escapeHTML(fallback) +
+      '" alt="" loading="lazy" decoding="async" width="460" height="215">' : '') + '</div>' +
+    '<div class="work-game-copy"><div class="work-release-date">' + date + '</div>' +
+    '<h3 lang="en" dir="ltr">' + escapeHTML(release.title) + '</h3>' +
+    '<ul class="work-platform-tags" aria-label="المنصات">' +
+    release.platforms.map(platform => '<li>' + escapeHTML(platform) + '</li>').join('') + '</ul>' +
+    (release.note ? '<p class="work-release-note">' + escapeHTML(release.note) + '</p>' : '') +
+    '<div class="work-release-footer">' +
+    (release.date ? '<div class="work-countdown" data-countdown="' + escapeHTML(release.id) +
+      '" role="timer" aria-label="الوقت المتبقي للإصدار">' + countdownMarkup(release, now) + '</div>' : '') +
+    link(release.source, 'المصدر', 'work-file') + '</div></div></article>';
+}
+function watchReleaseArt() {
+  document.querySelectorAll('.work-release-art img').forEach(image => {
+    const onError = () => {
+      if (image.dataset.fallback) {
+        const fallback = image.dataset.fallback;
+        delete image.dataset.fallback;
+        image.src = fallback;
+      } else {
+        image.remove();
+      }
+    };
+    image.addEventListener('error', onError);
+    if (image.complete && !image.naturalWidth) onError();
+  });
 }
 function releases(data) {
   const baseZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
@@ -230,7 +245,7 @@ function releases(data) {
       (year ? 'خلال ' + year : 'يُعلن ويُحدّد لاحقًا') + '</h3><div class="work-release-list">' +
       pendingRows.filter(item => (item.year || 0) === year).map(item => releaseCard(item, now)).join('') +
       '</div></section>').join('');
-    watchCovers();
+    watchReleaseArt();
   }
   function setView(calendarMode) {
     showCalendar = calendarMode;
