@@ -1,0 +1,66 @@
+.sakhr-entry { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sakhr-entry-playing {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    animation: sakhr-entry-end 1700ms linear both;
+  }
+  .sakhr-entry-panel {
+    position: absolute;
+    inset-inline: 0;
+    height: calc(50% + 1px);
+    background: repeating-linear-gradient(0deg, transparent 0 3px, #74b08515 3px 4px),
+      radial-gradient(ellipse at 50% 80%, #204038, #0b1718 70%);
+  }
+  .sakhr-entry-top {
+    top: 0;
+    animation: sakhr-entry-top 1650ms cubic-bezier(.72,0,.22,1) both;
+  }
+  .sakhr-entry-bottom {
+    bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, #74b08515 3px 4px),
+      radial-gradient(ellipse at 50% 0, #204038, #0b1718 70%);
+    animation: sakhr-entry-bottom 1650ms cubic-bezier(.72,0,.22,1) both;
+  }
+  .sakhr-entry-beam {
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    height: 2px;
+    background: #ccffa4;
+    box-shadow: 0 0 18px 3px #8bec71;
+    animation: sakhr-entry-beam 1300ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .sakhr-entry-title {
+    position: relative;
+    display: grid;
+    gap: .2em;
+    padding: .4em .8em;
+    text-align: center;
+    color: #dbffbb;
+    font: 700 clamp(2rem, 10vw, 5.5rem)/1.15 Tajawal, sans-serif;
+    text-shadow: 0 0 .3em #a4ef83;
+    animation: sakhr-entry-title 1520ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .sakhr-entry-title small { font-size: .32em; }
+}
+
+@keyframes sakhr-entry-end { 0%, 99% { visibility: visible; } 100% { visibility: hidden; } }
+@keyframes sakhr-entry-top { 0%, 59% { transform: none; } 100% { transform: translateY(-102%); } }
+@keyframes sakhr-entry-bottom { 0%, 59% { transform: none; } 100% { transform: translateY(102%); } }
+@keyframes sakhr-entry-beam {
+  0% { opacity: 0; transform: scaleX(.015); }
+  23%, 55% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(1); }
+}
+@keyframes sakhr-entry-title {
+  0%, 12% { opacity: 0; transform: scaleY(.06); }
+  38%, 65% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: scale(1.04); }
+}
