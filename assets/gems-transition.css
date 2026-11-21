@@ -1,0 +1,11 @@
+.gems-title-display{display:flex;align-items:center;gap:clamp(6px,2vw,24px);min-width:0}
+.gems-chest{display:block;flex:none;width:clamp(60px,11vw,132px);height:auto;overflow:visible;pointer-events:none}
+.gems-chest g,.gems-chest path{transform-box:fill-box;transform-origin:center}
+.gems-chest .gems-lid{transform-origin:center bottom}
+.gems-halo,.gems-brackets,.gems-seam,.gems-prism,.gems-spark{opacity:0}
+html[data-theme="dark"] .gems-brackets{stroke:#d7f653}
+.gems-reveal-rail{display:grid;grid-template-columns:repeat(12,1fr);height:0;overflow:visible;pointer-events:none}
+.gems-reveal-rail i{height:4px;background:#ffcf65;opacity:0;box-shadow:0 0 8px #df8c25}
+#gemGrid .gameimage.gems-lit{position:relative;isolation:isolate;overflow:hidden}
+.gems-light{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(113deg,transparent 22%,#ffcf658a 50%,transparent 78%);opacity:0}
+@media(max-width:420px){body[data-page="gems"] .sectionhead{flex-wrap:wrap}.gems-title-display h1{min-width:0}}
