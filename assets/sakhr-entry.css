@@ -64,3 +64,10 @@
   38%, 65% { opacity: 1; transform: none; }
   100% { opacity: 0; transform: scale(1.04); }
 }
+
+@media (prefers-reduced-motion: no-preference) and (pointer: coarse) {
+  .sakhr-entry-playing { animation-duration: 1080ms; }
+  .sakhr-entry-top, .sakhr-entry-bottom { animation-duration: 1045ms; }
+  .sakhr-entry-beam { animation-duration: 825ms; }
+  .sakhr-entry-title { animation-duration: 965ms; }
+}

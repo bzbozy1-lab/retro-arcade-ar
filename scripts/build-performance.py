@@ -40,7 +40,7 @@ for page in ROOT.glob('*.html'):
  # Version edited standalone scripts as well, without broad cache invalidation.
  text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',lambda m:m[1]+(('?v=gems-72' if page.stem=='gems' else '?v=edition-details-1') if m[1]=='assets/catalog.js' else '?v=museum-navigation-1' if m[1]=='assets/app.js' and page.stem in ('games','device') else '?v=gems-72' if m[1]=='assets/app.js' and page.stem=='gems' else '?v=shawq-awar-1'),text)
  text=text.replace('assets/app.js?v=opt-1','assets/app.js?v=opt-3').replace('assets/app.js?v=opt-2','assets/app.js?v=opt-3')
- if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=opt-1"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
+ if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=fast-start-2"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
  if page.stem=='reader':
   catalog=json.loads((ROOT/'assets/magazines/catalog.json').read_text())['items']
   fields=['id','title','category','cover','pages','bytes','sha256','pageImages']

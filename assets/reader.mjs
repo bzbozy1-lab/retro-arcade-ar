@@ -1,6 +1,6 @@
 import{PageCache,swipeStep}from './reader-engine.mjs?v=reader-book-1';
 import{readState,updateState,validPage,openingPage,issueURL,loadCatalog,formatSize}from './magazine-state.mjs?v=bookmarks-1';
-import{openImageDocument}from './reader-images.mjs?v=opt-1';
+import{openImageDocument}from './reader-images.mjs?v=fast-start-2';
 const $=s=>document.querySelector(s),app=$('#readerApp'),stage=$('#readerStage'),sheet=$('#pageSheet'),status=$('#readerStatus'),input=$('#readerPage');
 let issue,pdf,request=0,current=1,zoom=1,rotation=0,thumbObserver,thumbGeneration=0,engine,wanted=1,retryNumber=1,loadingTimer,turnTimer;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -47,6 +47,7 @@ async function showPage(number){
   const entry=await engine.get(next,view);
   if(seq!==request)return;
   displayPage(entry,next);
+  if(next!==current)window.CartoAudio?.play('navigate');
   current=next;
   controls();
   $('#readerPreview').hidden=true;
@@ -54,7 +55,7 @@ async function showPage(number){
   busy(false);
   say('صفحة '+current+' من '+pdf.numPages+' — '+issue.title);
   // Prepare only the next leaf, after the visible page has been committed.
-  if(next<pdf.numPages&&zoom===1&&!document.hidden&&!navigator.connection?.saveData){
+  if(next<pdf.numPages&&zoom===1&&!document.hidden&&!navigator.connection?.saveData&&!/2g|3g/.test(navigator.connection?.effectiveType||'')){
    engine.get(next+1,view).catch(()=>{});
   }
  }catch(error){
@@ -68,7 +69,6 @@ function pageStep(amount){
  if(!pdf)return;
  const next=validPage(wanted+amount,pdf.numPages);
  if(next===wanted)return;
- window.CartoAudio?.play('navigate');
  closeOptions();
  showPage(next);
 }
@@ -86,8 +86,7 @@ $('#toggleThumbnails').addEventListener('click',openThumbnails);$('#thumbnailLis
 
 $('#downloadReadingCopy').addEventListener('click',async()=>{if(!issue)return;const button=$('#downloadReadingCopy');button.disabled=true;try{say('جارٍ تجهيز نسخة القراءة للتنزيل…');const complete=(await loadCatalog()).find(x=>x.id===issue.id&&x.sha256===issue.sha256);if(!complete)throw Error("Missing download source");const {downloadIssue}=await import('./magazine-range.mjs?v=reader-fast-1');const blob=await downloadIssue(complete,(loaded,total)=>say('تجهيز التنزيل… '+Math.round(loaded/total*100)+'٪'));const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=issue.id+'.pdf';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);say('جُهّزت نسخة القراءة وأُرسل طلب التنزيل إلى المتصفح.')}catch{say('تعذر تجهيز التنزيل. تحقق من الاتصال وأعد المحاولة.')}finally{button.disabled=false}});
 let resizeTimer;new ResizeObserver(()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(pdf)showPage(wanted,{save:false})},120)}).observe(stage);new ResizeObserver(()=>{document.documentElement.style.setProperty('--reader-nav-height',$('.nav').getBoundingClientRect().height+'px')}).observe($('.nav'));
-window.addEventListener('pageshow',event=>{if(event.persisted)location.reload()});
-window.addEventListener('pagehide',()=>{++request;clearTimeout(loadingTimer);clearTimeout(resizeTimer);stopTurn();engine?.dispose();pdf?.destroy()},{once:true});
+window.addEventListener('pagehide',event=>{if(event.persisted)return;++request;clearTimeout(loadingTimer);clearTimeout(resizeTimer);stopTurn();engine?.dispose();pdf?.destroy()});
 try{const items=JSON.parse($('#readerIssueIndex').textContent),params=new URLSearchParams(location.search);issue=items.find(x=>x.id===params.get('id'));if(!issue)throw Error('unknown');document.dispatchEvent(new Event('carto:magazine-open'));$('#readerTitle').textContent=issue.title;$('#readerCoverPreview').src=issue.cover;$('#readerPreview').hidden=false;document.title=issue.title+' | شوق آور';$('#readerCategory').textContent=({general:'مجلات منوعة',specials:'حلول وأعداد خاصة',manuals:'أدلة الأجهزة'})[issue.category];$('#readerFileSize').textContent='نسخة القراءة · '+formatSize(issue.bytes);$('#downloadReadingCopy').hidden=false;if(issue.file){$('#openReadingCopy').href=issue.file;$('#openReadingCopy').hidden=false}pdf=await openImageDocument(issue);engine=new PageCache(pdf);document.querySelectorAll('[data-reader-control]').forEach(b=>b.disabled=false);current=openingPage(readState(),issue.id,pdf.numPages,params.get('page'));wanted=current;await showPage(current);}
 catch(error){$('#readerTitle').textContent=issue?.title||'العدد غير موجود';fail(issue?'تعذر فتح الملف. تحقق من الاتصال، أو نزّل نسخة القراءة PDF.':'رابط العدد غير صحيح. عد إلى المكتبة واختر أحد الإصدارات المتاحة.');}
 

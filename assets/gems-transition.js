@@ -1,5 +1,6 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const speed = matchMedia('(pointer: coarse)').matches ? .63 : 1;
   const nav = performance.getEntriesByType('navigation')[0];
   if (reduced.matches || document.hidden || location.hash ||
       (nav && nav.type !== 'navigate') || !Element.prototype.animate) return;
@@ -33,7 +34,7 @@
     rail.setAttribute('aria-hidden', 'true');
     grid.before(rail);
     const motion = (node, frames, delay, duration, easing = ease) =>
-      effects.push(node.animate(frames, { delay, duration, easing, fill: 'both' }));
+      effects.push(node.animate(frames, { delay: delay * speed, duration: duration * speed, easing, fill: 'both' }));
     const move = (selector, frames, delay, duration) =>
       motion(chest.querySelector(selector), frames, delay, duration);
 
@@ -48,7 +49,7 @@
       rail.remove();
       scene.remove();
     }
-    const timer = setTimeout(finish, 2000);
+    const timer = setTimeout(finish, 2000 * speed);
     window.addEventListener('pagehide', finish, { signal });
     window.addEventListener('keydown', event => { if (event.key === 'Escape') finish(); }, { signal });
     document.addEventListener('focusin', finish, { signal, once: true });

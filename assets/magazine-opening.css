@@ -77,3 +77,9 @@
   0%, 48% { transform: translateY(0); }
   100% { transform: translateY(-110%); }
 }
+
+@media (prefers-reduced-motion: no-preference) and (pointer: coarse) {
+  .magazine-press-paper { animation-duration: 950ms; }
+  .magazine-press-impression, .magazine-press-rollers { animation-duration: 456ms; }
+  .magazine-press-rollers i { animation-duration: 100ms; }
+}

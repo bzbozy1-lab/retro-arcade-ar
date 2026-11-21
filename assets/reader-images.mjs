@@ -12,13 +12,29 @@ export function validatePageImages(issue,data){
  for(const page of data.pages){const pack=data.packs[page.pack];if(!pack||!Number.isInteger(page.offset)||!Number.isInteger(page.bytes)||page.offset<0||page.bytes<12||page.offset+page.bytes>pack.bytes||!Number.isInteger(page.width)||!Number.isInteger(page.height)||page.width<1||page.height<1||page.width*page.height>12e6)throw Error('Invalid page bounds');}
  return true;
 }
+async function decodePage(blob){
+ if(typeof createImageBitmap==='function'){
+  try{return await createImageBitmap(blob);}catch(error){if(typeof Image!=='function')throw error;}
+ }
+ const url=URL.createObjectURL(blob);
+ try{
+  return await new Promise((resolve,reject)=>{
+   const image=new Image();
+   image.onload=()=>resolve(image);
+   image.onerror=()=>reject(Error('Unable to decode page image'));
+   image.src=url;
+  });
+ }finally{URL.revokeObjectURL(url);}
+}
 export class ImagePagesDocument{
- constructor(issue,data,{fetcher=fetch,decode=blob=>createImageBitmap(blob),diskCache=new ReaderDiskCache()}={}){
+ constructor(issue,data,{fetcher=fetch,decode=decodePage,diskCache=new ReaderDiskCache()}={}){
   validatePageImages(issue,data);this.source=issue.sha256;this.diskCache=diskCache;this.numPages=data.pages.length;this.data=data;this.fetcher=fetcher;this.decode=decode;this.controller=new AbortController();this.cache=new Map();this.inflight=new Map();this.bytes=new Map();this.pending=new Map();this.closed=false;
  }
  async pageBytes(number){
   if(this.closed)throw Error('Reader closed');if(this.bytes.has(number)){const value=this.bytes.get(number);this.bytes.delete(number);this.bytes.set(number,value);return value;}if(this.pending.has(number))return this.pending.get(number);
-  const task=(async()=>{const page=this.data.pages[number-1];const stored=await this.diskCache?.get(this.source,number,page.bytes);if(stored){this.remember(number,stored);return stored;}const pack=this.data.packs[page.pack];const options={signal:this.controller.signal,fetcher:(url,opts)=>fetchBytes(url,opts,this.fetcher),cache:this.cache,inflight:this.inflight};const data=await readRange([{...pack,offset:0}],page.offset,page.offset+page.bytes,options);if(String.fromCharCode(...data.subarray(0,4))!=='RIFF'||String.fromCharCode(...data.subarray(8,12))!=='WEBP')throw Error('Invalid page image');this.remember(number,data);this.diskCache?.put(this.source,number,data);return data;})();this.pending.set(number,task);try{return await task;}finally{this.pending.delete(number);}
+  const task=(async()=>{const page=this.data.pages[number-1];const stored=await this.diskCache?.get(this.source,number,page.bytes);if(stored){this.remember(number,stored);return stored;}const pack=this.data.packs[page.pack];const options={signal:this.controller.signal,fetcher:(url,opts)=>fetchBytes(url,opts,this.fetcher),cache:this.cache,inflight:this.inflight};const data=page.offset===0&&page.bytes===pack.bytes
+    ?new Uint8Array(await (await fetchBytes(pack.file,{signal:options.signal},this.fetcher)).arrayBuffer())
+    :await readRange([{...pack,offset:0}],page.offset,page.offset+page.bytes,options);if(String.fromCharCode(...data.subarray(0,4))!=='RIFF'||String.fromCharCode(...data.subarray(8,12))!=='WEBP')throw Error('Invalid page image');this.remember(number,data);this.diskCache?.put(this.source,number,data);return data;})();this.pending.set(number,task);try{return await task;}finally{this.pending.delete(number);}
  }
  remember(number,data){this.bytes.set(number,data);while(this.bytes.size>6)this.bytes.delete(this.bytes.keys().next().value);}
  async getPage(number){

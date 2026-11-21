@@ -20,18 +20,19 @@
  };
  let enabled=false,context=null,master=null,voices=[],sequence=0,interacted=false,celebrationUntil=0;
  try{enabled=localStorage.getItem('carto-sound')==='on'}catch(e){}
+ const navigationCueKey='carto-navigation-cue';
  const endOf=name=>Math.max(...scores[name].notes.map(n=>n[1]+n[2]))+.025;
  function stop(){sequence++;voices.forEach(v=>{try{v.stop();v.disconnect()}catch(e){}});voices=[]}
  async function schedule(name,allowOff=false){
   if(!scores[name]||(!enabled&&!allowOff)||!interacted||document.hidden)return false;
   if(!allowOff&&name!=='achievement'&&Date.now()<celebrationUntil)return false;
   if(name==='achievement')celebrationUntil=Date.now()+600;
-  stop();const request=sequence;
+  stop();const request=sequence,deadline=performance.now()+150;
   try{
    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
    if(!context){context=new AC();master=context.createGain();master.gain.value=.12;master.connect(context.destination)}
    if(context.state==='suspended')await context.resume();
-   if(request!==sequence||(!enabled&&!allowOff)||context.state!=='running')return false;
+   if(performance.now()>deadline||document.hidden||request!==sequence||(!enabled&&!allowOff)||context.state!=='running')return false;
    const start=context.currentTime+.008;
    scores[name].notes.forEach(([midi,delay,length,volume,type])=>{
     const voice=context.createOscillator(),gain=context.createGain(),time=start+delay;
@@ -86,10 +87,8 @@
   if(!link&&event.target.closest('[data-letter]')){schedule('navigate');return}
   if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target||link.hasAttribute('download'))return;
   const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;
-  if(!enabled||url.pathname.endsWith('/reader.html'))return;
-  const cue=classifyLink(link);
-  // Let opt-in navigation cues finish, bounded to 260ms. Other navigation is immediate.
-  event.preventDefault();schedule(cue);setTimeout(()=>location.assign(url.href),Math.min(endOf(cue)*1000,260));
+  if(!enabled||url.href===location.href||/\/(?:reader|magazines|sakhr)\.html$/.test(url.pathname))return;
+  try{sessionStorage.setItem(navigationCueKey,JSON.stringify({url:url.href,cue:classifyLink(link),expires:Date.now()+8000}));}catch(e){}
  });
  document.addEventListener('carto:dialog-open',event=>schedule(event.detail?.dialog?.id==='wishlistModal'?'heart':'open'));
  document.addEventListener('carto:dialog-close',()=>schedule('back'));
@@ -97,7 +96,17 @@
  document.addEventListener('carto:theme-change',()=>schedule('transform'));
  document.addEventListener('carto:wishlist-change',event=>{const cue='save_'+event.detail?.category;schedule(event.detail?.action==='save'?(scores[cue]?cue:'save'):'back')});
  document.addEventListener('carto:achievement',()=>schedule('achievement'));
- function init(){paint()}
+ function init(){
+  paint();
+  try{
+   const pending=JSON.parse(sessionStorage.getItem(navigationCueKey)||'null');
+   sessionStorage.removeItem(navigationCueKey);
+   if(!enabled||!pending||pending.url!==location.href||pending.expires<Date.now()||
+      performance.getEntriesByType('navigation')[0]?.type==='back_forward')return;
+   interacted=true;
+   schedule(pending.cue);
+  }catch(e){}
+ }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
  window.CartoAudio={play:name=>schedule(name),setEnabled,createToggle,refresh:paint,get enabled(){return enabled},scores,endOf};
 })();
