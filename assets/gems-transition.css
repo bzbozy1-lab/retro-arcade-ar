@@ -9,3 +9,33 @@ html[data-theme="dark"] .gems-brackets{stroke:#d7f653}
 #gemGrid .gameimage.gems-lit{position:relative;isolation:isolate;overflow:hidden}
 .gems-light{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(113deg,transparent 22%,#ffcf658a 50%,transparent 78%);opacity:0}
 @media(max-width:420px){body[data-page="gems"] .sectionhead{flex-wrap:wrap}.gems-title-display h1{min-width:0}}
+
+.gems-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+.gems-entrance-panel {
+  position: absolute;
+  inset-block: 0;
+  width: calc(50% + 2px);
+  box-sizing: border-box;
+  background:
+    linear-gradient(0deg, #0b1329 0%, transparent 100%),
+    radial-gradient(circle, #7d9af56b 1px, transparent 1.6px) 0 0 / 12px 12px,
+    #1c3265;
+  box-shadow: inset 0 0 0 9px #0b1329, inset 0 0 0 11px #5978c3;
+}
+.gems-entrance-right { right: 0; border-left: 3px solid #ffcf65; }
+.gems-entrance-left { left: 0; border-right: 3px solid #ffcf65; }
+.gems-entrance .gems-chest {
+  position: relative;
+  width: clamp(160px, 28vw, 280px);
+  filter: drop-shadow(0 12px 0 #0b1329) drop-shadow(0 0 22px #ffcf6566);
+}
+.gems-entrance .gems-brackets { stroke: #d7f653; }
+@media (prefers-reduced-motion: reduce) { .gems-entrance { display: none; } }

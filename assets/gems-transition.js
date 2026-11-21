@@ -5,16 +5,29 @@
       (nav && nav.type !== 'navigate') || !Element.prototype.animate) return;
 
   document.addEventListener('DOMContentLoaded', () => {
-    const chest = document.querySelector('.gems-chest');
+    const emblem = document.querySelector('.gems-chest');
     const grid = document.querySelector('#gemGrid');
-    if (!chest || !grid || reduced.matches || document.hidden) return;
-    if (chest.getBoundingClientRect().bottom < 0) return;
+    if (!emblem || !grid || reduced.matches || document.hidden) return;
+    if (emblem.getBoundingClientRect().bottom < 0) return;
 
     const effects = [];
     const glints = [];
     const controller = new AbortController();
     const { signal } = controller;
     const ease = 'cubic-bezier(.22,1,.36,1)';
+    const scene = document.createElement('div');
+    scene.className = 'gems-entrance';
+    scene.setAttribute('aria-hidden', 'true');
+    const rightPanel = document.createElement('div');
+    const leftPanel = document.createElement('div');
+    rightPanel.className = 'gems-entrance-panel gems-entrance-right';
+    leftPanel.className = 'gems-entrance-panel gems-entrance-left';
+    const chest = emblem.cloneNode(true);
+    chest.querySelector('clipPath').id = 'gems-entrance-facets';
+    chest.querySelector('[clip-path]').setAttribute('clip-path', 'url(#gems-entrance-facets)');
+    scene.append(rightPanel, leftPanel, chest);
+    document.body.append(scene);
+
     const rail = document.createElement('div');
     rail.className = 'gems-reveal-rail';
     rail.setAttribute('aria-hidden', 'true');
@@ -33,12 +46,21 @@
         image.classList.remove('gems-lit');
       }
       rail.remove();
+      scene.remove();
     }
     const timer = setTimeout(finish, 2000);
     window.addEventListener('pagehide', finish, { signal });
     window.addEventListener('keydown', event => { if (event.key === 'Escape') finish(); }, { signal });
     document.addEventListener('focusin', finish, { signal, once: true });
     reduced.addEventListener('change', event => { if (event.matches) finish(); }, { signal });
+
+    motion(rightPanel, [{transform:'none'}, {transform:'translateX(102%)'}], 890, 590);
+    motion(leftPanel, [{transform:'none'}, {transform:'translateX(-102%)'}], 985, 650);
+    motion(chest, [
+      {opacity:1,transform:'translateY(0) scale(1)'},
+      {opacity:.9,offset:.26},
+      {opacity:0,transform:'translateY(-28px) scale(1.09)'}
+    ], 970, 470);
 
     move('.gems-lid', [
       { transform:'translateY(20px)' },
@@ -67,7 +89,7 @@
     for (let i = 0; i < 12; i++) {
       const pixel = document.createElement('i');
       rail.append(pixel);
-      motion(pixel,[{opacity:0},{opacity:1,offset:.32},{opacity:0}],1060+i*55,260);
+      motion(pixel,[{opacity:0},{opacity:1,offset:.32},{opacity:0}],1310+i*38,230);
     }
 
     const cards = [...grid.querySelectorAll('.gem-game')];
@@ -82,7 +104,7 @@
       image.classList.add('gems-lit');
       image.append(light);
       glints.push([image, light]);
-      const start = 1110+index*410/Math.max(2,row.length-1);
+      const start = 1400+index*165/Math.max(2,row.length-1);
       motion(light, [
         {opacity:0,transform:'translateX(65%)'},
         {opacity:.85,offset:.32},
