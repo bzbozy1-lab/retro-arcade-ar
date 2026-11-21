@@ -206,3 +206,18 @@ html[data-theme="light"] footer.footer:has(.shawq-wordmark) .shawq-mark-dark { d
 @media (max-width: 620px) {
   html[data-theme] footer.footer:has(.shawq-wordmark) .footerin { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* Museum shelf behind the existing navigation row. */
+header.nav .navlinks {
+  background: linear-gradient(90deg, transparent, #2f5bff55 20% 80%, transparent) center bottom / 100% 1px no-repeat;
+}
+@media (min-width: 1440px) {
+  html[data-theme] header.nav:has(.shawq-wordmark) {
+    --nav-shelf-width: clamp(106px, calc(50vw - 604px), 350px);
+    background-image: url("shawq-awar/nav-shelf-left.png"), url("shawq-awar/nav-shelf-right.png") !important;
+    background-position: left bottom, right bottom !important;
+    background-size: var(--nav-shelf-width) auto !important;
+    background-repeat: no-repeat !important;
+  }
+}
