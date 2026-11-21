@@ -7,7 +7,7 @@
       "status": "متاح للتحميل",
       "emulator": "PCSX2",
       "description": "تعريب عربي للعبة Samurai Warriors 2: Empires على PlayStation 2.",
-      "cover": "https://art.gametdb.com/ps2/cover/US/SLUS21585.png",
+      "cover": "https://vgcollect.com/images/front-box-art/23837.jpg",
       "downloads": [
         {
           "label": "تحميل التعريب",
@@ -32,7 +32,8 @@
         "PC"
       ],
       "year": 2027,
-      "source": "https://www.capcom.co.jp/ir/english/news/html/e260608.html"
+      "source": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4824610/header.jpg"
     },
     {
       "id": "persona-4-revival",
@@ -57,7 +58,8 @@
         "Xbox Series X|S",
         "PC"
       ],
-      "source": "https://sega.co.jp/en/release/260608_5.html"
+      "source": "https://sega.co.jp/en/release/260608_5.html",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2649560/header.jpg"
     },
     {
       "id": "final-fantasy-vii-revelation",
@@ -112,7 +114,8 @@
       ],
       "year": 2027,
       "source": "https://steamcommunity.com/app/2700560/discussions/0/658233614222352034/",
-      "note": "سنة مستهدفة بحسب المطوّر."
+      "note": "سنة مستهدفة بحسب المطوّر.",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2700560/header.jpg"
     },
     {
       "id": "deadlock",
@@ -120,7 +123,8 @@
       "platforms": [
         "PC"
       ],
-      "source": "https://store.steampowered.com/app/1422450/Deadlock/"
+      "source": "https://store.steampowered.com/app/1422450/Deadlock/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1422450/header.jpg"
     },
     {
       "id": "metro-2039",
@@ -142,7 +146,8 @@
       "platforms": [
         "PC"
       ],
-      "source": "https://store.steampowered.com/app/3864580/PON/"
+      "source": "https://store.steampowered.com/app/3864580/PON/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3864580/header.jpg"
     },
     {
       "id": "clockwork-revolution",
@@ -152,7 +157,8 @@
         "PC"
       ],
       "year": 2027,
-      "source": "https://news.xbox.com/en-us/2026/06/07/clockwork-revolution-preview-xbox-games-showcase-2026/"
+      "source": "https://news.xbox.com/en-us/2026/06/07/clockwork-revolution-preview-xbox-games-showcase-2026/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2439280/header.jpg"
     },
     {
       "id": "stranger-than-heaven",
@@ -187,7 +193,8 @@
       "platforms": [
         "PC"
       ],
-      "source": "https://store.steampowered.com/app/3788800/Atomic_Heart_2/"
+      "source": "https://store.steampowered.com/app/3788800/Atomic_Heart_2/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3788800/header.jpg"
     },
     {
       "id": "alien-isolation-2",
@@ -198,7 +205,8 @@
         "Nintendo Switch 2",
         "PC"
       ],
-      "source": "https://www.sega.co.jp/en/release/260608_6.html"
+      "source": "https://www.sega.co.jp/en/release/260608_6.html",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4665290/header.jpg"
     },
     {
       "id": "tenebyss",
@@ -206,7 +214,8 @@
       "platforms": [
         "PC"
       ],
-      "source": "https://store.steampowered.com/app/3516100/Tenebyss/"
+      "source": "https://store.steampowered.com/app/3516100/Tenebyss/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/3516100/header.jpg"
     },
     {
       "id": "the-wolf-among-us-2",
@@ -219,7 +228,8 @@
         "PC"
       ],
       "year": 2027,
-      "source": "https://telltale.com/news/the-big-bad-wolf-returns/"
+      "source": "https://telltale.com/news/the-big-bad-wolf-returns/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1884870/header.jpg"
     },
     {
       "id": "moylo",
@@ -227,7 +237,8 @@
       "platforms": [
         "PC"
       ],
-      "source": "https://store.steampowered.com/app/4877950/"
+      "source": "https://store.steampowered.com/app/4877950/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4877950/header.jpg"
     }
   ]
 }
