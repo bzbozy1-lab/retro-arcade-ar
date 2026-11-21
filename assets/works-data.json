@@ -1,5 +1,26 @@
 {
-  "translations": [],
+  "translations": [
+    {
+      "id": "samurai-warriors-2-empires",
+      "title": "Samurai Warriors 2: Empires",
+      "platform": "PlayStation 2",
+      "status": "متاح للتحميل",
+      "emulator": "PCSX2",
+      "description": "تعريب عربي للعبة Samurai Warriors 2: Empires على PlayStation 2.",
+      "cover": "https://art.gametdb.com/ps2/cover/US/SLUS21585.png",
+      "downloads": [
+        {
+          "label": "تحميل التعريب",
+          "url": "https://www.mediafire.com/file/1ygd6lxbilx00ya/%25D9%2585%25D8%25AD%25D8%25A7%25D8%25B1%25D8%25A8%25D9%258A%25D9%2586_%25D8%25A7%25D9%2584%25D8%25B3%25D8%25A7%25D9%2585%25D9%2588%25D8%25B1%25D8%25A7%25D9%258A_2.zip/file"
+        }
+      ],
+      "launchSteps": [
+        "نزّل الملف من MediaFire وفك ضغطه.",
+        "إذا تضمّن الملف تعليمات تركيب، اتبعها وتحقّق من رمز النسخة المطلوبة قبل تطبيق التعريب.",
+        "إذا كان الناتج ملف ISO أو CHD جاهزًا، اختره من قائمة النظام في PCSX2 لتشغيله."
+      ]
+    }
+  ],
   "releases": [
     {
       "id": "resident-evil-veronica",
@@ -25,7 +46,8 @@
       "date": "2027-02-18",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://asia.sega.com/p4r/en/product/"
+      "source": "https://asia.sega.com/p4r/en/product/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2963950/header.jpg"
     },
     {
       "id": "persona-6",
@@ -49,7 +71,8 @@
       "date": "2027-04-08",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://press.na.square-enix.com/en-US/FINAL-FANTASY-VII-REVELATION-RELEASES-APRIL-8-2027-ON-PHYSICAL-AND-DIG"
+      "source": "https://press.na.square-enix.com/en-US/FINAL-FANTASY-VII-REVELATION-RELEASES-APRIL-8-2027-ON-PHYSICAL-AND-DIG",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4354570/header.jpg"
     },
     {
       "id": "muramasa-revenant-blades",
@@ -63,7 +86,8 @@
       "date": "2027-02-04",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://marvelous-usa.com/2026/09/03/muramasa-revenant-blades-cuts-a-path-towards-a-feb-4-2027-launch-on-playstation5-pc-nintendo-switch-2-and-nintendo-switch/"
+      "source": "https://marvelous-usa.com/2026/09/03/muramasa-revenant-blades-cuts-a-path-towards-a-feb-4-2027-launch-on-playstation5-pc-nintendo-switch-2-and-nintendo-switch/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4253770/header.jpg"
     },
     {
       "id": "wo-long-2-wings-of-ember",
@@ -77,7 +101,8 @@
       "date": "2027-03-04",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://www.koeitecmoeurope.com/news/return-to-the-demon-infested-world-of-the-three-kingdoms-in-wo-long-2-wings-of-ember-on-4th-march-2027/"
+      "source": "https://www.koeitecmoeurope.com/news/return-to-the-demon-infested-world-of-the-three-kingdoms-in-wo-long-2-wings-of-ember-on-4th-march-2027/",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4507990/header.jpg"
     },
     {
       "id": "expedition-backrooms",
@@ -108,7 +133,8 @@
       "date": "2027-02-04",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://press.plaion.com/en-US/METRO-2039-LAUNCHES-FEBRUARY-4th-2027"
+      "source": "https://press.plaion.com/en-US/METRO-2039-LAUNCHES-FEBRUARY-4th-2027",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2590240/header.jpg"
     },
     {
       "id": "pon",
@@ -139,7 +165,8 @@
       "date": "2027-01-15",
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
-      "source": "https://sega.prezly.com/tupac-shakur-joins-segars-stranger-than-heaven"
+      "source": "https://sega.prezly.com/tupac-shakur-joins-segars-stranger-than-heaven",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/4260840/header.jpg"
     },
     {
       "id": "outward-2",
@@ -151,7 +178,8 @@
       "timeZone": "Asia/Riyadh",
       "region": "الموعد المعلن",
       "source": "https://www.ninedotsstudio.com/news/outward-2-new-release-date",
-      "note": "دخول مبكر على الحاسب الشخصي."
+      "note": "دخول مبكر على الحاسب الشخصي.",
+      "cover": "https://cdn.akamai.steamstatic.com/steam/apps/2849490/header.jpg"
     },
     {
       "id": "atomic-heart-2",

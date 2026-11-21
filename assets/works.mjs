@@ -47,9 +47,10 @@ function translationCard(game) {
     '<div class="work-game-copy"><span class="work-status">' + escapeHTML(game.status) +
     '</span><h2 lang="en" dir="ltr">' + escapeHTML(game.title) + '</h2><p class="work-meta">' +
     escapeHTML(game.platform) + '</p><p>' + escapeHTML(game.description) +
-    '</p><div class="work-actions"><a class="work-button" href="' + url +
-    '">تعليمات التشغيل ←</a>' + (game.downloads || []).map(file => link(file.url, file.label, 'work-file')).join('') +
-    '</div></div></article>';
+    '</p><div class="work-actions">' + (game.downloads || []).map(file => link(file.url, file.label, 'work-button work-download')).join('') +
+    '</div>' + (game.launchSteps?.length ? '<details class="work-guide"><summary>طريقة التركيب والتشغيل على PCSX2</summary>' +
+      listSection('خطوات التشغيل', game.launchSteps, true) + '<a href="' + url + '">تفاصيل التعريب ←</a></details>' : '') +
+    '</div></article>';
 }
 function translations(data) {
   const grid = $('#translationGrid');
@@ -146,6 +147,9 @@ function releases(data) {
   const baseZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   const today = dateInZone(new Date(), baseZone);
   const dated = data.filter(item => item.date);
+  const listView = $('#releaseListView');
+  const calendarView = $('#releaseCalendarView');
+  let showCalendar = !listView;
   const nextDate = dated.map(item => item.date).filter(date => date >= today).sort()[0];
   let month = nextDate?.slice(0, 7) || today.slice(0, 7);
   let day = '';
@@ -201,15 +205,45 @@ function releases(data) {
     $('#selectedDay').hidden = !day;
     $('#selectedDate').textContent = day ? dateLabel(day) : '';
     $('#releaseCount').textContent = rows.length + ' إصدار في ' + monthLabel(month);
-    cards.innerHTML = visible.length ? visible.map(release => releaseCard(release, now)).join('') :
+    const spotlight = $('#releaseSpotlight');
+    const featured = dated.filter(item => item.date >= today && matchesPlatform(item))
+      .sort((a, b) => a.date.localeCompare(b.date))[0];
+    if (spotlight) spotlight.innerHTML = featured ? '<section class="work-spotlight" aria-label="أقرب إصدار"><h2>أقرب إصدار</h2>' +
+      releaseCard(featured, now) + '</section>' : '';
+    const upcoming = dated.filter(item => item.date >= today && matchesPlatform(item))
+      .sort((a, b) => a.date.localeCompare(b.date));
+    const monthKeys = [...new Set(upcoming.map(item => item.date.slice(0, 7)))];
+    const listMarkup = monthKeys.map(key => '<section class="work-release-month"><h2 class="work-month-bar">' +
+      monthLabel(key) + '</h2><div class="work-release-list">' +
+      upcoming.filter(item => item.date.startsWith(key)).map(item => releaseCard(item, now)).join('') +
+      '</div></section>').join('');
+    $('#releaseCount').hidden = !showCalendar;
+    cards.classList.toggle('work-chronology', !showCalendar);
+    cards.innerHTML = !showCalendar ? (listMarkup || empty('لا توجد إصدارات مؤرخة', 'جرّب اختيار منصة أخرى.', 'releases')) : visible.length ? visible.map(release => releaseCard(release, now)).join('') :
       empty(day ? 'لا توجد إصدارات لهذا اليوم' : 'التقويم ينتظر مواعيده',
         day ? 'اختر يومًا آخر أو اعرض الشهر كاملًا.' :
           'ستظهر الألعاب هنا مع مواعيدها ومصادرها عند إضافتها إلى هذا الشهر.', 'releases');
     const pendingRows = pending.filter(matchesPlatform);
     $('#releasePending').hidden = !pendingRows.length;
-    $('#releasePendingGrid').innerHTML = pendingRows.map(release => releaseCard(release, now)).join('');
+    const groups = [...new Set(pendingRows.map(item => item.year || 0))];
+    $('#releasePendingGrid').innerHTML = groups.map(year => '<section class="work-release-month"><h3 class="work-month-bar">' +
+      (year ? 'خلال ' + year : 'يُعلن ويُحدّد لاحقًا') + '</h3><div class="work-release-list">' +
+      pendingRows.filter(item => (item.year || 0) === year).map(item => releaseCard(item, now)).join('') +
+      '</div></section>').join('');
     watchCovers();
   }
+  function setView(calendarMode) {
+    showCalendar = calendarMode;
+    day = '';
+    calendar.closest('section').hidden = !calendarMode;
+    monthInput.closest('label').hidden = !calendarMode;
+    listView.setAttribute('aria-pressed', String(!calendarMode));
+    calendarView.setAttribute('aria-pressed', String(calendarMode));
+    render();
+  }
+  listView?.addEventListener('click', () => setView(false));
+  calendarView?.addEventListener('click', () => setView(true));
+  if (listView) monthInput.closest('label').hidden = true;
   $('#previousMonth').addEventListener('click', () => changeMonth(shiftMonth(month, -1)));
   $('#nextMonth').addEventListener('click', () => changeMonth(shiftMonth(month, 1)));
   $('#currentMonth').addEventListener('click', () => changeMonth(dateInZone(new Date(), baseZone).slice(0, 7)));
@@ -252,17 +286,26 @@ function releases(data) {
 }
 async function start() {
   const page = document.body.dataset.works;
-  if (!page || page === 'hub') return;
+  if (!page) return;
   const status = $('#workLoadStatus');
   try {
     const response = await fetch('assets/works-data.json', { cache: 'no-cache' });
     if (!response.ok) throw new Error('تعذّر تحميل البيانات.');
     const data = validateData(await response.json());
+    if (page === 'hub') {
+      const today = dateInZone(new Date(), 'Asia/Riyadh');
+      const upcoming = data.releases.filter(item => item.date && item.date >= today)
+        .sort((a, b) => a.date.localeCompare(b.date))[0];
+      if (upcoming) $('#workUpcomingPreview').innerHTML = '<bdi lang="en">' +
+        escapeHTML(upcoming.title) + '</bdi><br><time datetime="' + upcoming.date + '">' + dateLabel(upcoming.date) + '</time>';
+      return;
+    }
     if (page === 'translations') translations(data.translations);
     if (page === 'translation') translationDetail(data.translations);
     if (page === 'releases') releases(data.releases);
     status.hidden = true;
   } catch (error) {
+    if (!status) return;
     status.hidden = false;
     status.textContent = 'تعذّر عرض المحتوى الآن. أعد تحميل الصفحة للمحاولة مجددًا.';
     console.error('Works data:', error);

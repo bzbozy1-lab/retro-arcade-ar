@@ -179,3 +179,43 @@ html[data-theme="dark"] .work-filters :is(input,select) { color-scheme:dark; }
 
 .work-stamp-approved { background:#fffbef; transform:none; }
 .work-stamp-approved img { display:block; object-fit:contain; }
+
+/* Editorial arcade layout for the Works pages */
+body[data-works] .work-hero { padding-block:clamp(24px,4vw,52px); }
+body[data-works] .work-hero h1::after { content:""; display:block; width:min(100%,10rem); height:8px; background:#c9fa42; margin-block-start:8px; }
+.work-view { display:flex; gap:4px; align-self:end; }
+.work-view button { min-height:44px; padding:6px 18px; border:2px solid var(--line); background:var(--panel); color:var(--text); font:700 16px Tajawal,sans-serif; cursor:pointer; }
+.work-view button[aria-pressed="true"], .work-month-bar { background:#2444b8; color:#fff; }
+.work-month-bar { padding:9px 20px; font:400 25px/1.25 Lalezar,Tajawal,sans-serif; margin:0 0 12px; border-inline-end:10px solid #c9fa42; }
+.work-calendar-layout { grid-template-columns:minmax(0,1fr); }
+.work-calendar-layout [hidden] { display:none; }
+.work-chronology, #releasePendingGrid { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; }
+.work-release-month .work-release-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.work-release-month .work-release { grid-template-columns:clamp(76px,18vw,138px) minmax(0,1fr); align-items:center; }
+.work-release-month .work-cover { aspect-ratio:2.15; padding:0; margin:0; width:100%; height:auto; }
+.work-release-month .work-cover img { object-fit:cover; }
+.work-spotlight { margin-block:0 26px; position:relative; }
+.work-spotlight > h2 { background:#c9fa42; color:#172136; margin:0; padding:7px 20px; font:400 24px Lalezar,Tajawal,sans-serif; border:3px solid var(--line); border-bottom:0; }
+.work-spotlight .work-release { background:#172956; color:#fff; grid-template-columns:57% minmax(0,1fr); align-items:center; border-width:3px; }
+.work-spotlight .work-meta,.work-spotlight .work-zone { color:#e3eaff; }
+.work-spotlight .work-cover { aspect-ratio:2.15; padding:0; margin:0; width:100%; background:#172956; }
+.work-spotlight .work-cover img { object-fit:cover; }
+.work-spotlight h3 { font-size:clamp(21px,3vw,38px); text-align:start; }
+body[data-works="translations"] .work-grid { grid-template-columns:minmax(0,1fr); }
+body[data-works="translations"] .work-game { display:grid; grid-template-columns:minmax(0,37%) minmax(0,1fr); border-width:3px; }
+body[data-works="translations"] .work-game .work-cover { height:100%; max-height:420px; border-bottom:0; }
+.work-download { background:#c9fa42; color:#172136; }
+.work-guide { margin-block-start:18px; border-block-start:2px solid var(--line); padding-block-start:12px; }
+.work-guide summary { cursor:pointer; min-height:44px; font-weight:700; }
+.work-portals .work-portal:not(.work-portal-reserved) { min-height:252px; }
+.work-preview-title { text-align:start; }
+.work-portals .work-portal-translations .work-portal-art { top:50%; transform:translateY(-50%) rotate(-5deg); }
+.work-preview-art { display:block; width:min(75%,136px); max-height:200px; object-fit:contain; margin-inline:auto; filter:drop-shadow(5px 6px 0 #17213655); }
+@media(max-width:680px) {
+  .work-release-month .work-release-list { grid-template-columns:minmax(0,1fr); }
+  .work-spotlight .work-release { grid-template-columns:minmax(0,1fr); }
+  body[data-works="translations"] .work-game { grid-template-columns:minmax(0,1fr); }
+  body[data-works="translations"] .work-game .work-cover { height:auto; max-height:255px; }
+}
+
+body[data-works] .work-filters [hidden] { display:none; }
