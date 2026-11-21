@@ -48,15 +48,20 @@ for page in ROOT.glob('*.html'):
   text=re.sub(r'<script type="application/json" id="readerIssueIndex">.*?</script>','',text,flags=re.S)
   preload='''<script id="readerManifestPreload">
 {
- const id=new URLSearchParams(location.search).get('id');
- const issue=JSON.parse(document.getElementById('readerIssueIndex').textContent).find(item=>item.id===id);
+ const params=new URLSearchParams(location.search);
+ const issue=JSON.parse(document.getElementById('readerIssueIndex').textContent).find(item=>item.id===params.get('id'));
  if(issue?.pageImages){
-  const hint=document.createElement('link');
-  hint.rel='preload';
-  hint.as='fetch';
-  hint.crossOrigin='anonymous';
-  hint.href=issue.pageImages;
-  document.head.append(hint);
+  const preload=url=>{
+   const hint=document.createElement('link');
+   hint.rel='preload';
+   hint.as='fetch';
+   hint.crossOrigin='anonymous';
+   hint.href=url;
+   hint.fetchPriority='high';
+   document.head.append(hint);
+  };
+  preload(issue.pageImages);
+  if(params.get('page')==='1')preload(new URL('cover.webp',new URL(issue.pageImages,location.href)).href);
  }
 }
 </script>'''
