@@ -5,23 +5,30 @@ const fs = require('node:fs');
 const path = require('node:path');
 const source = name => fs.readFileSync(path.join(__dirname, '..', name), 'utf8');
 
-test('catalog covers every library and independent gem, without ambiguous runtime searches', () => {
+test('catalog validates sourced records and library entries have unique per-device keys', () => {
   const document = {body:{dataset:{page:'audit'}}, querySelector:()=>null, querySelectorAll:()=>[], addEventListener:()=>{}, dispatchEvent:()=>{}};
   const context = {document, URLSearchParams, location:{search:''}};
   context.window = context;
   vm.createContext(context);
   vm.runInContext(source('assets/catalog.js'), context);
+  vm.runInContext(source('assets/icons-refined.js'), context);
   vm.runInContext(source('assets/app.js'), context);
   const result = vm.runInContext('({library:getGames(),gems:GEM_GAMES})', context);
-  assert.equal(result.library.length,230);
+  assert.equal(result.library.length,406);
   assert.equal(result.gems.length,72);
-  assert.equal(new Set(result.library.map(game=>game.name)).size,230);
-  for(const [device,count] of [['snes',31],['gamecube',39],['ps1',41]]){
+  assert.equal(new Set(result.library.map(game=>game.device+':'+game.name)).size,406);
+  for(const [device,count] of [['snes',31],['gamecube',39],['ps1',45]]){
     assert.equal(result.library.filter(game=>game.device===device).length,count);
   }
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
-    assert.ok(r?.image, name);
+    if (!r) {
+      assert.ok(!result.gems.includes(name), name);
+      const card = vm.runInContext('card('+JSON.stringify(result.library.find(game=>game.name===name))+')', context);
+      assert.match(card,/بحث الصور/);
+      continue;
+    }
+    assert.ok(r.image, name);
     if (name === 'P.T.') {
       assert.equal(r.platforms, 'PlayStation 4');
       assert.equal(r.imageKind, 'صورة الإعلان');
