@@ -18,6 +18,23 @@
         "نزّل الملف من MediaFire وفك ضغطه.",
         "إذا تضمّن الملف تعليمات تركيب، اتبعها وتحقّق من رمز النسخة المطلوبة قبل تطبيق التعريب.",
         "إذا كان الناتج ملف ISO أو CHD جاهزًا، اختره من قائمة النظام في PCSX2 لتشغيله."
+      ],
+      "screenshots": [
+        {
+          "src": "assets/translation-previews/samurai-warriors-2-menu.webp",
+          "caption": "القائمة الرئيسية",
+          "alt": "القائمة الرئيسية بالعربية مع تحديد طور الإمبراطوريات"
+        },
+        {
+          "src": "assets/translation-previews/samurai-warriors-2-stage.webp",
+          "caption": "اختيار المرحلة",
+          "alt": "أسماء المعارك بالعربية في شاشة اختيار المرحلة"
+        },
+        {
+          "src": "assets/translation-previews/samurai-warriors-2-battle.webp",
+          "caption": "أثناء المعركة",
+          "alt": "رسالة حوار ونصوص واجهة المعركة بالعربية"
+        }
       ]
     }
   ],

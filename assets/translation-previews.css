@@ -1,0 +1,9 @@
+.work-screenshots{margin-block:1.2rem 0}
+.work-screenshots h3{margin:0 0 .55rem;font-size:1.05rem}
+.work-screenshots-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+.work-screenshots figure{margin:0;min-width:0}
+.work-screenshots a{display:block;border:1px solid currentColor}
+.work-screenshots a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.work-screenshots img{display:block;width:100%;height:auto;aspect-ratio:4/3}
+.work-screenshots figcaption{margin-block-start:.3rem;font-size:.88rem}
+@media(max-width:480px){.work-screenshots-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

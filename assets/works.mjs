@@ -41,6 +41,19 @@ function listSection(title, items, ordered = false) {
   return '<section class="work-instructions"><h2>' + title + '</h2><' + tag + '>' +
     items.map(text => '<li>' + escapeHTML(text) + '</li>').join('') + '</' + tag + '></section>';
 }
+function translationScreenshots(game) {
+  const previews = (game.screenshots || []).filter(shot =>
+    /^assets\/translation-previews\/[a-z0-9-]+\.webp$/.test(shot.src));
+  if (!previews.length) return '';
+  return '<section class="work-screenshots" aria-label="لقطات من التعريب"><h3>لقطات من التعريب</h3>' +
+    '<div class="work-screenshots-grid">' + previews.map(shot => {
+      const src = escapeHTML(shot.src);
+      return '<figure><a href="' + src + '" target="_blank" rel="noopener" aria-label="' +
+        escapeHTML('تكبير لقطة ' + shot.caption + ' (يفتح في علامة تبويب جديدة)') +
+        '"><img src="' + src + '" width="1120" height="840" loading="lazy" decoding="async" alt="' +
+        escapeHTML(shot.alt) + '"></a><figcaption>' + escapeHTML(shot.caption) + '</figcaption></figure>';
+    }).join('') + '</div></section>';
+}
 function translationCard(game) {
   const url = 'translation.html?id=' + encodeURIComponent(game.id);
   return '<article class="work-game">' + cover(game) +
@@ -48,7 +61,7 @@ function translationCard(game) {
     '</span><h2 lang="en" dir="ltr">' + escapeHTML(game.title) + '</h2><p class="work-meta">' +
     escapeHTML(game.platform) + '</p><p>' + escapeHTML(game.description) +
     '</p><div class="work-actions">' + (game.downloads || []).map(file => link(file.url, file.label, 'work-button work-download')).join('') +
-    '</div>' + (game.launchSteps?.length ? '<details class="work-guide"><summary>طريقة التركيب والتشغيل على PCSX2</summary>' +
+    '</div>' + translationScreenshots(game) + (game.launchSteps?.length ? '<details class="work-guide"><summary>طريقة التركيب والتشغيل على PCSX2</summary>' +
       listSection('خطوات التشغيل', game.launchSteps, true) + '<a href="' + url + '">تفاصيل التعريب ←</a></details>' : '') +
     '</div></article>';
 }
@@ -103,7 +116,7 @@ function translationDetail(data) {
       '<div><dt>' + label + '</dt><dd>' + escapeHTML(value) + '</dd></div>').join('') +
     '</dl><div class="work-actions">' + (game.downloads || []).map(file =>
       link(file.url, file.label, 'work-button')).join('') + '</div></div></div>' +
-    listSection('ما يتضمنه التعريب', game.includes) + listSection('متطلبات التشغيل', game.requirements) +
+    translationScreenshots(game) + listSection('ما يتضمنه التعريب', game.includes) + listSection('متطلبات التشغيل', game.requirements) +
     listSection('تطبيق ملفات التعريب', game.patchSteps, true) + listSection('التشغيل على المحاكي', game.launchSteps, true) +
     (!(game.patchSteps?.length || game.launchSteps?.length) ?
       '<p class="work-notice">تعليمات تشغيل هذا التعريب ستُضاف مع معلومات المشروع.</p>' : '') +
