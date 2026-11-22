@@ -20,6 +20,27 @@
  };
  let enabled=false,context=null,master=null,voices=[],sequence=0,interacted=false,celebrationUntil=0;
  try{enabled=localStorage.getItem('carto-sound')==='on'}catch(e){}
+ const entrySources={gems:'assets/sounds/gems-entry.mp3',reference:'assets/sounds/reference-entry.mp3',horror:'assets/sounds/horror-entry.mp3'};
+ let entryClip=null,entryPlayed=false,entryPending=false;
+ function stopEntry(){
+  if(entryClip)entryClip.pause();
+ }
+ async function playEntry(){
+  const src=entrySources[document.body?.dataset.page];
+  if(!src||!enabled||document.hidden||entryPlayed||entryPending)return;
+  if(!entryClip){
+   entryClip=new Audio(src);
+   entryClip.volume=.65;
+  }
+  entryPending=true;
+  try{
+   await entryClip.play();
+   if(!enabled||document.hidden)stopEntry();
+   else entryPlayed=true;
+  }catch(e){
+   // If autoplay is blocked, the next deliberate interaction can retry.
+  }finally{entryPending=false;}
+ }
  const navigationCueKey='carto-navigation-cue';
  const endOf=name=>Math.max(...scores[name].notes.map(n=>n[1]+n[2]))+.025;
  function stop(){sequence++;voices.forEach(v=>{try{v.stop();v.disconnect()}catch(e){}});voices=[]}
@@ -59,22 +80,24 @@
  }
  async function setEnabled(value){
   interacted=true;enabled=!!value;stop();
+  if(!enabled)stopEntry();
   try{localStorage.setItem('carto-sound',enabled?'on':'off')}catch(e){}
   paint();await schedule(enabled?'enable':'disable',true);
   window.CartoToast?.(enabled?'تم تشغيل المؤثرات الصوتية':'تم إيقاف المؤثرات الصوتية');
  }
  function createToggle(){const button=document.createElement('button');button.type='button';button.className='arcade-sound control-switch';return button}
  function classifyLink(link){
-  const path=new URL(link.href,location.href).pathname;
-  if(path.endsWith('/gems.html'))return 'treasure';
   if(/العودة|رجوع|كل الأجهزة|الرئيسية/.test(link.textContent)||link.classList.contains('backtop'))return 'back';
   return 'navigate';
  }
  document.addEventListener('pointerdown',()=>{interacted=true},{capture:true,passive:true});
  document.addEventListener('keydown',()=>{interacted=true},{capture:true});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();stopEntry();}});
+ window.addEventListener?.('pagehide',stopEntry);
  document.addEventListener('click',async event=>{
   if(event.target.closest('.arcade-sound')){setEnabled(!enabled);return}
+  const attemptedLink=event.target.closest('a[href]');
+  if(!attemptedLink&&!event.target.closest('[data-sound-preview]'))playEntry();
   const preview=event.target.closest('[data-sound-preview]');
   if(preview){
    if(!enabled)return;
@@ -83,11 +106,11 @@
    if(status)status.textContent=ok?'تشغيل نغمة: '+scores[name].label:'تعذر تشغيل الصوت في هذا المتصفح. جرّب زر الصوت مرة أخرى.';
    return;
   }
-  const link=event.target.closest('a[href]');
+  const link=attemptedLink;
   if(!link&&event.target.closest('[data-letter]')){schedule('navigate');return}
   if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target||link.hasAttribute('download'))return;
   const url=new URL(link.href,location.href);if(url.origin!==location.origin||url.hash)return;
-  if(!enabled||url.href===location.href||/\/(?:reader|magazines|sakhr)\.html$/.test(url.pathname))return;
+  if(!enabled||url.href===location.href||/\/(?:reader|magazines|sakhr|gems|reference|horror)\.html$/.test(url.pathname))return;
   try{sessionStorage.setItem(navigationCueKey,JSON.stringify({url:url.href,cue:classifyLink(link),expires:Date.now()+8000}));}catch(e){}
  });
  document.addEventListener('carto:dialog-open',event=>schedule(event.detail?.dialog?.id==='wishlistModal'?'heart':'open'));
@@ -98,6 +121,14 @@
  document.addEventListener('carto:achievement',()=>schedule('achievement'));
  function init(){
   paint();
+  const section=entrySources[document.body?.dataset.page];
+  if(section){
+   try{sessionStorage.removeItem(navigationCueKey);}catch(e){}
+   const navigation=performance.getEntriesByType('navigation')[0];
+   if(!navigation||navigation.type==='navigate')playEntry();
+   else entryPlayed=true;
+   return;
+  }
   try{
    const pending=JSON.parse(sessionStorage.getItem(navigationCueKey)||'null');
    sessionStorage.removeItem(navigationCueKey);
