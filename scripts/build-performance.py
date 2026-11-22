@@ -38,7 +38,7 @@ for page in ROOT.glob('*.html'):
  text=text.replace('reader.mjs?v=reader-fast-2','reader.mjs?v=opt-1').replace('magazines.mjs?v=magazines-2','magazines.mjs?v=opt-1')
  text=text.replace('assets/wishlist.js?v=opt-1','assets/wishlist.js?v=collection-2')
  # Version edited standalone scripts as well, without broad cache invalidation.
- text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',lambda m:m[1]+(('?v=gems-72' if page.stem=='gems' else '?v=edition-details-1') if m[1]=='assets/catalog.js' else '?v=device-catalog-2' if m[1]=='assets/app.js' else '?v=shawq-awar-1'),text)
+ text=re.sub(r'(assets/(?:app|wishlist|catalog)\.js)(?:\?[^\"]*)?',lambda m:m[1]+('?v=device-covers-1' if m[1] in ('assets/catalog.js','assets/app.js') else '?v=shawq-awar-1'),text)
  text=text.replace('assets/app.js?v=opt-1','assets/app.js?v=opt-3').replace('assets/app.js?v=opt-2','assets/app.js?v=opt-3')
  if page.stem=='reader':text=text.replace('</head>','<link rel="modulepreload" href="assets/reader-images.mjs?v=fast-start-2"><link rel="modulepreload" href="assets/reader-cache.mjs?v=opt-1"></head>') if 'modulepreload' not in text else text
  if page.stem=='reader':

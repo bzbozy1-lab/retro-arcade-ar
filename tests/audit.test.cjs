@@ -20,12 +20,16 @@ test('catalog validates sourced records and library entries have unique per-devi
   for(const [device,count] of [['snes',31],['gamecube',39],['ps1',45]]){
     assert.equal(result.library.filter(game=>game.device===device).length,count);
   }
+  for (const game of result.library) {
+    const record = context.CARTO_DEVICE_COVERS[game.device]?.[game.name] || context.CARTO_CATALOG[game.name];
+    assert.ok(record?.image, game.device + ': ' + game.name);
+    const card = vm.runInContext('card(' + JSON.stringify(game) + ')', context);
+    assert.match(card, new RegExp('data-cover-device="' + game.device + '"'));
+  }
   for (const name of [...result.library.map(x=>x.name), ...result.gems]) {
     const r = context.CARTO_CATALOG[name];
     if (!r) {
       assert.ok(!result.gems.includes(name), name);
-      const card = vm.runInContext('card('+JSON.stringify(result.library.find(game=>game.name===name))+')', context);
-      assert.match(card,/بحث الصور/);
       continue;
     }
     assert.ok(r.image, name);
