@@ -36,6 +36,52 @@
           "alt": "رسالة حوار ونصوص واجهة المعركة بالعربية"
         }
       ]
+    },
+    {
+      "id": "musou-orochi-z",
+      "title": "Musou Orochi Z",
+      "platform": "PlayStation 3",
+      "status": "متاح للتحميل",
+      "emulator": "RPCS3",
+      "version": "BLJM60139",
+      "description": "تعريب عربي للنسخة اليابانية من Musou Orochi Z على PlayStation 3.",
+      "cover": "https://cdn.wikimg.net/en/ktwiki/images/e/e0/Japanese_MOZ.jpg",
+      "downloads": [
+        {
+          "label": "تحميل التعريب",
+          "url": "https://www.mediafire.com/file/gbeem4du2nz13ic/موسو+اوروتشي+Z.zip/file"
+        }
+      ],
+      "screenshots": [
+        {
+          "src": "assets/translation-previews/musou-orochi-z-menu.webp",
+          "width": 1280,
+          "height": 681,
+          "caption": "القائمة الرئيسية",
+          "alt": "القائمة الرئيسية بالعربية مع تحديد طور القصة"
+        },
+        {
+          "src": "assets/translation-previews/musou-orochi-z-settings.webp",
+          "width": 1280,
+          "height": 684,
+          "caption": "الإعدادات",
+          "alt": "خيارات اللعب والتحكم والصوت بالعربية"
+        },
+        {
+          "src": "assets/translation-previews/musou-orochi-z-camp.webp",
+          "width": 1280,
+          "height": 672,
+          "caption": "الثكنة",
+          "alt": "خيارات التجهيز وأسماء أعضاء الفريق بالعربية"
+        },
+        {
+          "src": "assets/translation-previews/musou-orochi-z-battle.webp",
+          "width": 1280,
+          "height": 681,
+          "caption": "أثناء اللعب",
+          "alt": "لقطة من المعركة تظهر نص الحوار بالعربية"
+        }
+      ]
     }
   ],
   "releases": [

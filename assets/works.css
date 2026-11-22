@@ -267,3 +267,9 @@ body[data-works="releases"] .work-spotlight h3 { font-size:clamp(20px,3vw,38px);
   body[data-works="releases"] #releaseGrid:not(.work-chronology),
   body[data-works="releases"] .work-spotlight .work-release { grid-template-columns:minmax(0,1fr); }
 }
+
+.work-portals .work-portal-translations .work-translation-stack{isolation:isolate;transform:translateY(-50%);aspect-ratio:1.13;display:grid;place-items:center}
+.work-translation-stack::before{content:"";position:absolute;inset:10% 7%;background:#304ff5;transform:rotate(7deg);z-index:-2}
+.work-translation-stack img{grid-area:1/1;width:min(55%,118px);aspect-ratio:3/4;object-fit:contain;background:#f6f4e8;border:2px solid #172136;box-shadow:4px 5px #172136;display:block}
+.work-translation-stack .work-stack-back{transform:translateX(-28%) rotate(-13deg);z-index:-1}
+.work-translation-stack .work-stack-front{transform:translateX(13%) rotate(4deg)}

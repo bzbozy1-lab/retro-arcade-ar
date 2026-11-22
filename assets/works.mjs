@@ -50,7 +50,8 @@ function translationScreenshots(game) {
       const src = escapeHTML(shot.src);
       return '<figure><a href="' + src + '" target="_blank" rel="noopener" aria-label="' +
         escapeHTML('تكبير لقطة ' + shot.caption + ' (يفتح في علامة تبويب جديدة)') +
-        '"><img src="' + src + '" width="1120" height="840" loading="lazy" decoding="async" alt="' +
+        '"><img src="' + src + '" width="' + (Number(shot.width) || 1120) + '" height="' + (Number(shot.height) || 840) +
+        '" loading="lazy" decoding="async" alt="' +
         escapeHTML(shot.alt) + '"></a><figcaption>' + escapeHTML(shot.caption) + '</figcaption></figure>';
     }).join('') + '</div></section>';
 }
@@ -61,7 +62,7 @@ function translationCard(game) {
     '</span><h2 lang="en" dir="ltr">' + escapeHTML(game.title) + '</h2><p class="work-meta">' +
     escapeHTML(game.platform) + '</p><p>' + escapeHTML(game.description) +
     '</p><div class="work-actions">' + (game.downloads || []).map(file => link(file.url, file.label, 'work-button work-download')).join('') +
-    '</div>' + translationScreenshots(game) + (game.launchSteps?.length ? '<details class="work-guide"><summary>طريقة التركيب والتشغيل على PCSX2</summary>' +
+    '</div>' + translationScreenshots(game) + (game.launchSteps?.length ? '<details class="work-guide"><summary>طريقة التركيب والتشغيل' + (game.emulator ? ' على ' + escapeHTML(game.emulator) : '') + '</summary>' +
       listSection('خطوات التشغيل', game.launchSteps, true) + '<a href="' + url + '">تفاصيل التعريب ←</a></details>' : '') +
     '</div></article>';
 }
