@@ -74,7 +74,7 @@ body[data-page="horror"] .horror-world {
   text-wrap: balance;
 }
 .horror-world .horror-copy h1 span { display: block; color: var(--h-sage); }
-.horror-world .horror-copy p { max-width: 34ch; margin: 15px 0 20px; color: var(--h-muted); }
+.horror-world .horror-copy p { max-width: 44ch; margin: 15px 0 20px; color: var(--h-ink); line-height: 1.8; }
 .horror-world .horror-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .horror-world .horror-room {
   width: min(65%, 238px);
@@ -176,7 +176,8 @@ body[data-page="horror"] #gameDialog {
 }
 #gameDialog::backdrop { background: #050810c4; }
 #gameDialog p { color: var(--h-muted); margin-block: 12px 16px; }
-#gameDialog form { display: inline; margin-inline-start: 6px; }
+#gameDialog .horror-dialog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+#gameDialog p { line-height: 1.8; }
 
 @media (max-width: 850px) {
   .horror-world .horror-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
