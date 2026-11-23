@@ -45,7 +45,7 @@ const sceneFrame = scene.parentElement;
 let currentScene;
 function updateScene() {
  if (dialog.open && currentScene && !sceneMotion.matches) {
-  scene.src = 'assets/horror/scenes/' + currentScene + '.gif';
+  scene.src = 'assets/horror/scenes/' + currentScene + '.gif?v=clear-1';
   sceneFrame.hidden = false;
  } else {
   sceneFrame.hidden = true;
