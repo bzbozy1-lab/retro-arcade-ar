@@ -1,0 +1,24 @@
+#modalTitle.archive-drawer-tab,
+#gameTitle.archive-drawer-tab,
+.archive-drawer-flight {
+  display: inline-block;
+  max-inline-size: 100%;
+  width: fit-content;
+  padding: 4px 11px;
+  border: 1px solid currentColor;
+  background: var(--h-selected, var(--panel, #fff9e9));
+  color: var(--h-ink, var(--text, #162019));
+  font: 700 1rem/1.45 Tajawal, Tahoma, sans-serif;
+  overflow-wrap: anywhere;
+}
+#gameTitle.archive-drawer-tab { margin-block-end: 4px; }
+.archive-drawer-tab.archive-drawer-travelling { opacity: 0; }
+.archive-drawer-tab.archive-drawer-flight {
+  position: fixed;
+  z-index: 2;
+  margin: 0;
+  pointer-events: none;
+  max-inline-size: none;
+  transform-origin: top right;
+  overflow: hidden;
+}
