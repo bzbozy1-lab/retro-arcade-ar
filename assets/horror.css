@@ -215,12 +215,16 @@ body[data-page="horror"] #gameDialog {
 .horror-world .horror-card[hidden] { display: none; }
 @media (max-width: 620px) { .horror-world .horror-search { width: 100%; } }
 
-.horror-world .horror-scene-frame {
+#gameDialog .horror-scene-frame {
   border: 2px solid var(--h-line);
   box-shadow: inset 0 0 0 3px var(--h-surface);
   isolation: isolate;
+  position: relative;
+  margin: 10px 0 14px;
+  aspect-ratio: 16 / 9;
+  background: #080b10;
 }
-.horror-world .horror-scene-frame::after {
+#gameDialog .horror-scene-frame::after {
   content: '';
   position: absolute;
   inset: 4px;
@@ -232,6 +236,4 @@ body[data-page="horror"] #gameDialog {
     linear-gradient(var(--h-accent),var(--h-accent)) right bottom / 2px 13px;
   background-repeat: no-repeat;
 }
-.horror-world .horror-scene-loop { visibility: hidden; background: #080b10; }
-.horror-world .horror-scene-frame.has-scene .horror-scene-loop { visibility: visible; }
-.horror-world .horror-scene-frame.has-scene img:not(.horror-scene-loop) { visibility: hidden; }
+#gameDialog .horror-scene-loop { display: block; width: 100%; height: 100%; object-fit: contain; }

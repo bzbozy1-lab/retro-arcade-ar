@@ -40,15 +40,27 @@ function stopTune() {
  tune.removeAttribute('src');
  tune.load();
 }
-function updateScenes() {
- for (const scene of cards.querySelectorAll('.horror-scene-loop')) {
-  if (sceneMotion.matches) {
-   scene.closest('.horror-art').classList.remove('has-scene');
-   scene.removeAttribute('src');
-  } else if (!scene.hasAttribute('src')) scene.src = scene.dataset.src;
+const scene = dialog.querySelector('#gameScene');
+const sceneFrame = scene.parentElement;
+let currentScene;
+function updateScene() {
+ if (dialog.open && currentScene && !sceneMotion.matches) {
+  scene.src = 'assets/horror/scenes/' + currentScene + '.gif';
+  sceneFrame.hidden = false;
+ } else {
+  sceneFrame.hidden = true;
+  scene.removeAttribute('src');
  }
 }
-dialog.addEventListener('close', stopTune);
+scene.addEventListener('error', () => {
+ sceneFrame.hidden = true;
+});
+dialog.addEventListener('close', () => {
+ if (dialog.open) return;
+ currentScene = null;
+ updateScene();
+ stopTune();
+});
 document.addEventListener('visibilitychange', () => { if (document.hidden) stopTune(); });
 window.addEventListener('pagehide', stopTune);
 document.addEventListener('click', event => {
@@ -66,17 +78,6 @@ for(const game of games){
   image.src=game.img;
  }else image.remove();
  card.querySelector('.horror-kind').textContent=labels[game.type];card.querySelector('h3').textContent=game.title;card.querySelector('p').textContent=game.note;
- const frame = card.querySelector('.horror-art');
- frame.classList.add('horror-scene-frame');
- const scene = document.createElement('img');
- scene.className = 'horror-scene-loop';
- scene.alt = '';
- scene.loading = 'lazy';
- scene.decoding = 'async';
- scene.dataset.src = 'assets/horror/scenes/' + game.scene + '.gif';
- scene.addEventListener('load', () => frame.classList.add('has-scene'));
- scene.addEventListener('error', () => frame.classList.remove('has-scene'));
- frame.append(scene);
  const button=card.querySelector('[data-details]');button.dataset.details=game.title;
  button.dataset.device=game.device||'unknown';
  button.setAttribute('aria-label','تفاصيل '+game.title);
@@ -86,7 +87,10 @@ for(const game of games){
   dialog.querySelector('#gameSource').href=game.url;
   const query=magazineQueries[game.title]||game.title.split(' (')[0];
   dialog.querySelector('#gameMagazines').href='magazines.html?'+new URLSearchParams({q:query});
+  currentScene = game.scene;
+  sceneFrame.hidden = sceneMotion.matches;
   dialog.showModal();
+  updateScene();
   stopTune();
   if (cardTunes.has(game.scene) && window.CartoAudio?.enabled) {
    tune.src = 'assets/horror/sounds/' + game.scene + '.mp3';
@@ -96,8 +100,7 @@ for(const game of games){
  });
  cards.append(card);
 }
-updateScenes();
-sceneMotion.addEventListener('change', updateScenes);
+sceneMotion.addEventListener('change', updateScene);
 const filters=[...document.querySelectorAll('[data-filter]')];
 const search=document.querySelector('#horrorSearch'), empty=document.querySelector('#horrorEmpty');
 let selected='all';
