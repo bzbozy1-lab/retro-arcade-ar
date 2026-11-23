@@ -34,7 +34,7 @@ for page in ROOT.glob('*.html'):
  if 'https://fonts.gstatic.com' not in text:text=text.replace('</title>','</title><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',1)
  if page.stem in ['archive','sources','localization','identity','sakhr']:
   text=re.sub(r'<script\b[^>]*src="assets/(app|wishlist)\.js[^\"]*"[^>]*></script>','',text)
- text=re.sub(r'(assets/magazines\.mjs)(?:\?[^\"]*)?',r'\1?v=polish-1',text)
+ text=re.sub(r'(assets/magazines\.mjs)(?:\?[^\"]*)?',r'\1?v=game-search-1',text)
  text=text.replace('reader.mjs?v=reader-fast-2','reader.mjs?v=opt-1').replace('magazines.mjs?v=magazines-2','magazines.mjs?v=opt-1')
  text=text.replace('assets/wishlist.js?v=opt-1','assets/wishlist.js?v=collection-2')
  # Version edited standalone scripts as well, without broad cache invalidation.
