@@ -232,14 +232,6 @@ body[data-page="horror"] #gameDialog {
     linear-gradient(var(--h-accent),var(--h-accent)) right bottom / 2px 13px;
   background-repeat: no-repeat;
 }
-.horror-world .horror-scene-frame video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #080b10;
-}
-.horror-world .horror-scene-frame.is-playing img { visibility: hidden; }
-.horror-world .horror-scene-status:empty { display: none; }
-.horror-world .horror-scene-status { color: var(--h-muted); font-size: .88rem; }
+.horror-world .horror-scene-loop { visibility: hidden; background: #080b10; }
+.horror-world .horror-scene-frame.has-scene .horror-scene-loop { visibility: visible; }
+.horror-world .horror-scene-frame.has-scene img:not(.horror-scene-loop) { visibility: hidden; }
