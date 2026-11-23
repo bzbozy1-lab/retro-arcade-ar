@@ -24,6 +24,12 @@ const games=[
  {"title":"Alone in the Dark: The New Nightmare","type":"survival","note":"استكشاف ونجاة","summary":"يصل إدوارد كارنبي وألين سيدراك إلى جزيرة شادو في ظروف غامضة، ويمكنك متابعة التحقيق من منظور أيٍّ منهما. يفتح المصباح طريقك عبر العتمة، ويكشف تفاصيل قد تفوتك وأنت تبحث عن مفاتيح وأدلة.","device":"ps1","img":"https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Alone%20in%20the%20Dark%20-%20The%20New%20Nightmare%20%28USA%29.png","url":"https://psxdatacenter.com/games/U/A/SLUS-01201.html"}
 ];
 const labels={psych:'رعب نفسي',survival:'رعب البقاء',chase:'مطاردة'};
+const magazineQueries={
+ 'Resident Evil 2 (Biohazard 2)':'ريزدنت إيفل 2',
+ 'Resident Evil 3: Nemesis (Biohazard 3 – Last Escape)':'ريزدنت إيفل 3',
+ 'Resident Evil 4':'ريزدنت إيفل 4',
+ 'Silent Hill 3':'سايلنت هيل 3',
+};
 const cards=document.querySelector('#gameGrid'), dialog=document.querySelector('#gameDialog');
 for(const game of games){
  const card=document.createElement('article');
@@ -41,7 +47,7 @@ for(const game of games){
   dialog.querySelector('#gameTitle').textContent=game.title;
   dialog.querySelector('#gameSummary').textContent=game.summary;
   dialog.querySelector('#gameSource').href=game.url;
-  const query=game.title.split(' (')[0];
+  const query=magazineQueries[game.title]||game.title.split(' (')[0];
   dialog.querySelector('#gameMagazines').href='magazines.html?'+new URLSearchParams({q:query});
   dialog.showModal();
  });
