@@ -1,4 +1,4 @@
-/* CARTO Phase III: original, bounded Web Audio scores; silent by default. */
+/* CARTO Phase III: original, bounded Web Audio scores. */
 (function(){
  'use strict';
  const scores={
@@ -18,8 +18,8 @@
   save_completed:{label:'تم تختيم اللعبة',notes:[[72,0,.07,.5,'square'],[76,.08,.07,.45,'triangle'],[79,.16,.08,.45,'square'],[84,.27,.18,.5,'triangle']]},
   navigate:{label:'تنقل',notes:[[76,0,.045,.3,'triangle']]}
  };
- let enabled=false,context=null,master=null,voices=[],sequence=0,interacted=false,celebrationUntil=0;
- try{enabled=localStorage.getItem('carto-sound')==='on'}catch(e){}
+ let enabled=true,context=null,master=null,voices=[],sequence=0,interacted=false,celebrationUntil=0;
+ try{enabled=localStorage.getItem('carto-sound')!=='off'}catch(e){}
  const entrySources={gems:'assets/sounds/gems-entry.mp3',reference:'assets/sounds/reference-entry.mp3',horror:'assets/sounds/horror-entry.mp3'};
  let entryClip=null,entryPlayed=false,entryPending=false;
  function stopEntry(){
@@ -90,14 +90,26 @@
   if(/العودة|رجوع|كل الأجهزة|الرئيسية/.test(link.textContent)||link.classList.contains('backtop'))return 'back';
   return 'navigate';
  }
- document.addEventListener('pointerdown',()=>{interacted=true},{capture:true,passive:true});
- document.addEventListener('keydown',()=>{interacted=true},{capture:true});
+ function activateAudio(event){
+  if(!event.isTrusted||event.repeat||event.key==='Escape'||event.button>0)return;
+  interacted=true;
+  if(!enabled||event.target.closest?.('.arcade-sound'))return;
+  playEntry();
+  document.dispatchEvent(new Event('carto:audio-gesture'));
+ }
+ document.addEventListener('pointerdown',event=>{
+  if(event.pointerType==='mouse')activateAudio(event);
+ },{capture:true,passive:true});
+ document.addEventListener('pointerup',event=>{
+  if(event.pointerType!=='mouse')activateAudio(event);
+ },{capture:true,passive:true});
+ document.addEventListener('keydown',activateAudio,{capture:true});
+ document.addEventListener('click',activateAudio,{capture:true,passive:true});
  document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();stopEntry();}});
  window.addEventListener?.('pagehide',stopEntry);
  document.addEventListener('click',async event=>{
   if(event.target.closest('.arcade-sound')){setEnabled(!enabled);return}
   const attemptedLink=event.target.closest('a[href]');
-  if(!attemptedLink&&!event.target.closest('[data-sound-preview]'))playEntry();
   const preview=event.target.closest('[data-sound-preview]');
   if(preview){
    if(!enabled)return;

@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head><link rel="stylesheet" href="assets/shawq-transitions.css"><script defer src="assets/shawq-transitions.js"></script><script defer src="assets/nav-scroll.js?v=2"></script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F3EBDD">
+<meta name="theme-color" content="#15131A"><script>try{document.documentElement.dataset.theme=localStorage.getItem("carto-appearance")==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}if(document.documentElement.dataset.theme==="light")document.querySelector('meta[name="theme-color"]').content="#F3EBDD";</script>
 <meta name="description" content="تعرّف إلى الفرق والأفراد الذين يعملون على تعريب الألعاب. افتح بطاقة كل مبادرة لقراءة نبذة عنها والاطّلاع على أمثلة أعمالها وروابطها.">
 <title>الألعاب المعربة | شوق آور</title><link rel="stylesheet" href="assets/dist/shared-08f69c2ca779.css" data-sources="assets/style.css assets/arcade-experience.css assets/arcade-phase2.css assets/audit-fixes.css assets/phase3.css assets/phase4.css assets/crt.css assets/cursors.css assets/controls.css assets/palette.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,4 +92,4 @@ const sources=[
 document.addEventListener("click",e=>{const b=e.target.closest("[data-source]");if(b){const s=sources[Number(b.dataset.source)];if(!s)return;document.getElementById("modalTitle").textContent=s.name;document.getElementById("modalContent").innerHTML='<div class="local-modal-source"><img src="assets/arabic-pixel-mark.svg" alt=""><div><strong>'+s.name+'</strong><small>'+s.alias+'</small></div></div><p>'+s.about+'</p><p class="muted">الرابط المخصص لهذا المصدر في دليل شوق آور:</p><a class="local-modal-link" href="'+s.url+'" target="_blank" rel="noopener">'+s.label+' ↗</a>';window.CartoDialog.open(document.getElementById("modal"))}if(e.target.closest("#modalClose")||e.target.id==="modal"){window.CartoDialog.close(document.getElementById("modal"))}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")window.CartoDialog.close(document.getElementById("modal"))});
 </script>
-<script defer src="assets/dist/shared-ef099525d558.js" data-sources="assets/mascot.js assets/audio.js assets/dialog.js assets/theme.js assets/arcade-experience.js assets/arcade-phase2.js assets/phase3.js assets/motion.js assets/mobile-nav.js assets/performance.js assets/crt.js assets/cursors.js"></script></body></html>
+<script defer src="assets/dist/shared-507a5aec65b6.js" data-sources="assets/mascot.js assets/audio.js assets/dialog.js assets/theme.js assets/arcade-experience.js assets/arcade-phase2.js assets/phase3.js assets/motion.js assets/mobile-nav.js assets/performance.js assets/crt.js assets/cursors.js"></script></body></html>

@@ -19,6 +19,7 @@
  }
  retry?.addEventListener('click',play);
  document.addEventListener('click',event=>{if(isToggle(event)){if(enabled())play();else stop();}});
+ document.addEventListener('carto:audio-gesture',play);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
  window.addEventListener('pagehide',stop);
  // The shared audio controller loads before this deferred, page-scoped script.
