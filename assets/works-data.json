@@ -82,6 +82,21 @@
           "alt": "لقطة من المعركة تظهر نص الحوار بالعربية"
         }
       ]
+    },
+    {
+      "id": "alien-isolation",
+      "title": "Alien: Isolation",
+      "platform": "PlayStation 3",
+      "status": "متاح للتحميل",
+      "emulator": "RPCS3",
+      "description": "تعريب عربي للعبة Alien: Isolation على PlayStation 3، للتشغيل عبر محاكي RPCS3.",
+      "cover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/214490/header.jpg",
+      "downloads": [
+        {
+          "label": "تحميل التعريب",
+          "url": "https://www.mediafire.com/file/5l5cfcpu8npyuec/%25D8%25AA%25D8%25B9%25D8%25B1%25D9%258A%25D8%25A8_Alien_Isolation.zip/file"
+        }
+      ]
     }
   ],
   "releases": [

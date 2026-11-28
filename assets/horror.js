@@ -40,6 +40,11 @@ function stopTune() {
  tune.removeAttribute('src');
  tune.load();
 }
+const translationLink = document.createElement('a');
+translationLink.className = 'horror-more';
+translationLink.href = 'translation.html?id=alien-isolation';
+translationLink.textContent = 'تعريب اللعبة';
+const dialogActions = dialog.querySelector('.horror-dialog-actions');
 const scene = dialog.querySelector('#gameScene');
 const sceneFrame = scene.parentElement;
 let currentScene;
@@ -87,6 +92,8 @@ for(const game of games){
   dialog.querySelector('#gameSource').href=game.url;
   const query=magazineQueries[game.title]||game.title.split(' (')[0];
   dialog.querySelector('#gameMagazines').href='magazines.html?'+new URLSearchParams({q:query});
+  if (game.scene === 'alien-isolation') dialogActions.prepend(translationLink);
+  else translationLink.remove();
   currentScene = game.scene === 'alien-isolation' ? null : game.scene;
   dialog.showModal();
   updateScene();
