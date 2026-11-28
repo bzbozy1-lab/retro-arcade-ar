@@ -94,7 +94,7 @@ for(const game of games){
   dialog.querySelector('#gameMagazines').href='magazines.html?'+new URLSearchParams({q:query});
   if (game.scene === 'alien-isolation') dialogActions.prepend(translationLink);
   else translationLink.remove();
-  currentScene = game.scene === 'alien-isolation' ? null : game.scene;
+  currentScene = game.scene;
   dialog.showModal();
   updateScene();
   stopTune();
