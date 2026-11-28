@@ -1,42 +1,87 @@
-/* CARTO surfaces: ivory and cool slate by day, ink blue by night. */
+/* Shared colour roles for the museum's paper and ink themes. */
+:root {
+  --carto-indigo: #5e42bc;
+  --carto-phosphor: #007c73;
+  --palette-lime-light: #e7fb91;
+  --palette-lime: #c8f31d;
+  --palette-ink: #192419;
+  --palette-accent: linear-gradient(135deg, var(--palette-lime-light), var(--palette-lime));
+}
 html[data-theme="light"] {
-  --bg: #f5f3eb !important;
-  --panel: #fffdf6 !important;
-  --text: #172136 !important;
-  --muted: #49556b !important;
-  --line: #24314b !important;
-  --palette-canvas: linear-gradient(145deg, #faf7ee, #edf1f7 55%, #e3ebf6);
-  --palette-bar: linear-gradient(105deg, #fffdf6, #edf2fa);
-  --palette-surface: linear-gradient(150deg, #fffdf6, #edf2fa);
-  --palette-feature: linear-gradient(120deg, #faf7ee, #e3ecf9);
-  --palette-footer: linear-gradient(120deg, #17243b, #243954);
-  --palette-dot: #27385514;
-  --palette-focus: #2549b5;
+  color-scheme: light;
+  --bg: #f8f3e7 !important;
+  --panel: #fffaf0 !important;
+  --panel2: #f0ebe2;
+  --text: #202838 !important;
+  --muted: #485369 !important;
+  --line: #334057 !important;
+  --palette-canvas-start: #fff5df;
+  --palette-canvas-end: #e6edf4;
+  --palette-feature-start: #fff5df;
+  --palette-feature-mid: #f5f0ea;
+  --palette-feature-end: #ebe7f5;
+  --palette-surface-end: #f0edf5;
+  --palette-bar: linear-gradient(105deg, #fffaf0, #eceaf4);
+  --palette-footer: linear-gradient(115deg, #fbf3e5, #e8edf4);
+  --palette-dot: #35475714;
+  --palette-focus: #00675f;
+  --palette-link: #3c468a;
+  --palette-chrome: #fffaf0;
 }
 html[data-theme="dark"] {
-  --bg: #111828;
-  --panel: #1b263d;
-  --panel2: #25334e;
-  --text: #f4f1e8;
-  --muted: #bac8df;
-  --line: #a1b2cd;
-  --palette-canvas: linear-gradient(145deg, #19253c, #111827 58%, #141e32);
-  --palette-bar: linear-gradient(105deg, #1b2941, #111827);
-  --palette-surface: linear-gradient(150deg, #25334e, #1a2439);
-  --palette-feature: linear-gradient(120deg, #283b59, #1a253b);
-  --palette-footer: linear-gradient(120deg, #101827, #1c2b43);
-  --palette-dot: #c3d3ef15;
-  --palette-focus: #d6f866;
+  color-scheme: dark;
+  --bg: #101a2a;
+  --panel: #1b2940;
+  --panel2: #26354e;
+  --text: #f8f1e3;
+  --muted: #c0ccdf;
+  --line: #9faec6;
+  --palette-canvas-start: #192b41;
+  --palette-canvas-end: #101a2a;
+  --palette-feature-start: #20394b;
+  --palette-feature-mid: #253249;
+  --palette-feature-end: #332847;
+  --palette-surface-end: #25344a;
+  --palette-bar: linear-gradient(105deg, #203249, #121e30);
+  --palette-footer: linear-gradient(115deg, #122238, #202841);
+  --palette-dot: #bfd4eb13;
+  --palette-focus: #72e2d2;
+  --palette-link: #9fe6db;
+  --palette-chrome: #122238;
 }
-:root {
-  --palette-accent: linear-gradient(130deg, #e2fa82, #b9e929);
-  --palette-ink: #152019;
+/* Give long-form sections a quieter tint and let the collections keep their character. */
+html[data-theme="light"] body:is([data-page="gems"], [data-page="works"], [data-page="releases"]) {
+  --palette-feature-end: #f6e6ca;
+}
+html[data-theme="dark"] body:is([data-page="gems"], [data-page="works"], [data-page="releases"]) {
+  --palette-feature-end: #3b3040;
+}
+html[data-theme="light"] body:is([data-page="archive"], [data-page="magazines"], [data-page="sakhr"], [data-page="glossary"]) {
+  --palette-feature-end: #daeee8;
+}
+html[data-theme="dark"] body:is([data-page="archive"], [data-page="magazines"], [data-page="sakhr"], [data-page="glossary"]) {
+  --palette-feature-end: #203d40;
 }
 html[data-theme] body {
+  --palette-canvas: linear-gradient(155deg, var(--palette-canvas-start), var(--bg) 52%, var(--palette-canvas-end));
+  --palette-surface: linear-gradient(150deg, var(--panel) 24%, var(--palette-surface-end));
+  --palette-feature: linear-gradient(118deg, var(--palette-feature-start), var(--palette-feature-mid) 53%, var(--palette-feature-end));
   background-color: var(--bg) !important;
   background-image: radial-gradient(var(--palette-dot) 1px, transparent 1.5px), var(--palette-canvas) !important;
   background-size: 14px 14px, 100% 100% !important;
   color: var(--text) !important;
+  accent-color: var(--palette-focus);
+}
+@supports (background: linear-gradient(90deg in oklab, red, blue)) {
+  html[data-theme] body {
+    --palette-canvas: linear-gradient(155deg in oklab, var(--palette-canvas-start), var(--bg) 52%, var(--palette-canvas-end));
+    --palette-surface: linear-gradient(150deg in oklab, var(--panel) 24%, var(--palette-surface-end));
+    --palette-feature: linear-gradient(118deg in oklab, var(--palette-feature-start), var(--palette-feature-mid) 53%, var(--palette-feature-end));
+  }
+}
+html[data-theme] body ::selection {
+  background: var(--palette-lime);
+  color: var(--palette-ink);
 }
 html[data-theme] .nav {
   background: var(--palette-bar) !important;
@@ -60,7 +105,8 @@ html[data-theme] :is(.hero, .platformhero, .identity-hero, .library-hero) {
 }
 html[data-theme] :is(.platform, .gamecard, .gemcard, .archivecard, .identity-card, .modalbox, .term, .glossary,
   .local-intro, .local-card, .gaming-source-card, .collection-card, .wishlist-modalbox,
-  .identity-section, .cursor-identity, .crt-identity, .issue-caption, .reader-topbar, .reader-pager, .reader-options) {
+  .identity-section, .cursor-identity, .crt-identity, .issue-caption, .reader-topbar, .reader-pager, .reader-options,
+  .work-card, .work-detail, .work-calendar) {
   background: var(--palette-surface) !important;
   color: var(--text) !important;
 }
@@ -108,19 +154,6 @@ html[data-theme] .sectionhead :is(h1, h2) span {
   color: inherit !important;
 }
 
-/* Two accents join the five identity colors. Use tints on surfaces and ink for text. */
-:root {
-  --carto-indigo: #5e42bc;
-  --carto-phosphor: #007c73;
-}
-html[data-theme="light"] {
-  --palette-feature: linear-gradient(120deg, #faf7ee, #edf0fa 56%, #eee8fc);
-  --palette-focus: var(--carto-phosphor);
-}
-html[data-theme="dark"] {
-  --palette-feature: linear-gradient(120deg, #283b59, #29233f 58%, #1a253b);
-  --palette-focus: #72e2d2;
-}
 .swatch.swatch-violet {
   background: linear-gradient(140deg, var(--carto-indigo), #493391);
   color: #fff;
@@ -134,4 +167,21 @@ html[data-theme] .platform[href$="device=gamecube"]:not(:hover, :focus-visible) 
 }
 html[data-theme] .crt-demo-cabinet {
   box-shadow: 6px 6px 0 var(--carto-indigo);
+}
+
+html[data-theme] :is(.work-home-entry, .shawq-source-feature) {
+  background: var(--palette-feature);
+}
+html[data-theme] :is(.term h3, .textbtn, .backtop) {
+  color: var(--palette-link);
+}
+html[data-theme] body[data-page="reader"] :is(.reader-topbar, .reader-pager, .reader-options) {
+  background: var(--panel) !important;
+}
+@media (forced-colors: active) {
+  html[data-theme] body ::selection { background: Highlight; color: HighlightText; }
+}
+html[data-theme] body[data-page="horror"] .horror-card {
+  background: linear-gradient(155deg, var(--h-surface), var(--h-copy)) !important;
+  color: var(--h-ink) !important;
 }

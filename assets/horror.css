@@ -14,6 +14,7 @@ body[data-page="horror"] {
   --h-focus: #8a421e;
   --h-shadow: #2a373929;
   --h-art: url("horror-road-dawn.webp");
+  --h-grade: linear-gradient(110deg, #9ab0a53b, #ecd09b14 62%, #364d4536);
 }
 html[data-theme="dark"] body[data-page="horror"] {
   --h-ground: #090d13;
@@ -30,6 +31,7 @@ html[data-theme="dark"] body[data-page="horror"] {
   --h-focus: #fbd18e;
   --h-shadow: #04080d91;
   --h-art: url("horror-road-night.webp");
+  --h-grade: linear-gradient(110deg, #09252c45, #14213c15 62%, #080e1d59);
 }
 
 body[data-page="horror"] .horror-world {
@@ -42,7 +44,7 @@ body[data-page="horror"] .horror-world {
 .horror-world .horror-hero {
   position: relative;
   isolation: isolate;
-  background: var(--h-art) 33% 54% / cover no-repeat var(--h-ground);
+  background: var(--h-grade), var(--h-art) 33% 54% / cover no-repeat var(--h-ground);
 }
 .horror-world .horror-hero::after {
   content: "";
@@ -184,7 +186,7 @@ body[data-page="horror"] #gameDialog {
 }
 @media (max-width: 620px) {
   .horror-world .horror-wrap { width: calc(100% - 28px); }
-  .horror-world .horror-hero { background-position: 26% 50%; }
+  .horror-world .horror-hero { background-position: center, 26% 50%; }
   .horror-world .horror-hero-inner { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 24px 30px; }
   .horror-world .horror-room { width: min(43%, 152px); margin-inline: auto 10px; }
   .horror-world .horror-cards { gap: 9px; }
