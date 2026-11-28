@@ -87,8 +87,7 @@ for(const game of games){
   dialog.querySelector('#gameSource').href=game.url;
   const query=magazineQueries[game.title]||game.title.split(' (')[0];
   dialog.querySelector('#gameMagazines').href='magazines.html?'+new URLSearchParams({q:query});
-  currentScene = game.scene;
-  sceneFrame.hidden = sceneMotion.matches;
+  currentScene = game.scene === 'alien-isolation' ? null : game.scene;
   dialog.showModal();
   updateScene();
   stopTune();
