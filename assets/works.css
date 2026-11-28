@@ -23,6 +23,14 @@
 .work-portal-art .work-icon { width:100%; height:auto; filter:drop-shadow(7px 9px 0 #17213630); }
 .work-portal-translations { background:#f6f4e8; color:#172136; border-block-start:10px solid var(--work-lime); }
 .work-portal-translations .work-portal-art { top:88px; }
+.work-portal-translations .work-eyebrow { color:#485369; }
+html[data-theme="dark"] a.work-portal-translations {
+  background:var(--palette-surface,var(--panel));
+  color:var(--text);
+  text-shadow:none;
+}
+html[data-theme="dark"] .work-portal-translations .work-eyebrow { color:var(--muted); }
+html[data-theme="dark"] .work-portal-translations .work-portal-cta { color:var(--palette-lime-light); }
 .work-portal-releases { background:#223d85; color:#fffbef; border-block-start:10px solid #a9c1ff; }
 .work-portal-releases .work-portal-art { top:82px; transform:rotate(8deg); }
 .work-portal-releases .work-eyebrow { color:#e2eaff; }
